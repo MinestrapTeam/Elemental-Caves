@@ -28,6 +28,8 @@ public class CaveType
 	
 	protected WorldGenerator		wallGen;
 	
+	protected int					spawnHeight = 64;
+	
 	public CaveType(String name)
 	{
 		this.name = name;
@@ -67,9 +69,15 @@ public class CaveType
 		return this.biome == null || this.biome == biome;
 	}
 	
+	public CaveType setSpawnHeight(int height)
+	{
+		this.spawnHeight = height;
+		return this;
+	}
+	
 	public void generate(World world, Random random, int x, int z)
 	{
-		int y = 64;
+		int y = spawnHeight;
 		
 		boolean wasAir = true;
 		while (y >= 0)
