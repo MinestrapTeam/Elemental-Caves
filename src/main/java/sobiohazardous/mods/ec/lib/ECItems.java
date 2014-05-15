@@ -1,6 +1,7 @@
 package sobiohazardous.mods.ec.lib;
 
 import sobiohazardous.mods.ec.item.ECItem;
+import sobiohazardous.mods.ec.item.ItemFrostGem;
 import sobiohazardous.mods.ec.item.ItemIceShard;
 import net.minecraft.item.Item;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -16,7 +17,7 @@ public class ECItems
 		gemClear = new ECItem().setTextureName(ECReference.getTexture("clear_gem"));
 		addItem(gemClear, "clear_gem");
 		
-		gemFrost = new ECItem().setTextureName(ECReference.getTexture("ice_gem"));
+		gemFrost = new ItemFrostGem().setTextureName(ECReference.getTexture("ice_gem"));
 		addItem(gemFrost, "ice_gem");
 		
 		iceShard = new ItemIceShard().setTextureName(ECReference.getTexture("ice_shard"));
