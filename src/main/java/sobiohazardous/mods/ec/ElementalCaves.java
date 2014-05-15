@@ -19,6 +19,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.minecraft.creativetab.CreativeTabs;
 
 @Mod(modid = ECReference.EC_MODID, name = ECReference.EC_NAME, version = ECReference.EC_VERSION)
@@ -42,7 +43,6 @@ public class ElementalCaves
 		
 		EntityRegistry.registerModEntity(EntityIceShard.class, "entity_ice_shard", EntityRegistry.findGlobalUniqueEntityId(), this.instance, 40, 400, true);
 		EntityRegistry.registerModEntity(EntityFrostGem.class, "entity_frost_gem", EntityRegistry.findGlobalUniqueEntityId(), this.instance, 40, 400, true);
-
 	}
 	
 	@EventHandler

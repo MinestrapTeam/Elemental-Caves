@@ -2,10 +2,12 @@ package sobiohazardous.mods.ec.block;
 
 import java.util.Random;
 
+import sobiohazardous.mods.ec.lib.ECItems;
 import sobiohazardous.mods.ec.util.ECUtil;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
 public class BlockIceCrystal extends BlockTransparent
@@ -21,6 +23,21 @@ public class BlockIceCrystal extends BlockTransparent
 	public void onBlockAdded(World world, int x, int y, int z)
 	{
 		this.updateTick(world, x, y, z, world.rand);
+	}
+	
+	@Override
+	public Item getItemDropped(int metadata, Random random, int fortune)
+	{
+		return ECItems.iceShard;
+	}
+	
+	@Override
+	public int quantityDropped(int meta, int fortune, Random random)
+	{
+		int i = 2 + random.nextInt(3) + random.nextInt(fortune + 1);
+		if (i > 4)
+			i = 4;
+		return i;
 	}
 	
 	@Override
