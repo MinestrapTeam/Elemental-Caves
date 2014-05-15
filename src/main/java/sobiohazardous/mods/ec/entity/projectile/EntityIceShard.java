@@ -1,8 +1,11 @@
 package sobiohazardous.mods.ec.entity.projectile;
 
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
@@ -39,6 +42,8 @@ public class EntityIceShard extends EntityThrowable
             }
 
             par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), (float)b0);
+            EntityLiving l = (EntityLiving)par1MovingObjectPosition.entityHit;
+            l.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10 * 20, 0, false));
         }
 
         for (int i = 0; i < 8; ++i)
