@@ -15,16 +15,21 @@ public class ECBlocks
 	
 	public static void init()
 	{
-		oreGlistening = new ECBlock(Material.rock).setBlockName("oreGlistening").setHardness(3.0F).setResistance(15.0F).setBlockTextureName(ECReference.getTexture("oreGlistening"));
-		GameRegistry.registerBlock(oreGlistening, "oreGlistening");
+		glacierRock = new ECBlock(Material.rock).setHardness(2.0F).setResistance(11.0F).setBlockTextureName(ECReference.getTexture("glacierrock"));
+		crackedGlacierrock = new ECBlock(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(ECReference.getTexture("crackedGlacierrock"));
 		
-		glacierRock = new ECBlock(Material.rock).setBlockName("glacierRock").setHardness(2.0F).setResistance(11.0F).setBlockTextureName(ECReference.getTexture("glacierrock"));
-		GameRegistry.registerBlock(glacierRock, "glacierRock");
+		oreLapis = new ECBlock(Material.rock).setHardness(3F).setResistance(5.0F).setBlockTextureName(ECReference.getTexture("oreLapis"));
+		oreGlistening = new ECBlock(Material.rock).setHardness(3.0F).setResistance(15.0F).setBlockTextureName(ECReference.getTexture("oreGlistening"));
 		
-		crackedGlacierrock = new ECBlock(Material.rock).setBlockName("crackedGlacierrock").setHardness(1.5F).setResistance(10.0F).setBlockTextureName(ECReference.getTexture("crackedGlacierrock"));
-		GameRegistry.registerBlock(crackedGlacierrock, "crackedGlacierrock");
-		
-		oreLapis = new ECBlock(Material.rock).setBlockName("oreLapisGlacier").setHardness(3F).setResistance(5.0F).setBlockTextureName(ECReference.getTexture("oreLapis"));
-		GameRegistry.registerBlock(oreLapis, "oreLapisGlacier");
+		addBlock(glacierRock, "glacierRock");
+		addBlock(crackedGlacierrock, "crackedGlacierrock");
+		addBlock(oreLapis, "oreLapisGlacier");
+		addBlock(oreGlistening, "oreGlistening");
+	}
+	
+	public static void addBlock(Block block, String name)
+	{
+		block.setBlockName(name);
+		GameRegistry.registerBlock(block, name);
 	}
 }
