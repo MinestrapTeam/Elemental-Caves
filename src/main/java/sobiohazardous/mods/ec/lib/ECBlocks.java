@@ -1,11 +1,11 @@
 package sobiohazardous.mods.ec.lib;
 
 import sobiohazardous.mods.ec.block.BlockSlippery;
+import sobiohazardous.mods.ec.block.BlockTransparent;
 import sobiohazardous.mods.ec.block.ECBlock;
 import sobiohazardous.mods.ec.block.ECBlockOre;
 import sobiohazardous.mods.ec.block.EDBlockStairs;
 import cpw.mods.fml.common.registry.GameRegistry;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
@@ -28,11 +28,11 @@ public class ECBlocks
 	
 	public static void init()
 	{
-		ancientIce = new BlockSlippery(Material.rock).setHardness(1.25F).setResistance(4F).setBlockTextureName(ECReference.getTexture("ancient_ice"));
-		crystalIce = new BlockSlippery(Material.rock).setHardness(1.25F).setResistance(4F).setBlockTextureName(ECReference.getTexture("crystal_ice"));
+		ancientIce = new BlockSlippery(Material.rock).setStepSound(Block.soundTypeGlass).setHardness(2F).setResistance(4F).setBlockTextureName(ECReference.getTexture("ancient_ice"));
+		crystalIce = new BlockTransparent().setStepSound(Block.soundTypeGlass).setHardness(2F).setResistance(4F).setBlockTextureName(ECReference.getTexture("crystal_ice"));
 		
 		glacierRock = new BlockSlippery(Material.rock).setHardness(2.0F).setResistance(11.0F).setBlockTextureName(ECReference.getTexture("glacierrock"));
-		glacierRockCracked = new BlockSlippery(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(ECReference.getTexture("galcierrock_cracked"));
+		glacierRockCracked = new BlockSlippery(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(ECReference.getTexture("glacierrock_cracked"));
 		glacierRockBricks = new BlockSlippery(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(ECReference.getTexture("glacierrock_bricks"));
 		
 		glacierRockStairs = new EDBlockStairs(glacierRockCracked).setHardness(2F).setResistance(10F);
@@ -43,7 +43,7 @@ public class ECBlocks
 		oreGlistening = new ECBlock(Material.rock).setHardness(3.0F).setResistance(15.0F).setBlockTextureName(ECReference.getTexture("glistening_ore"));
 		
 		addBlock(ancientIce, "ancient_ice");
-		addBlock(crystalIce, "crystall_ice");
+		addBlock(crystalIce, "crystal_ice");
 		
 		addBlock(glacierRock, "glacierrock");
 		addBlock(glacierRockCracked, "glacierrock_cracked");

@@ -1,4 +1,8 @@
 itemGroup.ec_blocks=Elemental Caves - Blocks
+itemGroup.ec_items=Elemental Caves - Items
+
+tile.ancient_ice.name=Ancient Ice
+tile.crystal_ice.name=Ice Crystal
 
 tile.glacierrock.name=Glacier Rock
 tile.glacierrock_cracked.name=Cracked Glacier Rock
@@ -10,3 +14,7 @@ tile.glacierrock_brick_stairs.name=Glacier Rock Brick Stairs
 tile.lapis_ore_glacier.name=Glacier Lapis Ore
 tile.freezium_ore.name=Freezium Ore
 tile.glistening_ore.name=Glistening Ore
+
+item.clear_gem.name=Clear Gem
+item.ice_gem.name=Frost Gem
+item.ice_shard.name=Ice Shard
