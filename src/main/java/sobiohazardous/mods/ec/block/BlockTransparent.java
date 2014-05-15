@@ -23,10 +23,4 @@ public class BlockTransparent extends ECBlock
 	{
 		return false;
 	}
-	
-	@Override
-	public int getRenderBlockPass()
-	{
-		return 1;
-	}
 }
