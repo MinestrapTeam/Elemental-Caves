@@ -35,7 +35,7 @@ public class BlockGlacierrock extends BlockSlippery
 	@Override
 	public int damageDropped(int metadata)
 	{
-		return metadata;
+		return metadata == 0 ? 1 : metadata;
 	}
 	
 	@Override
