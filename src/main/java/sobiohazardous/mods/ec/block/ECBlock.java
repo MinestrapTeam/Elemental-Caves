@@ -6,10 +6,10 @@ import net.minecraft.block.material.Material;
 
 public class ECBlock extends Block
 {
-	public ECBlock(Material mat)
+	public ECBlock(Material material)
 	{
-		super(mat);
+		super(material);
 		this.setCreativeTab(ElementalCaves.creativeTabECBlocks);
 	}
-
+	
 }

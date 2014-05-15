@@ -3,17 +3,15 @@ package sobiohazardous.mods.ec.world.gen;
 import java.util.Random;
 
 import sobiohazardous.mods.ec.lib.ECBlocks;
-import net.minecraft.block.Block;
+import cpw.mods.fml.common.IWorldGenerator;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderEnd;
 import net.minecraft.world.gen.ChunkProviderGenerate;
 import net.minecraft.world.gen.ChunkProviderHell;
-import net.minecraft.world.gen.MapGenBase;
-import net.minecraft.world.gen.MapGenCaves;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-import cpw.mods.fml.common.IWorldGenerator;
 
 public class ECWorldGenerator implements IWorldGenerator
 {

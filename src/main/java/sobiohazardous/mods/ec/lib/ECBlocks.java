@@ -7,24 +7,24 @@ import net.minecraft.block.material.Material;
 
 public class ECBlocks
 {
-	public static Block oreGlistening;
-
-	public static Block glacierRock;
-	public static Block crackedGlacierrock;
-	public static Block oreLapis;
-
+	public static Block	oreGlistening;
+	
+	public static Block	glacierRock;
+	public static Block	crackedGlacierrock;
+	public static Block	oreLapis;
+	
 	public static void init()
 	{
-		oreGlistening = new ECBlock(Material.rock).setBlockName("oreGlistening").setHardness(3.0F).setResistance(15.0F).setBlockTextureName(ECReference.TEXTURE + "oreGlistening");
+		oreGlistening = new ECBlock(Material.rock).setBlockName("oreGlistening").setHardness(3.0F).setResistance(15.0F).setBlockTextureName(ECReference.getTexture("oreGlistening"));
 		GameRegistry.registerBlock(oreGlistening, "oreGlistening");
 		
-		glacierRock = new ECBlock(Material.rock).setBlockName("glacierRock").setHardness(2.0F).setResistance(11.0F).setBlockTextureName(ECReference.TEXTURE + "glacierrock");
+		glacierRock = new ECBlock(Material.rock).setBlockName("glacierRock").setHardness(2.0F).setResistance(11.0F).setBlockTextureName(ECReference.getTexture("glacierrock"));
 		GameRegistry.registerBlock(glacierRock, "glacierRock");
 		
-		crackedGlacierrock = new ECBlock(Material.rock).setBlockName("crackedGlacierrock").setHardness(1.5F).setResistance(10.0F).setBlockTextureName(ECReference.TEXTURE + "crackedGlacierrock");
+		crackedGlacierrock = new ECBlock(Material.rock).setBlockName("crackedGlacierrock").setHardness(1.5F).setResistance(10.0F).setBlockTextureName(ECReference.getTexture("crackedGlacierrock"));
 		GameRegistry.registerBlock(crackedGlacierrock, "crackedGlacierrock");
 		
-		oreLapis = new ECBlock(Material.rock).setBlockName("oreLapisGlacier").setHardness(3F).setResistance(5.0F).setBlockTextureName(ECReference.TEXTURE + "oreLapis");
+		oreLapis = new ECBlock(Material.rock).setBlockName("oreLapisGlacier").setHardness(3F).setResistance(5.0F).setBlockTextureName(ECReference.getTexture("oreLapis"));
 		GameRegistry.registerBlock(oreLapis, "oreLapisGlacier");
 	}
 }

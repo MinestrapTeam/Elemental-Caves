@@ -6,15 +6,14 @@ import net.minecraft.item.Item;
 
 public class ECCreativeTabBlocks extends CreativeTabs
 {
-	public ECCreativeTabBlocks(int par1, String par2Str)
+	public ECCreativeTabBlocks(String label)
 	{
-		super(par1, par2Str);
+		super(label);
 	}
-
+	
 	@Override
 	public Item getTabIconItem()
 	{
 		return Item.getItemFromBlock(ECBlocks.glacierRock);
 	}
-
 }
