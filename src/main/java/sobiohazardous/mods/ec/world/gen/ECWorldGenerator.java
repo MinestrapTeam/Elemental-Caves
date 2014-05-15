@@ -37,24 +37,9 @@ public class ECWorldGenerator implements IWorldGenerator
 	
 	public void generateSurface(World world, Random rand, int chunkX, int chunkZ, IChunkProvider chunk)
 	{
-		int x1;
-		int z1;
+		this.replaceCaves(world, rand, chunkX, chunkZ);
 		
-		for (int x0 = 0; x0 < 16; x0++)
-		{
-			for (int z0 = 0; z0 < 16; z0++)
-			{
-				x1 = chunkX + x0;
-				z1 = chunkZ + z0;
-				for (CaveType type : CaveType.caveTypes)
-				{
-					if (type.canGenerateAt(world, x1, z1))
-					{
-						type.generate(world, rand, x1, z1);
-					}
-				}
-			}
-		}
+		// TODO implement ore generators
 	}
 	
 	public void generateNether(World world, Random rand, int chunkX, int chunkZ)
@@ -77,5 +62,24 @@ public class ECWorldGenerator implements IWorldGenerator
 	
 	public void generateEnd(World world, Random rand, int chunkX, int chunkZ)
 	{
+	}
+	
+	public void replaceCaves(World world, Random rand, int chunkX, int chunkZ)
+	{
+		for (int x0 = 0; x0 < 16; x0++)
+		{
+			for (int z0 = 0; z0 < 16; z0++)
+			{
+				int x1 = chunkX + x0;
+				int z1 = chunkZ + z0;
+				for (CaveType type : CaveType.caveTypes)
+				{
+					if (type.canGenerateAt(world, x1, z1))
+					{
+						type.generate(world, rand, x1, z1);
+					}
+				}
+			}
+		}
 	}
 }
