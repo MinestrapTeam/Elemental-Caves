@@ -17,13 +17,13 @@ public class ECBlock extends Block
 		this.setCreativeTab(ElementalCaves.creativeTabECBlocks);
 	}
 	
-    public Item getItemDropped(int par1, Random par2, int par3)
+    @Override
+	public Item getItemDropped(int metadata, Random random, int fortune)
     {
     	if(this == ECBlocks.oreGlistening)
     	{
     		return ECItems.gemClear;
     	}
-    	return super.getItemDropped(par1, par2, par3);
+    	return super.getItemDropped(metadata, random, fortune);
     }
-	
 }
