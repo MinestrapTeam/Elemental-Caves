@@ -11,6 +11,9 @@ import net.minecraft.block.material.Material;
 
 public class ECBlocks
 {
+	public static Block ancientIce;
+	public static Block crystalIce;
+	
 	public static Block	glacierRock;
 	public static Block	glacierRockCracked;
 	public static Block	glacierRockBricks;
@@ -25,6 +28,9 @@ public class ECBlocks
 	
 	public static void init()
 	{
+		ancientIce = new BlockSlippery(Material.rock).setHardness(1.25F).setResistance(4F).setBlockTextureName(ECReference.getTexture("ancient_ice"));
+		crystalIce = new BlockSlippery(Material.rock).setHardness(1.25F).setResistance(4F).setBlockTextureName(ECReference.getTexture("crystal_ice"));
+		
 		glacierRock = new BlockSlippery(Material.rock).setHardness(2.0F).setResistance(11.0F).setBlockTextureName(ECReference.getTexture("glacierrock"));
 		glacierRockCracked = new BlockSlippery(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(ECReference.getTexture("galcierrock_cracked"));
 		glacierRockBricks = new BlockSlippery(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(ECReference.getTexture("glacierrock_bricks"));
@@ -35,6 +41,9 @@ public class ECBlocks
 		oreLapis = new ECBlockOre().setHardness(3F).setResistance(5.0F).setBlockTextureName(ECReference.getTexture("lapis_ore_glacier"));
 		oreFreezium = new ECBlockOre().setHardness(3.5F).setResistance(6F).setBlockTextureName(ECReference.getTexture("freezium_ore"));
 		oreGlistening = new ECBlock(Material.rock).setHardness(3.0F).setResistance(15.0F).setBlockTextureName(ECReference.getTexture("glistening_ore"));
+		
+		addBlock(ancientIce, "ancient_ice");
+		addBlock(crystalIce, "crystall_ice");
 		
 		addBlock(glacierRock, "glacierrock");
 		addBlock(glacierRockCracked, "glacierrock_cracked");
