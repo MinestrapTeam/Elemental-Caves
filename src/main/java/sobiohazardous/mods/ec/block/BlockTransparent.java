@@ -1,7 +1,5 @@
 package sobiohazardous.mods.ec.block;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
 
 public class BlockTransparent extends ECBlock
@@ -12,7 +10,7 @@ public class BlockTransparent extends ECBlock
 		this.setLightOpacity(1);
 	}
 	
-	@SideOnly(Side.CLIENT)
+	@Override
     public int getRenderBlockPass()
     {
         return 1;
@@ -22,11 +20,5 @@ public class BlockTransparent extends ECBlock
 	public boolean isOpaqueCube()
 	{
 		return false;
-	}
-	
-	@Override
-	public int getRenderBlockPass()
-	{
-		return 1;
 	}
 }
