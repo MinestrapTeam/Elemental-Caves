@@ -23,6 +23,8 @@ public class CaveType
 	public Block					block;
 	public int						blockMetadata;
 	
+	public BiomeGenBase biome;
+	
 	protected final WorldGenerator	wallGen;
 	
 	public CaveType(String name)
@@ -49,6 +51,12 @@ public class CaveType
 		return this;
 	}
 	
+	public CaveType setBiome(BiomeGenBase biome)
+	{
+		this.biome = biome;
+		return this;
+	}
+	
 	public Block getBlock()
 	{
 		return this.block;
@@ -66,7 +74,7 @@ public class CaveType
 	
 	public boolean canGenerateInBiome(BiomeGenBase biome)
 	{
-		return true;
+		return this.biome == null || this.biome == biome;
 	}
 	
 	public void generate(World world, Random random, int x, int z)
