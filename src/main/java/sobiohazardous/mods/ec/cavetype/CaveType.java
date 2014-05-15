@@ -13,9 +13,9 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class CaveType implements ICaveType
+public class CaveType
 {
-	public static List<ICaveType>	caveTypes	= new ArrayList();
+	public static List<CaveType>	caveTypes	= new ArrayList();
 	
 	public static CaveType			ice			= new CaveTypeIce("ice").setBlock(ECBlocks.glacierRock);
 	
@@ -28,11 +28,10 @@ public class CaveType implements ICaveType
 	public CaveType(String name)
 	{
 		this.name = name;
-		this.wallGen = new WorldGenMinable(this.getBlock(), this.getBlockMetadata(), 20, Blocks.stone);
+		this.wallGen = new WorldGenMinable(this.getBlock(), this.getBlockMetadata(), 16, Blocks.stone);
 		caveTypes.add(this);
 	}
 	
-	@Override
 	public String getName()
 	{
 		return this.name;
@@ -50,19 +49,16 @@ public class CaveType implements ICaveType
 		return this;
 	}
 	
-	@Override
 	public Block getBlock()
 	{
 		return this.block;
 	}
 	
-	@Override
 	public int getBlockMetadata()
 	{
 		return this.blockMetadata;
 	}
 	
-	@Override
 	public boolean canGenerateAt(World world, int x, int z)
 	{
 		return this.canGenerateInBiome(world.getBiomeGenForCoords(x, z));
@@ -73,7 +69,6 @@ public class CaveType implements ICaveType
 		return true;
 	}
 	
-	@Override
 	public void generate(World world, Random random, int x, int z)
 	{
 		int y = 128;
@@ -81,29 +76,45 @@ public class CaveType implements ICaveType
 		boolean wasAir = true;
 		while (y >= 0)
 		{
-			boolean isAir = world.isAirBlock(x, y, z);
-			if (isAir)
+			try
 			{
-				if (!wasAir)
+				boolean isAir = world.isAirBlock(x, y, z);
+				if (isAir)
 				{
-					this.generateCeiling(world, random, x, y + 1, z);
-					this.wallGen.generate(world, random, x, y + 3, z);
+					if (!wasAir)
+					{
+						this.generateCeiling(world, random, x, y + 1, z);
+					}
+					
+					this.generate(world, random, x, y - 3, z);
 				}
+				else if (wasAir)
+				{
+					this.generate(world, random, x, y + 3, z);
+					this.generateFloor(world, random, x, y, z);
+				}
+				wasAir = isAir;
 			}
-			else if (wasAir)
+			catch (Exception ex)
 			{
-				this.generateFloor(world, random, x, y, z);
+				System.err.println("Cave Gen Error");
 			}
-			wasAir = isAir;
 			y--;
 		}
 	}
 	
+	public void generate(World world, Random random, int x, int y, int z)
+	{
+		this.wallGen.generate(world, random, x, y, z);
+	}
+	
 	public void generateCeiling(World world, Random random, int x, int y, int z)
 	{
+		// world.setBlock(x, y, z, this.block, this.blockMetadata, 3);
 	}
 	
 	public void generateFloor(World world, Random random, int x, int y, int z)
 	{
+		// world.setBlock(x, y, z, this.block, this.blockMetadata, 3);
 	}
 }

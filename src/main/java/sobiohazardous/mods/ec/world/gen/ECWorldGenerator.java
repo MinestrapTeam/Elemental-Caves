@@ -3,7 +3,6 @@ package sobiohazardous.mods.ec.world.gen;
 import java.util.Random;
 
 import sobiohazardous.mods.ec.cavetype.CaveType;
-import sobiohazardous.mods.ec.cavetype.ICaveType;
 import sobiohazardous.mods.ec.lib.ECBlocks;
 import cpw.mods.fml.common.IWorldGenerator;
 
@@ -47,7 +46,7 @@ public class ECWorldGenerator implements IWorldGenerator
 			{
 				x1 = chunkX + x0;
 				z1 = chunkZ + z0;
-				for (ICaveType type : CaveType.caveTypes)
+				for (CaveType type : CaveType.caveTypes)
 				{
 					if (type.canGenerateAt(world, x1, z1))
 					{
