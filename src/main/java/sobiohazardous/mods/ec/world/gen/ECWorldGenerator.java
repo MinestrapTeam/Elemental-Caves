@@ -48,6 +48,15 @@ public class ECWorldGenerator implements IWorldGenerator
 		int x1;
 		int y1;
 		int z1;
+		
+		for (int i = 0; i < 10; i++)
+		{
+			x1 = chunkX + rand.nextInt(16);
+			y1 = rand.nextInt(24);
+			z1 = chunkZ + rand.nextInt(16);
+			
+			new WorldGenMinable(ECBlocks.oreGlistening, 5, Blocks.netherrack).generate(world, rand, x1, y1, z1);
+		}
 	}
 	
 	public void generateEnd(World world, Random rand, int chunkX, int chunkZ)
