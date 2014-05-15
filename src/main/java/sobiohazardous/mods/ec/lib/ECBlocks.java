@@ -36,7 +36,7 @@ public class ECBlocks
 		glacierRockBricks = new BlockSlippery(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(ECReference.getTexture("glacierrock_bricks"));
 		
 		glacierRockStairs = new EDBlockStairs(glacierRockCracked).setHardness(2F).setResistance(10F);
-		glacierRockBrickStairs = new EDBlockStairs(glacierRockBrickStairs).setHardness(2F).setResistance(10F);
+		glacierRockBrickStairs = new EDBlockStairs(glacierRockBricks).setHardness(2F).setResistance(10F);
 		
 		oreLapis = new ECBlockOre().setHardness(3F).setResistance(5.0F).setBlockTextureName(ECReference.getTexture("lapis_ore_glacier"));
 		oreFreezium = new ECBlockOre().setHardness(3.5F).setResistance(6F).setBlockTextureName(ECReference.getTexture("freezium_ore"));
