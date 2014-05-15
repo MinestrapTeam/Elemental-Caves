@@ -32,7 +32,7 @@ public class ECBlocks
 		glacierRockStairs = new EDBlockStairs(glacierRockCracked).setHardness(2F).setResistance(10F);
 		glacierRockBrickStairs = new EDBlockStairs(glacierRockBrickStairs).setHardness(2F).setResistance(10F);
 		
-		oreLapis = new ECBlockOre().setHardness(3F).setResistance(5.0F).setBlockTextureName(ECReference.getTexture("lapis_ore_glacierrock"));
+		oreLapis = new ECBlockOre().setHardness(3F).setResistance(5.0F).setBlockTextureName(ECReference.getTexture("lapis_ore_glacier"));
 		oreFreezium = new ECBlockOre().setHardness(3.5F).setResistance(6F).setBlockTextureName(ECReference.getTexture("freezium_ore"));
 		oreGlistening = new ECBlock(Material.rock).setHardness(3.0F).setResistance(15.0F).setBlockTextureName(ECReference.getTexture("glistening_ore"));
 		
@@ -43,7 +43,7 @@ public class ECBlocks
 		addBlock(glacierRockStairs, "glacierrock_stairs");
 		addBlock(glacierRockBrickStairs, "glacierrock_brick_stairs");
 		
-		addBlock(oreLapis, "lapis_ore_glacierrock");
+		addBlock(oreLapis, "lapis_ore_glacier");
 		addBlock(oreFreezium, "freezium_ore");
 		addBlock(oreGlistening, "glistening_ore");
 	}
