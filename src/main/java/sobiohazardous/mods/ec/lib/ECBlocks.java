@@ -1,9 +1,10 @@
 package sobiohazardous.mods.ec.lib;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import sobiohazardous.mods.ec.block.BlockSlippery;
-import sobiohazardous.mods.ec.block.ECBlockOre;
 import sobiohazardous.mods.ec.block.ECBlock;
+import sobiohazardous.mods.ec.block.ECBlockOre;
+import sobiohazardous.mods.ec.block.EDBlockStairs;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -12,10 +13,13 @@ public class ECBlocks
 {
 	public static Block	glacierRock;
 	public static Block	glacierRockCracked;
-	public static Block glacierRockBricks;
+	public static Block	glacierRockBricks;
+	
+	public static Block	glacierRockStairs;
+	public static Block	glacierRockBrickStairs;
 	
 	public static Block	oreLapis;
-	public static Block oreFreezium;
+	public static Block	oreFreezium;
 	
 	public static Block	oreGlistening;
 	
@@ -25,6 +29,9 @@ public class ECBlocks
 		glacierRockCracked = new BlockSlippery(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(ECReference.getTexture("galcierrock_cracked"));
 		glacierRockBricks = new BlockSlippery(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(ECReference.getTexture("glacierrock_bricks"));
 		
+		glacierRockStairs = new EDBlockStairs(glacierRockCracked).setHardness(2F).setResistance(10F);
+		glacierRockBrickStairs = new EDBlockStairs(glacierRockBrickStairs).setHardness(2F).setResistance(10F);
+		
 		oreLapis = new ECBlockOre().setHardness(3F).setResistance(5.0F).setBlockTextureName(ECReference.getTexture("lapis_ore_glacierrock"));
 		oreFreezium = new ECBlockOre().setHardness(3.5F).setResistance(6F).setBlockTextureName(ECReference.getTexture("freezium_ore"));
 		oreGlistening = new ECBlock(Material.rock).setHardness(3.0F).setResistance(15.0F).setBlockTextureName(ECReference.getTexture("glistening_ore"));
@@ -32,7 +39,12 @@ public class ECBlocks
 		addBlock(glacierRock, "glacierrock");
 		addBlock(glacierRockCracked, "glacierrock_cracked");
 		addBlock(glacierRockBricks, "glacierrock_bricks");
+		
+		addBlock(glacierRockStairs, "glacierrock_stairs");
+		addBlock(glacierRockBrickStairs, "glacierrock_brick_stairs");
+		
 		addBlock(oreLapis, "lapis_ore_glacierrock");
+		addBlock(oreFreezium, "freezium_ore");
 		addBlock(oreGlistening, "glistening_ore");
 	}
 	
