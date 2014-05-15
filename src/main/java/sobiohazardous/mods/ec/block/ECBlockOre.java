@@ -3,6 +3,7 @@ package sobiohazardous.mods.ec.block;
 import java.util.Random;
 
 import sobiohazardous.mods.ec.lib.ECBlocks;
+import sobiohazardous.mods.ec.lib.ECItems;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Items;
@@ -23,6 +24,8 @@ public class ECBlockOre extends BlockSlippery
 	{
 		if (this == ECBlocks.oreLapis)
 			return Items.dye;
+		else if (this == ECBlocks.oreGlistening)
+			return ECItems.gemClear;
 		return super.getItemDropped(metadata, random, fortune);
 	}
 	
@@ -47,6 +50,8 @@ public class ECBlockOre extends BlockSlippery
 	{
 		if (this == ECBlocks.oreLapis)
 			return 2 + this.random.nextInt(4);
+		else if (this == ECBlocks.oreGlistening)
+			return 4 + this.random.nextInt(5);
 		return 0;
 	}
 }
