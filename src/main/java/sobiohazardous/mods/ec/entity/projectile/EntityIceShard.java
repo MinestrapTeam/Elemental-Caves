@@ -12,37 +12,35 @@ import net.minecraft.world.World;
 
 public class EntityIceShard extends EntityThrowable
 {
-    public EntityIceShard(World par1World)
+    public EntityIceShard(World world)
     {
-        super(par1World);
+        super(world);
     }
 
-    public EntityIceShard(World par1World, EntityLivingBase par2EntityLivingBase)
+    public EntityIceShard(World world, EntityLivingBase living)
     {
-        super(par1World, par2EntityLivingBase);
+        super(world, living);
     }
 
-    public EntityIceShard(World par1World, double par2, double par4, double par6)
+    public EntityIceShard(World world, double x, double y, double z)
     {
-        super(par1World, par2, par4, par6);
+        super(world, x, y, z);
     }
 
-    /**
-     * Called when this EntityThrowable hits a block or entity.
-     */
-    protected void onImpact(MovingObjectPosition par1MovingObjectPosition)
+    @Override
+    protected void onImpact(MovingObjectPosition mop)
     {
-        if (par1MovingObjectPosition.entityHit != null)
+        if (mop.entityHit != null)
         {
             byte b0 = 0;
 
-            if (par1MovingObjectPosition.entityHit instanceof EntityBlaze)
+            if (mop.entityHit instanceof EntityBlaze)
             {
                 b0 = 3;
             }
 
-            par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), (float)b0);
-            EntityLiving l = (EntityLiving)par1MovingObjectPosition.entityHit;
+            mop.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), (float)b0);
+            EntityLiving l = (EntityLiving)mop.entityHit;
             l.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10 * 20, 0, false));
         }
 
