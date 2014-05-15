@@ -7,6 +7,7 @@ import sobiohazardous.mods.ec.entity.projectile.EntityFrostGem;
 import sobiohazardous.mods.ec.entity.projectile.EntityIceShard;
 import sobiohazardous.mods.ec.lib.ECBlocks;
 import sobiohazardous.mods.ec.lib.ECItems;
+import sobiohazardous.mods.ec.lib.ECRecipes;
 import sobiohazardous.mods.ec.lib.ECReference;
 import sobiohazardous.mods.ec.world.gen.ECWorldGenerator;
 import cpw.mods.fml.common.Mod;
@@ -37,6 +38,7 @@ public class ElementalCaves
 	{
 		ECBlocks.init();
 		ECItems.init();
+		ECRecipes.init();
 		
 		EntityRegistry.registerModEntity(EntityIceShard.class, "entity_ice_shard", EntityRegistry.findGlobalUniqueEntityId(), this.instance, 40, 400, true);
 		EntityRegistry.registerModEntity(EntityFrostGem.class, "entity_frost_gem", EntityRegistry.findGlobalUniqueEntityId(), this.instance, 40, 400, true);

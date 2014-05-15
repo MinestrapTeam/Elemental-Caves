@@ -30,9 +30,13 @@ public class EntityFrostGem extends EntityThrowable
     @Override
     protected void onImpact(MovingObjectPosition mop)
     {
-        for (int i = 0; i < 32; ++i)
+        for (int i = 0; i < 8; ++i)
         {
-            this.worldObj.spawnParticle("snowballpoof", this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
+        	double x = this.posX + this.worldObj.rand.nextFloat();
+        	double y = this.posY + this.worldObj.rand.nextFloat();
+        	double z = this.posZ + this.worldObj.rand.nextFloat();
+
+        	this.worldObj.spawnParticle("smoke", x, y, z, 0.0D, 0.0D, 0.0D);      	
         }
 
         if (!this.worldObj.isRemote)
