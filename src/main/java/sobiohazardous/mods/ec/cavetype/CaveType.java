@@ -18,19 +18,19 @@ public class CaveType
 	public static List<CaveType>	caveTypes	= new ArrayList();
 	
 	public static CaveType			ice			= new CaveTypeIce("ice").setBlock(ECBlocks.glacierRock);
+	public static CaveType			ocean		= new CaveTypeOcean("ocean");
 	
 	public final String				name;
 	public Block					block;
 	public int						blockMetadata;
 	
-	public BiomeGenBase biome;
+	public BiomeGenBase				biome;
 	
-	protected final WorldGenerator	wallGen;
+	protected WorldGenerator		wallGen;
 	
 	public CaveType(String name)
 	{
 		this.name = name;
-		this.wallGen = new WorldGenMinable(this.getBlock(), this.getBlockMetadata(), 16, Blocks.stone);
 		caveTypes.add(this);
 	}
 	
@@ -57,16 +57,6 @@ public class CaveType
 		return this;
 	}
 	
-	public Block getBlock()
-	{
-		return this.block;
-	}
-	
-	public int getBlockMetadata()
-	{
-		return this.blockMetadata;
-	}
-	
 	public boolean canGenerateAt(World world, int x, int z)
 	{
 		return this.canGenerateInBiome(world.getBiomeGenForCoords(x, z));
@@ -79,7 +69,7 @@ public class CaveType
 	
 	public void generate(World world, Random random, int x, int z)
 	{
-		int y = 128;
+		int y = 64;
 		
 		boolean wasAir = true;
 		while (y >= 0)
@@ -113,6 +103,10 @@ public class CaveType
 	
 	public void generate(World world, Random random, int x, int y, int z)
 	{
+		if (this.wallGen == null)
+		{
+			this.wallGen = new WorldGenMinable(this.block, this.blockMetadata, 16, Blocks.stone);
+		}
 		this.wallGen.generate(world, random, x, y, z);
 	}
 	
