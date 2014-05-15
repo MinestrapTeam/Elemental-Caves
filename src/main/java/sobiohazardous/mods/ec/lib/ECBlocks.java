@@ -29,7 +29,7 @@ public class ECBlocks
 	public static void init()
 	{
 		ancientIce = new BlockSlippery(Material.rock).setStepSound(Block.soundTypeGlass).setHardness(2F).setResistance(4F).setBlockTextureName(ECReference.getTexture("ancient_ice"));
-		crystalIce = new BlockTransparent().setStepSound(Block.soundTypeGlass).setHardness(2F).setResistance(4F).setBlockTextureName(ECReference.getTexture("crystal_ice"));
+		crystalIce = new BlockTransparent(Material.rock).setStepSound(Block.soundTypeGlass).setHardness(2F).setResistance(4F).setBlockTextureName(ECReference.getTexture("crystal_ice"));
 		
 		glacierRock = new BlockSlippery(Material.rock).setHardness(2.0F).setResistance(11.0F).setBlockTextureName(ECReference.getTexture("glacierrock"));
 		glacierRockCracked = new BlockSlippery(Material.rock).setHardness(1.5F).setResistance(10.0F).setBlockTextureName(ECReference.getTexture("glacierrock_cracked"));
