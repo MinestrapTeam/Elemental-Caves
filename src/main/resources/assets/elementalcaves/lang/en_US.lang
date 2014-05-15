@@ -4,9 +4,9 @@ itemGroup.ec_items=Elemental Caves - Items
 tile.ancient_ice.name=Ancient Ice
 tile.crystal_ice.name=Ice Crystal
 
-tile.glacierrock.name=Glacier Rock
-tile.glacierrock_cracked.name=Cracked Glacier Rock
-tile.glacierrock_bricks.name=Glacier Rock Bricks
+tile.glacierrock.0.name=Glacier Rock
+tile.glacierrock.1.name=Cracked Glacier Rock
+tile.glacierrock.2.name=Glacier Rock Bricks
 
 tile.glacierrock_stairs.name=Glacier Rock Stairs
 tile.glacierrock_brick_stairs.name=Glacier Rock Brick Stairs
