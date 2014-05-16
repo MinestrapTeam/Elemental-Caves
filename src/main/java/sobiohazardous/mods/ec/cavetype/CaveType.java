@@ -17,22 +17,28 @@ public class CaveType
 {
 	public static List<CaveType>	caveTypes	= new ArrayList();
 	
-	public static CaveType			ice			= new CaveTypeIce("ice").setBlock(ECBlocks.glacierRock);
-	public static CaveType			ocean		= new CaveTypeOcean("ocean");
+	public static CaveType			ice			= new CaveTypeIce("ice");
+	//public static CaveType			ocean		= new CaveTypeOcean("ocean");
 	
 	public final String				name;
 	public Block					block;
-	public int						blockMetadata;
-	
+	public Block					floorBlock;
+	public Block					ceilingBlock;
+
+	public int						blockMetadata = 0;
+	public int						blockMetadataFloor = 0;
+	public int						blockMetadataCeiling = 0;
+
 	public BiomeGenBase				biome;
 	
 	protected WorldGenerator		wallGen;
 	
 	protected int					spawnHeight = 64;
 	
-	public CaveType(String name)
+	public CaveType(String name, Block mainCaveBlock)
 	{
 		this.name = name;
+		this.block = mainCaveBlock;
 		caveTypes.add(this);
 	}
 	
@@ -47,11 +53,39 @@ public class CaveType
 		return this;
 	}
 	
-	public CaveType setBlockMetadata(int blockMetadata)
+	public CaveType setBlock(Block block, int blockMetadata)
 	{
+		this.block = block;
 		this.blockMetadata = blockMetadata;
 		return this;
 	}
+	
+	public CaveType setFloorBlock(Block block)
+	{
+		this.floorBlock = block;
+		return this;
+	}
+	
+	public CaveType setFloorBlock(Block block, int blockMetadata)
+	{
+		this.floorBlock = block;
+		this.blockMetadataFloor = blockMetadata;
+		return this;
+	}
+	
+	public CaveType setCeilingBlock(Block block)
+	{
+		this.ceilingBlock = block;
+		return this;
+	}
+	
+	public CaveType setCeilingBlock(Block block, int blockMetadata)
+	{
+		this.ceilingBlock = block;
+		this.blockMetadataCeiling = blockMetadata;
+		return this;
+	}
+	
 	
 	public CaveType setBiome(BiomeGenBase biome)
 	{
@@ -90,13 +124,20 @@ public class CaveType
 					if (!wasAir)
 					{
 						this.generateCeiling(world, random, x, y + 1, z);
+						
+						float val = random.nextFloat();
+						
+						if(val < 0.2F)
+						{
+							generateCeilingAddons(world, random, x, y + 1, z);
+						}
 					}
 					
-					this.generate(world, random, x, y - 3, z);
+					this.generate(world, random, x, y - 4, z);
 				}
 				else if (wasAir)
 				{
-					this.generate(world, random, x, y + 3, z);
+					this.generate(world, random, x, y + 4, z);
 					this.generateFloor(world, random, x, y, z);
 				}
 				wasAir = isAir;
@@ -104,6 +145,7 @@ public class CaveType
 			catch (Exception ex)
 			{
 				System.err.println("Cave Gen Error");
+				ex.printStackTrace();
 			}
 			y--;
 		}
@@ -113,18 +155,33 @@ public class CaveType
 	{
 		if (this.wallGen == null)
 		{
-			this.wallGen = new WorldGenMinable(this.block, this.blockMetadata, 16, Blocks.stone);
+			this.wallGen = new WorldGenMinable(this.block, this.blockMetadata, 48, Blocks.stone);
 		}
 		this.wallGen.generate(world, random, x, y, z);
 	}
 	
 	public void generateCeiling(World world, Random random, int x, int y, int z)
 	{
-		// world.setBlock(x, y, z, this.block, this.blockMetadata, 3);
+		if(this.ceilingBlock != null) 
+		{
+			world.setBlock(x, y, z, this.ceilingBlock, this.blockMetadataCeiling, 3);
+		}
 	}
 	
 	public void generateFloor(World world, Random random, int x, int y, int z)
 	{
-		// world.setBlock(x, y, z, this.block, this.blockMetadata, 3);
+		if(this.floorBlock != null) 
+		{
+			world.setBlock(x, y, z, this.floorBlock, this.blockMetadataFloor, 3);
+		}
+		else
+		{
+			world.setBlock(x, y, z, this.block, this.blockMetadata, 3);
+
+		}
 	}
+	
+	public void generateCeilingAddons(World world, Random random, int x, int y, int z){}
+
+	//TODO add method for ore generation and floor generation
 }
