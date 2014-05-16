@@ -21,6 +21,8 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 
 @Mod(modid = ECReference.EC_MODID, name = ECReference.EC_NAME, version = ECReference.EC_VERSION)
 public class ElementalCaves
@@ -32,7 +34,9 @@ public class ElementalCaves
 	public static ECCommonProxy		proxy;
 	
 	public static CreativeTabs		creativeTabECBlocks	= new ECCreativeTabBlocks("ec_blocks");
-	public static CreativeTabs		creativeTabECItems = new ECCreativeTabItems("ec_items");
+	public static CreativeTabs		creativeTabECItems	= new ECCreativeTabItems("ec_items");
+	
+	public static Fluid				iceFloe				= new Fluid("ice_floe");
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent evt)
@@ -48,6 +52,8 @@ public class ElementalCaves
 	@EventHandler
 	public void init(FMLInitializationEvent evt)
 	{
+		FluidRegistry.registerFluid(iceFloe);
+		
 		GameRegistry.registerWorldGenerator(new ECWorldGenerator(), 0);
 		proxy.registerRenders();
 	}

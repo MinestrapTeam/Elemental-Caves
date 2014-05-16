@@ -9,8 +9,8 @@ import net.minecraft.item.ItemBlock;
 
 public class ECBlocks
 {
-	public static Block ancientIce;
-	public static Block crystalIce;
+	public static Block	ancientIce;
+	public static Block	crystalIce;
 	
 	public static Block	glacierRock;
 	
@@ -21,6 +21,8 @@ public class ECBlocks
 	public static Block	oreFreezium;
 	
 	public static Block	oreGlistening;
+	
+	public static Block	iceFloe;
 	
 	public static void init()
 	{
@@ -36,6 +38,8 @@ public class ECBlocks
 		oreFreezium = new ECBlockOre().setHardness(3.5F).setResistance(6F).setBlockTextureName(ECReference.getTexture("freezium_ore"));
 		oreGlistening = new ECBlockOre(0.6F).setHardness(3.0F).setResistance(15.0F).setLightLevel(0.6F).setBlockTextureName(ECReference.getTexture("glistening_ore"));
 		
+		iceFloe = new BlockIceFloe();
+		
 		addBlock(ancientIce, "ancient_ice");
 		addBlock(crystalIce, "crystal_ice");
 		
@@ -47,6 +51,8 @@ public class ECBlocks
 		addBlock(oreLapis, "lapis_ore_glacier");
 		addBlock(oreFreezium, "freezium_ore");
 		addBlock(oreGlistening, "glistening_ore");
+		
+		addBlock(iceFloe, "ice_floe");
 	}
 	
 	public static void addBlock(Block block, String name)
