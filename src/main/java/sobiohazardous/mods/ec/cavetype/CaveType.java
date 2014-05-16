@@ -35,6 +35,16 @@ public class CaveType
 	
 	protected int					spawnHeight	= 64;
 	
+	/**
+	 * The weight of which ceiling addons spawn. must be between 0 and 1.
+	 */
+	protected float					ceilingAddonSpawnWeight = 0.2F;
+	
+	/**
+	 * The weight of which floor addons spawn. must be between 0 and 1.
+	 */
+	protected float					floorAddonSpawnWeight = 0.2F;
+	
 	public Map<Block, OreSpawnerHelper> ores = new HashMap<Block, OreSpawnerHelper>();
 	protected WorldGenerator		oreGen;
 
@@ -96,6 +106,28 @@ public class CaveType
 		return this;
 	}
 	
+	/**
+	 * Set the rate at which floor addons spawn. Must be between 0 and 1.
+	 * @param weight
+	 * @return
+	 */
+	public CaveType setFloorAddonSpawnWeight(float weight)
+	{
+		this.floorAddonSpawnWeight = weight;
+		return this;
+	}
+	
+	/**
+	 * Set the rate at which ceiling addons spawn. Must be between 0 and 1.
+	 * @param weight
+	 * @return
+	 */
+	public CaveType setCeilingAddonSpawnWeight(float weight)
+	{
+		this.ceilingAddonSpawnWeight = weight;
+		return this;
+	}
+	
 	public boolean canGenerateAt(World world, int x, int z)
 	{
 		return this.canGenerateInBiome(world.getBiomeGenForCoords(x, z));
@@ -130,7 +162,7 @@ public class CaveType
 						
 						float val = random.nextFloat();
 						
-						if (val < 0.2F)
+						if (val < ceilingAddonSpawnWeight)
 						{
 							generateCeilingAddons(world, random, x, y + 1, z);
 						}
@@ -142,6 +174,13 @@ public class CaveType
 				{
 					this.generate(world, random, x, y + 4, z);
 					this.generateFloor(world, random, x, y, z);
+					
+					float val = random.nextFloat();
+					
+					if(val < floorAddonSpawnWeight)
+					{
+						generateFloorAddons(world, random, x, y, z);
+					}
 				}
 				wasAir = isAir;
 			}
@@ -185,6 +224,7 @@ public class CaveType
 	}
 	
 	public void generateCeilingAddons(World world, Random random, int x, int y, int z){}
+	public void generateFloorAddons(World world, Random random, int x, int y, int z){}
 	
 	public void generateOre(World world, Random random, int x, int y, int z, Block ore)
 	{
