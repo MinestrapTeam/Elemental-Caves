@@ -16,24 +16,21 @@ public class BlockAncientIce extends BlockSlippery
 		super(material, 1.05F);
 	}
 
-    public void onEntityWalking(World world, int x, int y, int z, Entity entity) 
+    @Override
+	public void onEntityWalking(World world, int x, int y, int z, Entity entity) 
     {
 		EntityLivingBase living = (EntityLivingBase)entity;
 		living.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 15 * 20));
     }
     
-    /**
-     * Returns the quantity of items to drop on block destruction.
-     */
-    public int quantityDropped(Random p_149745_1_)
+    @Override
+	public int quantityDropped(Random random)
     {
         return 0;
     }
     
-    /**
-     * Return true if a player with Silk Touch can harvest this block directly, and not its normal drops.
-     */
-    protected boolean canSilkHarvest()
+    @Override
+	protected boolean canSilkHarvest()
     {
         return true;
     }
