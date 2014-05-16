@@ -54,6 +54,8 @@ public class ElementalCaves
 	{
 		FluidRegistry.registerFluid(iceFloe);
 		
+		ECBlocks.addHarvestLevels();
+		
 		GameRegistry.registerWorldGenerator(new ECWorldGenerator(), 0);
 		proxy.registerRenders();
 	}
