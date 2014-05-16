@@ -1,10 +1,11 @@
 package sobiohazardous.mods.ec.lib;
 
 import sobiohazardous.mods.ec.block.*;
+import sobiohazardous.mods.ec.item.block.ECItemBlockMulti;
 import cpw.mods.fml.common.registry.GameRegistry;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemBlock;
 
 public class ECBlocks
 {
@@ -38,7 +39,7 @@ public class ECBlocks
 		addBlock(ancientIce, "ancient_ice");
 		addBlock(crystalIce, "crystal_ice");
 		
-		addBlock(glacierRock, "glacierrock");
+		addBlock(glacierRock, ECItemBlockMulti.class, "glacierrock");
 		
 		addBlock(glacierRockStairs, "glacierrock_stairs");
 		addBlock(glacierRockBrickStairs, "glacierrock_brick_stairs");
@@ -52,5 +53,11 @@ public class ECBlocks
 	{
 		block.setBlockName(name);
 		GameRegistry.registerBlock(block, name);
+	}
+	
+	public static void addBlock(Block block, Class<? extends ItemBlock> item, String name)
+	{
+		block.setBlockName(name);
+		GameRegistry.registerBlock(block, item, name);
 	}
 }
