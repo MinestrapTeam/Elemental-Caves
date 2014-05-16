@@ -40,7 +40,7 @@ public class EntityIceShard extends EntityThrowable
             }
 
             mop.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), (float)b0);
-            EntityLiving l = (EntityLiving)mop.entityHit;
+            EntityLivingBase l = (EntityLivingBase)mop.entityHit;
             l.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10 * 20, 0, false));
         }
 
