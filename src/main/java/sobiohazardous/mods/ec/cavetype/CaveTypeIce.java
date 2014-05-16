@@ -13,6 +13,7 @@ public class CaveTypeIce extends CaveType
 	public CaveTypeIce(String name)
 	{
 		super(name, ECBlocks.glacierRock);
+		this.addOre(ECBlocks.oreFreezium, 18, 5, 48);
 	}
 	
 	@Override

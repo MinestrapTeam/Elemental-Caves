@@ -1,7 +1,9 @@
 package sobiohazardous.mods.ec.cavetype;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -32,6 +34,10 @@ public class CaveType
 	protected WorldGenerator		wallGen;
 	
 	protected int					spawnHeight = 64;
+	
+	public Map<Block, OreSpawnerHelper> ores = new HashMap<Block, OreSpawnerHelper>();
+	protected WorldGenerator		oreGen;
+
 	
 	public CaveType(String name, Block mainCaveBlock)
 	{
@@ -180,6 +186,34 @@ public class CaveType
 	}
 	
 	public void generateCeilingAddons(World world, Random random, int x, int y, int z){}
-
+	
+	public void generateOre(World world, Random random, int x, int y, int z, Block ore)
+	{
+		if (this.oreGen == null)
+		{
+			//TODO add ore metadata
+			this.oreGen = new WorldGenMinable(ore, 0, ores.get(ore).orePerVain, this.block);			
+		}
+		this.oreGen.generate(world, random, x, y, z);
+	}
+	
+	public void addOre(Block ore, int vainsPerChunk, int orePerVain, int spawnHeight)
+	{
+		this.ores.put(ore, new OreSpawnerHelper(vainsPerChunk, orePerVain, spawnHeight));
+	}
+	
+	public class OreSpawnerHelper
+	{
+		public int vainsPerChunk;
+		public int orePerVain;
+		public int oreSpawnHeight;
+		
+		public OreSpawnerHelper(int vainsPerChunk, int orePerVain, int oreSpawnHeight)
+		{
+			this.vainsPerChunk = vainsPerChunk;
+			this.orePerVain = orePerVain;
+			this.oreSpawnHeight = oreSpawnHeight;
+		}
+	}
 	//TODO add method for ore generation and floor generation
 }
