@@ -1,6 +1,8 @@
-package sobiohazardous.mods.ec.lib;
+package sobiohazardous.mods.ec.block;
 
 import sobiohazardous.mods.ec.ElementalCaves;
+import sobiohazardous.mods.ec.lib.ECBlocks;
+import sobiohazardous.mods.ec.lib.ECReference;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
