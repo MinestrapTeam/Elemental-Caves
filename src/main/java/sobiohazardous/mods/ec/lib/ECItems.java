@@ -21,37 +21,33 @@ public class ECItems
 	public static Item gemFrost;
 	public static Item iceShard;
 	
-	public static Item pickaxeFreezium;
 	public static Item swordFreezium;
+	public static Item shovelFreezium;
+	public static Item pickaxeFreezium;
 	public static Item axeFreezium;
 	public static Item hoeFreezium;
-	public static Item shovelFreezium;
 	
 	public static void init()
 	{
 		gemClear = new ECItem().setTextureName(ECReference.getTexture("clear_gem"));
-		addItem(gemClear, "clear_gem");
-		
 		gemFrost = new ItemFrostGem().setTextureName(ECReference.getTexture("ice_gem"));
-		addItem(gemFrost, "ice_gem");
-		
 		iceShard = new ItemIceShard().setTextureName(ECReference.getTexture("ice_shard"));
-		addItem(iceShard, "ice_shard");
-		
-		pickaxeFreezium = new ECItemPickaxe(materialFreezium).setTextureName(ECReference.getTexture("ice_pickaxe"));
-		addItem(pickaxeFreezium, "ice_pickaxe");
 		
 		swordFreezium = new ECItemSword(materialFreezium).setTextureName(ECReference.getTexture("ice_sword"));
-		addItem(swordFreezium, "ice_sword");
-		
-		axeFreezium = new ECItemAxe(materialFreezium).setTextureName(ECReference.getTexture("ice_axe"));
-		addItem(axeFreezium, "axe_freezium");
-		
-		hoeFreezium = new ECItemHoe(materialFreezium).setTextureName(ECReference.getTexture("ice_hoe"));
-		addItem(hoeFreezium, "hoe_freezium");
-		
 		shovelFreezium = new ECItemShovel(materialFreezium).setTextureName(ECReference.getTexture("ice_shovel"));
+		pickaxeFreezium = new ECItemPickaxe(materialFreezium).setTextureName(ECReference.getTexture("ice_pickaxe"));
+		axeFreezium = new ECItemAxe(materialFreezium).setTextureName(ECReference.getTexture("ice_axe"));
+		hoeFreezium = new ECItemHoe(materialFreezium).setTextureName(ECReference.getTexture("ice_hoe"));
+		
+		addItem(gemClear, "clear_gem");
+		addItem(gemFrost, "ice_gem");
+		addItem(iceShard, "ice_shard");
+		
+		addItem(swordFreezium, "ice_sword");
 		addItem(shovelFreezium, "shovel_freezium");
+		addItem(pickaxeFreezium, "ice_pickaxe");
+		addItem(axeFreezium, "axe_freezium");
+		addItem(hoeFreezium, "hoe_freezium");
 	}
 	
 	public static void addItem(Item item, String name)
