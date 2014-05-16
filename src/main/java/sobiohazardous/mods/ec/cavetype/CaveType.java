@@ -17,7 +17,7 @@ public class CaveType
 {
 	public static List<CaveType>	caveTypes	= new ArrayList();
 	
-	public static CaveType			ice			= new CaveTypeIce("ice");
+	public static CaveType			ice			= new CaveTypeIce("ice").setSpawnHeight(60);
 	// public static CaveType ocean = new CaveTypeOcean("ocean");
 	
 	public final String				name;
@@ -254,6 +254,4 @@ public class CaveType
 			this.oreSpawnHeight = oreSpawnHeight;
 		}
 	}
-	
-	// TODO floor generation
 }
