@@ -20,27 +20,28 @@ public class ECItemPickaxe extends ItemPickaxe
 	}
 
 	@Override
-    public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World world, int par4, int par5, int par6, int par7, float par8, float par9, float par10)
+    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
 	{
 		if(this == ECItems.pickaxeFreezium)
 		{
-			if(ECUtil.freeze(world, par4, par5, par6))
+			if(ECUtil.freeze(world, x, y, z))
 			{
-				par1ItemStack.damageItem(4, par2EntityPlayer);
+				stack.damageItem(4, player);
 				return true;
 			}
 		}
 		return false;
 	}
 	
-    public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
+    @Override
+	public boolean hitEntity(ItemStack stack, EntityLivingBase living, EntityLivingBase attacker)
     {
     	if(this == ECItems.pickaxeFreezium)
     	{
-    		par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10 * 20));
-    		return super.hitEntity(par1ItemStack, par2EntityLivingBase, par3EntityLivingBase);
+    		living.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10 * 20));
+    		return super.hitEntity(stack, living, attacker);
     	}
-    	return super.hitEntity(par1ItemStack, par2EntityLivingBase, par3EntityLivingBase);
+    	return super.hitEntity(stack, living, attacker);
     }
 	
 }

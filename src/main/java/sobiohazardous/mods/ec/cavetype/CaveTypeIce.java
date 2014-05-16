@@ -3,7 +3,7 @@ package sobiohazardous.mods.ec.cavetype;
 import java.util.Random;
 
 import sobiohazardous.mods.ec.lib.ECBlocks;
-import net.minecraft.block.Block;
+
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenBase.TempCategory;
@@ -27,6 +27,7 @@ public class CaveTypeIce extends CaveType
 		return biome.getTempCategory() == TempCategory.COLD;
 	}
 	
+	@Override
 	public void generateCeilingAddons(World world, Random random, int x, int y, int z)
 	{
 		//generate crystal stallagitmites
