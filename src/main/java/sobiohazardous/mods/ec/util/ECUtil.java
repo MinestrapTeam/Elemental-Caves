@@ -13,37 +13,60 @@ public class ECUtil
 	public static boolean freeze(World world, int x, int y, int z)
 	{
 		Block block = world.getBlock(x, y, z);
+		boolean flag = false;
 		
 		if (block instanceof BlockBush)
 		{
 			world.setBlock(x, y, z, Blocks.snow_layer);
-			return true;
+			flag = true;
 		}
 		else if (block instanceof BlockLeavesBase)
 		{
 			world.setBlock(x, y, z, Blocks.snow);
-			return true;
+			flag = true;
 		}
 		else if (block == Blocks.snow || block == Blocks.melon_block || block == Blocks.pumpkin || block == Blocks.cactus)
 		{
 			world.setBlock(x, y, z, Blocks.ice);
-			return true;
+			flag = true;
 		}
 		else if (block == Blocks.ice)
 		{
 			world.setBlock(x, y, z, Blocks.packed_ice);
-			return true;
+			flag = true;
 		}
 		else if (block == Blocks.netherrack)
 		{
 			world.setBlock(x, y, z, Blocks.cobblestone);
-			return true;
+			flag = true;
 		}
 		else if (block == Blocks.end_stone)
 		{
 			world.setBlock(x, y, z, ECBlocks.glacierRock, 1, 3);
-			return true;
+			flag = true;
 		}
-		return false;
+		else if (block == Blocks.fire)
+		{
+			world.setBlockToAir(x, y, z);
+			flag = true;
+		}
+		else if (block == Blocks.lava)
+		{
+			world.setBlock(x, y, z, Blocks.obsidian);
+			flag = true;
+		}
+		else if (block == Blocks.water)
+		{
+			world.setBlock(x, y, z, Blocks.ice);
+			flag = true;
+		}
+		
+		if (flag)
+		{
+			world.playAuxSFX(2001, x, y, z, 79);
+			world.playAuxSFX(2001, x, y, z, 80);
+		}
+		
+		return flag;
 	}
 }
