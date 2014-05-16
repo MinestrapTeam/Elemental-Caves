@@ -53,7 +53,7 @@ public class ECWorldGenerator implements IWorldGenerator
 		for (int i = 0; i < 10; i++)
 		{
 			x1 = chunkX + rand.nextInt(16);
-			y1 = rand.nextInt(24);
+			y1 = rand.nextInt(40);
 			z1 = chunkZ + rand.nextInt(16);
 			
 			glisteningOreGen.generate(world, rand, x1, y1, z1);
