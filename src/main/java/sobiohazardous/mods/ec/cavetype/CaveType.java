@@ -18,22 +18,22 @@ public class CaveType
 	public static List<CaveType>	caveTypes	= new ArrayList();
 	
 	public static CaveType			ice			= new CaveTypeIce("ice");
-	//public static CaveType			ocean		= new CaveTypeOcean("ocean");
+	// public static CaveType ocean = new CaveTypeOcean("ocean");
 	
 	public final String				name;
 	public Block					block;
 	public Block					floorBlock;
 	public Block					ceilingBlock;
-
-	public int						blockMetadata = 0;
-	public int						blockMetadataFloor = 0;
-	public int						blockMetadataCeiling = 0;
-
+	
+	public int						blockMetadata;
+	public int						floorMetadata;
+	public int						ceilingMetadata;
+	
 	public BiomeGenBase				biome;
 	
 	protected WorldGenerator		wallGen;
 	
-	protected int					spawnHeight = 64;
+	protected int					spawnHeight	= 64;
 	
 	public Map<Block, OreSpawnerHelper> ores = new HashMap<Block, OreSpawnerHelper>();
 	protected WorldGenerator		oreGen;
@@ -73,7 +73,7 @@ public class CaveType
 	public CaveType setFloorBlock(Block block, int blockMetadata)
 	{
 		this.floorBlock = block;
-		this.blockMetadataFloor = blockMetadata;
+		this.floorMetadata = blockMetadata;
 		return this;
 	}
 	
@@ -86,10 +86,9 @@ public class CaveType
 	public CaveType setCeilingBlock(Block block, int blockMetadata)
 	{
 		this.ceilingBlock = block;
-		this.blockMetadataCeiling = blockMetadata;
+		this.ceilingMetadata = blockMetadata;
 		return this;
 	}
-	
 	
 	public CaveType setBiome(BiomeGenBase biome)
 	{
@@ -118,7 +117,7 @@ public class CaveType
 		int y = spawnHeight;
 		
 		boolean wasAir = true;
-		while (y >= 0)
+		while (y > 4)
 		{
 			try
 			{
@@ -131,7 +130,7 @@ public class CaveType
 						
 						float val = random.nextFloat();
 						
-						if(val < 0.2F)
+						if (val < 0.2F)
 						{
 							generateCeilingAddons(world, random, x, y + 1, z);
 						}
@@ -159,29 +158,29 @@ public class CaveType
 	{
 		if (this.wallGen == null)
 		{
-			this.wallGen = new WorldGenMinable(this.block, this.blockMetadata, 48, Blocks.stone);
+			this.wallGen = new WorldGenMinable(this.block, this.blockMetadata, 16, Blocks.stone);
 		}
 		this.wallGen.generate(world, random, x, y, z);
 	}
 	
 	public void generateCeiling(World world, Random random, int x, int y, int z)
 	{
-		if(this.ceilingBlock != null) 
+		if (this.ceilingBlock != null)
 		{
-			world.setBlock(x, y, z, this.ceilingBlock, this.blockMetadataCeiling, 3);
+			world.setBlock(x, y, z, this.ceilingBlock, this.ceilingMetadata, 3);
 		}
 	}
 	
 	public void generateFloor(World world, Random random, int x, int y, int z)
 	{
-		if(this.floorBlock != null) 
+		if (this.floorBlock != null)
 		{
-			world.setBlock(x, y, z, this.floorBlock, this.blockMetadataFloor, 3);
+			world.setBlock(x, y, z, this.floorBlock, this.floorMetadata, 3);
 		}
 		else
 		{
 			world.setBlock(x, y, z, this.block, this.blockMetadata, 3);
-
+			
 		}
 	}
 	
@@ -215,5 +214,6 @@ public class CaveType
 			this.oreSpawnHeight = oreSpawnHeight;
 		}
 	}
-	//TODO add method for ore generation and floor generation
+	
+	// TODO floor generation
 }

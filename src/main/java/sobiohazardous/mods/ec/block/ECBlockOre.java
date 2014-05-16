@@ -19,6 +19,11 @@ public class ECBlockOre extends BlockSlippery
 		super(Material.rock);
 	}
 	
+	public ECBlockOre(float sliperiness)
+	{
+		super(Material.rock, sliperiness);
+	}
+	
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
