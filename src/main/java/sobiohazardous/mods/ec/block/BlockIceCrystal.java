@@ -4,19 +4,19 @@ import java.util.Random;
 
 import sobiohazardous.mods.ec.lib.ECItems;
 import sobiohazardous.mods.ec.util.ECUtil;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
-public class BlockIceCrystal extends BlockTransparent
+public class BlockIceCrystal extends BlockSlippery
 {
 	public BlockIceCrystal()
 	{
-		super(Material.ice);
+		super(Material.rock);
 		this.setTickRandomly(true);
 		this.setStepSound(Block.soundTypeGlass);
+		this.setLightOpacity(1);
 	}
 	
 	@Override
@@ -59,5 +59,17 @@ public class BlockIceCrystal extends BlockTransparent
 				}
 			}
 		}
+	}
+	
+	@Override
+    public int getRenderBlockPass()
+    {
+        return 1;
+    }
+	
+	@Override
+	public boolean isOpaqueCube()
+	{
+		return false;
 	}
 }

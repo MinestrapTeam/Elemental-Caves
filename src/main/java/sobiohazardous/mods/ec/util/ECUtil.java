@@ -25,7 +25,7 @@ public class ECUtil
 			world.setBlock(x, y, z, Blocks.snow);
 			flag = true;
 		}
-		else if (block == Blocks.snow || block == Blocks.melon_block || block == Blocks.pumpkin || block == Blocks.cactus)
+		else if (block == Blocks.snow || block == Blocks.melon_block || block == Blocks.pumpkin || block == Blocks.cactus || block == Blocks.red_mushroom_block || block == Blocks.brown_mushroom_block)
 		{
 			world.setBlock(x, y, z, Blocks.ice);
 			flag = true;
