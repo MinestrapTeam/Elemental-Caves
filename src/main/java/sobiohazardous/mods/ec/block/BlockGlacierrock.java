@@ -1,7 +1,5 @@
 package sobiohazardous.mods.ec.block;
 
-import java.util.List;
-
 import sobiohazardous.mods.ec.lib.ECBlocks;
 import sobiohazardous.mods.ec.lib.ECReference;
 import cpw.mods.fml.relauncher.Side;
@@ -9,32 +7,19 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
-public class BlockGlacierrock extends BlockSlippery
+public class BlockGlacierrock extends ECBlockMulti
 {
 	public static final String[]	types			= new String[] { null, "cracked", "bricks" };
-	
-	public IIcon[]					icons;
-	public boolean					sideTextured	= false;
 	
 	public IIcon					icySideIcon;
 	
 	public BlockGlacierrock()
 	{
-		super(Material.rock);
-	}
-	
-	@Override
-	public IIcon getIcon(int side, int metadata)
-	{
-		if (metadata < 0 || metadata >= types.length)
-			metadata = 0;
-		return this.icons[metadata];
+		super(Material.rock, types);
+		this.slipperiness = 0.98F;
 	}
 	
 	@Override
@@ -55,28 +40,10 @@ public class BlockGlacierrock extends BlockSlippery
 	}
 	
 	@Override
-	public void getSubBlocks(Item item, CreativeTabs tab, List list)
-	{
-		for (int i = 0; i < types.length; i++)
-		{
-			list.add(new ItemStack(item, 1, i));
-		}
-	}
-	
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
+		super.registerBlockIcons(iconRegister);
 		this.icySideIcon = iconRegister.registerIcon(ECReference.getTexture("glacierrock_icy"));
-		
-		this.icons = new IIcon[types.length];
-		
-		for (int i = 0; i < this.icons.length; ++i)
-		{
-			String str = this.getTextureName();
-			if (types[i] != null)
-				str += "_" + types[i];
-			this.icons[i] = iconRegister.registerIcon(str);
-		}
 	}
 }
