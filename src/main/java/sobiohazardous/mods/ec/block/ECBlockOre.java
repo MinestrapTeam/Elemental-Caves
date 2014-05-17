@@ -30,7 +30,7 @@ public class ECBlockOre extends BlockSlippery
 		if (this == ECBlocks.oreLapis)
 			return Items.dye;
 		else if (this == ECBlocks.oreGlistening)
-			return ECItems.clearGem;
+			return ECItems.gems;
 		return super.getItemDropped(metadata, random, fortune);
 	}
 	

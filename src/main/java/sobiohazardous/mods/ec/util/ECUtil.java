@@ -5,6 +5,7 @@ import sobiohazardous.mods.ec.lib.ECBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockLeavesBase;
+import net.minecraft.block.IGrowable;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -57,7 +58,7 @@ public class ECUtil
 		}
 		else if (block == Blocks.lava)
 		{
-			if(isArmorEffect)
+			if (isArmorEffect)
 			{
 				world.setBlock(x, y - 2, z, Blocks.obsidian);
 			}
@@ -66,7 +67,7 @@ public class ECUtil
 		}
 		else if (block == Blocks.water)
 		{
-			if(isArmorEffect)
+			if (isArmorEffect)
 			{
 				world.setBlock(x, y - 2, z, Blocks.ice);
 			}
@@ -76,7 +77,7 @@ public class ECUtil
 		
 		if (flag)
 		{
-			world.playAuxSFX(2001, x, y, z, 79);
+			world.playAuxSFX(2001, x, y, z, 80);
 		}
 		
 		return flag;
@@ -174,6 +175,40 @@ public class ECUtil
 		{
 			world.playAuxSFX(2004, x, y, z, 0);
 			world.playAuxSFX(2004, x, y, z, 0);
+		}
+		
+		return flag;
+	}
+	
+	public static boolean grow(World world, int x, int y, int z)
+	{
+		return grow(world, x, y, z, false);
+	}
+	
+	public static boolean grow(World world, int x, int y, int z, boolean flag)
+	{
+		Block block = world.getBlock(x, y, z);
+		
+		if (block == Blocks.dirt)
+		{
+			world.setBlock(x, y, z, Blocks.grass);
+			flag = true;
+		}
+		else if (block instanceof IGrowable)
+		{
+			IGrowable igrowable = (IGrowable) block;
+			
+			if (igrowable.func_149852_a(world, world.rand, x, y, z))
+			{
+				igrowable.func_149853_b(world, world.rand, x, y, z);
+				flag = true;
+			}
+		}
+		
+		if (flag)
+		{
+			world.playAuxSFX(2005, x, y, z, 0);
+			world.playAuxSFX(2001, x, y, z, 18);
 		}
 		
 		return flag;

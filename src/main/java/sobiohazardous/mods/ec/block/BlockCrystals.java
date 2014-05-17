@@ -23,10 +23,10 @@ public class BlockCrystals extends ECBlockMulti
 	}
 	
 	@Override
-    public int getRenderBlockPass()
-    {
-        return 1;
-    }
+	public int getRenderBlockPass()
+	{
+		return 1;
+	}
 	
 	@Override
 	public boolean isOpaqueCube()
@@ -51,19 +51,22 @@ public class BlockCrystals extends ECBlockMulti
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return metadata == 0 ? ECItems.iceShard : null;
+		return ECItems.shards;
 	}
 	
 	@Override
 	public int quantityDropped(int metadata, int fortune, Random random)
 	{
-		if (metadata == 0) {
 		int i = 2 + random.nextInt(3) + random.nextInt(fortune + 1);
 		if (i > 4)
 			i = 4;
 		return i;
-		}
-		return 0;
+	}
+	
+	@Override
+	public int damageDropped(int metadata)
+	{
+		return metadata + 1;
 	}
 	
 	@Override
@@ -82,6 +85,8 @@ public class BlockCrystals extends ECBlockMulti
 				ECUtil.freeze(world, x1, y1, z1);
 			else if (metadata == 1)
 				ECUtil.melt(world, x1, y1, z1);
+			else if (metadata == 2)
+				ECUtil.grow(world, x1, y1, z1);
 		}
 	}
 }
