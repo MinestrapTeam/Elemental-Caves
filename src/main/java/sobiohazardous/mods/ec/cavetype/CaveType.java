@@ -1,12 +1,14 @@
 package sobiohazardous.mods.ec.cavetype;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import sobiohazardous.mods.ec.world.OreGenData;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenMinable;
-import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class CaveType
 {
@@ -31,9 +33,8 @@ public class CaveType
 	public BiomeGenBase				biome;
 	
 	protected CaveWallGenerator		wallGen;
-	protected WorldGenerator		oreGen;
 	
-	public Map<Block, OreGenData>	ores					= new HashMap<Block, OreGenData>();
+	public List<OreGenData>			ores					= new ArrayList();
 	
 	public CaveType(String name, Block mainCaveBlock)
 	{
@@ -220,31 +221,13 @@ public class CaveType
 	{
 	}
 	
-	public void generateOre(World world, Random random, int x, int y, int z, Block ore)
-	{
-		if (this.oreGen == null)
-		{
-			this.oreGen = new WorldGenMinable(ore, 0, ores.get(ore).orePerVain, this.block);
-		}
-		this.oreGen.generate(world, random, x, y, z);
-	}
-	
 	public void addOre(Block ore, int vainsPerChunk, int orePerVain, int spawnHeight)
 	{
-		this.ores.put(ore, new OreGenData(vainsPerChunk, orePerVain, spawnHeight));
+		this.addOre(ore, 0, vainsPerChunk, orePerVain, spawnHeight);
 	}
 	
-	public class OreGenData
+	public void addOre(Block ore, int metadata, int vainsPerChunk, int orePerVain, int spawnHeight)
 	{
-		public int	vainsPerChunk;
-		public int	orePerVain;
-		public int	oreSpawnHeight;
-		
-		public OreGenData(int vainsPerChunk, int orePerVain, int oreSpawnHeight)
-		{
-			this.vainsPerChunk = vainsPerChunk;
-			this.orePerVain = orePerVain;
-			this.oreSpawnHeight = oreSpawnHeight;
-		}
+		this.ores.add(new OreGenData(this, ore, metadata, vainsPerChunk, orePerVain, spawnHeight));
 	}
 }
