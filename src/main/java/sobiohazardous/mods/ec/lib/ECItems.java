@@ -1,31 +1,34 @@
 package sobiohazardous.mods.ec.lib;
 
-import sobiohazardous.mods.ec.item.ECItem;
-import sobiohazardous.mods.ec.item.ECItemAxe;
-import sobiohazardous.mods.ec.item.ECItemHoe;
-import sobiohazardous.mods.ec.item.ECItemShovel;
-import sobiohazardous.mods.ec.item.ECItemSword;
-import sobiohazardous.mods.ec.item.ItemFrostGem;
-import sobiohazardous.mods.ec.item.ItemIceShard;
-import sobiohazardous.mods.ec.item.ECItemPickaxe;
+import sobiohazardous.mods.ec.common.ECCommonProxy;
+import sobiohazardous.mods.ec.item.*;
+import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ECItems
 {
-	public static ToolMaterial materialFreezium = EnumHelper.addToolMaterial("freezium", 3, 1561, 7.0F, 3.0F, 13);
+	public static ToolMaterial	materialFreezium	= EnumHelper.addToolMaterial("freezium", 3, 1561, 7.0F, 3.0F, 13);
 	
-	public static Item gemClear;
-	public static Item gemFrost;
-	public static Item iceShard;
+	public static ArmorMaterial	armorFreezium		= EnumHelper.addArmorMaterial("freezium", 480, new int[] { 11, 13, 12, 11 }, 11);
 	
-	public static Item swordFreezium;
-	public static Item shovelFreezium;
-	public static Item pickaxeFreezium;
-	public static Item axeFreezium;
-	public static Item hoeFreezium;
+	public static Item			gemClear;
+	public static Item			gemFrost;
+	public static Item			iceShard;
+	
+	public static Item			swordFreezium;
+	public static Item			shovelFreezium;
+	public static Item			pickaxeFreezium;
+	public static Item			axeFreezium;
+	public static Item			hoeFreezium;
+	
+	public static Item			helmetFreezium;
+	public static Item			chestplateFreezium;
+	public static Item			leggingsFreezium;
+	public static Item			bootsFreezium;
 	
 	public static void init()
 	{
@@ -39,15 +42,25 @@ public class ECItems
 		axeFreezium = new ECItemAxe(materialFreezium).setTextureName(ECReference.getTexture("ice_axe"));
 		hoeFreezium = new ECItemHoe(materialFreezium).setTextureName(ECReference.getTexture("ice_hoe"));
 		
+		helmetFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 0).setTextureName(ECReference.getTexture("ice_helmet"));
+		chestplateFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 1).setTextureName(ECReference.getTexture("ice_chestplate"));
+		leggingsFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 2).setTextureName(ECReference.getTexture("ice_leggings"));
+		bootsFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 3).setTextureName(ECReference.getTexture("ice_boots"));
+		
 		addItem(gemClear, "clear_gem");
 		addItem(gemFrost, "ice_gem");
 		addItem(iceShard, "ice_shard");
 		
 		addItem(swordFreezium, "ice_sword");
-		addItem(shovelFreezium, "shovel_freezium");
+		addItem(shovelFreezium, "ice_shovel");
 		addItem(pickaxeFreezium, "ice_pickaxe");
-		addItem(axeFreezium, "axe_freezium");
-		addItem(hoeFreezium, "hoe_freezium");
+		addItem(axeFreezium, "ice_axe");
+		addItem(hoeFreezium, "ice_hoe");
+		
+		addItem(helmetFreezium, "ice_helmet");
+		addItem(chestplateFreezium, "ice_chestplate");
+		addItem(leggingsFreezium, "ice_leggings");
+		addItem(bootsFreezium, "ice_boots");
 	}
 	
 	public static void addItem(Item item, String name)

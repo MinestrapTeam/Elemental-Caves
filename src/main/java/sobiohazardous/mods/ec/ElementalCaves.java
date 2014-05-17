@@ -1,6 +1,7 @@
 package sobiohazardous.mods.ec;
 
 import sobiohazardous.mods.ec.common.ECCommonProxy;
+import sobiohazardous.mods.ec.common.ECEventHandler;
 import sobiohazardous.mods.ec.creativetab.ECCreativeTabBlocks;
 import sobiohazardous.mods.ec.creativetab.ECCreativeTabItems;
 import sobiohazardous.mods.ec.entity.projectile.EntityFrostGem;
@@ -10,6 +11,7 @@ import sobiohazardous.mods.ec.lib.ECItems;
 import sobiohazardous.mods.ec.lib.ECRecipes;
 import sobiohazardous.mods.ec.lib.ECReference;
 import sobiohazardous.mods.ec.world.gen.ECWorldGenerator;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -20,7 +22,9 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
@@ -33,13 +37,15 @@ public class ElementalCaves
 	@SidedProxy(clientSide = "sobiohazardous.mods.ec.client.ECClientProxy", serverSide = "sobiohazardous.mods.ec.common.ECCommonProxy")
 	public static ECCommonProxy		proxy;
 	
+	public static ECEventHandler eventHandler = new ECEventHandler();
+	
 	public static CreativeTabs		creativeTabECBlocks	= new ECCreativeTabBlocks("ec_blocks");
 	public static CreativeTabs		creativeTabECItems	= new ECCreativeTabItems("ec_items");
 	
 	public static Fluid				iceFloe				= new Fluid("ice_floe");
 	
 	@EventHandler
-	public void preInit(FMLPreInitializationEvent evt)
+	public void preInit(FMLPreInitializationEvent event)
 	{
 		ECBlocks.init();
 		ECItems.init();
@@ -50,19 +56,20 @@ public class ElementalCaves
 	}
 	
 	@EventHandler
-	public void init(FMLInitializationEvent evt)
+	public void init(FMLInitializationEvent event)
 	{
 		FluidRegistry.registerFluid(iceFloe);
 		
 		ECBlocks.addHarvestLevels();
 		
+		FMLCommonHandler.instance().bus().register(eventHandler);
+		MinecraftForge.EVENT_BUS.register(eventHandler);
 		GameRegistry.registerWorldGenerator(new ECWorldGenerator(), 0);
 		proxy.registerRenders();
 	}
 	
 	@EventHandler
-	public void postInit(FMLPostInitializationEvent evt)
+	public void postInit(FMLPostInitializationEvent event)
 	{
-		
 	}
 }
