@@ -1,5 +1,6 @@
 package sobiohazardous.mods.ec.item;
 
+import sobiohazardous.mods.ec.ElementalCaves;
 import sobiohazardous.mods.ec.lib.ECReference;
 
 import net.minecraft.entity.Entity;
@@ -11,6 +12,7 @@ public class ECItemArmor extends ItemArmor
 	public ECItemArmor(ArmorMaterial material, int renderIndex, int type)
 	{
 		super(material, renderIndex, type);
+		this.setCreativeTab(ElementalCaves.creativeTabECItems);
 	}
 	
 	@Override

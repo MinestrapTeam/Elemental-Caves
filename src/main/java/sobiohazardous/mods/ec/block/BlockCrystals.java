@@ -20,7 +20,6 @@ public class BlockCrystals extends ECBlockMulti
 		this.setTickRandomly(true);
 		this.setStepSound(Block.soundTypeGlass);
 		this.setLightOpacity(1);
-		this.slipperiness = 0.98F;
 	}
 	
 	@Override
