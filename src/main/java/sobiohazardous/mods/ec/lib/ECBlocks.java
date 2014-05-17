@@ -17,6 +17,8 @@ public class ECBlocks
 	public static Block	glacierRockStairs;
 	public static Block	glacierRockBrickStairs;
 	
+	public static Block moltenstone;
+	
 	public static Block	oreLapis;
 	public static Block	oreFreezium;
 	public static Block	oreGlistening;
@@ -31,6 +33,8 @@ public class ECBlocks
 		glacierRock = new BlockGlacierrock().setHardness(2.0F).setResistance(11.0F).setBlockTextureName(ECReference.getTexture("glacierrock"));
 		glacierRockStairs = new EDBlockStairs(glacierRock, 1).setHardness(2F).setResistance(10F);
 		glacierRockBrickStairs = new EDBlockStairs(glacierRock, 2).setHardness(2F).setResistance(10F);
+		
+		moltenstone = new BlockMoltenstone().setHardness(2.1F).setResistance(8.0F).setBlockTextureName(ECReference.getTexture("moltenstone"));
 		
 		oreLapis = new ECBlockOre().setHardness(3F).setResistance(5.0F).setBlockTextureName(ECReference.getTexture("lapis_ore_glacier"));
 		oreFreezium = new ECBlockOre().setHardness(3.5F).setResistance(6F).setBlockTextureName(ECReference.getTexture("freezium_ore"));
@@ -56,9 +60,12 @@ public class ECBlocks
 	{
 		ancientIce.setHarvestLevel("pickaxe", 2);
 		crystals.setHarvestLevel("pickaxe", 3);
+		
 		glacierRock.setHarvestLevel("pickaxe", 2);
 		glacierRockStairs.setHarvestLevel("pickaxe", 2);
 		glacierRockBrickStairs.setHarvestLevel("pickaxe", 2);
+		moltenstone.setHarvestLevel("pickaxe", 2);
+		
 		oreLapis.setHarvestLevel("pickaxe", 2);
 		oreFreezium.setHarvestLevel("pickaxe", 3);
 		oreGlistening.setHarvestLevel("pickaxe", 3);
