@@ -1,13 +1,8 @@
 package sobiohazardous.mods.ec.cavetype;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -15,9 +10,9 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class CaveType
 {
-	public static List<CaveType>	caveTypes	= new ArrayList();
+	public static List<CaveType>	caveTypes				= new ArrayList();
 	
-	public static CaveType			ice			= new CaveTypeIce("ice").setSpawnHeight(60);
+	public static CaveType			ice						= new CaveTypeIce("ice").setSpawnHeight(60);
 	// public static CaveType ocean = new CaveTypeOcean("ocean");
 	
 	public final String				name;
@@ -29,25 +24,16 @@ public class CaveType
 	public int						floorMetadata;
 	public int						ceilingMetadata;
 	
+	protected int					spawnHeight				= 64;
+	protected float					floorAddonSpawnWeight	= 0.2F;
+	protected float					ceilingAddonSpawnWeight	= 0.2F;
+	
 	public BiomeGenBase				biome;
 	
-	protected WorldGenerator		wallGen;
-	
-	protected int					spawnHeight	= 64;
-	
-	/**
-	 * The weight of which ceiling addons spawn. must be between 0 and 1.
-	 */
-	protected float					ceilingAddonSpawnWeight = 0.2F;
-	
-	/**
-	 * The weight of which floor addons spawn. must be between 0 and 1.
-	 */
-	protected float					floorAddonSpawnWeight = 0.2F;
-	
-	public Map<Block, OreSpawnerHelper> ores = new HashMap<Block, OreSpawnerHelper>();
+	protected CaveWallGenerator		wallGen;
 	protected WorldGenerator		oreGen;
-
+	
+	public Map<Block, OreGenData>	ores					= new HashMap<Block, OreGenData>();
 	
 	public CaveType(String name, Block mainCaveBlock)
 	{
@@ -71,6 +57,7 @@ public class CaveType
 	{
 		this.block = block;
 		this.blockMetadata = blockMetadata;
+		this.wallGen = null;
 		return this;
 	}
 	
@@ -108,6 +95,7 @@ public class CaveType
 	
 	/**
 	 * Set the rate at which floor addons spawn. Must be between 0 and 1.
+	 * 
 	 * @param weight
 	 * @return
 	 */
@@ -119,6 +107,7 @@ public class CaveType
 	
 	/**
 	 * Set the rate at which ceiling addons spawn. Must be between 0 and 1.
+	 * 
 	 * @param weight
 	 * @return
 	 */
@@ -146,68 +135,68 @@ public class CaveType
 	
 	public void generate(World world, Random random, int x, int z)
 	{
-		int y = spawnHeight;
+		int y = this.spawnHeight;
 		
-		boolean wasAir = true;
+		boolean cave = false;
 		while (y > 4)
 		{
-			try
+			boolean isAir = world.isAirBlock(x, y, z);
+			if (isAir)
 			{
-				boolean isAir = world.isAirBlock(x, y, z);
-				if (isAir)
+				if (!cave)
 				{
-					if (!wasAir)
+					this.generateCeiling(world, random, x, y + 1, z);
+					
+					if (random.nextFloat() < this.ceilingAddonSpawnWeight)
 					{
-						this.generateCeiling(world, random, x, y + 1, z);
-						
-						float val = random.nextFloat();
-						
-						if (val < ceilingAddonSpawnWeight)
-						{
-							generateCeilingAddons(world, random, x, y + 1, z);
-						}
+						this.generateCeilingAddons(world, random, x, y + 1, z);
 					}
 					
-					this.generate(world, random, x, y - 4, z);
+					cave = true;
 				}
-				else if (wasAir)
-				{
-					this.generate(world, random, x, y + 4, z);
-					this.generateFloor(world, random, x, y, z);
-					
-					float val = random.nextFloat();
-					
-					if(val < floorAddonSpawnWeight)
-					{
-						generateFloorAddons(world, random, x, y, z);
-					}
-				}
-				wasAir = isAir;
+				
+				y -= 4;
+				this.generate(world, random, x, y, z);
 			}
-			catch (Exception ex)
+			else if (cave)
 			{
-				System.err.println("Cave Gen Error");
-				ex.printStackTrace();
+				this.generate(world, random, x, y + 4, z);
+				this.generateFloor(world, random, x, y, z);
+				
+				if (random.nextFloat() < this.floorAddonSpawnWeight)
+				{
+					generateFloorAddons(world, random, x, y, z);
+				}
+				
+				cave = false;
 			}
 			y--;
 		}
 	}
 	
-	public void generate(World world, Random random, int x, int y, int z)
+	public CaveWallGenerator getWallGen()
 	{
 		if (this.wallGen == null)
 		{
-			this.wallGen = new WorldGenMinable(this.block, this.blockMetadata, 32, Blocks.stone);
-			//TODO: Create WorldGenMinable class that makes it so blocks don't spawn in a circle.
+			this.wallGen = new CaveWallGenerator(this.block, this.blockMetadata);
 		}
-		this.wallGen.generate(world, random, x, y, z);
+		return this.wallGen;
+	}
+	
+	public void generate(World world, Random random, int x, int y, int z)
+	{
+		this.getWallGen().generate(world, random, x, y, z);
 	}
 	
 	public void generateCeiling(World world, Random random, int x, int y, int z)
 	{
-		if (this.ceilingBlock != null && y < 63)
+		if (this.ceilingBlock != null)
 		{
 			world.setBlock(x, y, z, this.ceilingBlock, this.ceilingMetadata, 3);
+		}
+		else
+		{
+			world.setBlock(x, y, z, this.block, this.blockMetadata, 3);
 		}
 	}
 	
@@ -220,35 +209,38 @@ public class CaveType
 		else
 		{
 			world.setBlock(x, y, z, this.block, this.blockMetadata, 3);
-			
 		}
 	}
 	
-	public void generateCeilingAddons(World world, Random random, int x, int y, int z){}
-	public void generateFloorAddons(World world, Random random, int x, int y, int z){}
+	public void generateCeilingAddons(World world, Random random, int x, int y, int z)
+	{
+	}
+	
+	public void generateFloorAddons(World world, Random random, int x, int y, int z)
+	{
+	}
 	
 	public void generateOre(World world, Random random, int x, int y, int z, Block ore)
 	{
 		if (this.oreGen == null)
 		{
-			//TODO add ore metadata
-			this.oreGen = new WorldGenMinable(ore, 0, ores.get(ore).orePerVain, this.block);			
+			this.oreGen = new WorldGenMinable(ore, 0, ores.get(ore).orePerVain, this.block);
 		}
 		this.oreGen.generate(world, random, x, y, z);
 	}
 	
 	public void addOre(Block ore, int vainsPerChunk, int orePerVain, int spawnHeight)
 	{
-		this.ores.put(ore, new OreSpawnerHelper(vainsPerChunk, orePerVain, spawnHeight));
+		this.ores.put(ore, new OreGenData(vainsPerChunk, orePerVain, spawnHeight));
 	}
 	
-	public class OreSpawnerHelper
+	public class OreGenData
 	{
-		public int vainsPerChunk;
-		public int orePerVain;
-		public int oreSpawnHeight;
+		public int	vainsPerChunk;
+		public int	orePerVain;
+		public int	oreSpawnHeight;
 		
-		public OreSpawnerHelper(int vainsPerChunk, int orePerVain, int oreSpawnHeight)
+		public OreGenData(int vainsPerChunk, int orePerVain, int oreSpawnHeight)
 		{
 			this.vainsPerChunk = vainsPerChunk;
 			this.orePerVain = orePerVain;
