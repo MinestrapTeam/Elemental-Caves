@@ -1,9 +1,10 @@
 package sobiohazardous.mods.ec.lib;
 
+import sobiohazardous.mods.ec.ElementalCaves;
 import sobiohazardous.mods.ec.block.*;
 import sobiohazardous.mods.ec.item.block.ECItemBlockMulti;
+import sobiohazardous.mods.ec.item.block.ECItemSlab;
 import cpw.mods.fml.common.registry.GameRegistry;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
@@ -16,6 +17,8 @@ public class ECBlocks
 	public static Block	glacierRock;
 	public static Block	glacierRockStairs;
 	public static Block	glacierRockBrickStairs;
+	public static Block glacierRockSlabSingle;
+	public static Block glacierRockSlabDouble;
 	
 	public static Block moltenstone;
 	
@@ -31,9 +34,11 @@ public class ECBlocks
 		crystals = new BlockCrystals().setHardness(5F).setResistance(8F).setBlockTextureName(ECReference.getTexture("crystal"));
 		
 		glacierRock = new BlockGlacierrock().setHardness(2.0F).setResistance(11.0F).setBlockTextureName(ECReference.getTexture("glacierrock"));
-		glacierRockStairs = new EDBlockStairs(glacierRock, 1).setHardness(2F).setResistance(10F);
-		glacierRockBrickStairs = new EDBlockStairs(glacierRock, 2).setHardness(2F).setResistance(10F);
-		
+		glacierRockStairs = new ECBlockStairs(glacierRock, 1).setHardness(2F).setResistance(10F);
+		glacierRockBrickStairs = new ECBlockStairs(glacierRock, 2).setHardness(2F).setResistance(10F);
+		glacierRockSlabSingle = new ECBlockSlab(false, new String[]{ECReference.getTexture("glacierrock_slab_side")}, new String[]{ECReference.getTexture("glacierrock_slab_top")}).setCreativeTab(ElementalCaves.creativeTabECBlocks).setHardness(2F).setResistance(10F);
+		glacierRockSlabDouble = new ECBlockSlab(true, new String[]{ECReference.getTexture("glacierrock_slab_side")}, new String[]{ECReference.getTexture("glacierrock_slab_top")}).setHardness(2F).setResistance(10F);
+
 		moltenstone = new BlockMoltenstone().setHardness(2.1F).setResistance(8.0F).setBlockTextureName(ECReference.getTexture("moltenstone"));
 		
 		oreLapis = new ECBlockOre().setHardness(3F).setResistance(5.0F).setBlockTextureName(ECReference.getTexture("lapis_ore_glacier"));
@@ -48,7 +53,9 @@ public class ECBlocks
 		addBlock(glacierRock, ECItemBlockMulti.class, "glacierrock");
 		addBlock(glacierRockStairs, "glacierrock_stairs");
 		addBlock(glacierRockBrickStairs, "glacierrock_brick_stairs");
-		
+		addBlock(glacierRockSlabSingle, ECItemSlab.class, "glacierrock_slab_single", glacierRockSlabSingle, glacierRockSlabDouble);
+		addBlock(glacierRockSlabDouble, ECItemSlab.class, "glacierrock_slab_double", glacierRockSlabSingle, glacierRockSlabDouble);
+
 		addBlock(moltenstone, ECItemBlockMulti.class, "molten_stone");
 		addBlock(oreLapis, "lapis_ore_glacier");
 		addBlock(oreFreezium, "freezium_ore");
@@ -86,5 +93,11 @@ public class ECBlocks
 	{
 		block.setBlockName(name);
 		GameRegistry.registerBlock(block, item, name);
+	}
+	
+	public static void addBlock(Block block, Class<? extends ItemBlock> item, String name, Object... construcArgs)
+	{
+		block.setBlockName(name);
+		GameRegistry.registerBlock(block, item, name, construcArgs);
 	}
 }

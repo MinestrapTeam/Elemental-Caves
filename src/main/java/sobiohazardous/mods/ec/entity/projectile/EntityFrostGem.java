@@ -52,6 +52,9 @@ public class EntityFrostGem extends EntityThrowable
 			}
 		}
 		
+		world.playAuxSFX(2001, x, y, z, 79);
+		world.playAuxSFX(2001, x, y, z, 80);
+		
 		AxisAlignedBB axisalignedbb = this.boundingBox.expand(4.0D, 2.0D, 4.0D);
 		List<EntityLivingBase> list1 = world.getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb);
 		
