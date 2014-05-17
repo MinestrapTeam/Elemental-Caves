@@ -1,14 +1,13 @@
 package sobiohazardous.mods.ec.common;
 
 import sobiohazardous.mods.ec.lib.ECItems;
+import sobiohazardous.mods.ec.util.ECUtil;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 
 public class ECEventHandler
 {
@@ -28,7 +27,7 @@ public class ECEventHandler
 			{
 				if (helmet.getItem() == ECItems.helmetFreezium && chest.getItem() == ECItems.chestplateFreezium && pants.getItem() == ECItems.leggingsFreezium && boots.getItem() == ECItems.bootsFreezium)
 				{
-					player.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 1, 0, true));
+					ECUtil.freeze(player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
 				}
 			}
 		}
