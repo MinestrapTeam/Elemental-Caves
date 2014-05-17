@@ -5,6 +5,7 @@ import sobiohazardous.mods.ec.block.*;
 import sobiohazardous.mods.ec.item.block.ECItemBlockMulti;
 import sobiohazardous.mods.ec.item.block.ECItemSlab;
 import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;

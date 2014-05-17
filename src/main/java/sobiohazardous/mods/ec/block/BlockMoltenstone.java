@@ -24,11 +24,6 @@ public class BlockMoltenstone extends ECBlockMulti
 	{
 		return 0;
 	}
-	
-    public void onBlockAdded(World p_149726_1_, int p_149726_2_, int p_149726_3_, int p_149726_4_) 
-    {
-    	
-    }
     
 	@Override
 	public void onEntityWalking(World world, int x, int y, int z, Entity entity)

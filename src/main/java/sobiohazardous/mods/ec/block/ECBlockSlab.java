@@ -3,7 +3,6 @@ package sobiohazardous.mods.ec.block;
 import java.util.List;
 import java.util.Random;
 
-import sobiohazardous.mods.ec.ElementalCaves;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
@@ -51,6 +50,10 @@ public class ECBlockSlab extends BlockSlab
 	{
 		int type = metadata & 12;
 		int meta = metadata & 3;
+		
+		if (meta >= topIcons.length)
+			meta = 0;
+		
 		if (this.field_150004_a)
 		{
 			return type == 0 && (side == 1 || side == 0) ? this.topIcons[meta] : this.sideIcons[meta];

@@ -1,8 +1,8 @@
 package sobiohazardous.mods.ec.item.block;
 
 import sobiohazardous.mods.ec.block.ECBlockSlab;
+
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSlab;
 import net.minecraft.item.ItemSlab;
 import net.minecraft.item.ItemStack;
  

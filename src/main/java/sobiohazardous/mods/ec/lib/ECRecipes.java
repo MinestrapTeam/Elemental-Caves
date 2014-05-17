@@ -12,8 +12,6 @@ public class ECRecipes
 		ItemStack glacierrockCracked = new ItemStack(ECBlocks.glacierRock, 1, 1);
 		ItemStack glacierrockBricks = new ItemStack(ECBlocks.glacierRock, 1, 2);
 		ItemStack moltenstone = new ItemStack(ECBlocks.moltenstone, 1, 0);
-		ItemStack moltenstoneCooled = new ItemStack(ECBlocks.moltenstone, 1, 1);
-		ItemStack moltenstoneBricks = new ItemStack(ECBlocks.moltenstone, 1, 2);
 		
 		GameRegistry.addRecipe(new ItemStack(ECItems.gemFrost), new Object[] { "SAS", "ACA", "SAS", 'A', ECBlocks.ancientIce, 'S', ECItems.iceShard, 'C', ECItems.gemClear });
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.crystals), new Object[] { "SS", "SS", 'S', ECItems.iceShard });
