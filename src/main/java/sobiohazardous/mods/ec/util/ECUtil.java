@@ -12,8 +12,12 @@ public class ECUtil
 {
 	public static boolean freeze(World world, int x, int y, int z)
 	{
+		return freeze(world, x, y, z, false);
+	}
+	
+	public static boolean freeze(World world, int x, int y, int z, boolean flag)
+	{
 		Block block = world.getBlock(x, y, z);
-		boolean flag = false;
 		
 		if (block instanceof BlockBush)
 		{

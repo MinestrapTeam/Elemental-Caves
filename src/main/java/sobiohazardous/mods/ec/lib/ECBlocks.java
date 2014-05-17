@@ -28,7 +28,7 @@ public class ECBlocks
 	public static void init()
 	{
 		ancientIce = new BlockAncientIce(Material.rock).setStepSound(Block.soundTypeGlass).setHardness(2F).setResistance(40000F).setBlockTextureName(ECReference.getTexture("ancient_ice"));
-		crystalIce = new BlockIceCrystal().setHardness(3F).setResistance(4F).setBlockTextureName(ECReference.getTexture("crystal_ice"));
+		crystalIce = new BlockIceCrystal().setHardness(5F).setResistance(8F).setBlockTextureName(ECReference.getTexture("crystal_ice"));
 		
 		glacierRock = new BlockGlacierrock().setHardness(2.0F).setResistance(11.0F).setBlockTextureName(ECReference.getTexture("glacierrock"));
 		
@@ -67,6 +67,7 @@ public class ECBlocks
 		oreFreezium.setHarvestLevel("pickaxe", 3);
 		oreGlistening.setHarvestLevel("pickaxe", 3);
 	}
+	
 	public static void addBlock(Block block, String name)
 	{
 		block.setBlockName(name);

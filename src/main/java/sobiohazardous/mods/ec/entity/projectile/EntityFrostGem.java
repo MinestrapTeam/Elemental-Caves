@@ -2,6 +2,8 @@ package sobiohazardous.mods.ec.entity.projectile;
 
 import java.util.List;
 
+import sobiohazardous.mods.ec.util.ECUtil;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.potion.Potion;
@@ -31,17 +33,27 @@ public class EntityFrostGem extends EntityThrowable
 	@Override
 	protected void onImpact(MovingObjectPosition mop)
 	{
-		for (int i = 0; i < 32; i++)
+		World world = this.worldObj;
+		int x = (int) this.posX;
+		int y = (int) this.posY;
+		int z = (int) this.posZ;
+		
+		for (int i = -4; i <= 4; i++)
 		{
-			double velocityX = this.rand.nextDouble() * 2D;
-			double velocityY = this.rand.nextDouble() * 2D;
-			double velocityZ = this.rand.nextDouble() * 2D;
-			
-			this.worldObj.spawnParticle("flame", this.posX, this.posY, this.posZ, velocityX, velocityY, velocityZ);
+			for (int j = -2; j <= 2; j++)
+			{
+				for (int k = -4; k <= 4; k++)
+				{
+					int x1 = x + i;
+					int y1 = y + j;
+					int z1 = z + k;
+					ECUtil.freeze(world, x1, y1, z1, true);
+				}
+			}
 		}
 		
 		AxisAlignedBB axisalignedbb = this.boundingBox.expand(4.0D, 2.0D, 4.0D);
-		List<EntityLivingBase> list1 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb);
+		List<EntityLivingBase> list1 = world.getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb);
 		
 		for (EntityLivingBase entity : list1)
 		{
@@ -51,11 +63,7 @@ public class EntityFrostGem extends EntityThrowable
 			{
 				entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20 * 120, 9));
 				entity.addPotionEffect(new PotionEffect(Potion.jump.id, 20 * 120, -10));
-				
-				if (entity == mop.entityHit)
-				{
-					mop.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 4F);
-				}
+				entity.attackEntityFrom(new DamageSource("explosion"), 1F);
 			}
 		}
 		

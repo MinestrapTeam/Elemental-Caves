@@ -19,7 +19,6 @@ public class BlockGlacierrock extends ECBlockMulti
 	public BlockGlacierrock()
 	{
 		super(Material.rock, types);
-		this.slipperiness = 0.98F;
 	}
 	
 	@Override

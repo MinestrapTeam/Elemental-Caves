@@ -1,12 +1,15 @@
 package sobiohazardous.mods.ec.block;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import sobiohazardous.mods.ec.lib.ECItems;
 import sobiohazardous.mods.ec.util.ECUtil;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class BlockIceCrystal extends BlockSlippery
@@ -23,6 +26,14 @@ public class BlockIceCrystal extends BlockSlippery
 	public void onBlockAdded(World world, int x, int y, int z)
 	{
 		this.updateTick(world, x, y, z, world.rand);
+	}
+	
+	@Override
+	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
+	{
+		if (world.provider.dimensionId == -1)
+			return new ArrayList();
+		return super.getDrops(world, x, y, z, metadata, fortune);
 	}
 	
 	@Override

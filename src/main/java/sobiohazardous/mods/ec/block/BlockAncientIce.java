@@ -15,24 +15,23 @@ public class BlockAncientIce extends BlockSlippery
 	{
 		super(material, 1.05F);
 	}
-
-    @Override
-	public void onEntityWalking(World world, int x, int y, int z, Entity entity) 
-    {
-		EntityLivingBase living = (EntityLivingBase)entity;
-		living.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 15 * 20));
-    }
-    
-    @Override
-	public int quantityDropped(Random random)
-    {
-        return 0;
-    }
-    
-    @Override
-	protected boolean canSilkHarvest()
-    {
-        return true;
-    }
 	
+	@Override
+	public void onEntityWalking(World world, int x, int y, int z, Entity entity)
+	{
+		EntityLivingBase living = (EntityLivingBase) entity;
+		living.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 15 * 20));
+	}
+	
+	@Override
+	public int quantityDropped(Random random)
+	{
+		return 0;
+	}
+	
+	@Override
+	protected boolean canSilkHarvest()
+	{
+		return true;
+	}
 }
