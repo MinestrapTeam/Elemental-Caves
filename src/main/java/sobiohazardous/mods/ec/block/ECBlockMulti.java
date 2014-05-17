@@ -2,6 +2,7 @@ package sobiohazardous.mods.ec.block;
 
 import java.util.List;
 
+import sobiohazardous.mods.ec.ElementalCaves;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -19,6 +20,7 @@ public class ECBlockMulti extends ECBlock
 	{
 		super(material);
 		this.types = types;
+		this.setCreativeTab(ElementalCaves.creativeTabECBlocks);
 	}
 	
 	@Override

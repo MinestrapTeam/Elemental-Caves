@@ -24,7 +24,7 @@ public class ECBlocks
 	public static Block	oreGlistening;
 	
 	public static Block	iceFloe;
-	
+		
 	public static void init()
 	{
 		ancientIce = new BlockAncientIce(Material.rock).setStepSound(Block.soundTypeGlass).setHardness(2F).setResistance(40000F).setBlockTextureName(ECReference.getTexture("ancient_ice"));
@@ -42,13 +42,14 @@ public class ECBlocks
 		
 		iceFloe = new BlockIceFloe();
 		
+		addBlock(ancientIce, "ancient_ice");
 		addBlock(crystals, ECItemBlockMulti.class, "crystal_ice");
 		
-		addBlock(ancientIce, "ancient_ice");
 		addBlock(glacierRock, ECItemBlockMulti.class, "glacierrock");
 		addBlock(glacierRockStairs, "glacierrock_stairs");
 		addBlock(glacierRockBrickStairs, "glacierrock_brick_stairs");
 		
+		addBlock(moltenstone, ECItemBlockMulti.class, "molten_stone");
 		addBlock(oreLapis, "lapis_ore_glacier");
 		addBlock(oreFreezium, "freezium_ore");
 		addBlock(oreGlistening, "glistening_ore");
@@ -64,7 +65,11 @@ public class ECBlocks
 		glacierRock.setHarvestLevel("pickaxe", 2);
 		glacierRockStairs.setHarvestLevel("pickaxe", 2);
 		glacierRockBrickStairs.setHarvestLevel("pickaxe", 2);
-		moltenstone.setHarvestLevel("pickaxe", 2);
+		
+		moltenstone.setHarvestLevel("pickaxe", 2, 0);
+		moltenstone.setHarvestLevel("pickaxe", 3, 1);
+		moltenstone.setHarvestLevel("pickaxe", 2, 2);
+
 		
 		oreLapis.setHarvestLevel("pickaxe", 2);
 		oreFreezium.setHarvestLevel("pickaxe", 3);

@@ -57,6 +57,10 @@ public class ECUtil
 		}
 		else if (block == Blocks.lava)
 		{
+			if(isArmorEffect)
+			{
+				world.setBlock(x, y - 2, z, Blocks.obsidian);
+			}
 			world.setBlock(x, y, z, Blocks.obsidian);
 			flag = true;
 		}
