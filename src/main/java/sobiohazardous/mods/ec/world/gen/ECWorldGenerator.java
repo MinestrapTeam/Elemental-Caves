@@ -3,8 +3,10 @@ package sobiohazardous.mods.ec.world.gen;
 import java.util.Random;
 
 import sobiohazardous.mods.ec.cavetype.CaveType;
+import sobiohazardous.mods.ec.cavetype.CaveType.OreGenData;
 import sobiohazardous.mods.ec.lib.ECBlocks;
 import cpw.mods.fml.common.IWorldGenerator;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -84,20 +86,18 @@ public class ECWorldGenerator implements IWorldGenerator
 		int y1;
 		int z1;
 		
-		for(CaveType type : CaveType.caveTypes)
+		for (CaveType type : CaveType.caveTypes)
 		{
-			for(Block ore : type.ores.keySet())
+			for (Block ore : type.ores.keySet())
 			{
-				for (int i = 0; i < type.ores.get(ore).vainsPerChunk; i++)
+				OreGenData info = type.ores.get(ore);
+				for (int i = 0; i < info.vainsPerChunk; i++)
 				{
-					{
-						x1 = chunkX + rand.nextInt(16);
-						y1 = rand.nextInt(type.ores.get(ore).oreSpawnHeight);
-						z1 = chunkZ + rand.nextInt(16);
-						type.generateOre(world, rand, x1, y1, z1, ore);
-					}
+					x1 = chunkX + rand.nextInt(16);
+					y1 = rand.nextInt(info.oreSpawnHeight);
+					z1 = chunkZ + rand.nextInt(16);
+					type.generateOre(world, rand, x1, y1, z1, ore);
 				}
-				
 			}
 		}
 	}

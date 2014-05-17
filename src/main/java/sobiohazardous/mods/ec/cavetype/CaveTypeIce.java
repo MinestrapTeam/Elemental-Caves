@@ -4,6 +4,7 @@ import java.util.Random;
 
 import sobiohazardous.mods.ec.lib.ECBlocks;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenBase.TempCategory;
@@ -13,8 +14,12 @@ public class CaveTypeIce extends CaveType
 	public CaveTypeIce(String name)
 	{
 		super(name, ECBlocks.glacierRock);
+		
 		this.addOre(ECBlocks.oreFreezium, 18, 5, 48);
 		this.addOre(ECBlocks.oreLapis, 8, 3, 31);
+		
+		this.getWallGen().addReplacement(Blocks.dirt, Blocks.ice);
+		this.getWallGen().addReplacement(Blocks.gravel, Blocks.packed_ice);
 	}
 	
 	@Override
