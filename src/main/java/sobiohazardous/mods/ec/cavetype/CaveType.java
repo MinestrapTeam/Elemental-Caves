@@ -157,7 +157,7 @@ public class CaveType
 					cave = true;
 				}
 				
-				y -= 4;
+				if ((y & 3) == 0)
 				this.generate(world, random, x, y, z);
 			}
 			else if (cave)

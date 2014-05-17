@@ -48,9 +48,9 @@ public class ECBlocks
 		
 		iceFloe = new BlockIceFloe();
 		
-		addBlock(ancientIce, "ancient_ice");
-		addBlock(crystals, ECItemBlockMulti.class, "crystal_ice");
+		addBlock(crystals, ECItemBlockMulti.class, "crystal");
 		
+		addBlock(ancientIce, "ancient_ice");
 		addBlock(glacierRock, ECItemBlockMulti.class, "glacierrock");
 		addBlock(glacierRockStairs, "glacierrock_stairs");
 		addBlock(glacierRockBrickStairs, "glacierrock_brick_stairs");
