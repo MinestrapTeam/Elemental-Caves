@@ -9,15 +9,18 @@ import net.minecraft.item.ItemStack;
 
 public class ECItemArmor extends ItemArmor
 {
-	public ECItemArmor(ArmorMaterial material, int renderIndex, int type)
+	private String texturePrefix;
+	
+	public ECItemArmor(ArmorMaterial material, int renderIndex, int type, String texturePrefix)
 	{
 		super(material, renderIndex, type);
 		this.setCreativeTab(ElementalCaves.creativeTabECItems);
+		this.texturePrefix = texturePrefix;
 	}
 	
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
 	{
-		return ECReference.getTexture("textures/armor/" + type + slot);
+		return ECReference.getTexture("textures/armor/" + texturePrefix + slot);
 	}
 }

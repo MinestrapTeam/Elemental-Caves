@@ -42,10 +42,10 @@ public class ECItems
 		axeFreezium = new ECItemAxe(materialFreezium).setTextureName(ECReference.getTexture("ice_axe"));
 		hoeFreezium = new ECItemHoe(materialFreezium).setTextureName(ECReference.getTexture("ice_hoe"));
 		
-		helmetFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 0).setTextureName(ECReference.getTexture("ice_helmet"));
-		chestplateFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 1).setTextureName(ECReference.getTexture("ice_chestplate"));
-		leggingsFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 2).setTextureName(ECReference.getTexture("ice_leggings"));
-		bootsFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 3).setTextureName(ECReference.getTexture("ice_boots"));
+		helmetFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 0, "ice").setTextureName(ECReference.getTexture("ice_helmet"));
+		chestplateFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 1, "ice").setTextureName(ECReference.getTexture("ice_chestplate"));
+		leggingsFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 2, "ice").setTextureName(ECReference.getTexture("ice_leggings"));
+		bootsFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 3, "ice").setTextureName(ECReference.getTexture("ice_boots"));
 		
 		addItem(gemClear, "clear_gem");
 		addItem(gemFrost, "ice_gem");

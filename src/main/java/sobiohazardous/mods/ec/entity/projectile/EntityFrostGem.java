@@ -47,7 +47,7 @@ public class EntityFrostGem extends EntityThrowable
 					int x1 = x + i;
 					int y1 = y + j;
 					int z1 = z + k;
-					ECUtil.freeze(world, x1, y1, z1, true);
+					ECUtil.freeze(world, x1, y1, z1, true, false);
 				}
 			}
 		}

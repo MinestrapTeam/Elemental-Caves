@@ -27,7 +27,7 @@ public class ECEventHandler
 			{
 				if (helmet.getItem() == ECItems.helmetFreezium && chest.getItem() == ECItems.chestplateFreezium && pants.getItem() == ECItems.leggingsFreezium && boots.getItem() == ECItems.bootsFreezium)
 				{
-					ECUtil.freeze(player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
+					ECUtil.freeze(player.worldObj, (int) player.posX, (int) player.posY - 2, (int) player.posZ);
 				}
 			}
 		}

@@ -13,10 +13,10 @@ public class ECUtil
 {
 	public static boolean freeze(World world, int x, int y, int z)
 	{
-		return freeze(world, x, y, z, false);
+		return freeze(world, x, y, z, false, false);
 	}
 	
-	public static boolean freeze(World world, int x, int y, int z, boolean flag)
+	public static boolean freeze(World world, int x, int y, int z, boolean flag, boolean isArmorEffect)
 	{
 		Block block = world.getBlock(x, y, z);
 		
@@ -62,6 +62,10 @@ public class ECUtil
 		}
 		else if (block == Blocks.water)
 		{
+			if(isArmorEffect)
+			{
+				world.setBlock(x, y - 2, z, Blocks.ice);
+			}
 			world.setBlock(x, y, z, Blocks.ice);
 			flag = true;
 		}
