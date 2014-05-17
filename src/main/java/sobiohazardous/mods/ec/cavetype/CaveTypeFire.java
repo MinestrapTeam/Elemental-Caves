@@ -15,6 +15,7 @@ public class CaveTypeFire extends CaveType
 	{
 		super(name, ECBlocks.moltenstone);		
 		this.setSpawnHeight(60);
+		this.addOre(ECBlocks.moltenstone, 1, 18, 6, spawnHeight);
 	}
 	
 	@Override
