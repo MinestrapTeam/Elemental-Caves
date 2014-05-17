@@ -31,7 +31,7 @@ public class ECRecipes
 		GameRegistry.addSmelting(glacierrockCracked, glacierrock, 0.8F);
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.glacierRock, 4, 2), new Object[] { "BB", "BB", 'B', glacierrock });
 	
-		GameRegistry.addRecipe(new ItemStack(ECBlocks.glacierRockStairs), new Object[] { "M  ", "MM ", "MMM", 'M', glacierrock });
-		GameRegistry.addRecipe(new ItemStack(ECBlocks.glacierRockBrickStairs), new Object[] { "M  ", "MM ", "MMM", 'M', glacierrockBricks });
+		GameRegistry.addRecipe(new ItemStack(ECBlocks.glacierRockStairs, 4), new Object[] { "M  ", "MM ", "MMM", 'M', glacierrockCracked });
+		GameRegistry.addRecipe(new ItemStack(ECBlocks.glacierRockBrickStairs, 4), new Object[] { "M  ", "MM ", "MMM", 'M', glacierrockBricks });
 	}
 }
