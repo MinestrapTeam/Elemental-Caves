@@ -30,6 +30,8 @@ public class ECItems
 	public static Item			leggingsFreezium;
 	public static Item			bootsFreezium;
 	
+	public static Item			bucketIceFloe;
+	
 	public static void init()
 	{
 		gemClear = new ECItem().setTextureName(ECReference.getTexture("clear_gem"));
@@ -47,6 +49,8 @@ public class ECItems
 		leggingsFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 2, "ice").setTextureName(ECReference.getTexture("ice_leggings"));
 		bootsFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 3, "ice").setTextureName(ECReference.getTexture("ice_boots"));
 		
+		bucketIceFloe = new ECItemBucket(ECBlocks.iceFloe).setTextureName(ECReference.getTexture("bucket_ice_floe"));
+		
 		addItem(gemClear, "clear_gem");
 		addItem(gemFrost, "ice_gem");
 		addItem(iceShard, "ice_shard");
@@ -61,6 +65,8 @@ public class ECItems
 		addItem(chestplateFreezium, "ice_chestplate");
 		addItem(leggingsFreezium, "ice_leggings");
 		addItem(bootsFreezium, "ice_boots");
+		
+		addItem(bucketIceFloe, "bucket_ice_floe");
 	}
 	
 	public static void addItem(Item item, String name)

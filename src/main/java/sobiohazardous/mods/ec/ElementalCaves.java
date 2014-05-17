@@ -19,8 +19,8 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -39,11 +39,13 @@ public class ElementalCaves
 	public static CreativeTabs		creativeTabECBlocks	= new ECCreativeTabBlocks("ec_blocks");
 	public static CreativeTabs		creativeTabECItems	= new ECCreativeTabItems("ec_items");
 	
-	public static Fluid				iceFloe				= new Fluid("ice_floe");
+	public static Fluid				iceFloe				= new Fluid("ice_floe").setLuminosity(6).setViscosity(2000);
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
+		FluidRegistry.registerFluid(iceFloe);
+
 		ECBlocks.init();
 		ECItems.init();
 		ECRecipes.init();
@@ -54,13 +56,12 @@ public class ElementalCaves
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event)
-	{
-		FluidRegistry.registerFluid(iceFloe);
-		
+	{		
 		ECBlocks.addHarvestLevels();
 		
 		FMLCommonHandler.instance().bus().register(eventHandler);
 		MinecraftForge.EVENT_BUS.register(eventHandler);
+		eventHandler.INSTANCE.buckets.put(ECBlocks.iceFloe, ECItems.bucketIceFloe);
 		GameRegistry.registerWorldGenerator(new ECWorldGenerator(), 0);
 		proxy.registerRenders();
 	}

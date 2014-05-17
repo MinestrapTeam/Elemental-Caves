@@ -3,22 +3,25 @@ package sobiohazardous.mods.ec.block;
 import sobiohazardous.mods.ec.ElementalCaves;
 import sobiohazardous.mods.ec.lib.ECBlocks;
 import sobiohazardous.mods.ec.lib.ECReference;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.BlockFluidFinite;
+import net.minecraftforge.fluids.Fluid;
 
-public class BlockIceFloe extends BlockFluidFinite
+public class BlockIceFloe extends BlockFluidClassic
 {
 	private IIcon flowingIcon;
 	
 	public BlockIceFloe()
 	{
 		super(ElementalCaves.iceFloe, Material.water);
+		ElementalCaves.iceFloe.setBlock(this);
+		this.disableStats();
 	}
 	
 	@Override
@@ -28,10 +31,16 @@ public class BlockIceFloe extends BlockFluidFinite
 		this.flowingIcon = iconRegister.registerIcon(ECReference.getTexture("icefloe_flowing"));
 	}
 	
+    @Override public Fluid getFluid()
+    { 
+    	return ElementalCaves.iceFloe; 
+    }
+
+	
 	@Override
 	public IIcon getIcon(int side, int metadata)
 	{
-		return side == 0 || side == 1 || metadata > 0 ? this.flowingIcon : this.blockIcon;
+		return (side == 0 || side == 1)? this.blockIcon : flowingIcon;
 	}
 	
 	@Override
@@ -42,24 +51,19 @@ public class BlockIceFloe extends BlockFluidFinite
 		if (block == Blocks.flowing_water)
 		{
 			world.setBlock(x, y, z, Blocks.snow);
-			return true;
 		}
 		else if (block == Blocks.water)
 		{
 			world.setBlock(x, y, z, Blocks.ice);
-			return true;
 		}
 		else if (block == Blocks.flowing_lava)
 		{
 			world.setBlock(x, y, z, ECBlocks.glacierRock, 1, 3);
-			return true;
 		}
 		else if (block == Blocks.lava)
 		{
 			world.setBlock(x, y, z, Blocks.obsidian);
-			return true;
 		}
-		
-		return false;
+		return super.displaceIfPossible(world, x, y, z);
 	}
 }
