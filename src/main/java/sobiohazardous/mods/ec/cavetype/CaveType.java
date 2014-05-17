@@ -14,9 +14,8 @@ public class CaveType
 {
 	public static List<CaveType>	caveTypes				= new ArrayList();
 	
-	public static CaveType			ice						= new CaveTypeIce("ice").setSpawnHeight(60);
+	public static CaveType			ice						= new CaveTypeIce("ice");
 	public static CaveType			fire					= new CaveTypeFire("fire");
-	// public static CaveType ocean = new CaveTypeOcean("ocean");
 	
 	public final String				name;
 	public Block					block;
@@ -27,7 +26,7 @@ public class CaveType
 	public int						floorMetadata;
 	public int						ceilingMetadata;
 	
-	protected int					spawnHeight				= 64;
+	protected int					spawnHeight				= 62;
 	protected float					floorAddonSpawnWeight	= 0.2F;
 	protected float					ceilingAddonSpawnWeight	= 0.2F;
 	
