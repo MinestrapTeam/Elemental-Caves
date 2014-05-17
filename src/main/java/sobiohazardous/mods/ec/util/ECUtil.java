@@ -76,8 +76,7 @@ public class ECUtil
 		
 		if (flag)
 		{
-			//world.playAuxSFX(2001, x, y, z, 79);
-			//world.playAuxSFX(2001, x, y, z, 80);
+			world.playAuxSFX(2001, x, y, z, 79);
 		}
 		
 		return flag;

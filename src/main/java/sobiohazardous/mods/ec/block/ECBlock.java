@@ -22,7 +22,7 @@ public class ECBlock extends Block
     {
     	if(this == ECBlocks.oreGlistening)
     	{
-    		return ECItems.gemClear;
+    		return ECItems.clearGem;
     	}
     	return super.getItemDropped(metadata, random, fortune);
     }

@@ -1,10 +1,10 @@
 package sobiohazardous.mods.ec.item;
 
+import sobiohazardous.mods.ec.entity.projectile.EntityMagmaGem;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import sobiohazardous.mods.ec.entity.projectile.EntityFireShard;
-import sobiohazardous.mods.ec.entity.projectile.EntityMagmaGem;
 
 public class ItemMagmaGem extends ECItem
 {

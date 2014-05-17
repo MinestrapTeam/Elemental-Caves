@@ -47,13 +47,10 @@ public class EntityFrostGem extends EntityThrowable
 					int x1 = x + i;
 					int y1 = y + j;
 					int z1 = z + k;
-					ECUtil.freeze(world, x1, y1, z1, true, false);
+					ECUtil.freeze(world, x1, y1, z1);
 				}
 			}
 		}
-		
-		world.playAuxSFX(2001, x, y, z, 79);
-		world.playAuxSFX(2001, x, y, z, 80);
 		
 		AxisAlignedBB axisalignedbb = this.boundingBox.expand(4.0D, 2.0D, 4.0D);
 		List<EntityLivingBase> list1 = world.getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb);

@@ -3,9 +3,9 @@ package sobiohazardous.mods.ec.entity.projectile;
 import java.util.List;
 
 import sobiohazardous.mods.ec.util.ECUtil;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
-import net.minecraft.init.Blocks;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;

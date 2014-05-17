@@ -14,6 +14,6 @@ public class ECCreativeTabItems extends CreativeTabs
 	@Override
 	public Item getTabIconItem()
 	{
-		return ECItems.gemClear;
+		return ECItems.clearGem;
 	}
 }
