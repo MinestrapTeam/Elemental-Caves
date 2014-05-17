@@ -15,9 +15,13 @@ public class ECItems
 	
 	public static ArmorMaterial	armorFreezium		= EnumHelper.addArmorMaterial("freezium", 480, new int[] { 11, 13, 12, 11 }, 11);
 	
-	public static Item			gemClear;
-	public static Item			gemFrost;
+	public static Item			clearGem;
+	public static Item			iceGem;
+	public static Item			magmaGem;
 	public static Item			iceShard;
+	public static Item			fireShard;
+	
+	public static Item			bucketIceFloe;
 	
 	public static Item			swordFreezium;
 	public static Item			shovelFreezium;
@@ -30,16 +34,15 @@ public class ECItems
 	public static Item			leggingsFreezium;
 	public static Item			bootsFreezium;
 	
-	public static Item			bucketIceFloe;
-	
-	public static Item			fireShard;
-	public static Item			magmaGem;
-	
 	public static void init()
 	{
-		gemClear = new ECItem().setTextureName(ECReference.getTexture("clear_gem"));
-		gemFrost = new ItemFrostGem().setTextureName(ECReference.getTexture("ice_gem"));
+		clearGem = new ECItem().setTextureName(ECReference.getTexture("clear_gem"));
+		iceGem = new ItemFrostGem().setTextureName(ECReference.getTexture("ice_gem"));
+		magmaGem = new ItemMagmaGem().setTextureName(ECReference.getTexture("gemFire"));
 		iceShard = new ItemIceShard().setTextureName(ECReference.getTexture("ice_shard"));
+		fireShard = new ItemFireShard().setTextureName(ECReference.getTexture("shardFire"));
+		
+		bucketIceFloe = new ECItemBucket(ECBlocks.iceFloe).setTextureName(ECReference.getTexture("bucket_ice_floe"));
 		
 		swordFreezium = new ECItemSword(materialFreezium).setTextureName(ECReference.getTexture("ice_sword"));
 		shovelFreezium = new ECItemShovel(materialFreezium).setTextureName(ECReference.getTexture("ice_shovel"));
@@ -52,14 +55,13 @@ public class ECItems
 		leggingsFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 2, "ice").setTextureName(ECReference.getTexture("ice_leggings"));
 		bootsFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 3, "ice").setTextureName(ECReference.getTexture("ice_boots"));
 		
-		bucketIceFloe = new ECItemBucket(ECBlocks.iceFloe).setTextureName(ECReference.getTexture("bucket_ice_floe"));
-		
-		fireShard = new ItemFireShard().setTextureName(ECReference.getTexture("shardFire"));
-		magmaGem = new ItemMagmaGem().setTextureName(ECReference.getTexture("gemFire"));
-		
-		addItem(gemClear, "clear_gem");
-		addItem(gemFrost, "ice_gem");
+		addItem(clearGem, "clear_gem");
+		addItem(iceGem, "ice_gem");
+		addItem(magmaGem, "magma_gem");
 		addItem(iceShard, "ice_shard");
+		addItem(fireShard, "fire_shard");
+		
+		addItem(bucketIceFloe, "bucket_ice_floe");
 		
 		addItem(swordFreezium, "ice_sword");
 		addItem(shovelFreezium, "ice_shovel");
@@ -71,11 +73,6 @@ public class ECItems
 		addItem(chestplateFreezium, "ice_chestplate");
 		addItem(leggingsFreezium, "ice_leggings");
 		addItem(bootsFreezium, "ice_boots");
-		
-		addItem(bucketIceFloe, "bucket_ice_floe");
-		
-		addItem(fireShard, "fire_shard");
-		addItem(magmaGem, "magma_gem");
 	}
 	
 	public static void addItem(Item item, String name)

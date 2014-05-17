@@ -24,7 +24,13 @@ tile.glistening_ore.name=Glistening Ore
 
 item.clear_gem.name=Clear Gem
 item.ice_gem.name=Frost Gem
+item.magma_gem.name=Magma Gem
+item.forest_gem.name=Forest Gem
+
 item.ice_shard.name=Ice Shard
+item.fire_shard.name=Fire Shard
+
+item.bucket_ice_floe.name=Bucket of Ice Floe
 
 item.ice_sword.name=Freezium Sword
 item.ice_shovel.name=Freezium Shovel
@@ -36,8 +42,3 @@ item.ice_helmet.name=Freezium Helmet
 item.ice_chestplate.name=Freezium Chestplate
 item.ice_leggings.name=Freezium Leggings
 item.ice_boots.name=Freezium Boots
-
-item.bucket_ice_floe.name=Bucket of Ice Floe
-item.fire_shard.name=Fire Shard
-item.magma_gem.name=Magma Gem
-
