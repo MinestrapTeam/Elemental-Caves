@@ -33,7 +33,7 @@ public class CaveTypeIce extends CaveType
 	public void generateCeilingAddons(World world, Random random, int x, int y, int z)
 	{
 		//generate crystal stallagitmites
-		world.setBlock(x, y, z, ECBlocks.crystalIce, 0, 3);
-		world.setBlock(x, y - 1, z, ECBlocks.crystalIce, 0, 3);
+		world.setBlock(x, y, z, ECBlocks.crystals, 0, 3);
+		world.setBlock(x, y - 1, z, ECBlocks.crystals, 0, 3);
 	}
 }

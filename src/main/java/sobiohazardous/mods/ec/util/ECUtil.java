@@ -73,4 +73,19 @@ public class ECUtil
 		
 		return flag;
 	}
+	
+	public static boolean melt(World world, int x, int y, int z)
+	{
+		return melt(world, x, y, z, false);
+	}
+	
+	public static boolean melt(World world, int x, int y, int z, boolean flag)
+	{
+		if (flag)
+		{
+			world.playAuxSFX(2004, x, y, z, 0);
+		}
+		
+		return flag;
+	}
 }

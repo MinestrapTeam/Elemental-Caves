@@ -13,7 +13,7 @@ public class ECRecipes
 		ItemStack glacierrockBricks = new ItemStack(ECBlocks.glacierRock, 1, 2);
 		
 		GameRegistry.addRecipe(new ItemStack(ECItems.gemFrost), new Object[] { "SAS", "ACA", "SAS", 'A', ECBlocks.ancientIce, 'S', ECItems.iceShard, 'C', ECItems.gemClear });
-		GameRegistry.addRecipe(new ItemStack(ECBlocks.crystalIce), new Object[] { "SS", "SS", 'S', ECItems.iceShard });
+		GameRegistry.addRecipe(new ItemStack(ECBlocks.crystals), new Object[] { "SS", "SS", 'S', ECItems.iceShard });
 		GameRegistry.addSmelting(new ItemStack(ECBlocks.oreFreezium, 1, 0), new ItemStack(ECBlocks.ancientIce, 1, 0), 0.8F);
 		
 		GameRegistry.addRecipe(new ItemStack(ECItems.axeFreezium), new Object[] { "MM ", "MS ", " S ", 'S', Items.stick, 'M', ECItems.gemFrost });

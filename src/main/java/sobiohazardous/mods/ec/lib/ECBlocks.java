@@ -10,17 +10,15 @@ import net.minecraft.item.ItemBlock;
 
 public class ECBlocks
 {
+	public static Block	crystals;
+	
 	public static Block	ancientIce;
-	public static Block	crystalIce;
-	
 	public static Block	glacierRock;
-	
 	public static Block	glacierRockStairs;
 	public static Block	glacierRockBrickStairs;
 	
 	public static Block	oreLapis;
 	public static Block	oreFreezium;
-	
 	public static Block	oreGlistening;
 	
 	public static Block	iceFloe;
@@ -28,10 +26,9 @@ public class ECBlocks
 	public static void init()
 	{
 		ancientIce = new BlockAncientIce(Material.rock).setStepSound(Block.soundTypeGlass).setHardness(2F).setResistance(40000F).setBlockTextureName(ECReference.getTexture("ancient_ice"));
-		crystalIce = new BlockIceCrystal().setHardness(5F).setResistance(8F).setBlockTextureName(ECReference.getTexture("crystal_ice"));
+		crystals = new BlockCrystals().setHardness(5F).setResistance(8F).setBlockTextureName(ECReference.getTexture("crystal"));
 		
 		glacierRock = new BlockGlacierrock().setHardness(2.0F).setResistance(11.0F).setBlockTextureName(ECReference.getTexture("glacierrock"));
-		
 		glacierRockStairs = new EDBlockStairs(glacierRock, 1).setHardness(2F).setResistance(10F);
 		glacierRockBrickStairs = new EDBlockStairs(glacierRock, 2).setHardness(2F).setResistance(10F);
 		
@@ -41,11 +38,10 @@ public class ECBlocks
 		
 		iceFloe = new BlockIceFloe();
 		
+		addBlock(crystals, "crystal_ice");
+		
 		addBlock(ancientIce, "ancient_ice");
-		addBlock(crystalIce, "crystal_ice");
-		
 		addBlock(glacierRock, ECItemBlockMulti.class, "glacierrock");
-		
 		addBlock(glacierRockStairs, "glacierrock_stairs");
 		addBlock(glacierRockBrickStairs, "glacierrock_brick_stairs");
 		
@@ -59,7 +55,7 @@ public class ECBlocks
 	public static void addHarvestLevels()
 	{
 		ancientIce.setHarvestLevel("pickaxe", 2);
-		crystalIce.setHarvestLevel("pickaxe", 3);
+		crystals.setHarvestLevel("pickaxe", 3);
 		glacierRock.setHarvestLevel("pickaxe", 2);
 		glacierRockStairs.setHarvestLevel("pickaxe", 2);
 		glacierRockBrickStairs.setHarvestLevel("pickaxe", 2);
