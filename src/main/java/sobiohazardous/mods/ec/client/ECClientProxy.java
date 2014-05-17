@@ -3,6 +3,7 @@ package sobiohazardous.mods.ec.client;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import sobiohazardous.mods.ec.common.ECCommonProxy;
+import sobiohazardous.mods.ec.entity.projectile.EntityFireShard;
 import sobiohazardous.mods.ec.entity.projectile.EntityFrostGem;
 import sobiohazardous.mods.ec.entity.projectile.EntityIceShard;
 import sobiohazardous.mods.ec.lib.ECItems;
@@ -14,6 +15,6 @@ public class ECClientProxy extends ECCommonProxy
 	{
 		RenderingRegistry.registerEntityRenderingHandler(EntityIceShard.class, new RenderSnowball(ECItems.iceShard));
 		RenderingRegistry.registerEntityRenderingHandler(EntityFrostGem.class, new RenderSnowball(ECItems.gemFrost));
-
+		RenderingRegistry.registerEntityRenderingHandler(EntityFireShard.class, new RenderSnowball(ECItems.fireShard));
 	}
 }

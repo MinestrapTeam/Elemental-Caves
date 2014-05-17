@@ -11,7 +11,7 @@ import net.minecraft.world.biome.BiomeGenBase.TempCategory;
 
 public class CaveTypeFire extends CaveType
 {
-	public CaveTypeFire(String name, Block mainCaveBlock)
+	public CaveTypeFire(String name)
 	{
 		super(name, ECBlocks.moltenstone);		
 		this.setSpawnHeight(60);

@@ -4,6 +4,7 @@ import sobiohazardous.mods.ec.common.ECCommonProxy;
 import sobiohazardous.mods.ec.common.ECEventHandler;
 import sobiohazardous.mods.ec.creativetab.ECCreativeTabBlocks;
 import sobiohazardous.mods.ec.creativetab.ECCreativeTabItems;
+import sobiohazardous.mods.ec.entity.projectile.EntityFireShard;
 import sobiohazardous.mods.ec.entity.projectile.EntityFrostGem;
 import sobiohazardous.mods.ec.entity.projectile.EntityIceShard;
 import sobiohazardous.mods.ec.lib.ECBlocks;
@@ -52,6 +53,7 @@ public class ElementalCaves
 		
 		EntityRegistry.registerModEntity(EntityIceShard.class, "entity_ice_shard", EntityRegistry.findGlobalUniqueEntityId(), this.instance, 40, 400, true);
 		EntityRegistry.registerModEntity(EntityFrostGem.class, "entity_frost_gem", EntityRegistry.findGlobalUniqueEntityId(), this.instance, 40, 400, true);
+		EntityRegistry.registerModEntity(EntityFireShard.class, "entity_fire_shard", EntityRegistry.findGlobalUniqueEntityId(), this.instance, 40, 400, true);
 	}
 	
 	@EventHandler
