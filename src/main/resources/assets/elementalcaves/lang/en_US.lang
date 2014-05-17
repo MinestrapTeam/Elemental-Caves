@@ -2,14 +2,21 @@ itemGroup.ec_blocks=Elemental Caves - Blocks
 itemGroup.ec_items=Elemental Caves - Items
 
 tile.ancient_ice.name=Ancient Ice
-tile.crystal_ice.name=Ice Crystal
+tile.crystal.0.name=Ice Crystal
+tile.crystal.1.name=Fire Crystal
+tile.crystal.2.name=Forest Crystal
 
 tile.glacierrock.0.name=Glacier Rock
 tile.glacierrock.1.name=Cracked Glacier Rock
 tile.glacierrock.2.name=Glacier Rock Bricks
-
 tile.glacierrock_stairs.name=Glacier Rock Stairs
 tile.glacierrock_brick_stairs.name=Glacier Rock Brick Stairs
+tile.glacierrock_slab_single.0.name=Glacierrock Single Slab
+tile.glacierrock_slab_double.0.name=Glacierrock Double Slab
+
+tile.molten_stone.0.name=Moltenstone
+tile.molten_stone.1.name=Cooled Moltenstone
+tile.molten_stone.2.name=Moltenstone Bricks
 
 tile.lapis_ore_glacier.name=Glacier Lapis Ore
 tile.freezium_ore.name=Freezium Ore
@@ -18,3 +25,19 @@ tile.glistening_ore.name=Glistening Ore
 item.clear_gem.name=Clear Gem
 item.ice_gem.name=Frost Gem
 item.ice_shard.name=Ice Shard
+
+item.ice_sword.name=Freezium Sword
+item.ice_shovel.name=Freezium Shovel
+item.ice_pickaxe.name=Freezium Pickaxe
+item.ice_axe.name=Freezium Axe
+item.ice_hoe.name=Freezium Hoe
+
+item.ice_helmet.name=Freezium Helmet
+item.ice_chestplate.name=Freezium Chestplate
+item.ice_leggings.name=Freezium Leggings
+item.ice_boots.name=Freezium Boots
+
+item.bucket_ice_floe.name=Bucket of Ice Floe
+item.fire_shard.name=Fire Shard
+item.magma_gem.name=Magma Gem
+
