@@ -38,8 +38,6 @@ public class ECWorldGenerator implements IWorldGenerator
 	public void generateSurface(World world, Random rand, int chunkX, int chunkZ, IChunkProvider chunk)
 	{
 		this.replaceCaves(world, rand, chunkX, chunkZ);
-		
-		// TODO implement ore generators
 	}
 	
 	public void generateNether(World world, Random rand, int chunkX, int chunkZ)

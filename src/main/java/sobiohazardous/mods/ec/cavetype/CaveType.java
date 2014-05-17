@@ -197,14 +197,15 @@ public class CaveType
 	{
 		if (this.wallGen == null)
 		{
-			this.wallGen = new WorldGenMinable(this.block, this.blockMetadata, 16, Blocks.stone);
+			this.wallGen = new WorldGenMinable(this.block, this.blockMetadata, 32, Blocks.stone);
+			//TODO: Create WorldGenMinable class that makes it so blocks don't spawn in a circle.
 		}
 		this.wallGen.generate(world, random, x, y, z);
 	}
 	
 	public void generateCeiling(World world, Random random, int x, int y, int z)
 	{
-		if (this.ceilingBlock != null)
+		if (this.ceilingBlock != null && y < 63)
 		{
 			world.setBlock(x, y, z, this.ceilingBlock, this.ceilingMetadata, 3);
 		}
