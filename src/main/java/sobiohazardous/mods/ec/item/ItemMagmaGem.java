@@ -4,10 +4,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import sobiohazardous.mods.ec.entity.projectile.EntityFireShard;
+import sobiohazardous.mods.ec.entity.projectile.EntityMagmaGem;
 
-public class ItemFireShard extends ECItem
+public class ItemMagmaGem extends ECItem
 {
-	public ItemFireShard()
+	public ItemMagmaGem()
     {
         this.maxStackSize = 16;
     }
@@ -24,7 +25,7 @@ public class ItemFireShard extends ECItem
 
         if (!world.isRemote)
         {
-            world.spawnEntityInWorld(new EntityFireShard(world, player));
+            world.spawnEntityInWorld(new EntityMagmaGem(world, player));
         }
 
         return stack;
