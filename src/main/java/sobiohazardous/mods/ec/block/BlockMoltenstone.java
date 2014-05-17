@@ -20,11 +20,11 @@ public class BlockMoltenstone extends ECBlockMulti
 	}
 	
 	@Override
-	public int quantityDropped(Random random)
+	public int quantityDropped(int metadata, int fortune, Random random)
 	{
-		return 0;
+		return metadata == 0 ? 0 : 1;
 	}
-    
+	
 	@Override
 	public void onEntityWalking(World world, int x, int y, int z, Entity entity)
 	{
@@ -34,13 +34,16 @@ public class BlockMoltenstone extends ECBlockMulti
 	@Override
 	public void onBlockHarvested(World world, int x, int y, int z, int metadata, EntityPlayer player)
 	{
-		if (!EnchantmentHelper.getSilkTouchModifier(player))
+		if (metadata == 0)
 		{
-			world.setBlock(x, y, z, Blocks.lava);
-		}
-		else
-		{
-			this.dropBlockAsItem(world, x, y, z, new ItemStack(this));
+			if (!EnchantmentHelper.getSilkTouchModifier(player))
+			{
+				world.setBlock(x, y, z, Blocks.lava);
+			}
+			else
+			{
+				this.dropBlockAsItem(world, x, y, z, new ItemStack(this));
+			}
 		}
 	}
 }
