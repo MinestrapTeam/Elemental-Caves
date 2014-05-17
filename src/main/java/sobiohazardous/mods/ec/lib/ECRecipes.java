@@ -8,9 +8,13 @@ public class ECRecipes
 {
 	public static void init()
 	{
-		GameRegistry.addRecipe(new ItemStack(ECItems.gemFrost), new Object[] { "SAS", "ACA", "SAS", 'A', ECBlocks.ancientIce, 'S', ECItems.iceShard, 'C', ECItems.gemClear });
+		ItemStack glacierrock = new ItemStack(ECBlocks.glacierRock, 1, 0);
+		ItemStack glacierrockCracked = new ItemStack(ECBlocks.glacierRock, 1, 1);
+		ItemStack glacierrockBricks = new ItemStack(ECBlocks.glacierRock, 1, 2);
 		
+		GameRegistry.addRecipe(new ItemStack(ECItems.gemFrost), new Object[] { "SAS", "ACA", "SAS", 'A', ECBlocks.ancientIce, 'S', ECItems.iceShard, 'C', ECItems.gemClear });
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.crystalIce), new Object[] { "SS", "SS", 'S', ECItems.iceShard });
+		GameRegistry.addSmelting(new ItemStack(ECBlocks.oreFreezium, 1, 0), new ItemStack(ECBlocks.ancientIce, 1, 0), 0.8F);
 		
 		GameRegistry.addRecipe(new ItemStack(ECItems.axeFreezium), new Object[] { "MM ", "MS ", " S ", 'S', Items.stick, 'M', ECItems.gemFrost });
 		GameRegistry.addRecipe(new ItemStack(ECItems.hoeFreezium), new Object[] { "MM ", " S ", " S ", 'S', Items.stick, 'M', ECItems.gemFrost });
@@ -23,8 +27,11 @@ public class ECRecipes
 		GameRegistry.addRecipe(new ItemStack(ECItems.leggingsFreezium), new Object[] { "MMM", "M M", "M M", 'M', ECItems.gemFrost });
 		GameRegistry.addRecipe(new ItemStack(ECItems.bootsFreezium), new Object[] { "M M", "M M", 'M', ECItems.gemFrost });
 		
-		GameRegistry.addSmelting(new ItemStack(ECBlocks.oreFreezium, 1, 0), new ItemStack(ECBlocks.ancientIce, 1, 0), 0.8F);
-		GameRegistry.addSmelting(new ItemStack(ECBlocks.glacierRock, 1, 1), new ItemStack(ECBlocks.glacierRock, 1, 0), 0.8F);
-		GameRegistry.addRecipe(new ItemStack(ECBlocks.glacierRock, 4, 2), new Object[] { "BB", "BB", 'B', new ItemStack(ECBlocks.glacierRock, 1, 0) });
+		
+		GameRegistry.addSmelting(glacierrockCracked, glacierrock, 0.8F);
+		GameRegistry.addRecipe(new ItemStack(ECBlocks.glacierRock, 4, 2), new Object[] { "BB", "BB", 'B', glacierrock });
+	
+		GameRegistry.addRecipe(new ItemStack(ECBlocks.glacierRockStairs), new Object[] { "M  ", "MM ", "MMM", 'M', glacierrock });
+		GameRegistry.addRecipe(new ItemStack(ECBlocks.glacierRockBrickStairs), new Object[] { "M  ", "MM ", "MMM", 'M', glacierrockBricks });
 	}
 }
