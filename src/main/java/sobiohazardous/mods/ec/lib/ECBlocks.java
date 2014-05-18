@@ -82,7 +82,7 @@ public class ECBlocks
 		
 		oreLapis = new ECBlockOre(0.98F).setHardness(3F).setResistance(5.0F).setBlockTextureName(ECUtil.getTexture("lapis_ore_glacier"));
 		oreFreezium = new ECBlockOre(0.98F).setHardness(3.5F).setResistance(6F).setBlockTextureName(ECUtil.getTexture("freezium_ore"));
-		oreGlistening = new ECBlockOre(0.6F).setHardness(3.0F).setResistance(15.0F).setLightLevel(0.6F).setBlockTextureName(ECUtil.getTexture("glistening_ore"));
+		oreGlistening = new ECBlockOre().setHardness(3.0F).setResistance(15.0F).setLightLevel(0.6F).setBlockTextureName(ECUtil.getTexture("glistening_ore"));
 		oreDiamond = new ECBlockOre().setHardness(3.5F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setBlockTextureName(ECUtil.getTexture("diamond_ore_molten"));
 		
 		crystals = new BlockCrystals().setHardness(5F).setResistance(8F).setBlockTextureName(ECUtil.getTexture("crystal"));

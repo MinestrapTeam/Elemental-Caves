@@ -17,7 +17,7 @@ public class ECBlockOre extends BlockSlippery
 	
 	public ECBlockOre()
 	{
-		super(Material.rock);
+		super(Material.rock, 0.6F);
 	}
 	
 	public ECBlockOre(float sliperiness)
