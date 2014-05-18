@@ -28,6 +28,8 @@ public class CaveTypeIce extends CaveType
 	public void generateFloor(World world, Random random, int x, int y, int z)
 	{
 		world.setBlock(x, y, z, ECBlocks.ancientIce, 0, 2);
+		if (y < 16)
+			world.setBlock(x, y + 1, z, ECBlocks.iceFloe);
 	}
 	
 	@Override

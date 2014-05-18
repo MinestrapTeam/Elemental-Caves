@@ -7,7 +7,12 @@ import sobiohazardous.mods.ec.util.ECUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidClassic;
@@ -15,7 +20,7 @@ import net.minecraftforge.fluids.Fluid;
 
 public class BlockIceFloe extends BlockFluidClassic
 {
-	private IIcon flowingIcon;
+	private IIcon	flowingIcon;
 	
 	public BlockIceFloe()
 	{
@@ -31,16 +36,27 @@ public class BlockIceFloe extends BlockFluidClassic
 		this.flowingIcon = iconRegister.registerIcon(ECUtil.getTexture("icefloe_flowing"));
 	}
 	
-    @Override public Fluid getFluid()
-    { 
-    	return ElementalCaves.iceFloe; 
-    }
-
+	@Override
+	public Fluid getFluid()
+	{
+		return ElementalCaves.iceFloe;
+	}
+	
+	@Override
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
+	{
+		if (entity instanceof EntityLivingBase)
+		{
+			EntityLivingBase living = ((EntityLivingBase) entity);
+			living.attackEntityFrom(DamageSource.generic, 0.25F);
+			living.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20 * 30, 1));
+		}
+	}
 	
 	@Override
 	public IIcon getIcon(int side, int metadata)
 	{
-		return (side == 0 || side == 1)? this.blockIcon : flowingIcon;
+		return (side == 0 || side == 1) ? this.blockIcon : flowingIcon;
 	}
 	
 	@Override
