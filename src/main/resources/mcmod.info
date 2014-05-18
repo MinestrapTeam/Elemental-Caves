@@ -2,7 +2,7 @@
 {
   "modid": "ElementalCaves",
   "name": "Elemental Caves",
-  "description": "Modjam 4 mod.",
+  "description": "Modjam 4 mod. View readme.md on github for more info.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
