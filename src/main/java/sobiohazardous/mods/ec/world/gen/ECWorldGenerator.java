@@ -108,18 +108,7 @@ public class ECWorldGenerator implements IWorldGenerator
 			{
 				if (!wasAir && ceiling == -1)
 				{
-<<<<<<< HEAD
-<<<<<<< HEAD
-					if (type.canGenerateAt(world, x1, z1))
-					{
-						type.generate(world, rand, x1, z1);					
-					}
-=======
 					ceiling = y + 1;
->>>>>>> e01f78d4231b6268d60f69c6ae8891be040c490d
-=======
-					ceiling = y + 1;
->>>>>>> e01f78d4231b6268d60f69c6ae8891be040c490d
 				}
 				wasAir = true;
 			}
