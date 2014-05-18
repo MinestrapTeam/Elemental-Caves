@@ -7,7 +7,9 @@ import sobiohazardous.mods.ec.creativetab.ECCreativeTabItems;
 import sobiohazardous.mods.ec.entity.projectile.EntityFireShard;
 import sobiohazardous.mods.ec.entity.projectile.EntityFrostGem;
 import sobiohazardous.mods.ec.entity.projectile.EntityIceShard;
+import sobiohazardous.mods.ec.entity.projectile.EntityMagmaGem;
 import sobiohazardous.mods.ec.lib.ECBlocks;
+import sobiohazardous.mods.ec.lib.ECConfig;
 import sobiohazardous.mods.ec.lib.ECItems;
 import sobiohazardous.mods.ec.lib.ECRecipes;
 import sobiohazardous.mods.ec.lib.ECReference;
@@ -20,9 +22,9 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
@@ -44,17 +46,13 @@ public class ElementalCaves
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
-	{
+	{		
 		FluidRegistry.registerFluid(iceFloe);
 
+		ECConfig.init(new Configuration(event.getSuggestedConfigurationFile()));
 		ECBlocks.init();
 		ECItems.init();
 		ECRecipes.init();
-		
-		EntityRegistry.registerModEntity(EntityIceShard.class, "entity_ice_shard", EntityRegistry.findGlobalUniqueEntityId(), this.instance, 40, 3, true);
-		EntityRegistry.registerModEntity(EntityFrostGem.class, "entity_frost_gem", EntityRegistry.findGlobalUniqueEntityId(), this.instance, 40, 3, true);
-		EntityRegistry.registerModEntity(EntityFireShard.class, "entity_fire_shard", EntityRegistry.findGlobalUniqueEntityId(), this.instance, 40, 3, true);
-		EntityRegistry.registerModEntity(EntityFireShard.class, "entity_magma_gem", EntityRegistry.findGlobalUniqueEntityId(), this.instance, 40, 3, true);
 	}
 	
 	@EventHandler
@@ -66,6 +64,12 @@ public class ElementalCaves
 		MinecraftForge.EVENT_BUS.register(eventHandler);
 		eventHandler.INSTANCE.buckets.put(ECBlocks.iceFloe, ECItems.bucketIceFloe);
 		GameRegistry.registerWorldGenerator(new ECWorldGenerator(), 0);
+		
+		EntityRegistry.registerModEntity(EntityIceShard.class, "entity_ice_shard", 2, this.instance, 40, 3, true);
+		EntityRegistry.registerModEntity(EntityFrostGem.class, "entity_frost_gem", 3, this.instance, 40, 3, true);
+		EntityRegistry.registerModEntity(EntityFireShard.class, "entity_fire_shard", 4, this.instance, 40, 3, true);
+		EntityRegistry.registerModEntity(EntityMagmaGem.class, "entity_magma_gem", 5, this.instance, 40, 3, true);
+		
 		proxy.registerRenders();
 	}
 	

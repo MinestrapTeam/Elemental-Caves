@@ -21,8 +21,19 @@ tile.molten_stone.1.name=Cooled Moltenstone
 tile.molten_stone.2.name=Moltenstone Bricks
 tile.molten_stone_stairs.name=Moltenstone Stairs
 tile.molten_brick_stairs.name=Molten Brick Stairs
-tile.molten_slab_single.name=Molten Single Slab
+tile.molten_slab_single.name=Molten Slab
 tile.molten_slab_double.name=Molten Double Slab
+
+tile.ancient_moss_stone.name=Ancient Mossy Stone
+tile.ancient_mossy_cobblestone.name=Ancient Mossy Cobblestone
+tile.ancient_mossy_bricks.name=Ancient Mossy Stone Bricks
+tile.ancientmossy_slab_single.0.name=Ancient Mossy Stone Slab
+tile.ancientmossy_slab_single.1.name=Ancient Mossy Cobblestone Slab
+tile.ancientmossy_slab_single.2.name=Ancient Mossy Stone Bricks Slab
+
+tile.rich_grass.name=Rich Grass
+tile.rich_soil.name=Rich Soil
+tile.rich_farmland.name=Rich Farmland
 
 tile.lapis_ore_glacier.name=Glacier Lapis Ore
 tile.freezium_ore.name=Freezium Ore
@@ -33,7 +44,6 @@ item.elemental_gems.1.name=Frost Gem
 item.elemental_gems.2.name=Magma Gem
 item.elemental_gems.3.name=Forest Gem
 
-item.elemental_shards.0.name=Clear Shard
 item.elemental_shards.1.name=Ice Shard
 item.elemental_shards.2.name=Fire Shard
 item.elemental_shards.3.name=Forest Shard

@@ -3,6 +3,7 @@ package sobiohazardous.mods.ec.common;
 import java.util.HashMap;
 import java.util.Map;
 
+import sobiohazardous.mods.ec.lib.ECBlocks;
 import sobiohazardous.mods.ec.lib.ECConfig;
 import sobiohazardous.mods.ec.lib.ECItems;
 import sobiohazardous.mods.ec.util.ECUtil;
@@ -12,11 +13,15 @@ import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
+import net.minecraftforge.event.entity.player.PlayerUseItemEvent;
+import net.minecraftforge.event.entity.player.UseHoeEvent;
 
 public class ECEventHandler
 {
@@ -77,5 +82,25 @@ public class ECEventHandler
 		} else
 			return null;
 
+	}
+	
+	@SubscribeEvent
+	public void onHoe(UseHoeEvent event)
+	{
+		int x = event.x;
+		int y = event.y;
+		int z = event.z;
+		
+		Block block = event.world.getBlock(x, y, z);
+
+        if (event.world.getBlock(x, y + 1, z).isAir(event.world, x, y + 1, z) && (block == ECBlocks.richGrass || block == ECBlocks.richSoil))
+        {
+            Block block1 = ECBlocks.richFarmland;
+            
+            event.world.playSoundEffect((double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), block1.stepSound.getStepResourcePath(), (block1.stepSound.getVolume() + 1.0F) / 2.0F, block1.stepSound.getPitch() * 0.8F);
+            event.world.setBlock(x, y, z, block1);
+            event.current.damageItem(1, event.entityPlayer);
+            
+        }
 	}
 }

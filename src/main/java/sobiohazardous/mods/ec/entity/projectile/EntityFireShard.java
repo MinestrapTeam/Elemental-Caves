@@ -29,6 +29,8 @@ public class EntityFireShard extends EntityThrowable
     @Override
     protected void onImpact(MovingObjectPosition mop)
     {
+		this.worldObj.playAuxSFX(2004, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
+
         if (mop.entityHit != null)
         {
             byte b0 = 0;

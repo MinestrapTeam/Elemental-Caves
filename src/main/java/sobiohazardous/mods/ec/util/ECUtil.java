@@ -186,6 +186,12 @@ public class ECUtil
 			world.setBlock(x, y, z, Blocks.grass);
 			flag = true;
 		}
+		else if(block == Blocks.cactus)
+		{
+			world.setBlock(x, y + 1, z, Blocks.cactus);
+			world.setBlock(x, y + 2, z, Blocks.cactus);
+			flag = true;
+		}
 		else if (block instanceof IGrowable)
 		{
 			IGrowable igrowable = (IGrowable) block;

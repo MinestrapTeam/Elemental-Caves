@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 
 public class ItemShards extends ECItemMulti
 {
-	public static final String[]	types	= new String[] {"shard_ice", "shard_fire", "shard_forest" };
+	public static final String[]	types	= new String[] {null, "shard_ice", "shard_fire", "shard_forest" };
 
 	public ItemShards()
 	{
@@ -32,6 +32,8 @@ public class ItemShards extends ECItemMulti
 			
 			if (!world.isRemote)
 			{
+				System.out.println(metadata);
+
 				if (metadata == 1)
 					world.spawnEntityInWorld(new EntityIceShard(world, player));
 				else if (metadata == 2)

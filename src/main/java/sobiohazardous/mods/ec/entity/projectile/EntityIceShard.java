@@ -29,6 +29,8 @@ public class EntityIceShard extends EntityThrowable
     @Override
     protected void onImpact(MovingObjectPosition mop)
     {
+		this.worldObj.playAuxSFX(2001, (int)this.posX, (int)this.posY, (int)this.posZ, 80);
+
         if (mop.entityHit != null)
         {
             byte b0 = 0;

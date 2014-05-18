@@ -20,6 +20,8 @@ public class CaveTypeIce extends CaveType
 		
 		this.getWallGen().addReplacement(Blocks.dirt, Blocks.ice);
 		this.getWallGen().addReplacement(Blocks.gravel, Blocks.packed_ice);
+		this.getWallGen().addReplacement(Blocks.water, ECBlocks.iceFloe);
+		this.getWallGen().addReplacement(Blocks.lava, ECBlocks.iceFloe);
 	}
 	
 	@Override

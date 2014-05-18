@@ -14,8 +14,10 @@ public class CaveType
 {
 	public static List<CaveType>	caveTypes				= new ArrayList();
 	
-	public static CaveType			ice						= new CaveTypeIce("ice");
-	public static CaveType			fire					= new CaveTypeFire("fire");
+	public static CaveType			ice						= new CaveTypeIce("Ice");
+	public static CaveType			fire					= new CaveTypeFire("Inferno");
+	public static CaveType			forest					= new CaveTypeForest("Forest");
+	
 	
 	public final String				name;
 	public Block					block;
@@ -147,7 +149,6 @@ public class CaveType
 				if (!cave)
 				{
 					this.generateCeiling(world, random, x, y + 1, z);
-					
 					if (random.nextFloat() < this.ceilingAddonSpawnWeight)
 					{
 						this.generateCeilingAddons(world, random, x, y + 1, z);
@@ -167,6 +168,10 @@ public class CaveType
 				if (random.nextFloat() < this.floorAddonSpawnWeight)
 				{
 					generateFloorAddons(world, random, x, y, z);
+				}
+				if (random.nextFloat() < this.floorAddonSpawnWeight)
+				{
+					generateMoreFloorAddons(world, random, x, y, z);
 				}
 				
 				cave = false;
@@ -218,6 +223,18 @@ public class CaveType
 	}
 	
 	public void generateFloorAddons(World world, Random random, int x, int y, int z)
+	{
+	}
+	
+	/**
+	 * Generates another block of floor addons using different rand value.
+	 * @param world
+	 * @param random
+	 * @param x
+	 * @param y
+	 * @param z
+	 */
+	public void generateMoreFloorAddons(World world, Random random, int x, int y, int z)
 	{
 	}
 	
