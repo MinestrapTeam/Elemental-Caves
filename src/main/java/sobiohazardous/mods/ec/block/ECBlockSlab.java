@@ -48,33 +48,15 @@ public class ECBlockSlab extends BlockSlab
 	@Override
 	public IIcon getIcon(int side, int metadata)
 	{
-		int type = metadata & 12;
 		int meta = metadata & 3;
-		
 		if (meta >= topIcons.length)
 			meta = 0;
 		
-		if (this.field_150004_a)
-		{
-			return type == 0 && (side == 1 || side == 0) ? this.topIcons[meta] : this.sideIcons[meta];
-		}
-		
-		if (type == 0 && (side == 1 || side == 0))
+		if (side == 1 || side == 0)
 		{
 			return this.topIcons[meta];
 		}
-		else if (type == 4 && (side == 5 || side == 4))
-		{
-			return this.sideIcons[meta];
-		}
-		else if (type == 8 && (side == 2 || side == 3))
-		{
-			return this.sideIcons[meta];
-		}
-		else
-		{
-			return this.topIcons[meta];
-		}
+		return this.sideIcons[meta];
 	}
 	
 	@Override
