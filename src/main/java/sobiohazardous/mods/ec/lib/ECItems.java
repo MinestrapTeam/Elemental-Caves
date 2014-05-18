@@ -1,9 +1,9 @@
 package sobiohazardous.mods.ec.lib;
 
-import sobiohazardous.mods.ec.ElementalCaves;
 import sobiohazardous.mods.ec.common.ECCommonProxy;
 import sobiohazardous.mods.ec.item.*;
 import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -57,10 +57,10 @@ public class ECItems
 		axeFreezium = new ECItemAxe(materialFreezium).setTextureName(ECReference.getTexture("ice_axe"));
 		hoeFreezium = new ECItemHoe(materialFreezium).setTextureName(ECReference.getTexture("ice_hoe"));
 		
-		helmetFreezium = new ECItemArmor(armorFreezium, ElementalCaves.proxy.addArmor("ice"), 0, "ice").setTextureName(ECReference.getTexture("ice_helmet"));
-		chestplateFreezium = new ECItemArmor(armorFreezium, ElementalCaves.proxy.addArmor("ice"), 1, "ice").setTextureName(ECReference.getTexture("ice_chestplate"));
-		leggingsFreezium = new ECItemArmor(armorFreezium, ElementalCaves.proxy.addArmor("ice"), 2, "ice").setTextureName(ECReference.getTexture("ice_leggings"));
-		bootsFreezium = new ECItemArmor(armorFreezium, ElementalCaves.proxy.addArmor("ice"), 3, "ice").setTextureName(ECReference.getTexture("ice_boots"));
+		helmetFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 0, "ice").setTextureName(ECReference.getTexture("ice_helmet"));
+		chestplateFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 1, "ice").setTextureName(ECReference.getTexture("ice_chestplate"));
+		leggingsFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 2, "ice").setTextureName(ECReference.getTexture("ice_leggings"));
+		bootsFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 3, "ice").setTextureName(ECReference.getTexture("ice_boots"));
 		
 		swordInfernium = new ECItemSword(materialInfernium).setTextureName(ECReference.getTexture("fire_sword"));
 		shovelInfernium = new ECItemShovel(materialInfernium).setTextureName(ECReference.getTexture("fire_shovel"));
@@ -68,10 +68,10 @@ public class ECItems
 		axeInfernium = new ECItemAxe(materialInfernium).setTextureName(ECReference.getTexture("fire_axe"));
 		hoeInfernium = new ECItemHoe(materialInfernium).setTextureName(ECReference.getTexture("fire_hoe"));
 		
-		helmetInfernium = new ECItemArmor(armorInfernium, ElementalCaves.proxy.addArmor("ice"), 0, "fire").setTextureName(ECReference.getTexture("fire_helmet"));
-		chestplateInfernium = new ECItemArmor(armorInfernium, ElementalCaves.proxy.addArmor("ice"), 1, "fire").setTextureName(ECReference.getTexture("fire_chestplate"));
-		leggingsInfernium = new ECItemArmor(armorInfernium, ElementalCaves.proxy.addArmor("ice"), 2, "fire").setTextureName(ECReference.getTexture("fire_leggings"));
-		bootsInfernium = new ECItemArmor(armorInfernium, ElementalCaves.proxy.addArmor("ice"), 3, "fire").setTextureName(ECReference.getTexture("fire_boots"));
+		helmetInfernium = new ECItemArmor(armorInfernium, ECCommonProxy.infernium, 0, "fire").setTextureName(ECReference.getTexture("fire_helmet"));
+		chestplateInfernium = new ECItemArmor(armorInfernium, ECCommonProxy.infernium, 1, "fire").setTextureName(ECReference.getTexture("fire_chestplate"));
+		leggingsInfernium = new ECItemArmor(armorInfernium, ECCommonProxy.infernium, 2, "fire").setTextureName(ECReference.getTexture("fire_leggings"));
+		bootsInfernium = new ECItemArmor(armorInfernium, ECCommonProxy.infernium, 3, "fire").setTextureName(ECReference.getTexture("fire_boots"));
 		
 		addItem(gems, "elemental_gems");
 		addItem(shards, "elemental_shards");

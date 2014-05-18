@@ -30,8 +30,7 @@ public class ECItemShovel extends ItemSpade
 				return true;
 			}
 		}
-		
-		if(this == ECItems.shovelInfernium)
+		else if(this == ECItems.shovelInfernium)
 		{
 			if(ECUtil.melt(world, x, y, z))
 			{

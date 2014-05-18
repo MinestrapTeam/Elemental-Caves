@@ -31,7 +31,7 @@ public class ECItemAxe extends ItemAxe
 				return true;
 			}
 		}
-		if(this == ECItems.axeInfernium)
+		else if(this == ECItems.axeInfernium)
 		{
 			if(ECUtil.melt(world, x, y, z))
 			{

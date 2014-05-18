@@ -30,7 +30,7 @@ public class ECItemPickaxe extends ItemPickaxe
 				return true;
 			}
 		}
-		if(this == ECItems.pickaxeInfernium)
+		else if(this == ECItems.pickaxeInfernium)
 		{
 			if(ECUtil.melt(world, x, y, z))
 			{

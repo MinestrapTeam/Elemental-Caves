@@ -11,26 +11,29 @@ import net.minecraft.util.IIcon;
 
 public class BlockAncientMossStone extends ECBlock
 {
-	private IIcon topbottom;
+	private IIcon	topIcon;
 	
 	public BlockAncientMossStone(Material material)
 	{
 		super(material);
 	}
 	
-	public void registerBlockIcons(IIconRegister ir)
+	@Override
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = ir.registerIcon(ECReference.getTexture("ancientMossStoneSide"));
-		this.topbottom = ir.registerIcon(ECReference.getTexture("ancientMossStone"));
+		this.blockIcon = iconRegister.registerIcon(ECReference.getTexture("ancientMossStoneSide"));
+		this.topIcon = iconRegister.registerIcon(ECReference.getTexture("ancientMossStone"));
 	}
 	
-    public IIcon getIcon(int side, int meta)
-    {
-    	return side == 0 ? this.topbottom : side == 1 ? this.topbottom : this.blockIcon;
-    }
-    
-    public Item getItemDropped(int par1, Random rand, int fortune)
-    {
-    	return Item.getItemFromBlock(ECBlocks.ancientMossyCobblestone);
-    }
+	@Override
+	public IIcon getIcon(int side, int meta)
+	{
+		return side == 0 || side == 1 ? this.topIcon : this.blockIcon;
+	}
+	
+	@Override
+	public Item getItemDropped(int metadata, Random rand, int fortune)
+	{
+		return Item.getItemFromBlock(ECBlocks.ancientMossyCobblestone);
+	}
 }

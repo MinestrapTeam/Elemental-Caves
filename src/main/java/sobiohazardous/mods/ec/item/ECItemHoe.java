@@ -25,7 +25,7 @@ public class ECItemHoe extends ItemHoe
     		living.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10 * 20));
     		return super.hitEntity(stack, living, attacker);
     	}
-    	if(this == ECItems.hoeInfernium)
+    	else if(this == ECItems.hoeInfernium)
     	{
     		living.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 10 * 20));
     		living.setFire(10);
