@@ -10,6 +10,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenForest;
 import net.minecraft.world.biome.BiomeGenJungle;
+import net.minecraft.world.gen.feature.WorldGenTrees;
 
 public class CaveTypeForest extends CaveType
 {
@@ -30,6 +31,9 @@ public class CaveTypeForest extends CaveType
 	public void generateFloorAddons(World world, Random random, int x, int y, int z)
 	{
 		((BlockRichGrass)ECBlocks.richGrass).func_149853_b(world, random, x, y, z);
+		
+		if (random.nextFloat() < 0.01F)
+			new WorldGenTrees(false).generate(world, random, x, y, z);
 	}
 	
 	@Override
