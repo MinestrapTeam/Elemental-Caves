@@ -60,6 +60,20 @@ public class ECUtil
 			world.setBlock(x, y, z, ECBlocks.glacierRock, 1, 3);
 			flag = true;
 		}
+		else if (block == ECBlocks.moltenstone)
+		{
+			int metadata = world.getBlockMetadata(x, y, z);
+			if (metadata == 0)
+			{
+				world.setBlock(x, y, z, ECBlocks.moltenstone, 1, 3);
+				flag = true;
+			}
+			else if (metadata == 1)
+			{
+				world.setBlock(x, y, z, Blocks.stone);
+				flag = true;
+			}
+		}
 		else if (block == Blocks.fire)
 		{
 			world.setBlockToAir(x, y, z);
@@ -106,6 +120,7 @@ public class ECUtil
 		else if (block == Blocks.stone)
 		{
 			world.setBlock(x, y, z, Blocks.flowing_lava);
+			flag = true;
 		}
 		else if (block == Blocks.cobblestone || block == Blocks.mossy_cobblestone || block == Blocks.stonebrick || block == Blocks.gravel)
 		{
