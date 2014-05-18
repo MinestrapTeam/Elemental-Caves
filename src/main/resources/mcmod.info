@@ -1,8 +1,8 @@
 [
 {
-  "modid": "undergroundbiomes",
-  "name": "Under Biomes",
-  "description": "Modjam 4 mod",
+  "modid": "ElementalCaves",
+  "name": "Elemental Caves",
+  "description": "Modjam 4 mod.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
