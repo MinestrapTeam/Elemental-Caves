@@ -8,7 +8,7 @@ public class CaveTypeOcean extends CaveType
 {
 	public CaveTypeOcean(String name)
 	{
-		super(name, null);
+		super(name, Blocks.stone);
 		this.wallGen = new CaveWallGenerator(Blocks.air, Blocks.stone);
 	}
 	

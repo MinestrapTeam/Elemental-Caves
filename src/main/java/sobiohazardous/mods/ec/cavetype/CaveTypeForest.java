@@ -18,6 +18,7 @@ public class CaveTypeForest extends CaveType
 		
 		this.getWallGen().addReplacement(Blocks.dirt, ECBlocks.richSoil);
 		this.getWallGen().addReplacement(Blocks.gravel, ECBlocks.richSoil);
+		this.getWallGen().addReplacement(Blocks.lava, Blocks.water);
 		
 		// TODO Add ores
 		// TODO add more flowers
@@ -26,8 +27,9 @@ public class CaveTypeForest extends CaveType
 	@Override
 	public void generateFloorAddons(World world, Random random, int x, int y, int z)
 	{
-		if (random.nextInt(10) == 0)
-			world.setBlock(x, y, z, Blocks.sapling);
+		int rand = random.nextInt(10);
+		if (rand < 4)
+			world.setBlock(x, y + 1, z, Blocks.sapling, rand, 2);
 	}
 	
 	@Override

@@ -1,6 +1,11 @@
 itemGroup.ec_blocks=Elemental Caves - Blocks
 itemGroup.ec_items=Elemental Caves - Items
 
+cave.ice.name=Ice Cave
+cave.fire.name=Inferno Cave
+cave.forest.name=Forest Cave
+cave.ocean.name=Ocean Cave
+
 tile.ancient_ice.name=Ancient Ice
 tile.crystal.0.name=Ice Crystal
 tile.crystal.1.name=Fire Crystal

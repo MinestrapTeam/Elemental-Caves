@@ -37,6 +37,11 @@ public class CaveWallGenerator extends WorldGenerator
 	
 	public CaveWallGenerator(Block block, int metadata, Block target, int targetMetadata)
 	{
+		if (block == null)
+			throw new IllegalArgumentException("Cannot set the block to null!");
+		else if (target == null)
+			throw new IllegalArgumentException("Cannot set the target to null!");
+		
 		this.block = block;
 		this.blockMetadata = metadata;
 		this.target = target;
@@ -54,7 +59,7 @@ public class CaveWallGenerator extends WorldGenerator
 	}
 	
 	public void addReplacement(Block targetBlock, int targetMetadata, Block replacementBlock, int replacementMetadata)
-	{
+	{	
 		BlockM target = new BlockM(targetBlock, targetMetadata);
 		BlockM replacement = new BlockM(replacementBlock, replacementMetadata);
 		

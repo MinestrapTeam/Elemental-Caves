@@ -17,7 +17,7 @@ public class CaveType
 	public static CaveType			ice						= new CaveTypeIce("ice");
 	public static CaveType			fire					= new CaveTypeFire("fire");
 	public static CaveType			forest					= new CaveTypeForest("forest");
-	public static CaveType			ocean					= new CaveTypeOcean("ocean");
+	// TODO add later public static CaveType ocean = new CaveTypeOcean("ocean");
 	
 	public final String				name;
 	public Block					block;
@@ -40,6 +40,9 @@ public class CaveType
 	
 	public CaveType(String name, Block mainCaveBlock)
 	{
+		if (mainCaveBlock == null)
+			throw new IllegalArgumentException("Cannot set the main cave generator block to null");
+		
 		this.name = name;
 		this.block = mainCaveBlock;
 		caveTypes.add(this);

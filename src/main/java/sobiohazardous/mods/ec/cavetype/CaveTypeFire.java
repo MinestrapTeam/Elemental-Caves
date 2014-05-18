@@ -13,7 +13,7 @@ public class CaveTypeFire extends CaveType
 {
 	public CaveTypeFire(String name)
 	{
-		super(name, ECBlocks.moltenstone);		
+		super(name, ECBlocks.moltenstone);
 		
 		this.addOre(ECBlocks.moltenstone, 1, 18, 6, this.spawnHeight);
 		

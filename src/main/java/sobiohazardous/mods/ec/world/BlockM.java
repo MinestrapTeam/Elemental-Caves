@@ -10,6 +10,9 @@ public class BlockM
 	
 	public BlockM(Block block, int metadata)
 	{
+		if (block == null)
+			throw new IllegalArgumentException("Cannot set the block to null");
+		
 		this.block = block;
 		this.metadata = metadata;
 	}
