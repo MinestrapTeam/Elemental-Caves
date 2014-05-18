@@ -124,9 +124,9 @@ public class ECUtil
 			world.setBlock(x, y, z, ECBlocks.moltenstone, 1, 3);
 			flag = true;
 		}
-		else if (block == Blocks.stone)
+		else if (block == Blocks.stone || block == Blocks.stone_stairs || block == Blocks.stone_brick_stairs)
 		{
-			world.setBlock(x, y, z, Blocks.flowing_lava);
+			world.setBlock(x, y, z, Blocks.flowing_lava, 15, 3);
 			flag = true;
 		}
 		else if (block == Blocks.cobblestone || block == Blocks.mossy_cobblestone || block == Blocks.stonebrick || block == Blocks.gravel)
@@ -142,13 +142,13 @@ public class ECUtil
 			}
 			else
 			{
-				world.setBlock(x, y, z, Blocks.flowing_lava);
+				world.setBlock(x, y, z, Blocks.flowing_lava, 15, 3);
 			}
 			flag = true;
 		}
 		else if (block == Blocks.cobblestone_wall)
 		{
-			world.setBlock(x, y, z, Blocks.flowing_lava);
+			world.setBlock(x, y, z, Blocks.flowing_lava, 18, 3);
 			flag = true;
 		}
 		else if (block == Blocks.farmland || block == Blocks.grass || block == Blocks.grass)
@@ -168,6 +168,21 @@ public class ECUtil
 		{
 			world.setBlock(x, y, z, Blocks.glass);
 			flag = true;
+		}
+		else if (block == Blocks.stone_slab || block == Blocks.double_stone_slab)
+		{
+			int metadata = world.getBlockMetadata(x, y, z);
+			int type = metadata & 7;
+			if (type == 0 || type == 1 || type == 5)
+			{
+				world.setBlock(x, y, z, Blocks.flowing_lava, 15, 3);
+				flag = true;
+			}
+			else if (type == 3)
+			{
+				world.setBlockMetadataWithNotify(x, y, z, metadata > 7 ? 8 : 0, 3);
+				flag = true;
+			}
 		}
 		else if (block == Blocks.obsidian || block == Blocks.netherrack)
 		{

@@ -2,17 +2,19 @@ package sobiohazardous.mods.ec.block;
 
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class BlockMoltenstone extends ECBlockMulti
 {
-	public static final String[]	types	= new String[] { null, "cooled", "bricks" };
+	public static final String[]	types		= new String[] { null, "cooled", "bricks" };
+	
+	private boolean					silkTouch	= false;
 	
 	public BlockMoltenstone()
 	{
@@ -38,12 +40,23 @@ public class BlockMoltenstone extends ECBlockMulti
 		{
 			if (EnchantmentHelper.getSilkTouchModifier(player))
 			{
-				this.dropBlockAsItem(world, x, y, z, new ItemStack(this));
+				this.silkTouch = true;
 			}
 			else
 			{
 	            world.setBlock(x, y, z, Blocks.flowing_lava);	            
 			}		
 		}
+	}
+	
+	@Override
+	public void breakBlock(World world, int x, int y, int z, Block block, int metadata)
+	{
+		super.breakBlock(world, x, y, z, block, metadata);
+		if (this.silkTouch)
+		{
+			world.setBlock(x, y, z, Blocks.lava);
+		}
+		this.silkTouch = false;
 	}
 }

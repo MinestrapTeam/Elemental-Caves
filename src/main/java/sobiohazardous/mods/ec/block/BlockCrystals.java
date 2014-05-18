@@ -3,9 +3,9 @@ package sobiohazardous.mods.ec.block;
 import java.util.ArrayList;
 import java.util.Random;
 
-import sobiohazardous.mods.ec.lib.ECBlocks;
 import sobiohazardous.mods.ec.lib.ECItems;
 import sobiohazardous.mods.ec.util.ECUtil;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
