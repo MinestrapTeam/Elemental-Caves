@@ -103,14 +103,14 @@ public class ECUtil
 			world.setBlock(x, y, z, ECBlocks.moltenstone, 1, 3);
 			flag = true;
 		}
+		else if (block == Blocks.stone)
+		{
+			world.setBlock(x, y, z, Blocks.flowing_lava);
+		}
 		else if (block == Blocks.cobblestone || block == Blocks.mossy_cobblestone || block == Blocks.stonebrick || block == Blocks.gravel)
 		{
 			world.setBlock(x, y, z, Blocks.stone);
 			flag = true;
-		}
-		else if (block == Blocks.stone)
-		{
-			world.setBlock(x, y, z, Blocks.flowing_lava);
 		}
 		else if (block == Blocks.sandstone)
 		{

@@ -15,14 +15,18 @@ tile.glacierrock_slab_single.0.name=Glacierrock Slab
 tile.glacierrock_slab_double.0.name=Glacierrock Double Slab
 tile.glacierrock_slab_single.1.name=Cracked Glacierrock Slab
 tile.glacierrock_slab_double.1.name=Cracked Double Slab
+tile.glacierrock_slab_single.2.name=Glacierrock Bricks Slab
+tile.glacierrock_slab_double.2.name=Glacierrock Bricks Double Slab
 
 tile.molten_stone.0.name=Moltenstone
 tile.molten_stone.1.name=Cooled Moltenstone
 tile.molten_stone.2.name=Moltenstone Bricks
 tile.molten_stone_stairs.name=Moltenstone Stairs
-tile.molten_brick_stairs.name=Molten Brick Stairs
-tile.molten_slab_single.name=Molten Slab
-tile.molten_slab_double.name=Molten Double Slab
+tile.molten_brick_stairs.name=Moltenstone Brick Stairs
+tile.molten_slab_single.0.name=Moltenstone Slab
+tile.molten_slab_double.0.name=Moltenstone Double Slab
+tile.molten_slab_single.1.name=Moltenstone Bricks Slab
+tile.molten_slab_double.1.name=Moltenstone Bricks Double Slab
 
 tile.ancient_moss_stone.name=Ancient Mossy Stone
 tile.ancient_mossy_cobblestone.name=Ancient Mossy Cobblestone
@@ -50,24 +54,24 @@ item.elemental_shards.3.name=Forest Shard
 
 item.bucket_ice_floe.name=Bucket of Ice Floe
 
-item.ice_sword.name=Freezium Sword
-item.ice_shovel.name=Freezium Shovel
-item.ice_pickaxe.name=Freezium Pickaxe
-item.ice_axe.name=Freezium Axe
-item.ice_hoe.name=Freezium Hoe
+item.freezium_sword.name=Freezium Sword
+item.freezium_shovel.name=Freezium Shovel
+item.freezium_pickaxe.name=Freezium Pickaxe
+item.freezium_axe.name=Freezium Axe
+item.freezium_hoe.name=Freezium Hoe
 
-item.ice_helmet.name=Freezium Helmet
-item.ice_chestplate.name=Freezium Chestplate
-item.ice_leggings.name=Freezium Leggings
-item.ice_boots.name=Freezium Boots
+item.freezium_helmet.name=Freezium Helmet
+item.freezium_chestplate.name=Freezium Chestplate
+item.freezium_leggings.name=Freezium Leggings
+item.freezium_boots.name=Freezium Boots
 
-item.fire_sword.name=Infernium Sword
-item.fire_shovel.name=Infernium Shovel
-item.fire_pickaxe.name=Infernium Pickaxe
-item.fire_axe.name=Infernium Axe
-item.fire_hoe.name=Infernium Hoe
+item.infernium_sword.name=Infernium Sword
+item.infernium_shovel.name=Infernium Shovel
+item.infernium_pickaxe.name=Infernium Pickaxe
+item.infernium_axe.name=Infernium Axe
+item.infernium_hoe.name=Infernium Hoe
 
-item.fire_helmet.name=Infernium Helmet
-item.fire_chestplate.name=Infernium Chestplate
-item.fire_leggings.name=Infernium Leggings
-item.fire_boots.name=Infernium Boots
+item.infernium_helmet.name=Infernium Helmet
+item.infernium_chestplate.name=Infernium Chestplate
+item.infernium_leggings.name=Infernium Leggings
+item.infernium_boots.name=Infernium Boots

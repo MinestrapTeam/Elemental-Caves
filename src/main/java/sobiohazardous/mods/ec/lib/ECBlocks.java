@@ -24,13 +24,11 @@ public class ECBlocks
 	
 	public static Block	moltenstone;
 	public static Block	moltenstoneStairs;
-	public static Block	moltenstoneStairsBrick;
+	public static Block	moltenstoneBrickStairs;
 	public static Block	moltenstoneSlabSingle;
 	public static Block	moltenstoneSlabDouble;
 	
 	public static Block	ancientMossStone;
-	public static Block	ancientMossyCobblestone;
-	public static Block	ancientMossyBricks;
 	public static Block	ancientMossySlabSingle;
 	public static Block	ancientMossySlabDouble;
 	
@@ -50,8 +48,8 @@ public class ECBlocks
 		glacierRockStairs = new ECBlockStairs(glacierRock, 1).setHardness(2F).setResistance(10F);
 		glacierRockBrickStairs = new ECBlockStairs(glacierRock, 2).setHardness(2F).setResistance(10F);
 		
-		String[] glacierRockSlabSideIcons = new String[] { ECUtil.getTexture("glacierrock_slab_side"), ECUtil.getTexture("glacierrock_cracked") };
-		String[] glacierRockSlabTopIcons = new String[] { ECUtil.getTexture("glacierrock_slab_top"), ECUtil.getTexture("glacierrock_cracked") };
+		String[] glacierRockSlabSideIcons = new String[] { ECUtil.getTexture("glacierrock_slab_side"), ECUtil.getTexture("glacierrock_cracked"), ECUtil.getTexture("glacierrock_bricks") };
+		String[] glacierRockSlabTopIcons = new String[] { ECUtil.getTexture("glacierrock_slab_top"), ECUtil.getTexture("glacierrock_cracked"), ECUtil.getTexture("glacierrock_bricks") };
 		glacierRockSlabSingle = new ECBlockSlab(false, glacierRockSlabSideIcons, glacierRockSlabTopIcons).setCreativeTab(ElementalCaves.creativeTabECBlocks).setHardness(2F).setResistance(10F);
 		glacierRockSlabDouble = new ECBlockSlab(true, glacierRockSlabSideIcons, glacierRockSlabTopIcons).setHardness(2F).setResistance(10F);
 		
@@ -59,16 +57,14 @@ public class ECBlocks
 		
 		moltenstone = new BlockMoltenstone().setHardness(2.1F).setResistance(8.0F).setBlockTextureName(ECUtil.getTexture("moltenstone"));
 		moltenstoneStairs = new ECBlockStairs(moltenstone, 0).setHardness(2.1F).setResistance(8.0F);
-		moltenstoneStairsBrick = new ECBlockStairs(moltenstone, 2).setHardness(2.1F).setResistance(8.0F);
+		moltenstoneBrickStairs = new ECBlockStairs(moltenstone, 2).setHardness(2.1F).setResistance(8.0F);
 		
-		String[] moltenstoneSlabSideIcons = new String[] { ECUtil.getTexture("moltenstone_slab_side") };
-		String[] moltenstoneSlabTopIcons = new String[] { ECUtil.getTexture("moltenstone_slab_top") };
+		String[] moltenstoneSlabSideIcons = new String[] { ECUtil.getTexture("moltenstone_slab_side"), ECUtil.getTexture("moltenstone_bricks") };
+		String[] moltenstoneSlabTopIcons = new String[] { ECUtil.getTexture("moltenstone_slab_top"), ECUtil.getTexture("moltenstone_bricks") };
 		moltenstoneSlabSingle = new ECBlockSlab(false, moltenstoneSlabSideIcons, moltenstoneSlabTopIcons).setCreativeTab(ElementalCaves.creativeTabECBlocks).setHardness(2.1F).setResistance(8.0F);
 		moltenstoneSlabDouble = new ECBlockSlab(true, moltenstoneSlabSideIcons, moltenstoneSlabTopIcons).setHardness(2.1F).setResistance(8.0F);
 		
-		ancientMossStone = new BlockAncientMossStone(Material.rock).setHardness(2.0F).setResistance(11.0F).setBlockTextureName(ECUtil.getTexture("ancient_moss_stone"));
-		ancientMossyCobblestone = new ECBlock(Material.rock).setHardness(2.0F).setResistance(11.0F).setBlockTextureName(ECUtil.getTexture("ancient_mossy_cobblestone"));
-		ancientMossyBricks = new ECBlock(Material.rock).setHardness(2.0F).setResistance(11.0F).setBlockTextureName(ECUtil.getTexture("ancient_moss_stone_bricks"));
+		ancientMossStone = new BlockAncientMossStone().setHardness(2.0F).setResistance(11.0F).setBlockTextureName(ECUtil.getTexture("ancient_moss_stone"));
 		
 		String[] ancientMossySlabSideIcons = new String[] { ECUtil.getTexture("ancient_moss_stone_slab_side"), ECUtil.getTexture("ancient_mossy_cobblestone"), ECUtil.getTexture("ancient_moss_stone_bricks") };
 		String[] ancientMossySlabTopIcons = new String[] { ECUtil.getTexture("ancient_moss_stone_slab_top"), ECUtil.getTexture("ancient_mossy_cobblestone"), ECUtil.getTexture("ancient_moss_stone_bricks") };
@@ -97,17 +93,15 @@ public class ECBlocks
 		
 		addBlock(ancientIce, "ancient_ice");
 		
-		addBlock(moltenstone, ECItemBlockMulti.class, "molten_stone");
-		addBlock(moltenstoneStairs, "molten_stone_stairs");
-		addBlock(moltenstoneStairsBrick, "molten_brick_stairs");
-		addBlock(moltenstoneSlabSingle, ECItemSlab.class, "molten_slab_single", moltenstoneSlabSingle, moltenstoneSlabDouble);
-		addBlock(moltenstoneSlabDouble, ECItemSlab.class, "molten_slab_double", moltenstoneSlabSingle, moltenstoneSlabDouble);
+		addBlock(moltenstone, ECItemBlockMulti.class, "moltenstone");
+		addBlock(moltenstoneStairs, "moltenstone_stairs");
+		addBlock(moltenstoneBrickStairs, "moltenstone_brick_stairs");
+		addBlock(moltenstoneSlabSingle, ECItemSlab.class, "moltenstone_slab_single", moltenstoneSlabSingle, moltenstoneSlabDouble);
+		addBlock(moltenstoneSlabDouble, ECItemSlab.class, "moltenstone_slab_double", moltenstoneSlabSingle, moltenstoneSlabDouble);
 		
 		addBlock(ancientMossStone, "ancient_moss_stone");
-		addBlock(ancientMossyCobblestone, "ancient_mossy_cobblestone");
-		addBlock(ancientMossyBricks, "ancient_mossy_bricks");
-		addBlock(ancientMossySlabSingle, ECItemSlab.class, "ancientmossy_slab_single", ancientMossySlabSingle, ancientMossySlabDouble);
-		addBlock(ancientMossySlabDouble, ECItemSlab.class, "ancientmossy_slab_double", ancientMossySlabSingle, ancientMossySlabDouble);
+		addBlock(ancientMossySlabSingle, ECItemSlab.class, "ancient_moss_stone_slab_single", ancientMossySlabSingle, ancientMossySlabDouble);
+		addBlock(ancientMossySlabDouble, ECItemSlab.class, "ancient_moss_stone_slab_double", ancientMossySlabSingle, ancientMossySlabDouble);
 		
 		addBlock(richGrass, "rich_grass");
 		addBlock(richSoil, "rich_soil");
@@ -116,6 +110,10 @@ public class ECBlocks
 		addBlock(oreLapis, "lapis_ore_glacier");
 		addBlock(oreFreezium, "freezium_ore");
 		addBlock(oreGlistening, "glistening_ore");
+		
+		richGrass.setHarvestLevel("shovel", 0);
+		richSoil.setHarvestLevel("shovel", 0);
+		richFarmland.setHarvestLevel("shovel", 0);
 		
 		addBlock(crystals, ECItemBlockMulti.class, "crystal");
 		
@@ -137,11 +135,13 @@ public class ECBlocks
 		moltenstone.setHarvestLevel("pickaxe", 3, 1);
 		moltenstone.setHarvestLevel("pickaxe", 2, 2);
 		moltenstoneStairs.setHarvestLevel("pickaxe", 2);
-		moltenstoneStairsBrick.setHarvestLevel("pickaxe", 2);
+		moltenstoneBrickStairs.setHarvestLevel("pickaxe", 2);
 		moltenstoneSlabSingle.setHarvestLevel("pickaxe", 2);
 		moltenstoneSlabDouble.setHarvestLevel("pickaxe", 2);
 		
 		ancientMossStone.setHarvestLevel("pickaxe", 2);
+		ancientMossySlabSingle.setHarvestLevel("pickaxe", 2);
+		ancientMossySlabDouble.setHarvestLevel("pickaxe", 2);
 		
 		oreLapis.setHarvestLevel("pickaxe", 2);
 		oreFreezium.setHarvestLevel("pickaxe", 3);

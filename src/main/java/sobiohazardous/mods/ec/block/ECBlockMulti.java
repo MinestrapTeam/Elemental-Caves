@@ -3,12 +3,14 @@ package sobiohazardous.mods.ec.block;
 import java.util.List;
 
 import sobiohazardous.mods.ec.ElementalCaves;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 
 public class ECBlockMulti extends ECBlock
 {
@@ -27,6 +29,12 @@ public class ECBlockMulti extends ECBlock
 	public int damageDropped(int metadata)
 	{
 		return metadata;
+	}
+	
+	@Override
+	public int getDamageValue(World world, int x, int y, int z)
+	{
+		return world.getBlockMetadata(x, y, z);
 	}
 	
 	@Override

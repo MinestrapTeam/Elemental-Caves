@@ -1,39 +1,41 @@
 package sobiohazardous.mods.ec.block;
 
-import java.util.Random;
-
-import sobiohazardous.mods.ec.lib.ECBlocks;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 
-public class BlockAncientMossStone extends ECBlock
+public class BlockAncientMossStone extends ECBlockMulti
 {
-	private IIcon	topIcon;
+	public static final String[]	types			= new String[] { null, "cracked", "bricks" };
 	
-	public BlockAncientMossStone(Material material)
+	public BlockAncientMossStone()
 	{
-		super(material);
+		super(Material.rock, types);
+	}
+	
+	@Override
+	public int damageDropped(int metadata)
+	{
+		return metadata == 0 ? 1 : metadata;
 	}
 	
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
+		super.registerBlockIcons(iconRegister);
 		this.blockIcon = iconRegister.registerIcon(this.getTextureName() + "_side");
-		this.topIcon = iconRegister.registerIcon(this.getTextureName());
 	}
 	
 	@Override
-	public IIcon getIcon(int side, int meta)
+	public IIcon getIcon(int side, int metadata)
 	{
-		return side == 0 || side == 1 ? this.topIcon : this.blockIcon;
-	}
-	
-	@Override
-	public Item getItemDropped(int metadata, Random rand, int fortune)
-	{
-		return Item.getItemFromBlock(ECBlocks.ancientMossyCobblestone);
+		if (metadata == 0)
+		{
+			if (side == 0 || side == 1)
+			{
+				return this.blockIcon;
+			}
+		}
+		return super.getIcon(side, metadata);
 	}
 }

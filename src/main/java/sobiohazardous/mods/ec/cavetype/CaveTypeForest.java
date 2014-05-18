@@ -30,7 +30,7 @@ public class CaveTypeForest extends CaveType
 	@Override
 	public void generateFloorAddons(World world, Random random, int x, int y, int z)
 	{
-		((BlockRichGrass)ECBlocks.richGrass).func_149853_b(world, random, x, y, z);
+		((BlockRichGrass) ECBlocks.richGrass).func_149853_b(world, random, x, y, z);
 		
 		if (random.nextFloat() < 0.01F)
 			new WorldGenTrees(false).generate(world, random, x, y, z);

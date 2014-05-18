@@ -20,6 +20,12 @@ public class BlockGlacierrock extends ECBlockMulti
 	{
 		super(Material.rock, types);
 	}
+
+	@Override
+	public int damageDropped(int metadata)
+	{
+		return metadata == 0 ? 1 : metadata;
+	}
 	
 	@Override
 	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side)
@@ -30,12 +36,6 @@ public class BlockGlacierrock extends ECBlockMulti
 			return this.icySideIcon;
 		}
 		return this.getIcon(side, metadata);
-	}
-	
-	@Override
-	public int damageDropped(int metadata)
-	{
-		return metadata == 0 ? 1 : metadata;
 	}
 	
 	@Override

@@ -79,16 +79,16 @@ public class ECItems
 		
 		addItem(bucketIceFloe, "bucket_ice_floe");
 		
-		addItem(swordFreezium, "ice_sword");
-		addItem(shovelFreezium, "ice_shovel");
-		addItem(pickaxeFreezium, "ice_pickaxe");
-		addItem(axeFreezium, "ice_axe");
-		addItem(hoeFreezium, "ice_hoe");
+		addItem(swordFreezium, "freezium_sword");
+		addItem(shovelFreezium, "freezium_shovel");
+		addItem(pickaxeFreezium, "freezium_pickaxe");
+		addItem(axeFreezium, "freezium_axe");
+		addItem(hoeFreezium, "freezium_hoe");
 		
-		addItem(helmetFreezium, "ice_helmet");
-		addItem(chestplateFreezium, "ice_chestplate");
-		addItem(leggingsFreezium, "ice_leggings");
-		addItem(bootsFreezium, "ice_boots");
+		addItem(helmetFreezium, "freezium_helmet");
+		addItem(chestplateFreezium, "freezium_chestplate");
+		addItem(leggingsFreezium, "freezium_leggings");
+		addItem(bootsFreezium, "freezium_boots");
 		
 		addItem(swordInfernium, "infernium_sword");
 		addItem(shovelInfernium, "infernium_shovel");

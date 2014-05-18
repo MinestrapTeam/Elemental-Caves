@@ -29,8 +29,8 @@ public class CaveType
 	public int						ceilingMetadata;
 	
 	protected int					spawnHeight				= 62;
+	protected float					ceilingAddonSpawnWeight	= 0.1F;
 	protected float					floorAddonSpawnWeight	= 0.2F;
-	protected float					ceilingAddonSpawnWeight	= 0.2F;
 	
 	public BiomeGenBase				biome;
 	
@@ -167,7 +167,7 @@ public class CaveType
 				
 				if (random.nextFloat() < this.floorAddonSpawnWeight)
 				{
-					generateFloorAddons(world, random, x, y, z);
+					this.generateFloorAddons(world, random, x, y, z);
 				}
 				
 				cave = false;
