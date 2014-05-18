@@ -70,6 +70,12 @@ public class BlockCrystals extends ECBlockMulti
 	}
 	
 	@Override
+	public int getDamageValue(World world, int x, int y, int z)
+	{
+		return world.getBlockMetadata(x, y, z);
+	}
+	
+	@Override
 	public void updateTick(World world, int x, int y, int z, Random random)
 	{
 		world.scheduleBlockUpdate(x, y, z, this, 100);
