@@ -4,7 +4,6 @@ import java.util.Random;
 
 import sobiohazardous.mods.ec.lib.ECBlocks;
 import sobiohazardous.mods.ec.util.ECUtil;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
@@ -27,6 +26,12 @@ public class BlockRichGrass extends ECBlock implements IGrowable
 		super(material);
 		this.setStepSound(Block.soundTypeGrass);
 		this.setTickRandomly(true);
+	}
+	
+	@Override
+	protected boolean canSilkHarvest()
+	{
+		return true;
 	}
 	
 	@Override

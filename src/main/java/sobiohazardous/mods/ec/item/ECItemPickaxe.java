@@ -38,6 +38,14 @@ public class ECItemPickaxe extends ItemPickaxe
 				return true;
 			}
 		}
+		else if(this == ECItems.pickaxeEarth)
+		{
+			if(ECUtil.grow(world, x, y, z))
+			{
+				stack.damageItem(10, player);
+				return true;
+			}
+		}
 		return false;
 	}
 	

@@ -39,6 +39,14 @@ public class ECItemSword extends ItemSword
 				return true;
 			}
 		}
+		else if(this == ECItems.swordEarth)
+		{
+			if(ECUtil.grow(world, x, y, z))
+			{
+				stack.damageItem(10, player);
+				return true;
+			}
+		}
 		return false;
 	}
 	

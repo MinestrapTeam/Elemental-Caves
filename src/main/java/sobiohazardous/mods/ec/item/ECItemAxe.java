@@ -39,6 +39,14 @@ public class ECItemAxe extends ItemAxe
 				return true;
 			}
 		}
+		else if(this == ECItems.axeEarth)
+		{
+			if(ECUtil.grow(world, x, y, z))
+			{
+				stack.damageItem(10, player);
+				return true;
+			}
+		}
 		return false;
 	}
 	

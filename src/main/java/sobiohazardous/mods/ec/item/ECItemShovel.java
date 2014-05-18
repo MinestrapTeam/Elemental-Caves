@@ -38,6 +38,14 @@ public class ECItemShovel extends ItemSpade
 				return true;
 			}
 		}
+		else if(this == ECItems.shovelEarth)
+		{
+			if(ECUtil.grow(world, x, y, z))
+			{
+				stack.damageItem(10, player);
+				return true;
+			}
+		}
 		return false;
 	}
 	

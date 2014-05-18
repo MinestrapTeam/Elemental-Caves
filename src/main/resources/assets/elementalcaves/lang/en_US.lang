@@ -84,3 +84,14 @@ item.infernium_helmet.name=Infernium Helmet
 item.infernium_chestplate.name=Infernium Chestplate
 item.infernium_leggings.name=Infernium Leggings
 item.infernium_boots.name=Infernium Boots
+
+item.earth_sword.name=Earthen Sword
+item.earth_shovel.name=Earthen Shovel
+item.earth_pickaxe.name=Earthen Pickaxe
+item.earth_axe.name=Earthen Axe
+item.earth_hoe.name=Earthen Hoe
+
+item.earth_helmet.name=Earthen Helmet
+item.earth_chestplate.name=Earthen Chestplate
+item.earth_leggings.name=Earthen Leggings
+item.earth_boots.name=Earthen Boots

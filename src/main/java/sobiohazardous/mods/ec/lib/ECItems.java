@@ -14,9 +14,11 @@ public class ECItems
 {
 	public static ToolMaterial	materialFreezium	= EnumHelper.addToolMaterial("freezium", 3, 1561, 7.0F, 3.0F, 13);
 	public static ToolMaterial	materialInfernium	= EnumHelper.addToolMaterial("infernium", 3, 1301, 9.0F, 4.0F, 13);
+	public static ToolMaterial	materialEarth	= EnumHelper.addToolMaterial("infernium", 3, 1561, 8.0F, 4.0F, 17);
 
 	public static ArmorMaterial	armorFreezium		= EnumHelper.addArmorMaterial("freezium", 480, new int[] { 11, 13, 12, 11 }, 11);
-	public static ArmorMaterial	armorInfernium		= EnumHelper.addArmorMaterial("freezium", 480, new int[] { 11, 13, 12, 11 }, 12);
+	public static ArmorMaterial	armorInfernium		= EnumHelper.addArmorMaterial("infernium", 480, new int[] { 11, 13, 12, 11 }, 12);
+	public static ArmorMaterial	armorEarth		= EnumHelper.addArmorMaterial("earth", 480, new int[] { 11, 13, 12, 11 }, 15);
 
 	public static Item			gems;
 	public static Item			shards;
@@ -44,6 +46,17 @@ public class ECItems
 	public static Item			chestplateInfernium;
 	public static Item			leggingsInfernium;
 	public static Item			bootsInfernium;
+	
+	public static Item			swordEarth;
+	public static Item			shovelEarth;
+	public static Item			pickaxeEarth;
+	public static Item			axeEarth;
+	public static Item			hoeEarth;
+	
+	public static Item			helmetEarth;
+	public static Item			chestplateEarth;
+	public static Item			leggingsEarth;
+	public static Item			bootsEarth;
 	
 	public static void init()
 	{
@@ -74,6 +87,17 @@ public class ECItems
 		leggingsInfernium = new ECItemArmor(armorInfernium, ECCommonProxy.infernium, 2, "fire").setTextureName(ECUtil.getTexture("fire_leggings"));
 		bootsInfernium = new ECItemArmor(armorInfernium, ECCommonProxy.infernium, 3, "fire").setTextureName(ECUtil.getTexture("fire_boots"));
 		
+		swordEarth = new ECItemSword(materialEarth).setTextureName(ECUtil.getTexture("swordForest"));
+		shovelEarth = new ECItemShovel(materialEarth).setTextureName(ECUtil.getTexture("shovelForest"));
+		pickaxeEarth = new ECItemPickaxe(materialEarth).setTextureName(ECUtil.getTexture("pickForest"));
+		axeEarth = new ECItemAxe(materialEarth).setTextureName(ECUtil.getTexture("axeForest"));
+		hoeEarth = new ECItemHoe(materialEarth).setTextureName(ECUtil.getTexture("hoeForest"));
+		
+		helmetEarth = new ECItemArmor(armorEarth, ECCommonProxy.earth, 0, "forest").setTextureName(ECUtil.getTexture("helmForest"));
+		chestplateEarth = new ECItemArmor(armorEarth, ECCommonProxy.earth, 1, "forest").setTextureName(ECUtil.getTexture("chestForest"));
+		leggingsEarth = new ECItemArmor(armorEarth, ECCommonProxy.earth, 2, "forest").setTextureName(ECUtil.getTexture("legsForest"));
+		bootsEarth = new ECItemArmor(armorEarth, ECCommonProxy.earth, 3, "forest").setTextureName(ECUtil.getTexture("bootsForest"));
+		
 		addItem(gems, "elemental_gems");
 		addItem(shards, "elemental_shards");
 		
@@ -100,6 +124,17 @@ public class ECItems
 		addItem(chestplateInfernium, "infernium_chestplate");
 		addItem(leggingsInfernium, "infernium_leggings");
 		addItem(bootsInfernium, "infernium_boots");
+		
+		addItem(swordEarth, "earth_sword");
+		addItem(shovelEarth, "earth_shovel");
+		addItem(pickaxeEarth, "earth_pickaxe");
+		addItem(axeEarth, "earth_axe");
+		addItem(hoeEarth, "earth_hoe");
+		
+		addItem(helmetEarth, "earth_helmet");
+		addItem(chestplateEarth, "earth_chestplate");
+		addItem(leggingsEarth, "earth_leggings");
+		addItem(bootsEarth, "earth_boots");
 	}
 	
 	public static void addItem(Item item, String name)

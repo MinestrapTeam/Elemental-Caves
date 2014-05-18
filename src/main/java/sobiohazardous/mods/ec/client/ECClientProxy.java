@@ -20,6 +20,7 @@ public class ECClientProxy extends ECCommonProxy
 		
 		freezium = this.addArmor("ice");
 		infernium = this.addArmor("fire");
+		earth = this.addArmor("forest");
 	}
 	
 	@Override

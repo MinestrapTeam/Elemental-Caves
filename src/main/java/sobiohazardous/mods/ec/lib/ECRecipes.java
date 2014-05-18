@@ -17,13 +17,16 @@ public class ECRecipes
 		ItemStack clearGem = new ItemStack(ECItems.gems, 1, 0);
 		ItemStack iceGem = new ItemStack(ECItems.gems, 1, 1);
 		ItemStack magmaGem = new ItemStack(ECItems.gems, 1, 2);
+		ItemStack forestGem = new ItemStack(ECItems.gems, 1, 3);
 		
 		ItemStack iceShard = new ItemStack(ECItems.shards, 1, 1);
 		ItemStack fireShard = new ItemStack(ECItems.shards, 1, 2);
-		
+		ItemStack forestShard = new ItemStack(ECItems.shards, 1,3);
+
 		GameRegistry.addRecipe(iceGem, new Object[] { "SAS", "ACA", "SAS", 'A', ECBlocks.ancientIce, 'S', iceShard, 'C', clearGem });
 		GameRegistry.addRecipe(magmaGem, new Object[] { "SAS", "ACA", "SAS", 'A', ECBlocks.moltenstone, 'S', fireShard, 'C', clearGem });
-		
+		GameRegistry.addRecipe(forestGem, new Object[] { "SAS", "ACA", "SAS", 'A', ECBlocks.richGrass, 'S', forestShard, 'C', clearGem });
+
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.crystals, 1, 0), new Object[] { "SS", "SS", 'S', iceShard });
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.crystals, 1, 1), new Object[] { "SS", "SS", 'S', fireShard });
 		
@@ -83,5 +86,16 @@ public class ECRecipes
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.crystals, 1, 2), new Object[] { "SS", "SS", 'S', new ItemStack(ECItems.shards, 1, 3) });
 		GameRegistry.addSmelting(ECBlocks.oreFertile, new ItemStack(Items.dye, 4, 15), 0.8F);
 		
+		GameRegistry.addRecipe(new ItemStack(ECItems.axeEarth), new Object[] { "MM ", "MS ", " S ", 'S', Items.blaze_rod, 'M', forestGem });
+		GameRegistry.addRecipe(new ItemStack(ECItems.hoeEarth), new Object[] { "MM ", " S ", " S ", 'S', Items.blaze_rod, 'M', forestGem });
+		GameRegistry.addRecipe(new ItemStack(ECItems.pickaxeEarth), new Object[] { "MMM", " S ", " S ", 'S', Items.blaze_rod, 'M', forestGem });
+		GameRegistry.addRecipe(new ItemStack(ECItems.swordEarth), new Object[] { "M", "M", "S", 'S', Items.blaze_rod, 'M', forestGem });
+		GameRegistry.addRecipe(new ItemStack(ECItems.shovelEarth), new Object[] { " M ", " S ", " S ", 'S', Items.blaze_rod, 'M', forestGem });
+		
+		GameRegistry.addRecipe(new ItemStack(ECItems.helmetEarth), new Object[] { "MMM", "M M", 'M', forestGem });
+		GameRegistry.addRecipe(new ItemStack(ECItems.chestplateEarth), new Object[] { "M M", "MMM", "MMM", 'M', forestGem });
+		GameRegistry.addRecipe(new ItemStack(ECItems.leggingsEarth), new Object[] { "MMM", "M M", "M M", 'M', forestGem });
+		GameRegistry.addRecipe(new ItemStack(ECItems.bootsEarth), new Object[] { "M M", "M M", 'M',forestGem });
+
 	}
 }

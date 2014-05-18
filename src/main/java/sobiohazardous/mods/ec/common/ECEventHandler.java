@@ -56,6 +56,12 @@ public class ECEventHandler
 						boots.damageItem(3, player);
 					}
 				}
+				
+				if (helmet.getItem() == ECItems.helmetEarth && chest.getItem() == ECItems.chestplateEarth && pants.getItem() == ECItems.leggingsEarth && boots.getItem() == ECItems.bootsEarth)
+				{
+					System.out.println();
+					ECUtil.grow(player.worldObj, (int) player.posX - 1, (int) player.posY - 1, (int) player.posZ);
+				}
 			}
 		}
 	}
