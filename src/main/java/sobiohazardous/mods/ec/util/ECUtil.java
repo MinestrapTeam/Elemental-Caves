@@ -9,6 +9,13 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class ECUtil
 {
+	public static String getTexture(String name)
+	{
+		if (name == null)
+			throw new IllegalArgumentException("Name cannot be null!");
+		return "elementalcaves:" + name;
+	}
+	
 	public static String position(String message, int x, int y, int z)
 	{
 		return message + " (" + x + ";" + y + ";" + z + ")";

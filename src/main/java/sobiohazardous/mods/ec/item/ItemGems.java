@@ -10,7 +10,7 @@ import sobiohazardous.mods.ec.entity.projectile.EntityMagmaGem;
 
 public class ItemGems extends ECItemMulti
 {
-	public static final String[]	types	= new String[] { "gem_clear", "gem_ice", "gem_fire", "gem_forest" };
+	public static final String[]	types	= new String[] { "clear", "ice", "fire", "forest" };
 	
 	public ItemGems()
 	{

@@ -2,7 +2,7 @@ package sobiohazardous.mods.ec.block;
 
 import sobiohazardous.mods.ec.ElementalCaves;
 import sobiohazardous.mods.ec.lib.ECBlocks;
-import sobiohazardous.mods.ec.lib.ECReference;
+import sobiohazardous.mods.ec.util.ECUtil;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -27,8 +27,8 @@ public class BlockIceFloe extends BlockFluidClassic
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(ECReference.getTexture("icefloe_still"));
-		this.flowingIcon = iconRegister.registerIcon(ECReference.getTexture("icefloe_flowing"));
+		this.blockIcon = iconRegister.registerIcon(ECUtil.getTexture("icefloe_still"));
+		this.flowingIcon = iconRegister.registerIcon(ECUtil.getTexture("icefloe_flowing"));
 	}
 	
     @Override public Fluid getFluid()

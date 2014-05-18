@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class ItemShards extends ECItemMulti
 {
-	public static final String[]	types	= new String[] {null, "shard_ice", "shard_fire", "shard_forest" };
+	public static final String[]	types	= new String[] {"clear", "ice", "fire", "forest" };
 
 	public ItemShards()
 	{

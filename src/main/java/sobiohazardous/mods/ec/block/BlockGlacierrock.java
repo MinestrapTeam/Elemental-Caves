@@ -1,7 +1,7 @@
 package sobiohazardous.mods.ec.block;
 
 import sobiohazardous.mods.ec.lib.ECBlocks;
-import sobiohazardous.mods.ec.lib.ECReference;
+import sobiohazardous.mods.ec.util.ECUtil;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -43,6 +43,6 @@ public class BlockGlacierrock extends ECBlockMulti
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		super.registerBlockIcons(iconRegister);
-		this.icySideIcon = iconRegister.registerIcon(ECReference.getTexture("glacierrock_icy"));
+		this.icySideIcon = iconRegister.registerIcon(ECUtil.getTexture("glacierrock_icy"));
 	}
 }

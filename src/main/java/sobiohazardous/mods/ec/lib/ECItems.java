@@ -2,6 +2,7 @@ package sobiohazardous.mods.ec.lib;
 
 import sobiohazardous.mods.ec.common.ECCommonProxy;
 import sobiohazardous.mods.ec.item.*;
+import sobiohazardous.mods.ec.util.ECUtil;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.item.Item;
@@ -46,32 +47,32 @@ public class ECItems
 	
 	public static void init()
 	{
-		gems = new ItemGems().setTextureName(ECReference.getTexture("gem"));
-		shards = new ItemShards().setTextureName(ECReference.getTexture("shard"));
+		gems = new ItemGems().setTextureName(ECUtil.getTexture("gem"));
+		shards = new ItemShards().setTextureName(ECUtil.getTexture("shard"));
 		
-		bucketIceFloe = new ECItemBucket(ECBlocks.iceFloe).setTextureName(ECReference.getTexture("bucket_ice_floe"));
+		bucketIceFloe = new ECItemBucket(ECBlocks.iceFloe).setTextureName(ECUtil.getTexture("bucket_ice_floe"));
 		
-		swordFreezium = new ECItemSword(materialFreezium).setTextureName(ECReference.getTexture("ice_sword"));
-		shovelFreezium = new ECItemShovel(materialFreezium).setTextureName(ECReference.getTexture("ice_shovel"));
-		pickaxeFreezium = new ECItemPickaxe(materialFreezium).setTextureName(ECReference.getTexture("ice_pickaxe"));
-		axeFreezium = new ECItemAxe(materialFreezium).setTextureName(ECReference.getTexture("ice_axe"));
-		hoeFreezium = new ECItemHoe(materialFreezium).setTextureName(ECReference.getTexture("ice_hoe"));
+		swordFreezium = new ECItemSword(materialFreezium).setTextureName(ECUtil.getTexture("ice_sword"));
+		shovelFreezium = new ECItemShovel(materialFreezium).setTextureName(ECUtil.getTexture("ice_shovel"));
+		pickaxeFreezium = new ECItemPickaxe(materialFreezium).setTextureName(ECUtil.getTexture("ice_pickaxe"));
+		axeFreezium = new ECItemAxe(materialFreezium).setTextureName(ECUtil.getTexture("ice_axe"));
+		hoeFreezium = new ECItemHoe(materialFreezium).setTextureName(ECUtil.getTexture("ice_hoe"));
 		
-		helmetFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 0, "ice").setTextureName(ECReference.getTexture("ice_helmet"));
-		chestplateFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 1, "ice").setTextureName(ECReference.getTexture("ice_chestplate"));
-		leggingsFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 2, "ice").setTextureName(ECReference.getTexture("ice_leggings"));
-		bootsFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 3, "ice").setTextureName(ECReference.getTexture("ice_boots"));
+		helmetFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 0, "ice").setTextureName(ECUtil.getTexture("ice_helmet"));
+		chestplateFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 1, "ice").setTextureName(ECUtil.getTexture("ice_chestplate"));
+		leggingsFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 2, "ice").setTextureName(ECUtil.getTexture("ice_leggings"));
+		bootsFreezium = new ECItemArmor(armorFreezium, ECCommonProxy.freezium, 3, "ice").setTextureName(ECUtil.getTexture("ice_boots"));
 		
-		swordInfernium = new ECItemSword(materialInfernium).setTextureName(ECReference.getTexture("fire_sword"));
-		shovelInfernium = new ECItemShovel(materialInfernium).setTextureName(ECReference.getTexture("fire_shovel"));
-		pickaxeInfernium = new ECItemPickaxe(materialInfernium).setTextureName(ECReference.getTexture("fire_pickaxe"));
-		axeInfernium = new ECItemAxe(materialInfernium).setTextureName(ECReference.getTexture("fire_axe"));
-		hoeInfernium = new ECItemHoe(materialInfernium).setTextureName(ECReference.getTexture("fire_hoe"));
+		swordInfernium = new ECItemSword(materialInfernium).setTextureName(ECUtil.getTexture("fire_sword"));
+		shovelInfernium = new ECItemShovel(materialInfernium).setTextureName(ECUtil.getTexture("fire_shovel"));
+		pickaxeInfernium = new ECItemPickaxe(materialInfernium).setTextureName(ECUtil.getTexture("fire_pickaxe"));
+		axeInfernium = new ECItemAxe(materialInfernium).setTextureName(ECUtil.getTexture("fire_axe"));
+		hoeInfernium = new ECItemHoe(materialInfernium).setTextureName(ECUtil.getTexture("fire_hoe"));
 		
-		helmetInfernium = new ECItemArmor(armorInfernium, ECCommonProxy.infernium, 0, "fire").setTextureName(ECReference.getTexture("fire_helmet"));
-		chestplateInfernium = new ECItemArmor(armorInfernium, ECCommonProxy.infernium, 1, "fire").setTextureName(ECReference.getTexture("fire_chestplate"));
-		leggingsInfernium = new ECItemArmor(armorInfernium, ECCommonProxy.infernium, 2, "fire").setTextureName(ECReference.getTexture("fire_leggings"));
-		bootsInfernium = new ECItemArmor(armorInfernium, ECCommonProxy.infernium, 3, "fire").setTextureName(ECReference.getTexture("fire_boots"));
+		helmetInfernium = new ECItemArmor(armorInfernium, ECCommonProxy.infernium, 0, "fire").setTextureName(ECUtil.getTexture("fire_helmet"));
+		chestplateInfernium = new ECItemArmor(armorInfernium, ECCommonProxy.infernium, 1, "fire").setTextureName(ECUtil.getTexture("fire_chestplate"));
+		leggingsInfernium = new ECItemArmor(armorInfernium, ECCommonProxy.infernium, 2, "fire").setTextureName(ECUtil.getTexture("fire_leggings"));
+		bootsInfernium = new ECItemArmor(armorInfernium, ECCommonProxy.infernium, 3, "fire").setTextureName(ECUtil.getTexture("fire_boots"));
 		
 		addItem(gems, "elemental_gems");
 		addItem(shards, "elemental_shards");

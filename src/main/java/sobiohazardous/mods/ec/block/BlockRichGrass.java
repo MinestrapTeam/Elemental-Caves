@@ -3,7 +3,7 @@ package sobiohazardous.mods.ec.block;
 import java.util.Random;
 
 import sobiohazardous.mods.ec.lib.ECBlocks;
-import sobiohazardous.mods.ec.lib.ECReference;
+import sobiohazardous.mods.ec.util.ECUtil;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
@@ -32,9 +32,9 @@ public class BlockRichGrass extends ECBlock implements IGrowable
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(ECReference.getTexture("rich_grass_side"));
-		this.top = iconRegister.registerIcon(ECReference.getTexture("rich_grass_top"));
-		this.bottom = iconRegister.registerIcon(ECReference.getTexture("rich_soil"));
+		this.blockIcon = iconRegister.registerIcon(ECUtil.getTexture("rich_grass_side"));
+		this.top = iconRegister.registerIcon(ECUtil.getTexture("rich_grass_top"));
+		this.bottom = iconRegister.registerIcon(ECUtil.getTexture("rich_soil"));
 	}
 	
     @Override

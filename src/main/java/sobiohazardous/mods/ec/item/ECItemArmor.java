@@ -1,7 +1,7 @@
 package sobiohazardous.mods.ec.item;
 
 import sobiohazardous.mods.ec.ElementalCaves;
-import sobiohazardous.mods.ec.lib.ECReference;
+import sobiohazardous.mods.ec.util.ECUtil;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
@@ -30,6 +30,6 @@ public class ECItemArmor extends ItemArmor
 		{
 			layer = "1";
 		}
-		return ECReference.getTexture("textures/armor/" + armorPrefix + layer + ".png");
+		return ECUtil.getTexture("textures/armor/" + armorPrefix + layer + ".png");
 	}
 }
