@@ -8,6 +8,7 @@ import sobiohazardous.mods.ec.util.ECUtil;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -21,6 +22,15 @@ public class BlockCrystals extends ECBlockMulti
 		this.setStepSound(Block.soundTypeGlass);
 		this.setLightOpacity(1);
 		this.setLightLevel(0.5F);
+	}
+	
+	@Override
+	public void onEntityWalking(World world, int x, int y, int z, Entity entity)
+	{
+		if(world.getBlockMetadata(x, y, z) == 1)
+		{
+			entity.setFire(2);
+		}
 	}
 	
 	@Override

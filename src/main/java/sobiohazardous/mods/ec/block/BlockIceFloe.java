@@ -3,7 +3,6 @@ package sobiohazardous.mods.ec.block;
 import sobiohazardous.mods.ec.ElementalCaves;
 import sobiohazardous.mods.ec.lib.ECBlocks;
 import sobiohazardous.mods.ec.util.ECUtil;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;

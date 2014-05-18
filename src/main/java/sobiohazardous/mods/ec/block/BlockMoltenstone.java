@@ -42,6 +42,10 @@ public class BlockMoltenstone extends ECBlockMulti
 			{
 				this.silkTouch = true;
 			}
+			else
+			{
+	            world.setBlock(x, y, z, Blocks.flowing_lava);	            
+			}		
 		}
 	}
 	

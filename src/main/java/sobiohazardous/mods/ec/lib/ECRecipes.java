@@ -62,7 +62,7 @@ public class ECRecipes
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.glacierRockSlabSingle, 6, 1), new Object[]{"MMM", 'M', glacierrockCracked});
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.glacierRockSlabSingle, 6, 2), new Object[]{"MMM", 'M', glacierrockBricks});
 
-		GameRegistry.addRecipe(new ItemStack(ECBlocks.ancientMossySlabSingle, 6, 0), new Object[]{"MMM", 'M', glacierrock});
+		GameRegistry.addRecipe(new ItemStack(ECBlocks.glacierRockSlabSingle, 6, 0), new Object[]{"MMM", 'M', glacierrock});
 		
 		GameRegistry.addSmelting(ECBlocks.oreLapis, new ItemStack(Items.dye, 8, 4), 0.8F);
 		
@@ -71,5 +71,16 @@ public class ECRecipes
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.moltenstoneBrickStairs, 4), new Object[] { "M  ", "MM ", "MMM", 'M', moltenstoneBricks });
 		
 		GameRegistry.addSmelting(ECBlocks.oreDiamond, new ItemStack(Items.diamond, 2), 1.0F);
+		
+		GameRegistry.addSmelting(new ItemStack(ECBlocks.ancientMossStone, 1, 1), new ItemStack(ECBlocks.ancientMossStone, 1, 0), 1.0F);
+		
+		GameRegistry.addRecipe(new ItemStack(ECBlocks.ancientMossySlabSingle, 6, 0), new Object[]{"MMM", 'M', ECBlocks.ancientMossStone});
+		GameRegistry.addRecipe(new ItemStack(ECBlocks.ancientMossStone, 4, 2), new Object[]{"MM", "MM", 'M', ECBlocks.ancientMossStone});
+		GameRegistry.addRecipe(new ItemStack(ECBlocks.ancientMossySlabSingle, 6, 2), new Object[]{"MMM", 'M', new ItemStack(ECBlocks.ancientMossStone, 1, 2)});
+		GameRegistry.addRecipe(new ItemStack(ECBlocks.ancientMossyStonebrickStairs, 4, 0), new Object[]{"M  ", "MM ", "MMM", 'M', new ItemStack(ECBlocks.ancientMossStone, 1, 2)});
+		GameRegistry.addRecipe(new ItemStack(ECBlocks.ancientMossyCobbleStairs, 4, 0), new Object[]{"M  ", "MM ", "MMM", 'M', new ItemStack(ECBlocks.ancientMossStone, 1, 1)});
+		GameRegistry.addRecipe(new ItemStack(ECBlocks.ancientMossySlabSingle, 6, 1), new Object[]{"MMM", 'M', new ItemStack(ECBlocks.ancientMossStone, 1, 1)});
+		GameRegistry.addRecipe(new ItemStack(ECBlocks.crystals, 1, 2), new Object[] { "SS", "SS", 'S', new ItemStack(ECItems.shards, 1, 3) });
+
 	}
 }

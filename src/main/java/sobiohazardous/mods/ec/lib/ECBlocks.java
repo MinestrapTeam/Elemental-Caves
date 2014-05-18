@@ -31,7 +31,9 @@ public class ECBlocks
 	public static Block	ancientMossStone;
 	public static Block	ancientMossySlabSingle;
 	public static Block	ancientMossySlabDouble;
-	
+	public static Block ancientMossyStonebrickStairs;
+	public static Block ancientMossyCobbleStairs;
+
 	public static Block	richGrass;
 	public static Block	richSoil;
 	public static Block	richFarmland;
@@ -71,7 +73,9 @@ public class ECBlocks
 		String[] ancientMossySlabTopIcons = new String[] { ECUtil.getTexture("ancient_moss_stone_slab_top"), ECUtil.getTexture("ancient_moss_stone_cracked"), ECUtil.getTexture("ancient_moss_stone_bricks") };
 		ancientMossySlabSingle = new ECBlockSlab(false, ancientMossySlabSideIcons, ancientMossySlabTopIcons).setCreativeTab(ElementalCaves.creativeTabECBlocks).setHardness(2F).setResistance(10F);
 		ancientMossySlabDouble = new ECBlockSlab(true, ancientMossySlabSideIcons, ancientMossySlabTopIcons).setHardness(2F).setResistance(10F);
-		
+		ancientMossyStonebrickStairs = new ECBlockStairs(ancientMossStone, 2).setHardness(2.0F).setResistance(11.0F);
+		ancientMossyCobbleStairs = new ECBlockStairs(ancientMossStone, 1).setHardness(2.0F).setResistance(11.0F);
+
 		richGrass = new BlockRichGrass(Material.grass).setHardness(0.6F).setLightLevel(9);
 		richSoil = new BlockRichSoil(Material.ground).setHardness(0.5F).setBlockTextureName(ECUtil.getTexture("rich_soil")).setStepSound(Block.soundTypeGravel);
 		richFarmland = new BlockRichFarmland().setHardness(0.6F).setStepSound(Block.soundTypeGravel).setBlockTextureName(ECUtil.getTexture("rich_farmland"));
@@ -104,7 +108,9 @@ public class ECBlocks
 		addBlock(ancientMossStone, ECItemBlockMulti.class, "ancient_moss_stone");
 		addBlock(ancientMossySlabSingle, ECItemSlab.class, "ancient_moss_stone_slab_single", ancientMossySlabSingle, ancientMossySlabDouble);
 		addBlock(ancientMossySlabDouble, ECItemSlab.class, "ancient_moss_stone_slab_double", ancientMossySlabSingle, ancientMossySlabDouble);
-		
+		addBlock(ancientMossyStonebrickStairs, "ancient_mossy_stonebrick_stairs");
+		addBlock(ancientMossyCobbleStairs, "ancient_mossy_cobble_stairs");
+
 		addBlock(richGrass, "rich_grass");
 		addBlock(richSoil, "rich_soil");
 		addBlock(richFarmland, "rich_farmland");
