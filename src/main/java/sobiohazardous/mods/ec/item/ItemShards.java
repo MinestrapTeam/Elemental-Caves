@@ -2,16 +2,17 @@ package sobiohazardous.mods.ec.item;
 
 import sobiohazardous.mods.ec.entity.projectile.EntityFireShard;
 import sobiohazardous.mods.ec.entity.projectile.EntityIceShard;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class ItemShards extends ECItemMulti
 {
+	public static final String[]	types	= new String[] {"shard_ice", "shard_fire", "shard_forest" };
+
 	public ItemShards()
 	{
-		super(ItemGems.types);
+		super(types);
 		this.maxStackSize = 16;
 	}
 	

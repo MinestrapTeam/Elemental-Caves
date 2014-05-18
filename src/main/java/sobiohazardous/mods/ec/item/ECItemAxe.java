@@ -31,6 +31,14 @@ public class ECItemAxe extends ItemAxe
 				return true;
 			}
 		}
+		if(this == ECItems.axeInfernium)
+		{
+			if(ECUtil.melt(world, x, y, z))
+			{
+				stack.damageItem(10, player);
+				return true;
+			}
+		}
 		return false;
 	}
 	
@@ -40,6 +48,12 @@ public class ECItemAxe extends ItemAxe
     	if(this == ECItems.axeFreezium)
     	{
     		living.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10 * 20));
+    		return super.hitEntity(stack, living, attacker);
+    	}
+    	if(this == ECItems.axeInfernium)
+    	{
+    		living.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 10 * 20));
+    		living.setFire(10);
     		return super.hitEntity(stack, living, attacker);
     	}
     	return super.hitEntity(stack, living, attacker);

@@ -30,6 +30,14 @@ public class ECItemPickaxe extends ItemPickaxe
 				return true;
 			}
 		}
+		if(this == ECItems.pickaxeInfernium)
+		{
+			if(ECUtil.melt(world, x, y, z))
+			{
+				stack.damageItem(10, player);
+				return true;
+			}
+		}
 		return false;
 	}
 	
@@ -39,6 +47,12 @@ public class ECItemPickaxe extends ItemPickaxe
     	if(this == ECItems.pickaxeFreezium)
     	{
     		living.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10 * 20));
+    		return super.hitEntity(stack, living, attacker);
+    	}
+    	if(this == ECItems.pickaxeInfernium)
+    	{
+    		living.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 10 * 20));
+    		living.setFire(10);
     		return super.hitEntity(stack, living, attacker);
     	}
     	return super.hitEntity(stack, living, attacker);

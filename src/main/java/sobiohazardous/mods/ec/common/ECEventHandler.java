@@ -3,6 +3,7 @@ package sobiohazardous.mods.ec.common;
 import java.util.HashMap;
 import java.util.Map;
 
+import sobiohazardous.mods.ec.lib.ECConfig;
 import sobiohazardous.mods.ec.lib.ECItems;
 import sobiohazardous.mods.ec.util.ECUtil;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -39,6 +40,14 @@ public class ECEventHandler
 				if (helmet.getItem() == ECItems.helmetFreezium && chest.getItem() == ECItems.chestplateFreezium && pants.getItem() == ECItems.leggingsFreezium && boots.getItem() == ECItems.bootsFreezium)
 				{
 					ECUtil.freeze(player.worldObj, (int) player.posX, (int) player.posY - 2, (int) player.posZ);
+				}
+				if(helmet.getItem() == ECItems.helmetInfernium && chest.getItem() == ECItems.chestplateInfernium && pants.getItem() == ECItems.leggingsInfernium && boots.getItem() == ECItems.bootsInfernium)
+				{
+					if(ECConfig.inferniumArmorEffect)
+					{
+						player.worldObj.playAuxSFX(2004, (int) player.posX, (int) player.posY, (int) player.posZ, 0);
+					}
+					ECUtil.melt(player.worldObj, (int) player.posX, (int) player.posY - 2, (int) player.posZ);
 				}
 			}
 		}

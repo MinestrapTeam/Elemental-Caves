@@ -2,6 +2,7 @@ package sobiohazardous.mods.ec.item;
 
 import java.util.List;
 
+import sobiohazardous.mods.ec.lib.ECReference;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -33,10 +34,7 @@ public class ECItemMulti extends ECItem
 		
 		for (int i = 0; i < this.types.length; i++)
 		{
-			String s = this.getIconString();
-			if (this.types[i] != null)
-				s += "_" + this.types[i];
-			this.icons[i] = iconRegister.registerIcon(s);
+			this.icons[i] = iconRegister.registerIcon(ECReference.getTexture(types[i]));
 		}
 	}
 	

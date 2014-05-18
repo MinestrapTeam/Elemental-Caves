@@ -97,25 +97,17 @@ public class ECUtil
 			world.setBlock(x, y, z, Blocks.fire);
 			flag = true;
 		}
-		else if (block == Blocks.stone || block == Blocks.end_stone)
+		else if (block == Blocks.end_stone)
 		{
 			world.setBlock(x, y, z, ECBlocks.moltenstone, 1, 3);
 			flag = true;
-		}
-		else if (block == ECBlocks.moltenstone)
-		{
-			if (world.getBlockMetadata(x, y, z) == 1)
-			{
-				world.setBlock(x, y, z, ECBlocks.moltenstone);
-				flag = true;
-			}
 		}
 		else if (block == Blocks.cobblestone || block == Blocks.mossy_cobblestone || block == Blocks.stonebrick || block == Blocks.gravel)
 		{
 			world.setBlock(x, y, z, Blocks.stone);
 			flag = true;
 		}
-		else if (block == Blocks.sandstone)
+		else if (block == Blocks.sandstone || block == Blocks.stone)
 		{
 			if (world.getBlockMetadata(x, y, z) != 1)
 			{

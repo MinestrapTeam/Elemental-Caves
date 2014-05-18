@@ -19,4 +19,9 @@ public class ECClientProxy extends ECCommonProxy
 		RenderingRegistry.registerEntityRenderingHandler(EntityIceShard.class, new RenderSnowball(ECItems.shards, 1));
 		RenderingRegistry.registerEntityRenderingHandler(EntityFireShard.class, new RenderSnowball(ECItems.shards, 2));
 	}
+	
+	public static int addArmor(String armor)
+	{
+		return RenderingRegistry.addNewArmourRendererPrefix(armor);
+	}
 }

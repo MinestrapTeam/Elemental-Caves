@@ -30,6 +30,15 @@ public class ECItemShovel extends ItemSpade
 				return true;
 			}
 		}
+		
+		if(this == ECItems.shovelInfernium)
+		{
+			if(ECUtil.melt(world, x, y, z))
+			{
+				stack.damageItem(10, player);
+				return true;
+			}
+		}
 		return false;
 	}
 	
@@ -39,6 +48,12 @@ public class ECItemShovel extends ItemSpade
     	if(this == ECItems.shovelFreezium)
     	{
     		living.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10 * 20));
+    		return super.hitEntity(stack, living, attacker);
+    	}
+    	if(this == ECItems.shovelInfernium)
+    	{
+    		living.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 10 * 20));
+    		living.setFire(10);
     		return super.hitEntity(stack, living, attacker);
     	}
     	return super.hitEntity(stack, living, attacker);
