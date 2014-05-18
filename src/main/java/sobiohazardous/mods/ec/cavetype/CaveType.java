@@ -14,10 +14,10 @@ public class CaveType
 {
 	public static List<CaveType>	caveTypes				= new ArrayList();
 	
-	public static CaveType			ice						= new CaveTypeIce("Ice");
-	public static CaveType			fire					= new CaveTypeFire("Inferno");
-	public static CaveType			forest					= new CaveTypeForest("Forest");
-	
+	public static CaveType			ice						= new CaveTypeIce("ice");
+	public static CaveType			fire					= new CaveTypeFire("fire");
+	public static CaveType			forest					= new CaveTypeForest("forest");
+	public static CaveType			ocean					= new CaveTypeOcean("ocean");
 	
 	public final String				name;
 	public Block					block;
@@ -158,7 +158,7 @@ public class CaveType
 				}
 				
 				if ((y & 3) == 0)
-				this.generate(world, random, x, y, z);
+					this.generate(world, random, x, y, z);
 			}
 			else if (cave)
 			{

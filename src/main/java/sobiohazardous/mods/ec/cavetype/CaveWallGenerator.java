@@ -19,15 +19,27 @@ public class CaveWallGenerator extends WorldGenerator
 	private Block				block;
 	private int					blockMetadata;
 	
-	private Block				target			= Blocks.stone;
+	private Block				target;
 	private int					targetMetadata;
 	
 	public Map<BlockM, BlockM>	replacements	= new HashMap();
 	
+	public CaveWallGenerator(Block block, Block target)
+	{
+		this(block, 0, target, 0);
+	}
+	
 	public CaveWallGenerator(Block block, int metadata)
+	{
+		this(block, metadata, Blocks.stone, 0);
+	}
+	
+	public CaveWallGenerator(Block block, int metadata, Block target, int targetMetadata)
 	{
 		this.block = block;
 		this.blockMetadata = metadata;
+		this.target = target;
+		this.targetMetadata = targetMetadata;
 	}
 	
 	public void addReplacement(Block targetBlock, Block replacementBlock)
