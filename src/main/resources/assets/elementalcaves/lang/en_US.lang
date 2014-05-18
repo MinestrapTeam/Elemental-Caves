@@ -13,6 +13,8 @@ tile.glacierrock_stairs.name=Glacier Rock Stairs
 tile.glacierrock_brick_stairs.name=Glacier Rock Brick Stairs
 tile.glacierrock_slab_single.0.name=Glacierrock Slab
 tile.glacierrock_slab_double.0.name=Glacierrock Double Slab
+tile.glacierrock_slab_single.1.name=Cracked Glacierrock Slab
+tile.glacierrock_slab_double.1.name=Cracked Double Slab
 
 tile.molten_stone.0.name=Moltenstone
 tile.molten_stone.1.name=Cooled Moltenstone

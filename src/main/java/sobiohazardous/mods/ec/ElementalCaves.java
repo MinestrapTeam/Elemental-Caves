@@ -51,10 +51,10 @@ public class ElementalCaves
 		ECItems.init();
 		ECRecipes.init();
 		
-		EntityRegistry.registerModEntity(EntityIceShard.class, "entity_ice_shard", EntityRegistry.findGlobalUniqueEntityId(), this.instance, 40, 400, true);
-		EntityRegistry.registerModEntity(EntityFrostGem.class, "entity_frost_gem", EntityRegistry.findGlobalUniqueEntityId(), this.instance, 40, 400, true);
-		EntityRegistry.registerModEntity(EntityFireShard.class, "entity_fire_shard", EntityRegistry.findGlobalUniqueEntityId() + 1, this.instance, 40, 400, true);
-		EntityRegistry.registerModEntity(EntityFireShard.class, "entity_magma_gem", EntityRegistry.findGlobalUniqueEntityId() + 1, this.instance, 40, 400, true);
+		EntityRegistry.registerModEntity(EntityIceShard.class, "entity_ice_shard", EntityRegistry.findGlobalUniqueEntityId(), this.instance, 40, 3, true);
+		EntityRegistry.registerModEntity(EntityFrostGem.class, "entity_frost_gem", EntityRegistry.findGlobalUniqueEntityId(), this.instance, 40, 3, true);
+		EntityRegistry.registerModEntity(EntityFireShard.class, "entity_fire_shard", EntityRegistry.findGlobalUniqueEntityId(), this.instance, 40, 3, true);
+		EntityRegistry.registerModEntity(EntityFireShard.class, "entity_magma_gem", EntityRegistry.findGlobalUniqueEntityId(), this.instance, 40, 3, true);
 	}
 	
 	@EventHandler

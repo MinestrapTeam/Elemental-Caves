@@ -40,8 +40,8 @@ public class ECBlocks
 		glacierRock = new BlockGlacierrock().setHardness(2.0F).setResistance(11.0F).setBlockTextureName(ECReference.getTexture("glacierrock"));
 		glacierRockStairs = new ECBlockStairs(glacierRock, 1).setHardness(2F).setResistance(10F);
 		glacierRockBrickStairs = new ECBlockStairs(glacierRock, 2).setHardness(2F).setResistance(10F);
-		glacierRockSlabSingle = new ECBlockSlab(false, new String[]{ECReference.getTexture("glacierrock_slab_side")}, new String[]{ECReference.getTexture("glacierrock_slab_top")}).setCreativeTab(ElementalCaves.creativeTabECBlocks).setHardness(2F).setResistance(10F);
-		glacierRockSlabDouble = new ECBlockSlab(true, new String[]{ECReference.getTexture("glacierrock_slab_side")}, new String[]{ECReference.getTexture("glacierrock_slab_top")}).setHardness(2F).setResistance(10F);
+		glacierRockSlabSingle = new ECBlockSlab(false, new String[]{ECReference.getTexture("glacierrock_slab_side"), ECReference.getTexture("glacierrock_cracked")}, new String[]{ECReference.getTexture("glacierrock_slab_top"), ECReference.getTexture("glacierrock_cracked")}).setCreativeTab(ElementalCaves.creativeTabECBlocks).setHardness(2F).setResistance(10F);
+		glacierRockSlabDouble = new ECBlockSlab(true, new String[]{ECReference.getTexture("glacierrock_slab_side"), ECReference.getTexture("glacierrock_cracked")}, new String[]{ECReference.getTexture("glacierrock_slab_top"), ECReference.getTexture("glacierrock_cracked")}).setHardness(2F).setResistance(10F);
 
 		moltenstone = new BlockMoltenstone().setHardness(2.1F).setResistance(8.0F).setBlockTextureName(ECReference.getTexture("moltenstone"));
 		moltenstoneStairs = new ECBlockStairs(moltenstone, 0).setHardness(2.1F).setResistance(8.0F);
