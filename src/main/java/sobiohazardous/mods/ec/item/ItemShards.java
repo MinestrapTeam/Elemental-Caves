@@ -1,8 +1,13 @@
 package sobiohazardous.mods.ec.item;
 
+import java.util.List;
+
 import sobiohazardous.mods.ec.entity.projectile.EntityFireShard;
 import sobiohazardous.mods.ec.entity.projectile.EntityIceShard;
+
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -42,5 +47,14 @@ public class ItemShards extends ECItemMulti
 		}
 		
 		return stack;
+	}
+	
+	@Override
+	public void getSubItems(Item item, CreativeTabs tab, List list)
+	{
+		for (int i = 1; i < this.types.length; i++)
+		{
+			list.add(new ItemStack(this, 1, i));
+		}
 	}
 }

@@ -47,7 +47,7 @@ public class ECItemMulti extends ECItem
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list)
 	{
-		for (int i = 1; i < this.types.length; i++)
+		for (int i = 0; i < this.types.length; i++)
 		{
 			list.add(new ItemStack(this, 1, i));
 		}
