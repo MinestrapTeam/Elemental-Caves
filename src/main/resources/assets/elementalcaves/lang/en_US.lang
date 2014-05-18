@@ -18,22 +18,22 @@ tile.glacierrock_slab_double.1.name=Cracked Double Slab
 tile.glacierrock_slab_single.2.name=Glacierrock Bricks Slab
 tile.glacierrock_slab_double.2.name=Glacierrock Bricks Double Slab
 
-tile.molten_stone.0.name=Moltenstone
-tile.molten_stone.1.name=Cooled Moltenstone
-tile.molten_stone.2.name=Moltenstone Bricks
-tile.molten_stone_stairs.name=Moltenstone Stairs
-tile.molten_brick_stairs.name=Moltenstone Brick Stairs
-tile.molten_slab_single.0.name=Moltenstone Slab
-tile.molten_slab_double.0.name=Moltenstone Double Slab
-tile.molten_slab_single.1.name=Moltenstone Bricks Slab
-tile.molten_slab_double.1.name=Moltenstone Bricks Double Slab
+tile.moltenstone.0.name=Moltenstone
+tile.moltenstone.1.name=Cooled Moltenstone
+tile.moltenstone.2.name=Moltenstone Bricks
+tile.moltenstone_stairs.name=Moltenstone Stairs
+tile.moltenstone_brick_stairs.name=Moltenstone Brick Stairs
+tile.moltenstone_slab_single.0.name=Moltenstone Slab
+tile.moltenstone_slab_double.0.name=Moltenstone Double Slab
+tile.moltenstone_slab_single.1.name=Moltenstone Bricks Slab
+tile.moltenstone_slab_double.1.name=Moltenstone Bricks Double Slab
 
-tile.ancient_moss_stone.name=Ancient Mossy Stone
-tile.ancient_mossy_cobblestone.name=Ancient Mossy Cobblestone
-tile.ancient_mossy_bricks.name=Ancient Mossy Stone Bricks
-tile.ancientmossy_slab_single.0.name=Ancient Mossy Stone Slab
-tile.ancientmossy_slab_single.1.name=Ancient Mossy Cobblestone Slab
-tile.ancientmossy_slab_single.2.name=Ancient Mossy Stone Bricks Slab
+tile.ancient_moss_stone.0.name=Ancient Mossy Stone
+tile.ancient_moss_stone.1.name=Ancient Mossy Cobblestone
+tile.ancient_moss_stone.2.name=Ancient Mossy Stone Bricks
+tile.ancient_moss_stone_slab_single.0.name=Ancient Mossy Stone Slab
+tile.ancient_moss_stone_slab_single.1.name=Ancient Mossy Cobblestone Slab
+tile.ancient_moss_stone_slab_single.2.name=Ancient Mossy Stone Bricks Slab
 
 tile.rich_grass.name=Rich Grass
 tile.rich_soil.name=Rich Soil

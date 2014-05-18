@@ -66,8 +66,8 @@ public class ECBlocks
 		
 		ancientMossStone = new BlockAncientMossStone().setHardness(2.0F).setResistance(11.0F).setBlockTextureName(ECUtil.getTexture("ancient_moss_stone"));
 		
-		String[] ancientMossySlabSideIcons = new String[] { ECUtil.getTexture("ancient_moss_stone_slab_side"), ECUtil.getTexture("ancient_mossy_cobblestone"), ECUtil.getTexture("ancient_moss_stone_bricks") };
-		String[] ancientMossySlabTopIcons = new String[] { ECUtil.getTexture("ancient_moss_stone_slab_top"), ECUtil.getTexture("ancient_mossy_cobblestone"), ECUtil.getTexture("ancient_moss_stone_bricks") };
+		String[] ancientMossySlabSideIcons = new String[] { ECUtil.getTexture("ancient_moss_stone_slab_side"), ECUtil.getTexture("ancient_moss_stone_cracked"), ECUtil.getTexture("ancient_moss_stone_bricks") };
+		String[] ancientMossySlabTopIcons = new String[] { ECUtil.getTexture("ancient_moss_stone_slab_top"), ECUtil.getTexture("ancient_moss_stone_cracked"), ECUtil.getTexture("ancient_moss_stone_bricks") };
 		ancientMossySlabSingle = new ECBlockSlab(false, ancientMossySlabSideIcons, ancientMossySlabTopIcons).setCreativeTab(ElementalCaves.creativeTabECBlocks).setHardness(2F).setResistance(10F);
 		ancientMossySlabDouble = new ECBlockSlab(true, ancientMossySlabSideIcons, ancientMossySlabTopIcons).setHardness(2F).setResistance(10F);
 		
@@ -99,7 +99,7 @@ public class ECBlocks
 		addBlock(moltenstoneSlabSingle, ECItemSlab.class, "moltenstone_slab_single", moltenstoneSlabSingle, moltenstoneSlabDouble);
 		addBlock(moltenstoneSlabDouble, ECItemSlab.class, "moltenstone_slab_double", moltenstoneSlabSingle, moltenstoneSlabDouble);
 		
-		addBlock(ancientMossStone, "ancient_moss_stone");
+		addBlock(ancientMossStone, ECItemBlockMulti.class, "ancient_moss_stone");
 		addBlock(ancientMossySlabSingle, ECItemSlab.class, "ancient_moss_stone_slab_single", ancientMossySlabSingle, ancientMossySlabDouble);
 		addBlock(ancientMossySlabDouble, ECItemSlab.class, "ancient_moss_stone_slab_double", ancientMossySlabSingle, ancientMossySlabDouble);
 		
