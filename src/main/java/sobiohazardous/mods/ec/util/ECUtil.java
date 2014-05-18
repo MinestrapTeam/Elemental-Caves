@@ -155,6 +155,11 @@ public class ECUtil
 			world.setBlock(x, y, z, Blocks.snow);
 			flag = true;
 		}
+		else if (block == Blocks.snow)
+		{
+			world.setBlock(x, y, z, Blocks.water);
+			flag = true;
+		}
 		else if (block == Blocks.snow_layer)
 		{
 			world.setBlockToAir(x, y, z);

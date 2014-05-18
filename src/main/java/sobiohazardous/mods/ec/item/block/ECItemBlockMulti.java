@@ -10,6 +10,7 @@ public class ECItemBlockMulti extends ItemBlock
 	public ECItemBlockMulti(Block block)
 	{
 		super(block);
+		this.setHasSubtypes(true);
 	}
 	
 	@Override
