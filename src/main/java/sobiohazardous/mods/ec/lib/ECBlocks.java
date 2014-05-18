@@ -22,6 +22,10 @@ public class ECBlocks
 	public static Block glacierRockSlabDouble;
 	
 	public static Block moltenstone;
+	public static Block moltenstoneStairs;
+	public static Block moltenstoneStairsBrick;
+	public static Block moltenstoneSlabSingle;
+	public static Block moltenstoneSlabDouble;
 	
 	public static Block	oreLapis;
 	public static Block	oreFreezium;
@@ -40,7 +44,11 @@ public class ECBlocks
 		glacierRockSlabDouble = new ECBlockSlab(true, new String[]{ECReference.getTexture("glacierrock_slab_side")}, new String[]{ECReference.getTexture("glacierrock_slab_top")}).setHardness(2F).setResistance(10F);
 
 		moltenstone = new BlockMoltenstone().setHardness(2.1F).setResistance(8.0F).setBlockTextureName(ECReference.getTexture("moltenstone"));
-		
+		moltenstoneStairs = new ECBlockStairs(moltenstone, 0).setHardness(2.1F).setResistance(8.0F);
+		moltenstoneStairsBrick = new ECBlockStairs(moltenstone, 2).setHardness(2.1F).setResistance(8.0F);
+		moltenstoneSlabSingle = new ECBlockSlab(false, new String[]{ECReference.getTexture("moltenstone_slab_side")}, new String[]{ECReference.getTexture("moltenstone_slab_top")}).setCreativeTab(ElementalCaves.creativeTabECBlocks).setHardness(2.1F).setResistance(8.0F);
+		moltenstoneSlabDouble = new ECBlockSlab(true, new String[]{ECReference.getTexture("moltenstone_slab_side")}, new String[]{ECReference.getTexture("moltenstone_slab_top")}).setHardness(2.1F).setResistance(8.0F);
+
 		oreLapis = new ECBlockOre().setHardness(3F).setResistance(5.0F).setBlockTextureName(ECReference.getTexture("lapis_ore_glacier"));
 		oreFreezium = new ECBlockOre().setHardness(3.5F).setResistance(6F).setBlockTextureName(ECReference.getTexture("freezium_ore"));
 		oreGlistening = new ECBlockOre(0.6F).setHardness(3.0F).setResistance(15.0F).setLightLevel(0.6F).setBlockTextureName(ECReference.getTexture("glistening_ore"));
@@ -59,6 +67,11 @@ public class ECBlocks
 		addBlock(glacierRockSlabDouble, ECItemSlab.class, "glacierrock_slab_double", glacierRockSlabSingle, glacierRockSlabDouble);
 
 		addBlock(moltenstone, ECItemBlockMulti.class, "molten_stone");
+		addBlock(moltenstoneStairs, "molten_stone_stairs");
+		addBlock(moltenstoneStairsBrick, "molten_brick_stairs");
+		addBlock(moltenstoneSlabSingle, ECItemSlab.class, "molten_slab_single", moltenstoneSlabSingle, moltenstoneSlabDouble);
+		addBlock(moltenstoneSlabDouble, ECItemSlab.class, "molten_slab_double", moltenstoneSlabSingle, moltenstoneSlabDouble);
+
 		addBlock(oreLapis, "lapis_ore_glacier");
 		addBlock(oreFreezium, "freezium_ore");
 		addBlock(oreGlistening, "glistening_ore");
