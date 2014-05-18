@@ -66,7 +66,7 @@ public class ECBlocks
 		ancientMossySlabSingle = new ECBlockSlab(false, new String[]{ECReference.getTexture("ancientMossStoneSlabSide"), ECReference.getTexture("ancientMossyCobblestone"), ECReference.getTexture("ancientMossStoneBricks")}, new String[]{ECReference.getTexture("ancientMossStoneSlabTop"), ECReference.getTexture("ancientMossyCobblestone"), ECReference.getTexture("ancientMossStoneBricks")}).setCreativeTab(ElementalCaves.creativeTabECBlocks).setHardness(2F).setResistance(10F);
 		ancientMossySlabDouble = new ECBlockSlab(true, new String[]{ECReference.getTexture("ancientMossStoneSlabSide"), ECReference.getTexture("ancientMossyCobblestone"),ECReference.getTexture("ancientMossStoneBricks")}, new String[]{ECReference.getTexture("ancientMossStoneSlabTop"), ECReference.getTexture("ancientMossyCobblestone"), ECReference.getTexture("ancientMossStoneBricks")}).setHardness(2F).setResistance(10F);
 
-		richGrass = new BlockRichGrass(Material.grass).setHardness(0.6F).setStepSound(Block.soundTypeGrass);
+		richGrass = new BlockRichGrass(Material.grass).setHardness(0.6F).setStepSound(Block.soundTypeGrass).setLightLevel(9);
 		richSoil = new ECBlock(Material.ground).setHardness(0.5F).setBlockTextureName(ECReference.getTexture("richSoil")).setStepSound(Block.soundTypeGravel);
 		richFarmland = new BlockRichFarmland().setHardness(0.6F).setStepSound(Block.soundTypeGravel);
 		

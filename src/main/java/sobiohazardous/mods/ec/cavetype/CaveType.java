@@ -169,10 +169,6 @@ public class CaveType
 				{
 					generateFloorAddons(world, random, x, y, z);
 				}
-				if (random.nextFloat() < this.floorAddonSpawnWeight)
-				{
-					generateMoreFloorAddons(world, random, x, y, z);
-				}
 				
 				cave = false;
 			}
@@ -223,18 +219,6 @@ public class CaveType
 	}
 	
 	public void generateFloorAddons(World world, Random random, int x, int y, int z)
-	{
-	}
-	
-	/**
-	 * Generates another block of floor addons using different rand value.
-	 * @param world
-	 * @param random
-	 * @param x
-	 * @param y
-	 * @param z
-	 */
-	public void generateMoreFloorAddons(World world, Random random, int x, int y, int z)
 	{
 	}
 	
