@@ -12,12 +12,17 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class ECUtil
 {
-	public static boolean freeze(World world, int x, int y, int z)
+	public static String position(String message, int x, int y, int z)
 	{
-		return freeze(world, x, y, z, false, false);
+		return message + " (" + x + ";" + y + ";" + z + ")";
 	}
 	
-	public static boolean freeze(World world, int x, int y, int z, boolean flag, boolean isArmorEffect)
+	public static boolean freeze(World world, int x, int y, int z)
+	{
+		return freeze(world, x, y, z, false);
+	}
+	
+	public static boolean freeze(World world, int x, int y, int z, boolean flag)
 	{
 		Block block = world.getBlock(x, y, z);
 		
@@ -58,19 +63,11 @@ public class ECUtil
 		}
 		else if (block == Blocks.lava)
 		{
-			if (isArmorEffect)
-			{
-				world.setBlock(x, y - 2, z, Blocks.obsidian);
-			}
 			world.setBlock(x, y, z, Blocks.obsidian);
 			flag = true;
 		}
 		else if (block == Blocks.water)
 		{
-			if (isArmorEffect)
-			{
-				world.setBlock(x, y - 2, z, Blocks.ice);
-			}
 			world.setBlock(x, y, z, Blocks.ice);
 			flag = true;
 		}
@@ -107,7 +104,11 @@ public class ECUtil
 			world.setBlock(x, y, z, Blocks.stone);
 			flag = true;
 		}
-		else if (block == Blocks.sandstone || block == Blocks.stone)
+		else if (block == Blocks.stone)
+		{
+			world.setBlock(x, y, z, Blocks.flowing_lava);
+		}
+		else if (block == Blocks.sandstone)
 		{
 			if (world.getBlockMetadata(x, y, z) != 1)
 			{
