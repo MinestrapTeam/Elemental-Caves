@@ -16,7 +16,12 @@ public class BlockM
 	
 	public void set(World world, int x, int y, int z)
 	{
-		world.setBlock(x, y, z, this.block, this.metadata, 3);
+		this.set(world, x, y, z, 3);
+	}
+	
+	public void set(World world, int x, int y, int z, int flags)
+	{
+		world.setBlock(x, y, z, this.block, this.metadata, flags);
 	}
 	
 	@Override
