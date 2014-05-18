@@ -27,7 +27,7 @@ public class CaveTypeIce extends CaveType
 	@Override
 	public void generateFloor(World world, Random random, int x, int y, int z)
 	{
-		world.setBlock(x, y, z, ECBlocks.ancientIce, 0, 3);
+		world.setBlock(x, y, z, ECBlocks.ancientIce, 0, 2);
 	}
 	
 	@Override
@@ -39,8 +39,7 @@ public class CaveTypeIce extends CaveType
 	@Override
 	public void generateCeilingAddons(World world, Random random, int x, int y, int z)
 	{
-		//generate crystal stallagitmites
-		world.setBlock(x, y, z, ECBlocks.crystals, 0, 3);
-		world.setBlock(x, y - 1, z, ECBlocks.crystals, 0, 3);
+		world.setBlock(x, y, z, ECBlocks.crystals, 0, 2);
+		world.setBlock(x, y - 1, z, ECBlocks.crystals, 0, 2);
 	}
 }

@@ -37,7 +37,7 @@ public class CaveTypeFire extends CaveType
 	@Override
 	public void generateCeilingAddons(World world, Random random, int x, int y, int z)
 	{
-		world.setBlock(x, y, z, ECBlocks.crystals, 1, 3);
-		world.setBlock(x, y - 1, z, ECBlocks.crystals, 1, 3);
+		world.setBlock(x, y, z, ECBlocks.crystals, 1, 2);
+		world.setBlock(x, y - 1, z, ECBlocks.crystals, 1, 2);
 	}
 }

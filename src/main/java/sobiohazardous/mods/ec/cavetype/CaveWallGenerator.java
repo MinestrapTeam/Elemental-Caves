@@ -8,13 +8,12 @@ import sobiohazardous.mods.ec.world.BlockM;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class CaveWallGenerator extends WorldGenerator
 {
-	private static int			radius			= 5;
+	private static int			radius			= 1;
 	
 	private Block				block;
 	private int					blockMetadata;
@@ -76,21 +75,32 @@ public class CaveWallGenerator extends WorldGenerator
 	@Override
 	public boolean generate(World world, Random random, int x, int y, int z)
 	{
-		for (int i = -radius; i <= radius; i++)
+		int radius = 2;
+		int sqr = radius * radius;
+		
+		int xmin = x - radius;
+		int xmax = x + radius;
+		int ymin = y - 5;
+		int ymax = y + 5;
+		int zmin = z - radius;
+		int zmax = z + radius;
+		
+		if (ymin < 0)
+			ymin = 0;
+		if (ymax > 255)
+			ymax = 255;
+		
+		for (int x1 = xmin; x1 <= xmax; x1++)
 		{
-			for (int j = -radius; j <= radius; j++)
+			for (int y1 = ymin; y1 <= ymax; y1++)
 			{
-				for (int k = -radius; k <= radius; k++)
+				for (int z1 = zmin; z1 <= zmax; z1++)
 				{
-					int x1 = x + i;
-					int y1 = y + j;
-					int z1 = z + k;
-					
 					int x2 = x1 - x;
 					int y2 = y1 - y;
 					int z2 = z1 - z;
 					
-					if (MathHelper.sqrt_float((x2 * x2) + (y2 * y2) + (z2 * z2)) <= radius)
+					if ((x2 * x2) + (y2 * y2) + (z2 * z2) <= sqr)
 					{
 						this.replaceBlock(world, x1, y1, z1);
 					}
@@ -104,18 +114,21 @@ public class CaveWallGenerator extends WorldGenerator
 	public void replaceBlock(World world, int x, int y, int z)
 	{
 		Block block = world.getBlock(x, y, z);
-		int metadata = world.getBlockMetadata(x, y, z);
 		
-		if (block == this.target && metadata == this.targetMetadata)
+		if (block != Blocks.air)
 		{
-			world.setBlock(x, y, z, this.block, this.blockMetadata, 3);
-		}
-		else if (block != Blocks.air)
-		{
-			BlockM replacement = this.getReplacement(block, metadata);
-			if (replacement != null)
+			int metadata = world.getBlockMetadata(x, y, z);
+			if (block == this.target && metadata == this.targetMetadata)
 			{
-				replacement.set(world, x, y, z);
+				world.setBlock(x, y, z, this.block, this.blockMetadata, 2);
+			}
+			else
+			{
+				BlockM replacement = this.getReplacement(block, metadata);
+				if (replacement != null)
+				{
+					replacement.set(world, x, y, z, 2);
+				}
 			}
 		}
 	}

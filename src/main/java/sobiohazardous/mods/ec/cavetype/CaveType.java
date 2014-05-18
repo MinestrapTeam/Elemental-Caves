@@ -194,11 +194,11 @@ public class CaveType
 	{
 		if (this.ceilingBlock != null)
 		{
-			world.setBlock(x, y, z, this.ceilingBlock, this.ceilingMetadata, 3);
+			world.setBlock(x, y, z, this.ceilingBlock, this.ceilingMetadata, 2);
 		}
 		else
 		{
-			world.setBlock(x, y, z, this.block, this.blockMetadata, 3);
+			world.setBlock(x, y, z, this.block, this.blockMetadata, 2);
 		}
 	}
 	
@@ -206,11 +206,11 @@ public class CaveType
 	{
 		if (this.floorBlock != null)
 		{
-			world.setBlock(x, y, z, this.floorBlock, this.floorMetadata, 3);
+			world.setBlock(x, y, z, this.floorBlock, this.floorMetadata, 2);
 		}
 		else
 		{
-			world.setBlock(x, y, z, this.block, this.blockMetadata, 3);
+			world.setBlock(x, y, z, this.block, this.blockMetadata, 2);
 		}
 	}
 	
