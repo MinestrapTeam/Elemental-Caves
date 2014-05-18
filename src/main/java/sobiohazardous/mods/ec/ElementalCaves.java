@@ -62,7 +62,6 @@ public class ElementalCaves
 		
 		FMLCommonHandler.instance().bus().register(eventHandler);
 		MinecraftForge.EVENT_BUS.register(eventHandler);
-		eventHandler.INSTANCE.buckets.put(ECBlocks.iceFloe, ECItems.bucketIceFloe);
 		GameRegistry.registerWorldGenerator(new ECWorldGenerator(), 0);
 		
 		EntityRegistry.registerModEntity(EntityIceShard.class, "entity_ice_shard", 2, this.instance, 40, 3, true);

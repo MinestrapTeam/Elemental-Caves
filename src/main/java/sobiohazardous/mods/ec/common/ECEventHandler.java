@@ -1,30 +1,22 @@
 package sobiohazardous.mods.ec.common;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import sobiohazardous.mods.ec.lib.ECBlocks;
 import sobiohazardous.mods.ec.lib.ECConfig;
 import sobiohazardous.mods.ec.lib.ECItems;
 import sobiohazardous.mods.ec.util.ECUtil;
-import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
 
 public class ECEventHandler
 {
 	public static ECEventHandler	INSTANCE	= new ECEventHandler();
-	public Map<Block, Item>			buckets		= new HashMap<Block, Item>();
 	
 	@SubscribeEvent
 	public void onPlayerTick(TickEvent.PlayerTickEvent event)
@@ -32,6 +24,9 @@ public class ECEventHandler
 		if (event.phase == Phase.START)
 		{
 			EntityPlayer player = event.player;
+			
+			if (player.worldObj.isRemote)
+				return;
 			
 			ItemStack helmet = player.getCurrentArmor(3);
 			ItemStack chest = player.getCurrentArmor(2);
@@ -42,16 +37,17 @@ public class ECEventHandler
 			{
 				if (helmet.getItem() == ECItems.helmetFreezium && chest.getItem() == ECItems.chestplateFreezium && pants.getItem() == ECItems.leggingsFreezium && boots.getItem() == ECItems.bootsFreezium)
 				{
-					ECUtil.freeze(player.worldObj, (int) player.posX, (int) player.posY - 2, (int) player.posZ);
+					System.out.println();
+					ECUtil.freeze(player.worldObj, (int) player.posX - 1, (int) player.posY - 1, (int) player.posZ);
 				}
 				
 				if (helmet.getItem() == ECItems.helmetInfernium && chest.getItem() == ECItems.chestplateInfernium && pants.getItem() == ECItems.leggingsInfernium && boots.getItem() == ECItems.bootsInfernium)
 				{
 					if (ECConfig.inferniumArmorEffect)
 					{
-						player.worldObj.playAuxSFX(2004, (int) player.posX, (int) player.posY, (int) player.posZ, 0);
+						player.worldObj.playAuxSFX(2004, (int) player.posX - 1, (int) player.posY + 1, (int) player.posZ, 0);
 					}
-					ECUtil.melt(player.worldObj, (int) player.posX, (int) player.posY - 2, (int) player.posZ);
+					ECUtil.melt(player.worldObj, (int) player.posX - 1, (int) player.posY - 1, (int) player.posZ);
 				}
 			}
 		}
@@ -60,26 +56,12 @@ public class ECEventHandler
 	@SubscribeEvent
 	public void onBucketFill(FillBucketEvent event)
 	{
-		ItemStack result = fillCustomBucket(event.world, event.target);
-		
-		if (result == null)
-			return;
-		
-		event.result = result;
-		event.setResult(Result.ALLOW);
-	}
-	
-	private ItemStack fillCustomBucket(World world, MovingObjectPosition pos)
-	{
-		Block block = world.getBlock(pos.blockX, pos.blockY, pos.blockZ);
-		
-		Item bucket = buckets.get(block);
-		if (bucket != null)
+		Block block = event.world.getBlock(event.target.blockX, event.target.blockY, event.target.blockZ);
+		if (block == ECBlocks.iceFloe)
 		{
-			world.setBlockToAir(pos.blockX, pos.blockY, pos.blockZ);
-			return new ItemStack(bucket);
+			event.result = new ItemStack(ECItems.bucketIceFloe);
+			event.setCanceled(true);
 		}
-		return null;
 	}
 	
 	@SubscribeEvent
