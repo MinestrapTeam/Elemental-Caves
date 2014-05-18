@@ -42,6 +42,7 @@ public class ECBlocks
 	public static Block	oreFreezium;
 	public static Block	oreGlistening;
 	public static Block oreDiamond;
+	public static Block oreFertile;
 	
 	public static Block	iceFloe;
 	
@@ -84,6 +85,7 @@ public class ECBlocks
 		oreFreezium = new ECBlockOre(0.98F).setHardness(3.5F).setResistance(6F).setBlockTextureName(ECUtil.getTexture("freezium_ore"));
 		oreGlistening = new ECBlockOre().setHardness(3.0F).setResistance(15.0F).setLightLevel(0.6F).setBlockTextureName(ECUtil.getTexture("glistening_ore"));
 		oreDiamond = new ECBlockOre().setHardness(3.5F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setBlockTextureName(ECUtil.getTexture("diamond_ore_molten"));
+		oreFertile = new ECBlockOre().setHardness(3F).setResistance(5.0F).setBlockTextureName(ECUtil.getTexture("fertile_ore"));
 		
 		crystals = new BlockCrystals().setHardness(5F).setResistance(8F).setBlockTextureName(ECUtil.getTexture("crystal"));
 		
@@ -119,6 +121,7 @@ public class ECBlocks
 		addBlock(oreFreezium, "freezium_ore");
 		addBlock(oreGlistening, "glistening_ore");
 		addBlock(oreDiamond, "diamond_ore_infernium");				
+		addBlock(oreFertile, "fertile_ore");
 		
 		addBlock(crystals, ECItemBlockMulti.class, "crystal");
 		
@@ -160,6 +163,7 @@ public class ECBlocks
 		oreFreezium.setHarvestLevel("pickaxe", 3);
 		oreGlistening.setHarvestLevel("pickaxe", 3);
 		oreDiamond.setHarvestLevel("pickaxe", 2);
+		oreFertile.setHarvestLevel("pickaxe", 2);
 	}
 	
 	public static void addBlock(Block block, String name)

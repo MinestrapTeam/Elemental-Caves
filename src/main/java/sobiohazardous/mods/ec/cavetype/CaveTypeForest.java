@@ -20,7 +20,8 @@ public class CaveTypeForest extends CaveType
 		this.getWallGen().addReplacement(Blocks.gravel, ECBlocks.richSoil);
 		this.getWallGen().addReplacement(Blocks.lava, Blocks.water);
 		
-		// TODO Add ores
+		this.addOre(ECBlocks.oreFertile, 14, 3, this.spawnHeight);
+		
 		// TODO add more flowers
 	}
 	

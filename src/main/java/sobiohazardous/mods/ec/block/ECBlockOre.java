@@ -49,6 +49,8 @@ public class ECBlockOre extends BlockSlippery
 			return Items.diamond;
 		else if (this == ECBlocks.oreGlistening)
 			return ECItems.gems;
+		else if (this == ECBlocks.oreFertile)
+			return Items.dye;
 		return super.getItemDropped(metadata, random, fortune);
 	}
 	
@@ -57,6 +59,8 @@ public class ECBlockOre extends BlockSlippery
 	{
 		if (this == ECBlocks.oreLapis)
 			return 4;
+		if (this == ECBlocks.oreFertile)
+			return 15;
 		return 0;
 	}
 	
@@ -67,6 +71,8 @@ public class ECBlockOre extends BlockSlippery
 			return 4 + random.nextInt(5);
 		else if (this == ECBlocks.oreDiamond)
 			return 1 + random.nextInt(4);
+		else if (this == ECBlocks.oreFertile)
+			return 1 + random.nextInt(5);
 		return 1;
 	}
 	
@@ -78,6 +84,8 @@ public class ECBlockOre extends BlockSlippery
 		else if (this == ECBlocks.oreGlistening)
 			return 4 + this.random.nextInt(5);
 		else if (this == ECBlocks.oreDiamond)
+			return 2 + this.random.nextInt(4);
+		else if (this == ECBlocks.oreFertile)
 			return 2 + this.random.nextInt(4);
 		return 0;
 	}

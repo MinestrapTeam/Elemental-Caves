@@ -81,6 +81,7 @@ public class ECRecipes
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.ancientMossyCobbleStairs, 4, 0), new Object[]{"M  ", "MM ", "MMM", 'M', new ItemStack(ECBlocks.ancientMossStone, 1, 1)});
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.ancientMossySlabSingle, 6, 1), new Object[]{"MMM", 'M', new ItemStack(ECBlocks.ancientMossStone, 1, 1)});
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.crystals, 1, 2), new Object[] { "SS", "SS", 'S', new ItemStack(ECItems.shards, 1, 3) });
-
+		GameRegistry.addSmelting(ECBlocks.oreFertile, new ItemStack(Items.dye, 4, 15), 0.8F);
+		
 	}
 }

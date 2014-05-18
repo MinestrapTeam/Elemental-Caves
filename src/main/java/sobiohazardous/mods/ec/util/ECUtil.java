@@ -280,7 +280,7 @@ public class ECUtil
 		else if (block instanceof IGrowable && !(block instanceof BlockDoublePlant))
 		{
 			IGrowable igrowable = (IGrowable) block;
-			if (igrowable.func_149852_a(world, world.rand, x, y, z) && !world.blockExists(x, y + 1, z) && world.getBlock(x, y, z) == ECBlocks.richGrass)
+			if (igrowable.func_149852_a(world, world.rand, x, y, z))
 			{
 				igrowable.func_149853_b(world, world.rand, x, y, z);
 				flag = true;
