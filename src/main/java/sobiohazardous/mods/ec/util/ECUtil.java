@@ -2,10 +2,7 @@ package sobiohazardous.mods.ec.util;
 
 import sobiohazardous.mods.ec.lib.ECBlocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockBush;
-import net.minecraft.block.BlockLeavesBase;
-import net.minecraft.block.IGrowable;
+import net.minecraft.block.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -187,13 +184,13 @@ public class ECUtil
 			world.setBlock(x, y, z, Blocks.grass);
 			flag = true;
 		}
-		else if(block == Blocks.cactus)
+		else if(block == Blocks.cactus || block == Blocks.reeds)
 		{
-			world.setBlock(x, y + 1, z, Blocks.cactus);
-			world.setBlock(x, y + 2, z, Blocks.cactus);
+			world.setBlock(x, y + 1, z, block);
+			world.setBlock(x, y + 2, z, block);
 			flag = true;
 		}
-		else if (block instanceof IGrowable)
+		else if (block instanceof IGrowable && !(block instanceof BlockDoublePlant))
 		{
 			IGrowable igrowable = (IGrowable) block;
 			
