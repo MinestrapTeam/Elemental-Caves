@@ -48,6 +48,13 @@ public class ECEventHandler
 						player.worldObj.playAuxSFX(2004, (int) player.posX - 1, (int) player.posY + 1, (int) player.posZ, 0);
 					}
 					ECUtil.melt(player.worldObj, (int) player.posX - 1, (int) player.posY - 1, (int) player.posZ);
+					if(player.isInWater())
+					{
+						helmet.damageItem(3, player);
+						chest.damageItem(3, player);
+						pants.damageItem(3, player);
+						boots.damageItem(3, player);
+					}
 				}
 			}
 		}

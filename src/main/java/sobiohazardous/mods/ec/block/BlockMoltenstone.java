@@ -42,7 +42,6 @@ public class BlockMoltenstone extends ECBlockMulti
 			}
 			else
 			{
-				System.out.println("good");
 	            world.setBlock(x, y, z, Blocks.flowing_lava);	            
 			}		
 		}

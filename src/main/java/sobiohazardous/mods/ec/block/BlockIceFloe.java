@@ -3,11 +3,15 @@ package sobiohazardous.mods.ec.block;
 import sobiohazardous.mods.ec.ElementalCaves;
 import sobiohazardous.mods.ec.lib.ECBlocks;
 import sobiohazardous.mods.ec.util.ECUtil;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidClassic;
@@ -31,6 +35,15 @@ public class BlockIceFloe extends BlockFluidClassic
 		this.flowingIcon = iconRegister.registerIcon(ECUtil.getTexture("icefloe_flowing"));
 	}
 	
+    public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity collided) 
+    {
+    	if(collided instanceof EntityLivingBase)
+    	{
+    		EntityLivingBase living = (EntityLivingBase)collided;
+    		living.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20 * 20, 2));
+    	}
+    }
+
     @Override public Fluid getFluid()
     { 
     	return ElementalCaves.iceFloe; 

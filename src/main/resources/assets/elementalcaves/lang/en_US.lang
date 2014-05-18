@@ -39,6 +39,8 @@ tile.ancient_moss_stone.2.name=Ancient Mossy Stone Bricks
 tile.ancient_moss_stone_slab_single.0.name=Ancient Mossy Stone Slab
 tile.ancient_moss_stone_slab_single.1.name=Ancient Mossy Cobblestone Slab
 tile.ancient_moss_stone_slab_single.2.name=Ancient Mossy Stone Bricks Slab
+tile.ancient_mossy_stonebrick_stairs.name=Ancient Mossy Stonebrick Stairs
+tile.ancient_mossy_cobble_stairs.name=Ancient Mossy Cobblestone Stairs
 
 tile.rich_grass.name=Rich Grass
 tile.rich_soil.name=Rich Soil
@@ -47,6 +49,7 @@ tile.rich_farmland.name=Rich Farmland
 tile.lapis_ore_glacier.name=Glacier Lapis Ore
 tile.freezium_ore.name=Freezium Ore
 tile.glistening_ore.name=Glistening Ore
+tile.diamond_ore_infernium.name=Infernium Diamond Ore
 
 item.elemental_gems.0.name=Clear Gem
 item.elemental_gems.1.name=Frost Gem
