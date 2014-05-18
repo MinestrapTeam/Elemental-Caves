@@ -12,12 +12,11 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 public class CaveType
 {
-	public static List<CaveType>	caveTypes				= new ArrayList();
+	public static List<CaveType>	caveTypes			= new ArrayList();
 	
-	public static CaveType			ice						= new CaveTypeIce("ice");
-	public static CaveType			fire					= new CaveTypeFire("fire");
-	public static CaveType			forest					= new CaveTypeForest("forest");
-	// TODO add later public static CaveType ocean = new CaveTypeOcean("ocean");
+	public static CaveType			ice					= new CaveTypeIce("ice");
+	public static CaveType			fire				= new CaveTypeFire("fire");
+	public static CaveType			forest				= new CaveTypeForest("forest");
 	
 	public final String				name;
 	public Block					block;
@@ -28,15 +27,15 @@ public class CaveType
 	public int						floorMetadata;
 	public int						ceilingMetadata;
 	
-	public int						spawnHeight				= 62;
-	protected float					ceilingAddonSpawnWeight	= 0.1F;
-	protected float					floorAddonSpawnWeight	= 0.2F;
+	public int						spawnHeight			= 62;
+	protected float					ceilingAddonWeight	= 0.1F;
+	protected float					floorAddonWeight	= 0.2F;
 	
 	public BiomeGenBase				biome;
 	
 	protected CaveWallGenerator		wallGen;
 	
-	public List<OreGenData>			ores					= new ArrayList();
+	public List<OreGenData>			ores				= new ArrayList();
 	
 	public CaveType(String name, Block mainCaveBlock)
 	{
@@ -107,7 +106,7 @@ public class CaveType
 	 */
 	public CaveType setFloorAddonSpawnWeight(float weight)
 	{
-		this.floorAddonSpawnWeight = weight;
+		this.floorAddonWeight = weight;
 		return this;
 	}
 	
@@ -119,7 +118,7 @@ public class CaveType
 	 */
 	public CaveType setCeilingAddonSpawnWeight(float weight)
 	{
-		this.ceilingAddonSpawnWeight = weight;
+		this.ceilingAddonWeight = weight;
 		return this;
 	}
 	
@@ -142,17 +141,17 @@ public class CaveType
 	public void generate(World world, Random random, int x, int floor, int ceiling, int z)
 	{
 		int center = floor + (ceiling - floor) / 2;
+		
 		this.generateCeiling(world, random, x, ceiling, z);
-		if (random.nextFloat() < this.ceilingAddonSpawnWeight)
+		if (random.nextFloat() < this.ceilingAddonWeight)
 		{
-			this.generateCeilingAddons(world, random, x, ceiling, z);
+			this.generateCeilingAddons(world, random, x, ceiling - 1, z);
 		}
 		
 		this.generate(world, random, x, center, z);
 		
 		this.generateFloor(world, random, x, floor, z);
-		
-		if (random.nextFloat() < this.floorAddonSpawnWeight)
+		if (random.nextFloat() < this.floorAddonWeight)
 		{
 			this.generateFloorAddons(world, random, x, floor, z);
 		}
