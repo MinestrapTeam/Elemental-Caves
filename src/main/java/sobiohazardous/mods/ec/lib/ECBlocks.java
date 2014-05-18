@@ -127,9 +127,13 @@ public class ECBlocks
 		
 		glacierRock.setHarvestLevel("pickaxe", 2);
 		glacierRockStairs.setHarvestLevel("pickaxe", 2);
+		glacierRockStairs.slipperiness = 0.98F;
 		glacierRockBrickStairs.setHarvestLevel("pickaxe", 2);
+		glacierRockBrickStairs.slipperiness = 0.98F;
 		glacierRockSlabSingle.setHarvestLevel("pickaxe", 2);
+		glacierRockSlabSingle.slipperiness = 0.98F;
 		glacierRockSlabDouble.setHarvestLevel("pickaxe", 2);
+		glacierRockSlabDouble.slipperiness = 0.98F;
 		
 		moltenstone.setHarvestLevel("pickaxe", 2, 0);
 		moltenstone.setHarvestLevel("pickaxe", 3, 1);
