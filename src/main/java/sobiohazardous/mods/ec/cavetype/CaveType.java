@@ -28,7 +28,7 @@ public class CaveType
 	public int						floorMetadata;
 	public int						ceilingMetadata;
 	
-	protected int					spawnHeight				= 62;
+	public int						spawnHeight				= 62;
 	protected float					ceilingAddonSpawnWeight	= 0.1F;
 	protected float					floorAddonSpawnWeight	= 0.2F;
 	
@@ -139,43 +139,22 @@ public class CaveType
 		return this;
 	}
 	
-	public void generate(World world, Random random, int x, int z)
+	public void generate(World world, Random random, int x, int floor, int ceiling, int z)
 	{
-		int y = this.spawnHeight;
-		
-		boolean cave = false;
-		while (y > 4)
+		int center = floor + (ceiling - floor) / 2;
+		this.generateCeiling(world, random, x, ceiling, z);
+		if (random.nextFloat() < this.ceilingAddonSpawnWeight)
 		{
-			boolean isAir = world.isAirBlock(x, y, z);
-			if (isAir)
-			{
-				if (!cave)
-				{
-					this.generateCeiling(world, random, x, y + 1, z);
-					if (random.nextFloat() < this.ceilingAddonSpawnWeight)
-					{
-						this.generateCeilingAddons(world, random, x, y + 1, z);
-					}
-					
-					cave = true;
-				}
-				
-				if ((y & 3) == 0)
-					this.generate(world, random, x, y, z);
-			}
-			else if (cave)
-			{
-				this.generate(world, random, x, y + 4, z);
-				this.generateFloor(world, random, x, y, z);
-				
-				if (random.nextFloat() < this.floorAddonSpawnWeight)
-				{
-					this.generateFloorAddons(world, random, x, y, z);
-				}
-				
-				cave = false;
-			}
-			y--;
+			this.generateCeilingAddons(world, random, x, ceiling, z);
+		}
+		
+		this.generate(world, random, x, center, z);
+		
+		this.generateFloor(world, random, x, floor, z);
+		
+		if (random.nextFloat() < this.floorAddonSpawnWeight)
+		{
+			this.generateFloorAddons(world, random, x, floor, z);
 		}
 	}
 	

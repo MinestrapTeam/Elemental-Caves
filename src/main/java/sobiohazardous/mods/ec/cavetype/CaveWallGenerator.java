@@ -15,7 +15,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class CaveWallGenerator extends WorldGenerator
 {
-	private static final int	radius			= 3;
+	private static final int	radius			= 4;
 	
 	private Block				block;
 	private int					blockMetadata;

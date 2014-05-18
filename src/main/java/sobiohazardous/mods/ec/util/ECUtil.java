@@ -60,6 +60,20 @@ public class ECUtil
 			world.setBlock(x, y, z, ECBlocks.glacierRock, 1, 3);
 			flag = true;
 		}
+		else if (block == ECBlocks.moltenstone)
+		{
+			int metadata = world.getBlockMetadata(x, y, z);
+			if (metadata == 0)
+			{
+				world.setBlock(x, y, z, ECBlocks.moltenstone, 1, 3);
+				flag = true;
+			}
+			else if (metadata == 1)
+			{
+				world.setBlock(x, y, z, Blocks.stone);
+				flag = true;
+			}
+		}
 		else if (block == Blocks.fire)
 		{
 			world.setBlockToAir(x, y, z);
@@ -113,6 +127,7 @@ public class ECUtil
 		else if (block == Blocks.stone)
 		{
 			world.setBlock(x, y, z, Blocks.flowing_lava);
+			flag = true;
 		}
 		else if (block == Blocks.cobblestone || block == Blocks.mossy_cobblestone || block == Blocks.stonebrick || block == Blocks.gravel)
 		{
@@ -200,10 +215,48 @@ public class ECUtil
 		
 		if (block == Blocks.dirt)
 		{
-			world.setBlock(x, y, z, Blocks.grass);
+			if (world.getBlockMetadata(x, y, z) == 1)
+			{
+				world.setBlock(x, y, z, Blocks.mycelium);
+			}
+			else
+			{
+				world.setBlock(x, y, z, Blocks.grass);
+			}
 			flag = true;
 		}
-		else if(block == Blocks.cactus || block == Blocks.reeds)
+		else if (block == Blocks.cobblestone)
+		{
+			world.setBlock(x, y, z, Blocks.mossy_cobblestone);
+			flag = true;
+		}
+		else if (block == Blocks.stonebrick)
+		{
+			if (world.getBlockMetadata(x, y, z) == 0)
+			{
+				world.setBlockMetadataWithNotify(x, y, z, 2, 3);
+				flag = true;
+			}
+		}
+		else if (block == Blocks.cobblestone_wall)
+		{
+			if (world.getBlockMetadata(x, y, z) == 0)
+			{
+				world.setBlockMetadataWithNotify(x, y, z, 1, 3);
+				flag = true;
+			}
+		}
+		else if (block == Blocks.sand)
+		{
+			world.setBlock(x, y, z, Blocks.clay);
+			flag = true;
+		}
+		else if (block == Blocks.clay)
+		{
+			world.setBlock(x, y, z, Blocks.dirt);
+			flag = true;
+		}
+		else if (block == Blocks.cactus || block == Blocks.reeds)
 		{
 			world.setBlock(x, y + 1, z, block);
 			world.setBlock(x, y + 2, z, block);
