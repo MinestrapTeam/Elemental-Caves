@@ -11,7 +11,7 @@ tile.glacierrock.1.name=Cracked Glacier Rock
 tile.glacierrock.2.name=Glacier Rock Bricks
 tile.glacierrock_stairs.name=Glacier Rock Stairs
 tile.glacierrock_brick_stairs.name=Glacier Rock Brick Stairs
-tile.glacierrock_slab_single.0.name=Glacierrock Single Slab
+tile.glacierrock_slab_single.0.name=Glacierrock Slab
 tile.glacierrock_slab_double.0.name=Glacierrock Double Slab
 
 tile.molten_stone.0.name=Moltenstone
@@ -22,13 +22,15 @@ tile.lapis_ore_glacier.name=Glacier Lapis Ore
 tile.freezium_ore.name=Freezium Ore
 tile.glistening_ore.name=Glistening Ore
 
-item.clear_gem.name=Clear Gem
-item.ice_gem.name=Frost Gem
-item.magma_gem.name=Magma Gem
-item.forest_gem.name=Forest Gem
+item.elemental_shards.0.name=Clear Gem
+item.elemental_shards.1.name=Frost Gem
+item.elemental_shards.2.name=Magma Gem
+item.elemental_shards.3.name=Forest Gem
 
-item.ice_shard.name=Ice Shard
-item.fire_shard.name=Fire Shard
+item.elemental_shards.0.name=Clear Shard
+item.elemental_shards.1.name=Ice Shard
+item.elemental_shards.2.name=Fire Shard
+item.elemental_shards.3.name=Forest Shard
 
 item.bucket_ice_floe.name=Bucket of Ice Floe
 
