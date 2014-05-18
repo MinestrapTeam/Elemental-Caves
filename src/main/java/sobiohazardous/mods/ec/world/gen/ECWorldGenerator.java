@@ -75,7 +75,7 @@ public class ECWorldGenerator implements IWorldGenerator
 				{
 					if (type.canGenerateAt(world, x1, z1))
 					{
-						type.generate(world, rand, x1, z1);
+						type.generate(world, rand, x1, z1);					
 					}
 				}
 			}

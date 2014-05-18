@@ -16,6 +16,7 @@ public class CaveTypeFire extends CaveType
 		super(name, ECBlocks.moltenstone);
 		
 		this.addOre(ECBlocks.moltenstone, 1, 18, 6, this.spawnHeight);
+		this.addOre(ECBlocks.oreDiamond, 1, 3, 4, this.spawnHeight);
 		
 		this.getWallGen().addReplacement(Blocks.water, Blocks.lava);
 		this.getWallGen().addReplacement(Blocks.dirt, Blocks.hardened_clay);

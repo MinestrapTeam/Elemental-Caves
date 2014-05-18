@@ -56,7 +56,11 @@ public class BlockIceFloe extends BlockFluidClassic
 		{
 			world.setBlock(x, y, z, Blocks.ice);
 		}
-		else if (block == Blocks.flowing_lava)
+		else if (world.getBlock(x, y + 1, z) == Blocks.flowing_lava)
+		{
+			world.setBlock(x, y, z, ECBlocks.glacierRock, 0, 3);
+		}
+		else if (world.getBlock(x + 1, y, z) == Blocks.flowing_lava || world.getBlock(x, y, z + 1) == Blocks.flowing_lava)
 		{
 			world.setBlock(x, y, z, ECBlocks.glacierRock, 1, 3);
 		}

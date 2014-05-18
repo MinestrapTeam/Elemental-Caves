@@ -75,7 +75,14 @@ public class ECUtil
 			world.setBlock(x, y, z, Blocks.ice);
 			flag = true;
 		}
-		
+		else if(block == ECBlocks.moltenstone && world.getBlockMetadata(x, y, z) == 0)
+		{
+			world.setBlock(x, y, z, ECBlocks.moltenstone, 1, 3);
+		}
+		else if(block == ECBlocks.moltenstone && world.getBlockMetadata(x, y, z) == 1)
+		{
+			world.setBlock(x, y, z, Blocks.stone, 0, 3);
+		}
 		if (flag)
 		{
 			world.playAuxSFX(2001, x, y, z, 80);
@@ -205,8 +212,7 @@ public class ECUtil
 		else if (block instanceof IGrowable && !(block instanceof BlockDoublePlant))
 		{
 			IGrowable igrowable = (IGrowable) block;
-			
-			if (igrowable.func_149852_a(world, world.rand, x, y, z))
+			if (igrowable.func_149852_a(world, world.rand, x, y, z) && !world.blockExists(x, y + 1, z) && world.getBlock(x, y, z) == ECBlocks.richGrass)
 			{
 				igrowable.func_149853_b(world, world.rand, x, y, z);
 				flag = true;

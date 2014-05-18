@@ -4,9 +4,9 @@ import sobiohazardous.mods.ec.ElementalCaves;
 import sobiohazardous.mods.ec.block.*;
 import sobiohazardous.mods.ec.item.block.ECItemBlockMulti;
 import sobiohazardous.mods.ec.item.block.ECItemSlab;
+import sobiohazardous.mods.ec.item.block.ItemBlockMoltenSlab;
 import sobiohazardous.mods.ec.util.ECUtil;
 import cpw.mods.fml.common.registry.GameRegistry;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
@@ -39,6 +39,7 @@ public class ECBlocks
 	public static Block	oreLapis;
 	public static Block	oreFreezium;
 	public static Block	oreGlistening;
+	public static Block oreDiamond;
 	
 	public static Block	iceFloe;
 	
@@ -61,8 +62,8 @@ public class ECBlocks
 		
 		String[] moltenstoneSlabSideIcons = new String[] { ECUtil.getTexture("moltenstone_slab_side"), ECUtil.getTexture("moltenstone_bricks") };
 		String[] moltenstoneSlabTopIcons = new String[] { ECUtil.getTexture("moltenstone_slab_top"), ECUtil.getTexture("moltenstone_bricks") };
-		moltenstoneSlabSingle = new ECBlockSlab(false, moltenstoneSlabSideIcons, moltenstoneSlabTopIcons).setCreativeTab(ElementalCaves.creativeTabECBlocks).setHardness(2.1F).setResistance(8.0F);
-		moltenstoneSlabDouble = new ECBlockSlab(true, moltenstoneSlabSideIcons, moltenstoneSlabTopIcons).setHardness(2.1F).setResistance(8.0F);
+		moltenstoneSlabSingle = new BlockMoltenSlab(false, moltenstoneSlabSideIcons, moltenstoneSlabTopIcons).setCreativeTab(ElementalCaves.creativeTabECBlocks).setHardness(2.1F).setResistance(8.0F);
+		moltenstoneSlabDouble = new BlockMoltenSlab(true, moltenstoneSlabSideIcons, moltenstoneSlabTopIcons).setHardness(2.1F).setResistance(8.0F);
 		
 		ancientMossStone = new BlockAncientMossStone().setHardness(2.0F).setResistance(11.0F).setBlockTextureName(ECUtil.getTexture("ancient_moss_stone"));
 		
@@ -72,12 +73,13 @@ public class ECBlocks
 		ancientMossySlabDouble = new ECBlockSlab(true, ancientMossySlabSideIcons, ancientMossySlabTopIcons).setHardness(2F).setResistance(10F);
 		
 		richGrass = new BlockRichGrass(Material.grass).setHardness(0.6F).setLightLevel(9);
-		richSoil = new ECBlock(Material.ground).setHardness(0.5F).setBlockTextureName(ECUtil.getTexture("rich_soil")).setStepSound(Block.soundTypeGravel);
+		richSoil = new BlockRichSoil(Material.ground).setHardness(0.5F).setBlockTextureName(ECUtil.getTexture("rich_soil")).setStepSound(Block.soundTypeGravel);
 		richFarmland = new BlockRichFarmland().setHardness(0.6F).setStepSound(Block.soundTypeGravel).setBlockTextureName(ECUtil.getTexture("rich_farmland"));
 		
-		oreLapis = new ECBlockOre().setHardness(3F).setResistance(5.0F).setBlockTextureName(ECUtil.getTexture("lapis_ore_glacier"));
-		oreFreezium = new ECBlockOre().setHardness(3.5F).setResistance(6F).setBlockTextureName(ECUtil.getTexture("freezium_ore"));
+		oreLapis = new ECBlockOre(0.98F).setHardness(3F).setResistance(5.0F).setBlockTextureName(ECUtil.getTexture("lapis_ore_glacier"));
+		oreFreezium = new ECBlockOre(0.98F).setHardness(3.5F).setResistance(6F).setBlockTextureName(ECUtil.getTexture("freezium_ore"));
 		oreGlistening = new ECBlockOre(0.6F).setHardness(3.0F).setResistance(15.0F).setLightLevel(0.6F).setBlockTextureName(ECUtil.getTexture("glistening_ore"));
+		oreDiamond = new ECBlockOre().setHardness(3.5F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setBlockTextureName(ECUtil.getTexture("diamond_ore_molten"));
 		
 		crystals = new BlockCrystals().setHardness(5F).setResistance(8F).setBlockTextureName(ECUtil.getTexture("crystal"));
 		
@@ -96,8 +98,8 @@ public class ECBlocks
 		addBlock(moltenstone, ECItemBlockMulti.class, "moltenstone");
 		addBlock(moltenstoneStairs, "moltenstone_stairs");
 		addBlock(moltenstoneBrickStairs, "moltenstone_brick_stairs");
-		addBlock(moltenstoneSlabSingle, ECItemSlab.class, "moltenstone_slab_single", moltenstoneSlabSingle, moltenstoneSlabDouble);
-		addBlock(moltenstoneSlabDouble, ECItemSlab.class, "moltenstone_slab_double", moltenstoneSlabSingle, moltenstoneSlabDouble);
+		addBlock(moltenstoneSlabSingle, ItemBlockMoltenSlab.class, "moltenstone_slab_single", moltenstoneSlabSingle, moltenstoneSlabDouble);
+		addBlock(moltenstoneSlabDouble, ItemBlockMoltenSlab.class, "moltenstone_slab_double", moltenstoneSlabSingle, moltenstoneSlabDouble);
 		
 		addBlock(ancientMossStone, ECItemBlockMulti.class, "ancient_moss_stone");
 		addBlock(ancientMossySlabSingle, ECItemSlab.class, "ancient_moss_stone_slab_single", ancientMossySlabSingle, ancientMossySlabDouble);
@@ -110,10 +112,7 @@ public class ECBlocks
 		addBlock(oreLapis, "lapis_ore_glacier");
 		addBlock(oreFreezium, "freezium_ore");
 		addBlock(oreGlistening, "glistening_ore");
-		
-		richGrass.setHarvestLevel("shovel", 0);
-		richSoil.setHarvestLevel("shovel", 0);
-		richFarmland.setHarvestLevel("shovel", 0);
+		addBlock(oreDiamond, "diamond_ore_infernium");				
 		
 		addBlock(crystals, ECItemBlockMulti.class, "crystal");
 		
@@ -147,9 +146,14 @@ public class ECBlocks
 		ancientMossySlabSingle.setHarvestLevel("pickaxe", 2);
 		ancientMossySlabDouble.setHarvestLevel("pickaxe", 2);
 		
+		richGrass.setHarvestLevel("shovel", 0);
+		richSoil.setHarvestLevel("shovel", 0);
+		richFarmland.setHarvestLevel("shovel", 0);
+		
 		oreLapis.setHarvestLevel("pickaxe", 2);
 		oreFreezium.setHarvestLevel("pickaxe", 3);
 		oreGlistening.setHarvestLevel("pickaxe", 3);
+		oreDiamond.setHarvestLevel("pickaxe", 2);
 	}
 	
 	public static void addBlock(Block block, String name)

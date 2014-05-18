@@ -46,6 +46,7 @@ public class BlockRichGrass extends ECBlock implements IGrowable
     @Override
 	public void updateTick(World world, int x, int y, int z, Random rand)
     {
+    	ECUtil.grow(world, x, y, z);
         if (!world.isRemote)
         {
             int lightValue = world.getBlockLightValue(x, y + 1, z);
@@ -138,6 +139,10 @@ public class BlockRichGrass extends ECBlock implements IGrowable
     @Override
 	public boolean canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction, IPlantable plantable)
     {
-    	return true;
+    	if(plantable.getPlantType(world, x, y, z) != plantable.getPlantType(world, x, y, z).Crop)
+    	{
+    		return true;
+    	}
+    	return false;
     }
 }

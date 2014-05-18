@@ -36,14 +36,15 @@ public class BlockMoltenstone extends ECBlockMulti
 	{
 		if (metadata == 0)
 		{
-			if (!EnchantmentHelper.getSilkTouchModifier(player))
-			{
-				world.setBlock(x, y, z, Blocks.lava);
-			}
-			else
+			if (EnchantmentHelper.getSilkTouchModifier(player))
 			{
 				this.dropBlockAsItem(world, x, y, z, new ItemStack(this));
 			}
+			else
+			{
+				System.out.println("good");
+	            world.setBlock(x, y, z, Blocks.flowing_lava);	            
+			}		
 		}
 	}
 }
