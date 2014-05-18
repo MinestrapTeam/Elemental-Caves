@@ -4,8 +4,6 @@ import java.util.Random;
 
 import sobiohazardous.mods.ec.lib.ECBlocks;
 import sobiohazardous.mods.ec.util.ECUtil;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFarmland;
@@ -13,7 +11,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
@@ -22,9 +19,6 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockRichFarmland extends BlockFarmland
 {
-	@SideOnly(Side.CLIENT)
-	private IIcon	top;
-	
 	public BlockRichFarmland()
 	{
 		super();

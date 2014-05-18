@@ -3,7 +3,7 @@ package sobiohazardous.mods.ec.block;
 import java.util.Random;
 
 import sobiohazardous.mods.ec.lib.ECBlocks;
-import sobiohazardous.mods.ec.lib.ECReference;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
@@ -21,8 +21,8 @@ public class BlockAncientMossStone extends ECBlock
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(ECReference.getTexture("ancientMossStoneSide"));
-		this.topIcon = iconRegister.registerIcon(ECReference.getTexture("ancientMossStone"));
+		this.blockIcon = iconRegister.registerIcon(this.getTextureName() + "_side");
+		this.topIcon = iconRegister.registerIcon(this.getTextureName());
 	}
 	
 	@Override

@@ -5,6 +5,7 @@ import java.util.Random;
 import sobiohazardous.mods.ec.lib.ECBlocks;
 import sobiohazardous.mods.ec.lib.ECReference;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -24,15 +25,16 @@ public class BlockRichGrass extends ECBlock implements IGrowable
 	public BlockRichGrass(Material material)
 	{
 		super(material);
+		this.setStepSound(Block.soundTypeGrass);
 		this.setTickRandomly(true);
 	}
 	
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(ECReference.getTexture("richGrassSide"));
-		this.top = iconRegister.registerIcon(ECReference.getTexture("richGrassTop"));
-		this.bottom = iconRegister.registerIcon(ECReference.getTexture("richSoil"));
+		this.blockIcon = iconRegister.registerIcon(ECReference.getTexture("rich_grass_side"));
+		this.top = iconRegister.registerIcon(ECReference.getTexture("rich_grass_top"));
+		this.bottom = iconRegister.registerIcon(ECReference.getTexture("rich_soil"));
 	}
 	
     @Override
