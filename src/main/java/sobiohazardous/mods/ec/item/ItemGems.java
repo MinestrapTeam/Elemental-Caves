@@ -4,6 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import sobiohazardous.mods.ec.entity.projectile.EntityForestGem;
 import sobiohazardous.mods.ec.entity.projectile.EntityFrostGem;
 import sobiohazardous.mods.ec.entity.projectile.EntityMagmaGem;
 
@@ -34,11 +35,11 @@ public class ItemGems extends ECItemMulti
 			if (!world.isRemote)
 			{
 				if (metadata == 1)
-				{
 					world.spawnEntityInWorld(new EntityFrostGem(world, player));
-				}
 				else if (metadata == 2)
 					world.spawnEntityInWorld(new EntityMagmaGem(world, player));
+				else if (metadata == 3)
+					world.spawnEntityInWorld(new EntityForestGem(world, player));
 			}
 		}
 		

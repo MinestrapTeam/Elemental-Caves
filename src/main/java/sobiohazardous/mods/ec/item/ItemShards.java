@@ -37,8 +37,6 @@ public class ItemShards extends ECItemMulti
 			
 			if (!world.isRemote)
 			{
-				System.out.println(metadata);
-
 				if (metadata == 1)
 					world.spawnEntityInWorld(new EntityIceShard(world, player));
 				else if (metadata == 2)
