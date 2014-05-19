@@ -4,6 +4,7 @@ import sobiohazardous.mods.ec.lib.ECBlocks;
 import sobiohazardous.mods.ec.lib.ECConfig;
 import sobiohazardous.mods.ec.lib.ECItems;
 import sobiohazardous.mods.ec.util.ECUtil;
+import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.Phase;
@@ -21,13 +22,12 @@ public class ECEventHandler
 	@SubscribeEvent
 	public void onPlayerTick(TickEvent.PlayerTickEvent event)
 	{
-		if (event.phase == Phase.START)
+		EntityPlayer player = event.player;
+		if (event.phase != Phase.START || player.worldObj.isRemote)
 		{
-			EntityPlayer player = event.player;
-			
-			if (player.worldObj.isRemote)
-				return;
-			
+			return;	
+		}
+		
 			ItemStack helmet = player.getCurrentArmor(3);
 			ItemStack chest = player.getCurrentArmor(2);
 			ItemStack pants = player.getCurrentArmor(1);
@@ -37,8 +37,7 @@ public class ECEventHandler
 			{
 				if (helmet.getItem() == ECItems.helmetFreezium && chest.getItem() == ECItems.chestplateFreezium && pants.getItem() == ECItems.leggingsFreezium && boots.getItem() == ECItems.bootsFreezium)
 				{
-					System.out.println();
-					ECUtil.freeze(player.worldObj, (int) player.posX - 1, (int) player.posY - 1, (int) player.posZ);
+					ECUtil.freeze(player.worldObj, (int) player.posX, (int) player.posY - 1, (int) player.posZ);
 				}
 				
 				if (helmet.getItem() == ECItems.helmetInfernium && chest.getItem() == ECItems.chestplateInfernium && pants.getItem() == ECItems.leggingsInfernium && boots.getItem() == ECItems.bootsInfernium)
@@ -47,7 +46,8 @@ public class ECEventHandler
 					{
 						player.worldObj.playAuxSFX(2004, (int) player.posX - 1, (int) player.posY + 1, (int) player.posZ, 0);
 					}
-					ECUtil.melt(player.worldObj, (int) player.posX - 1, (int) player.posY - 1, (int) player.posZ);
+					ECUtil.melt(player.worldObj, (int) player.posX, (int) player.posY - 1, (int) player.posZ);
+					
 					if(player.isInWater())
 					{
 						helmet.damageItem(3, player);
@@ -59,11 +59,9 @@ public class ECEventHandler
 				
 				if (helmet.getItem() == ECItems.helmetEarth && chest.getItem() == ECItems.chestplateEarth && pants.getItem() == ECItems.leggingsEarth && boots.getItem() == ECItems.bootsEarth)
 				{
-					System.out.println();
-					ECUtil.grow(player.worldObj, (int) player.posX - 1, (int) player.posY - 1, (int) player.posZ);
+					ECUtil.grow(player.worldObj, (int) player.posX, (int) player.posY - 1, (int) player.posZ);
 				}
 			}
-		}
 	}
 	
 	@SubscribeEvent
@@ -73,7 +71,7 @@ public class ECEventHandler
 		if (block == ECBlocks.iceFloe)
 		{
 			event.result = new ItemStack(ECItems.bucketIceFloe);
-			event.setCanceled(true);
+			event.setResult(Result.ALLOW);
 		}
 	}
 	
