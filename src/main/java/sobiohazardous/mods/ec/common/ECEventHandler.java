@@ -38,6 +38,14 @@ public class ECEventHandler
 				if (helmet.getItem() == ECItems.helmetFreezium && chest.getItem() == ECItems.chestplateFreezium && pants.getItem() == ECItems.leggingsFreezium && boots.getItem() == ECItems.bootsFreezium)
 				{
 					ECUtil.freeze(player.worldObj, (int) player.posX, (int) player.posY - 1, (int) player.posZ);
+					
+					if(player.isBurning())
+					{
+						helmet.damageItem(1, player);
+						chest.damageItem(1, player);
+						pants.damageItem(1, player);
+						boots.damageItem(1, player);
+					}
 				}
 				
 				if (helmet.getItem() == ECItems.helmetInfernium && chest.getItem() == ECItems.chestplateInfernium && pants.getItem() == ECItems.leggingsInfernium && boots.getItem() == ECItems.bootsInfernium)
@@ -50,10 +58,10 @@ public class ECEventHandler
 					
 					if(player.isInWater())
 					{
-						helmet.damageItem(3, player);
-						chest.damageItem(3, player);
-						pants.damageItem(3, player);
-						boots.damageItem(3, player);
+						helmet.damageItem(1, player);
+						chest.damageItem(1, player);
+						pants.damageItem(1, player);
+						boots.damageItem(1, player);
 					}
 				}
 				
