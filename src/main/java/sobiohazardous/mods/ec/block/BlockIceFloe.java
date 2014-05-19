@@ -3,6 +3,7 @@ package sobiohazardous.mods.ec.block;
 import sobiohazardous.mods.ec.ElementalCaves;
 import sobiohazardous.mods.ec.lib.ECBlocks;
 import sobiohazardous.mods.ec.util.ECUtil;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -25,6 +26,7 @@ public class BlockIceFloe extends BlockFluidClassic
 	{
 		super(ElementalCaves.iceFloe, Material.water);
 		ElementalCaves.iceFloe.setBlock(this);
+		
 		this.disableStats();
 	}
 	
@@ -75,13 +77,16 @@ public class BlockIceFloe extends BlockFluidClassic
 		{
 			world.setBlock(x, y, z, ECBlocks.glacierRock, 0, 3);
 		}
-		else if (world.getBlock(x + 1, y, z) == Blocks.flowing_lava || world.getBlock(x, y, z + 1) == Blocks.flowing_lava)
-		{
-			world.setBlock(x, y, z, ECBlocks.glacierRock, 1, 3);
-		}
 		else if (block == Blocks.lava)
 		{
-			world.setBlock(x, y, z, Blocks.obsidian);
+			if (world.getBlockMetadata(x, y, z) != 0)
+			{
+				world.setBlock(x, y, z, ECBlocks.glacierRock, 1, 3);
+			}
+			else
+			{
+				world.setBlock(x, y, z, Blocks.obsidian);
+			}
 		}
 		return super.displaceIfPossible(world, x, y, z);
 	}
