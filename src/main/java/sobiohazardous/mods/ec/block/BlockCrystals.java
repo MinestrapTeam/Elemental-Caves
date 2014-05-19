@@ -3,14 +3,15 @@ package sobiohazardous.mods.ec.block;
 import java.util.ArrayList;
 import java.util.Random;
 
+import coloredlightscore.src.api.CLApi;
 import sobiohazardous.mods.ec.lib.ECItems;
 import sobiohazardous.mods.ec.util.ECUtil;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockCrystals extends ECBlockMulti
@@ -21,7 +22,27 @@ public class BlockCrystals extends ECBlockMulti
 		this.setTickRandomly(true);
 		this.setStepSound(Block.soundTypeGlass);
 		this.setLightOpacity(1);
-		this.setLightLevel(0.5F);
+		this.setLightLevel(0.921F);
+	}
+	
+
+	@Override
+	public int getLightValue(IBlockAccess world, int x, int y, int z) 
+	{
+		int meta = world.getBlockMetadata(x, y, z);
+		if(meta == 0)
+		{
+			return CLApi.makeRGBLightValue(0.329F, 0.6F, 0.921F);
+		}
+		else if(meta == 1)
+		{
+			return CLApi.makeRGBLightValue(0.909F, 0.392F, 0.235F);
+		}		
+		else if(meta == 2)
+		{
+			return CLApi.makeRGBLightValue(0.49F, 0.811F, 0.227F);
+		}
+		return 0;
 	}
 	
 	@Override

@@ -1,5 +1,6 @@
 package sobiohazardous.mods.ec.block;
 
+import coloredlightscore.src.api.CLApi;
 import sobiohazardous.mods.ec.ElementalCaves;
 import sobiohazardous.mods.ec.lib.ECBlocks;
 import sobiohazardous.mods.ec.util.ECUtil;
@@ -25,6 +26,8 @@ public class BlockIceFloe extends BlockFluidClassic
 	{
 		super(ElementalCaves.iceFloe, Material.water);
 		ElementalCaves.iceFloe.setBlock(this);
+		this.setLightLevel(0.921F);
+		CLApi.setBlockColorRGB(this, 0.329F, 0.6F, 0.921F);
 		this.disableStats();
 	}
 	

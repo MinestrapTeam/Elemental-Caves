@@ -2,6 +2,7 @@ package sobiohazardous.mods.ec.block;
 
 import java.util.Random;
 
+import coloredlightscore.src.api.CLApi;
 import sobiohazardous.mods.ec.lib.ECBlocks;
 import sobiohazardous.mods.ec.util.ECUtil;
 import net.minecraft.block.Block;
@@ -25,6 +26,8 @@ public class BlockRichGrass extends ECBlock implements IGrowable
 	{
 		super(material);
 		this.setStepSound(Block.soundTypeGrass);
+		this.setLightLevel(0.6F);
+		CLApi.setBlockColorRGB(this, 0.49F, 0.811F, 0.227F);
 		this.setTickRandomly(true);
 	}
 	
