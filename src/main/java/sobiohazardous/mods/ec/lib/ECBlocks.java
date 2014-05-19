@@ -77,7 +77,7 @@ public class ECBlocks
 		ancientMossyStonebrickStairs = new ECBlockStairs(ancientMossStone, 2).setHardness(2.0F).setResistance(11.0F);
 		ancientMossyCobbleStairs = new ECBlockStairs(ancientMossStone, 1).setHardness(2.0F).setResistance(11.0F);
 
-		richGrass = new BlockRichGrass(Material.grass).setHardness(0.6F).setLightLevel(9);
+		richGrass = new BlockRichGrass(Material.grass).setHardness(0.6F);
 		richSoil = new BlockRichSoil(Material.ground).setHardness(0.5F).setBlockTextureName(ECUtil.getTexture("rich_soil")).setStepSound(Block.soundTypeGravel);
 		richFarmland = new BlockRichFarmland().setHardness(0.6F).setStepSound(Block.soundTypeGravel).setBlockTextureName(ECUtil.getTexture("rich_farmland"));
 		

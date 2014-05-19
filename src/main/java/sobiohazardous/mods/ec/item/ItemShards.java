@@ -26,7 +26,7 @@ public class ItemShards extends ECItemMulti
 	{
 		int metadata = stack.getItemDamage();
 		
-		if (metadata > 0)
+		if (metadata != 0 && metadata != 3)
 		{
 			if (!player.capabilities.isCreativeMode)
 			{

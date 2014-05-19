@@ -13,10 +13,11 @@ public class BlockRichSoil extends ECBlock
 		super(material);
 		this.setTickRandomly(true);
 	}
-
-	 @Override
+	
+	@Override
 	public void updateTick(World world, int x, int y, int z, Random rand)
 	{
-	    ECUtil.grow(world, x, y, z);
+		if (rand.nextInt(16) == 0)
+			ECUtil.grow(world, x, y, z);
 	}
 }

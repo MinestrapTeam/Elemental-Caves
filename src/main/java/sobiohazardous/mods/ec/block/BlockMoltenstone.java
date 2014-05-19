@@ -14,7 +14,7 @@ public class BlockMoltenstone extends ECBlockMulti
 {
 	public static final String[]	types		= new String[] { null, "cooled", "bricks" };
 	
-	private boolean					silkTouch	= false;
+	private boolean					setLava	= false;
 	
 	public BlockMoltenstone()
 	{
@@ -38,13 +38,9 @@ public class BlockMoltenstone extends ECBlockMulti
 	{
 		if (metadata == 0)
 		{
-			if (EnchantmentHelper.getSilkTouchModifier(player))
+			if (!EnchantmentHelper.getSilkTouchModifier(player))
 			{
-				this.silkTouch = true;
-			}
-			else
-			{
-	            world.setBlock(x, y, z, Blocks.flowing_lava);	            
+				this.setLava = true;
 			}		
 		}
 	}
@@ -53,10 +49,10 @@ public class BlockMoltenstone extends ECBlockMulti
 	public void breakBlock(World world, int x, int y, int z, Block block, int metadata)
 	{
 		super.breakBlock(world, x, y, z, block, metadata);
-		if (this.silkTouch)
+		if (this.setLava)
 		{
 			world.setBlock(x, y, z, Blocks.lava);
 		}
-		this.silkTouch = false;
+		this.setLava = false;
 	}
 }

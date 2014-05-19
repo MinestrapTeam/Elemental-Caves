@@ -5,6 +5,7 @@ import java.util.Random;
 import coloredlightscore.src.api.CLApi;
 import sobiohazardous.mods.ec.lib.ECBlocks;
 import sobiohazardous.mods.ec.util.ECUtil;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
@@ -14,6 +15,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
@@ -54,7 +56,9 @@ public class BlockRichGrass extends ECBlock implements IGrowable
     @Override
 	public void updateTick(World world, int x, int y, int z, Random rand)
     {
-    	ECUtil.grow(world, x, y, z);
+    	if (rand.nextInt(16) == 0)
+    		ECUtil.grow(world, x, y, z);
+    	
         if (!world.isRemote)
         {
             int lightValue = world.getBlockLightValue(x, y + 1, z);
@@ -147,7 +151,7 @@ public class BlockRichGrass extends ECBlock implements IGrowable
     @Override
 	public boolean canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction, IPlantable plantable)
     {
-    	if(plantable.getPlantType(world, x, y, z) != plantable.getPlantType(world, x, y, z).Crop)
+    	if(plantable.getPlantType(world, x, y, z) != EnumPlantType.Crop)
     	{
     		return true;
     	}

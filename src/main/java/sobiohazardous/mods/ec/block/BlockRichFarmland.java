@@ -30,9 +30,10 @@ public class BlockRichFarmland extends BlockFarmland
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random rand)
 	{
-		ECUtil.grow(world, x, y + 1, z);
+		if (rand.nextInt(16) == 0)
+			ECUtil.grow(world, x, y + 1, z);
 		
-		if (!this.isWaterNearby(world, x, y, z) && !world.canLightningStrikeAt(x, y + 1, z))
+		if (!world.canLightningStrikeAt(x, y + 1, z))
 		{
 			int l = world.getBlockMetadata(x, y, z);
 			
@@ -78,25 +79,6 @@ public class BlockRichFarmland extends BlockFarmland
 				if (block instanceof IPlantable && canSustainPlant(world, x, y, z, ForgeDirection.UP, (IPlantable) block))
 				{
 					return true;
-				}
-			}
-		}
-		
-		return false;
-	}
-	
-	private boolean isWaterNearby(World world, int x, int y, int z)
-	{
-		for (int l = x - 4; l <= x + 4; ++l)
-		{
-			for (int i1 = y; i1 <= y + 1; ++i1)
-			{
-				for (int j1 = z - 4; j1 <= z + 4; ++j1)
-				{
-					if (world.getBlock(l, i1, j1).getMaterial() == Material.water)
-					{
-						return true;
-					}
 				}
 			}
 		}
