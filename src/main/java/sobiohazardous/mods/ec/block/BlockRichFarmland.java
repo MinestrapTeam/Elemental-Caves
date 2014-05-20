@@ -32,24 +32,6 @@ public class BlockRichFarmland extends BlockFarmland
 	{
 		if (rand.nextInt(16) == 0)
 			ECUtil.grow(world, x, y + 1, z);
-		
-		if (!world.canLightningStrikeAt(x, y + 1, z))
-		{
-			int l = world.getBlockMetadata(x, y, z);
-			
-			if (l > 0)
-			{
-				world.setBlockMetadataWithNotify(x, y, z, l - 1, 2);
-			}
-			else if (!this.func_149822_e(world, x, y, z))
-			{
-				world.setBlock(x, y, z, ECBlocks.richSoil);
-			}
-		}
-		else
-		{
-			world.setBlockMetadataWithNotify(x, y, z, 7, 2);
-		}
 	}
 	
 	@Override
@@ -57,33 +39,11 @@ public class BlockRichFarmland extends BlockFarmland
 	{
 		if (!world.isRemote && world.rand.nextFloat() < velocity - 0.5F)
 		{
-			if (!(force instanceof EntityPlayer) && !world.getGameRules().getGameRuleBooleanValue("mobGriefing"))
+			if (force instanceof EntityPlayer || world.getGameRules().getGameRuleBooleanValue("mobGriefing"))
 			{
-				return;
-			}
-			
-			world.setBlock(x, y, z, ECBlocks.richSoil);
+				world.setBlock(x, y, z, ECBlocks.richSoil);
+			}			
 		}
-	}
-	
-	private boolean func_149822_e(World world, int x, int y, int z)
-	{
-		byte b0 = 0;
-		
-		for (int l = x - b0; l <= x + b0; ++l)
-		{
-			for (int i1 = z - b0; i1 <= z + b0; ++i1)
-			{
-				Block block = world.getBlock(l, y + 1, i1);
-				
-				if (block instanceof IPlantable && canSustainPlant(world, x, y, z, ForgeDirection.UP, (IPlantable) block))
-				{
-					return true;
-				}
-			}
-		}
-		
-		return false;
 	}
 	
 	@Override
@@ -101,8 +61,7 @@ public class BlockRichFarmland extends BlockFarmland
 	@Override
 	public boolean canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction, IPlantable plantable)
 	{
-		EnumPlantType plantType = plantable.getPlantType(world, x, y + 1, z);
-		if (plantType == plantType.Crop)
+		if (plantable.getPlantType(world, x, y + 1, z) == EnumPlantType.Crop)
 		{
 			return true;
 		}
