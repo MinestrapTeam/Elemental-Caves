@@ -3,7 +3,6 @@ package sobiohazardous.mods.ec.block;
 import java.util.ArrayList;
 import java.util.Random;
 
-import coloredlightscore.src.api.CLApi;
 import sobiohazardous.mods.ec.lib.ECItems;
 import sobiohazardous.mods.ec.util.ECUtil;
 import net.minecraft.block.Block;
@@ -11,7 +10,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockCrystals extends ECBlockMulti
@@ -25,7 +23,7 @@ public class BlockCrystals extends ECBlockMulti
 		this.setLightLevel(0.921F);
 	}
 	
-
+	/*
 	@Override
 	public int getLightValue(IBlockAccess world, int x, int y, int z) 
 	{
@@ -44,6 +42,7 @@ public class BlockCrystals extends ECBlockMulti
 		}
 		return 0;
 	}
+	*/
 	
 	@Override
 	public void onEntityWalking(World world, int x, int y, int z, Entity entity)
