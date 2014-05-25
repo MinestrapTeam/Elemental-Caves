@@ -1,6 +1,6 @@
-/*
-/*/
-!/src/
-!.gitignore
-!build.gradle
-!/libs/
+.project
+.classpath
+.gradle/
+bin/
+build/
+
