@@ -4,7 +4,7 @@
 
 [size=5][b]OVERVIEW[/b][/size]
 
-Elemental Caves are new "underground biomes" that generate within the Overworld's labyrinthine tunnels. At the moment, there are three varieties of these caves: Ice, Fire, and Forest. However, we have many others planned for the future.
+Elemental Caves are new "underground biomes" that generate within the Overworld's labyrinth tunnels. At the moment, there are three varieties of these caves: Ice, Fire, and Forest. However, we have many others planned for the future.
 While the caves differ vastly in blocks and effects, three main things are consistent between each cave type: each has a new stone type, a transformative crystal, and a tool and armor set.
 When playing survival mode, it is recommended that you start out in the Forest Cave, and then work your way up to the Ice and then Fire Caves, which are more difficult to traverse.
 
@@ -25,7 +25,7 @@ When playing survival mode, it is recommended that you start out in the Forest C
 [size=4][u]Fire Caves[/u][/size]
 [img]http://i.imgur.com/X7mSIr3.png[/img]
 
-[size=4]Fire caves spawn in warm biomes. They have a ceiling and wall of moltenstone. Their floor is made of entirely lava(Not shown in picture). Fire crystals spawn on the ceiling which can be used to melt things.[/size]
+[size=4]Fire caves spawn in warm biomes. They have a ceiling and wall of Moltenstone. Their floor is made of entirely lava(Not shown in picture). Fire crystals spawn on the ceiling which can be used to melt things.[/size]
 
 [size=4]For a list of complete features, please go [url=https://docs.google.com/document/d/1VwO9OpUe34ydSyQi31V32MZ5h9T-KSo1FAHhxEOQjyo/edit?usp=sharing]here[/url].[/size]
 
