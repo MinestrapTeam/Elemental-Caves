@@ -1,0 +1,97 @@
+itemGroup.ec_blocks=Elemental Caves - Blöcke
+itemGroup.ec_items=Elemental Caves - Items
+
+cave.ice.name=Eis Höhle
+cave.fire.name=Inferno Höhle
+cave.forest.name=Wald Höhle
+cave.ocean.name=Ozean Höhle
+
+tile.ancient_ice.name=Antikes Ice
+tile.crystal.0.name=Eis Cristall
+tile.crystal.1.name=Feuer Kristall
+tile.crystal.2.name=Wald Kristall
+
+tile.glacierrock.0.name=Geltscherstein
+tile.glacierrock.1.name=Zerbrochener Gletscherstein
+tile.glacierrock.2.name=Gletscherstein Ziegel
+tile.glacierrock_stairs.name=Gletscherstein Treppe
+tile.glacierrock_brick_stairs.name=Gletscherstein Ziegel Treppe
+tile.glacierrock_slab_single.0.name=Gletscherstein Stufe
+tile.glacierrock_slab_double.0.name=Gletscherstein Doppelstufe
+tile.glacierrock_slab_single.1.name=Zerbrochene Gletscherstein Stufe
+tile.glacierrock_slab_double.1.name=Zerbrochene Gletscherstein Doppelstufe
+tile.glacierrock_slab_single.2.name=Gletscherstein Ziegel Stufe
+tile.glacierrock_slab_double.2.name=Gletscherstein Ziegel Doppelstufe
+
+tile.moltenstone.0.name=Schmelzstein
+tile.moltenstone.1.name=Gekühlter Schmelzstein
+tile.moltenstone.2.name=Schmelzstein Ziegel
+tile.moltenstone_stairs.name=Schmelzstein Treppe
+tile.moltenstone_brick_stairs.name=Schmelzstein Ziegel Treppe
+tile.moltenstone_slab_single.0.name=Schmelzstein Stufe
+tile.moltenstone_slab_double.0.name=Schmelzstein Doppelstufe
+tile.moltenstone_slab_single.1.name=Schmelzstein Ziegel Stufe
+tile.moltenstone_slab_double.1.name=Schmelzstein Ziegel Doppelstufe
+
+tile.ancient_moss_stone.0.name=Antiker Moosstein
+tile.ancient_moss_stone.1.name=Antiker Moos Pflasterstein
+tile.ancient_moss_stone.2.name=Antiker Moosstein Ziegel
+tile.ancient_moss_stone_slab_single.0.name=Antike Moosstein Stufe
+tile.ancient_moss_stone_slab_single.1.name=Antike Moos Pflasterstine Stufe
+tile.ancient_moss_stone_slab_single.2.name=Antike Moosstein Stone Ziegel Stufe
+tile.ancient_mossy_stonebrick_stairs.name=Antike Moosstein Ziegel Treppe
+tile.ancient_mossy_cobble_stairs.name=Antiker Moos Pflasterstein Treppe
+
+tile.rich_grass.name=Angereichertes Graß
+tile.rich_soil.name=Angereicherter Boden
+tile.rich_farmland.name=Angereicherter Ackerboden
+
+tile.lapis_ore_glacier.name=Gletscher Lapis-Lazuli Erz
+tile.freezium_ore.name=Freezium Erz
+tile.glistening_ore.name=Glitzerndes Erz
+tile.diamond_ore_infernium.name=Infernium Diamant Erz
+tile.fertile_ore.name=Fruchtbares Erz
+
+item.elemental_gems.0.name=Klarer Edelstein
+item.elemental_gems.1.name=Froststein
+item.elemental_gems.2.name=Magmastein
+item.elemental_gems.3.name=Waldstein
+
+item.elemental_shards.1.name=Eisscherbe
+item.elemental_shards.2.name=Feuerscherbe
+item.elemental_shards.3.name=Waldscherbe
+
+item.bucket_ice_floe.name=Eimer mit Treibeis
+
+item.freezium_sword.name=Freezium Schwert
+item.freezium_shovel.name=Freezium Schaufel
+item.freezium_pickaxe.name=Freezium Spitzhacke
+item.freezium_axe.name=Freezium Axt
+item.freezium_hoe.name=Freezium Hacke
+
+item.freezium_helmet.name=Freezium Helm
+item.freezium_chestplate.name=Freezium Brustplatte
+item.freezium_leggings.name=Freezium Beinschienen
+item.freezium_boots.name=Freezium Schuhe
+
+item.infernium_sword.name=Infernium Schwert
+item.infernium_shovel.name=Infernium Schaufel
+item.infernium_pickaxe.name=Infernium Spitzhacke
+item.infernium_axe.name=Infernium Axt
+item.infernium_hoe.name=Infernium Hacke
+
+item.infernium_helmet.name=Infernium Helm
+item.infernium_chestplate.name=Infernium Brustplatte
+item.infernium_leggings.name=Infernium Beinschienen
+item.infernium_boots.name=Infernium Schuhe
+
+item.earth_sword.name=Irdisches Schwert
+item.earth_shovel.name=Irdische Schaufel
+item.earth_pickaxe.name=Irdische Spitzhacke
+item.earth_axe.name=Irdische Axt
+item.earth_hoe.name=Irdische Hacke
+
+item.earth_helmet.name=Irdischer Helm
+item.earth_chestplate.name=Irdische Brustplatte
+item.earth_leggings.name=Irdische Beinschienen
+item.earth_boots.name=Irdische Schuhe
