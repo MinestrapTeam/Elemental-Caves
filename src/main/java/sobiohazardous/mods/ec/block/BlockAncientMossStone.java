@@ -6,7 +6,7 @@ import net.minecraft.util.IIcon;
 
 public class BlockAncientMossStone extends ECBlockMulti
 {
-	public static final String[]	types			= new String[] { null, "cracked", "bricks" };
+	public static final String[]	types	= new String[] { null, "cracked", "bricks" };
 	
 	public BlockAncientMossStone()
 	{

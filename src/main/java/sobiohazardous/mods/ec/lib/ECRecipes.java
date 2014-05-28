@@ -49,7 +49,7 @@ public class ECRecipes
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.glacierRockSlabSingle, 6, 0), new Object[] { "MMM", 'M', glacierrock });
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.glacierRockSlabSingle, 6, 1), new Object[] { "MMM", 'M', glacierrockCracked });
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.glacierRockSlabSingle, 6, 2), new Object[] { "MMM", 'M', glacierrockBricks });
-				
+		
 		GameRegistry.addSmelting(new ItemStack(ECBlocks.moltenstone, 1, 1), moltenstone, 0.75F);
 		
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.moltenstone, 4, 2), new Object[] { "BB", "BB", 'B', moltenstone });

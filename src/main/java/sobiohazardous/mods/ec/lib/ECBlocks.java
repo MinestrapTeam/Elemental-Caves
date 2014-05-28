@@ -31,9 +31,9 @@ public class ECBlocks
 	public static Block	ancientMossStone;
 	public static Block	ancientMossySlabSingle;
 	public static Block	ancientMossySlabDouble;
-	public static Block ancientMossyStonebrickStairs;
-	public static Block ancientMossyCobbleStairs;
-
+	public static Block	ancientMossyStonebrickStairs;
+	public static Block	ancientMossyCobbleStairs;
+	
 	public static Block	richGrass;
 	public static Block	richSoil;
 	public static Block	richFarmland;
@@ -41,8 +41,8 @@ public class ECBlocks
 	public static Block	oreLapis;
 	public static Block	oreFreezium;
 	public static Block	oreGlistening;
-	public static Block oreDiamond;
-	public static Block oreFertile;
+	public static Block	oreDiamond;
+	public static Block	oreFertile;
 	
 	public static Block	iceFloe;
 	
@@ -76,7 +76,7 @@ public class ECBlocks
 		ancientMossySlabDouble = new ECBlockSlab(true, ancientMossySlabSideIcons, ancientMossySlabTopIcons).setHardness(2F).setResistance(10F);
 		ancientMossyStonebrickStairs = new ECBlockStairs(ancientMossStone, 2).setHardness(2.0F).setResistance(11.0F);
 		ancientMossyCobbleStairs = new ECBlockStairs(ancientMossStone, 1).setHardness(2.0F).setResistance(11.0F);
-
+		
 		richGrass = new BlockRichGrass(Material.grass).setHardness(0.6F);
 		richSoil = new BlockRichSoil(Material.ground).setHardness(0.5F).setBlockTextureName(ECUtil.getTexture("rich_soil")).setStepSound(Block.soundTypeGravel);
 		richFarmland = new BlockRichFarmland().setHardness(0.6F).setStepSound(Block.soundTypeGravel).setBlockTextureName(ECUtil.getTexture("rich_farmland"));
@@ -112,7 +112,7 @@ public class ECBlocks
 		addBlock(ancientMossySlabDouble, ECItemSlab.class, "ancient_moss_stone_slab_double", ancientMossySlabSingle, ancientMossySlabDouble);
 		addBlock(ancientMossyStonebrickStairs, "ancient_mossy_stonebrick_stairs");
 		addBlock(ancientMossyCobbleStairs, "ancient_mossy_cobble_stairs");
-
+		
 		addBlock(richGrass, "rich_grass");
 		addBlock(richSoil, "rich_soil");
 		addBlock(richFarmland, "rich_farmland");
@@ -120,7 +120,7 @@ public class ECBlocks
 		addBlock(oreLapis, "lapis_ore_glacier");
 		addBlock(oreFreezium, "freezium_ore");
 		addBlock(oreGlistening, "glistening_ore");
-		addBlock(oreDiamond, "diamond_ore_infernium");				
+		addBlock(oreDiamond, "diamond_ore_infernium");
 		addBlock(oreFertile, "fertile_ore");
 		
 		addBlock(crystals, ECItemBlockMulti.class, "crystal");

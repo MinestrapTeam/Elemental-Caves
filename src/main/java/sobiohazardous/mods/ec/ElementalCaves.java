@@ -38,7 +38,7 @@ public class ElementalCaves
 	@SidedProxy(clientSide = "sobiohazardous.mods.ec.client.ECClientProxy", serverSide = "sobiohazardous.mods.ec.common.ECCommonProxy")
 	public static ECCommonProxy		proxy;
 	
-	public static ECEventHandler eventHandler = new ECEventHandler();
+	public static ECEventHandler	eventHandler		= new ECEventHandler();
 	
 	public static CreativeTabs		creativeTabECBlocks	= new ECCreativeTabBlocks("ec_blocks");
 	public static CreativeTabs		creativeTabECItems	= new ECCreativeTabItems("ec_items");
@@ -47,9 +47,9 @@ public class ElementalCaves
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
-	{		
+	{
 		FluidRegistry.registerFluid(iceFloe);
-
+		
 		ECConfig.init(new Configuration(event.getSuggestedConfigurationFile()));
 		ECBlocks.init();
 		ECItems.init();
@@ -58,18 +58,18 @@ public class ElementalCaves
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event)
-	{		
+	{
 		ECBlocks.addHarvestLevels();
 		
 		FMLCommonHandler.instance().bus().register(eventHandler);
 		MinecraftForge.EVENT_BUS.register(eventHandler);
 		GameRegistry.registerWorldGenerator(new ECWorldGenerator(), 0);
 		
-		EntityRegistry.registerModEntity(EntityIceShard.class, "entity_ice_shard", 2, this.instance, 40, 3, true);
-		EntityRegistry.registerModEntity(EntityFrostGem.class, "entity_frost_gem", 3, this.instance, 40, 3, true);
-		EntityRegistry.registerModEntity(EntityFireShard.class, "entity_fire_shard", 4, this.instance, 40, 3, true);
-		EntityRegistry.registerModEntity(EntityMagmaGem.class, "entity_magma_gem", 5, this.instance, 40, 3, true);
-		EntityRegistry.registerModEntity(EntityForestGem.class, "forest_gem", 6, this.instance, 40, 3, true);
+		EntityRegistry.registerModEntity(EntityIceShard.class, "entity_ice_shard", 2, ElementalCaves.instance, 40, 3, true);
+		EntityRegistry.registerModEntity(EntityFrostGem.class, "entity_frost_gem", 3, ElementalCaves.instance, 40, 3, true);
+		EntityRegistry.registerModEntity(EntityFireShard.class, "entity_fire_shard", 4, ElementalCaves.instance, 40, 3, true);
+		EntityRegistry.registerModEntity(EntityMagmaGem.class, "entity_magma_gem", 5, ElementalCaves.instance, 40, 3, true);
+		EntityRegistry.registerModEntity(EntityForestGem.class, "forest_gem", 6, ElementalCaves.instance, 40, 3, true);
 		
 		proxy.registerRenders();
 	}

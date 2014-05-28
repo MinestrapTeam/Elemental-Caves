@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 
 public class ECItemArmor extends ItemArmor
 {
-	private String armorPrefix;
+	private String	armorPrefix;
 	
 	public ECItemArmor(ArmorMaterial material, int renderIndex, int type, String prefix)
 	{
@@ -22,7 +22,7 @@ public class ECItemArmor extends ItemArmor
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
 	{
 		String layer = "1";
-		if(slot == 2)
+		if (slot == 2)
 		{
 			layer = "2";
 		}
@@ -30,6 +30,6 @@ public class ECItemArmor extends ItemArmor
 		{
 			layer = "1";
 		}
-		return ECUtil.getTexture("textures/armor/" + armorPrefix + layer + ".png");
+		return ECUtil.getTexture("textures/armor/" + this.armorPrefix + layer + ".png");
 	}
 }

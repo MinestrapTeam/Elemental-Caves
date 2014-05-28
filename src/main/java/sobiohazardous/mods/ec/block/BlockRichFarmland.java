@@ -31,7 +31,9 @@ public class BlockRichFarmland extends BlockFarmland
 	public void updateTick(World world, int x, int y, int z, Random rand)
 	{
 		if (rand.nextInt(16) == 0)
+		{
 			ECUtil.grow(world, x, y + 1, z);
+		}
 	}
 	
 	@Override
@@ -42,7 +44,7 @@ public class BlockRichFarmland extends BlockFarmland
 			if (force instanceof EntityPlayer || world.getGameRules().getGameRuleBooleanValue("mobGriefing"))
 			{
 				world.setBlock(x, y, z, ECBlocks.richSoil);
-			}			
+			}
 		}
 	}
 	

@@ -40,7 +40,9 @@ public class CaveType
 	public CaveType(String name, Block mainCaveBlock)
 	{
 		if (mainCaveBlock == null)
+		{
 			throw new IllegalArgumentException("Cannot set the main cave generator block to null");
+		}
 		
 		this.name = name;
 		this.block = mainCaveBlock;

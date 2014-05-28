@@ -24,30 +24,17 @@ public class BlockCrystals extends ECBlockMulti
 	}
 	
 	/*
-	@Override
-	public int getLightValue(IBlockAccess world, int x, int y, int z) 
-	{
-		int meta = world.getBlockMetadata(x, y, z);
-		if(meta == 0)
-		{
-			return CLApi.makeRGBLightValue(0.329F, 0.6F, 0.921F);
-		}
-		else if(meta == 1)
-		{
-			return CLApi.makeRGBLightValue(0.909F, 0.392F, 0.235F);
-		}		
-		else if(meta == 2)
-		{
-			return CLApi.makeRGBLightValue(0.49F, 0.811F, 0.227F);
-		}
-		return 0;
-	}
-	*/
+	 * @Override public int getLightValue(IBlockAccess world, int x, int y, int
+	 * z) { int meta = world.getBlockMetadata(x, y, z); if(meta == 0) { return
+	 * CLApi.makeRGBLightValue(0.329F, 0.6F, 0.921F); } else if(meta == 1) {
+	 * return CLApi.makeRGBLightValue(0.909F, 0.392F, 0.235F); } else if(meta ==
+	 * 2) { return CLApi.makeRGBLightValue(0.49F, 0.811F, 0.227F); } return 0; }
+	 */
 	
 	@Override
 	public void onEntityWalking(World world, int x, int y, int z, Entity entity)
 	{
-		if(world.getBlockMetadata(x, y, z) == 1)
+		if (world.getBlockMetadata(x, y, z) == 1)
 		{
 			entity.setFire(2);
 		}
@@ -75,7 +62,9 @@ public class BlockCrystals extends ECBlockMulti
 	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
 	{
 		if (metadata == 0 && world.provider.dimensionId == -1)
+		{
 			return new ArrayList();
+		}
 		return super.getDrops(world, x, y, z, metadata, fortune);
 	}
 	
@@ -90,7 +79,9 @@ public class BlockCrystals extends ECBlockMulti
 	{
 		int i = 2 + random.nextInt(3) + random.nextInt(fortune + 1);
 		if (i > 4)
+		{
 			i = 4;
+		}
 		return i;
 	}
 	
@@ -119,11 +110,17 @@ public class BlockCrystals extends ECBlockMulti
 			int z1 = z + random.nextInt(5) - 2;
 			
 			if (metadata == 0)
+			{
 				ECUtil.freeze(world, x1, y1, z1);
+			}
 			else if (metadata == 1)
+			{
 				ECUtil.melt(world, x1, y1, z1);
+			}
 			else if (metadata == 2)
+			{
 				ECUtil.grow(world, x1, y1, z1);
+			}
 		}
 	}
 }

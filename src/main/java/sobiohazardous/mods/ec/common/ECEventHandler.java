@@ -25,51 +25,51 @@ public class ECEventHandler
 		EntityPlayer player = event.player;
 		if (event.phase != Phase.START || player.worldObj.isRemote)
 		{
-			return;	
+			return;
 		}
 		
-			ItemStack helmet = player.getCurrentArmor(3);
-			ItemStack chest = player.getCurrentArmor(2);
-			ItemStack pants = player.getCurrentArmor(1);
-			ItemStack boots = player.getCurrentArmor(0);
-			
-			if (helmet != null && chest != null && pants != null && boots != null)
+		ItemStack helmet = player.getCurrentArmor(3);
+		ItemStack chest = player.getCurrentArmor(2);
+		ItemStack pants = player.getCurrentArmor(1);
+		ItemStack boots = player.getCurrentArmor(0);
+		
+		if (helmet != null && chest != null && pants != null && boots != null)
+		{
+			if (helmet.getItem() == ECItems.helmetFreezium && chest.getItem() == ECItems.chestplateFreezium && pants.getItem() == ECItems.leggingsFreezium && boots.getItem() == ECItems.bootsFreezium)
 			{
-				if (helmet.getItem() == ECItems.helmetFreezium && chest.getItem() == ECItems.chestplateFreezium && pants.getItem() == ECItems.leggingsFreezium && boots.getItem() == ECItems.bootsFreezium)
-				{
-					ECUtil.freeze(player.worldObj, (int) player.posX, (int) player.posY - 1, (int) player.posZ);
-					
-					if(player.isBurning())
-					{
-						helmet.damageItem(1, player);
-						chest.damageItem(1, player);
-						pants.damageItem(1, player);
-						boots.damageItem(1, player);
-					}
-				}
+				ECUtil.freeze(player.worldObj, (int) player.posX, (int) player.posY - 1, (int) player.posZ);
 				
-				if (helmet.getItem() == ECItems.helmetInfernium && chest.getItem() == ECItems.chestplateInfernium && pants.getItem() == ECItems.leggingsInfernium && boots.getItem() == ECItems.bootsInfernium)
+				if (player.isBurning())
 				{
-					if (ECConfig.inferniumArmorEffect)
-					{
-						player.worldObj.playAuxSFX(2004, (int) player.posX - 1, (int) player.posY + 1, (int) player.posZ, 0);
-					}
-					ECUtil.melt(player.worldObj, (int) player.posX, (int) player.posY - 1, (int) player.posZ);
-					
-					if(player.isInWater())
-					{
-						helmet.damageItem(1, player);
-						chest.damageItem(1, player);
-						pants.damageItem(1, player);
-						boots.damageItem(1, player);
-					}
-				}
-				
-				if (helmet.getItem() == ECItems.helmetEarth && chest.getItem() == ECItems.chestplateEarth && pants.getItem() == ECItems.leggingsEarth && boots.getItem() == ECItems.bootsEarth)
-				{
-					ECUtil.grow(player.worldObj, (int) player.posX, (int) player.posY - 1, (int) player.posZ);
+					helmet.damageItem(1, player);
+					chest.damageItem(1, player);
+					pants.damageItem(1, player);
+					boots.damageItem(1, player);
 				}
 			}
+			
+			if (helmet.getItem() == ECItems.helmetInfernium && chest.getItem() == ECItems.chestplateInfernium && pants.getItem() == ECItems.leggingsInfernium && boots.getItem() == ECItems.bootsInfernium)
+			{
+				if (ECConfig.inferniumArmorEffect)
+				{
+					player.worldObj.playAuxSFX(2004, (int) player.posX - 1, (int) player.posY + 1, (int) player.posZ, 0);
+				}
+				ECUtil.melt(player.worldObj, (int) player.posX, (int) player.posY - 1, (int) player.posZ);
+				
+				if (player.isInWater())
+				{
+					helmet.damageItem(1, player);
+					chest.damageItem(1, player);
+					pants.damageItem(1, player);
+					boots.damageItem(1, player);
+				}
+			}
+			
+			if (helmet.getItem() == ECItems.helmetEarth && chest.getItem() == ECItems.chestplateEarth && pants.getItem() == ECItems.leggingsEarth && boots.getItem() == ECItems.bootsEarth)
+			{
+				ECUtil.grow(player.worldObj, (int) player.posX, (int) player.posY - 1, (int) player.posZ);
+			}
+		}
 	}
 	
 	@SubscribeEvent

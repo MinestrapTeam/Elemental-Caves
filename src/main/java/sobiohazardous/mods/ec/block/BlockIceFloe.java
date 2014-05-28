@@ -48,7 +48,7 @@ public class BlockIceFloe extends BlockFluidClassic
 	{
 		if (entity instanceof EntityLivingBase)
 		{
-			EntityLivingBase living = ((EntityLivingBase) entity);
+			EntityLivingBase living = (EntityLivingBase) entity;
 			living.attackEntityFrom(DamageSource.generic, 0.25F);
 			living.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20 * 30, 1));
 		}
@@ -57,7 +57,7 @@ public class BlockIceFloe extends BlockFluidClassic
 	@Override
 	public IIcon getIcon(int side, int metadata)
 	{
-		return (side == 0 || side == 1) ? this.blockIcon : flowingIcon;
+		return side == 0 || side == 1 ? this.blockIcon : this.flowingIcon;
 	}
 	
 	@Override

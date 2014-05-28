@@ -14,12 +14,12 @@ public class ECItems
 {
 	public static ToolMaterial	materialFreezium	= EnumHelper.addToolMaterial("freezium", 3, 1561, 7.0F, 3.0F, 13);
 	public static ToolMaterial	materialInfernium	= EnumHelper.addToolMaterial("infernium", 3, 1301, 9.0F, 4.0F, 13);
-	public static ToolMaterial	materialEarth	= EnumHelper.addToolMaterial("infernium", 3, 1561, 8.0F, 4.0F, 17);
-
+	public static ToolMaterial	materialEarth		= EnumHelper.addToolMaterial("infernium", 3, 1561, 8.0F, 4.0F, 17);
+	
 	public static ArmorMaterial	armorFreezium		= EnumHelper.addArmorMaterial("freezium", 480, new int[] { 11, 13, 12, 11 }, 11);
 	public static ArmorMaterial	armorInfernium		= EnumHelper.addArmorMaterial("infernium", 480, new int[] { 11, 13, 12, 11 }, 12);
-	public static ArmorMaterial	armorEarth		= EnumHelper.addArmorMaterial("earth", 480, new int[] { 11, 13, 12, 11 }, 15);
-
+	public static ArmorMaterial	armorEarth			= EnumHelper.addArmorMaterial("earth", 480, new int[] { 11, 13, 12, 11 }, 15);
+	
 	public static Item			gems;
 	public static Item			shards;
 	

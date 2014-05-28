@@ -4,7 +4,7 @@ import sobiohazardous.mods.ec.block.BlockMoltenSlab;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemSlab;
 import net.minecraft.item.ItemStack;
- 
+
 public class ItemBlockMoltenSlab extends ItemSlab
 {
 	public ItemBlockMoltenSlab(Block block, BlockMoltenSlab slab, BlockMoltenSlab doubleslab)
@@ -13,7 +13,7 @@ public class ItemBlockMoltenSlab extends ItemSlab
 		doubleslab.setOtherSlab(slab);
 		this.hasSubtypes = true;
 	}
-
+	
 	@Override
 	public String getUnlocalizedName(ItemStack stack)
 	{

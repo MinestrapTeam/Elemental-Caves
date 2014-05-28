@@ -9,7 +9,7 @@ public class BlockMoltenSlab extends ECBlockSlab
 	{
 		super(isDouble, sideIconNames, topIconNames);
 	}
-
+	
 	@Override
 	public void onEntityWalking(World world, int x, int y, int z, Entity entity)
 	{

@@ -29,7 +29,9 @@ public class CaveTypeIce extends CaveType
 	{
 		world.setBlock(x, y, z, ECBlocks.ancientIce, 0, 2);
 		if (y < 16)
+		{
 			world.setBlock(x, y + 1, z, ECBlocks.iceFloe);
+		}
 	}
 	
 	@Override

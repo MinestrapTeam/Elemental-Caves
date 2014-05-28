@@ -11,10 +11,10 @@ public class BlockTransparent extends ECBlock
 	}
 	
 	@Override
-    public int getRenderBlockPass()
-    {
-        return 1;
-    }
+	public int getRenderBlockPass()
+	{
+		return 1;
+	}
 	
 	@Override
 	public boolean isOpaqueCube()

@@ -13,8 +13,8 @@ import net.minecraft.world.World;
 
 public class ItemShards extends ECItemMulti
 {
-	public static final String[]	types	= new String[] {"clear", "ice", "fire", "forest" };
-
+	public static final String[]	types	= new String[] { "clear", "ice", "fire", "forest" };
+	
 	public ItemShards()
 	{
 		super(types);
@@ -38,9 +38,13 @@ public class ItemShards extends ECItemMulti
 			if (!world.isRemote)
 			{
 				if (metadata == 1)
+				{
 					world.spawnEntityInWorld(new EntityIceShard(world, player));
+				}
 				else if (metadata == 2)
+				{
 					world.spawnEntityInWorld(new EntityFireShard(world, player));
+				}
 			}
 		}
 		
@@ -50,7 +54,7 @@ public class ItemShards extends ECItemMulti
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list)
 	{
-		for (int i = 1; i < this.types.length; i++)
+		for (int i = 1; i < ItemShards.types.length; i++)
 		{
 			list.add(new ItemStack(this, 1, i));
 		}

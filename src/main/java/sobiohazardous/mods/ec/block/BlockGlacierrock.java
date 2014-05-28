@@ -12,7 +12,7 @@ import net.minecraft.world.IBlockAccess;
 
 public class BlockGlacierrock extends ECBlockMulti
 {
-	public static final String[]	types			= new String[] { null, "cracked", "bricks" };
+	public static final String[]	types	= new String[] { null, "cracked", "bricks" };
 	
 	public IIcon					icySideIcon;
 	
@@ -21,7 +21,7 @@ public class BlockGlacierrock extends ECBlockMulti
 		super(Material.rock, types);
 		this.slipperiness = 0.98F;
 	}
-
+	
 	@Override
 	public int damageDropped(int metadata)
 	{

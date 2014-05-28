@@ -4,7 +4,7 @@ import net.minecraftforge.common.config.Configuration;
 
 public class ECConfig
 {
-	public static boolean inferniumArmorEffect = false;
+	public static boolean	inferniumArmorEffect	= false;
 	
 	public static void init(Configuration config)
 	{

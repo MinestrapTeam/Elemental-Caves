@@ -12,7 +12,9 @@ public class ECUtil
 	public static String getTexture(String name)
 	{
 		if (name == null)
+		{
 			throw new IllegalArgumentException("Name cannot be null!");
+		}
 		return "elementalcaves:" + name;
 	}
 	
@@ -89,11 +91,11 @@ public class ECUtil
 			world.setBlock(x, y, z, Blocks.ice);
 			flag = true;
 		}
-		else if(block == ECBlocks.moltenstone && world.getBlockMetadata(x, y, z) == 0)
+		else if (block == ECBlocks.moltenstone && world.getBlockMetadata(x, y, z) == 0)
 		{
 			world.setBlock(x, y, z, ECBlocks.moltenstone, 1, 3);
 		}
-		else if(block == ECBlocks.moltenstone && world.getBlockMetadata(x, y, z) == 1)
+		else if (block == ECBlocks.moltenstone && world.getBlockMetadata(x, y, z) == 1)
 		{
 			world.setBlock(x, y, z, Blocks.stone, 0, 3);
 		}

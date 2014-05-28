@@ -24,15 +24,15 @@ public class ECWorldGenerator implements IWorldGenerator
 		chunkZ <<= 4;
 		if (chunkGenerator instanceof ChunkProviderGenerate)
 		{
-			this.generateSurface(world, random, chunkX, chunkZ, chunkGenerator);
+			ECWorldGenerator.generateSurface(world, random, chunkX, chunkZ, chunkGenerator);
 		}
 		else if (chunkGenerator instanceof ChunkProviderHell)
 		{
-			this.generateNether(world, random, chunkX, chunkZ);
+			ECWorldGenerator.generateNether(world, random, chunkX, chunkZ);
 		}
 		else if (chunkGenerator instanceof ChunkProviderEnd)
 		{
-			this.generateEnd(world, random, chunkX, chunkZ);
+			ECWorldGenerator.generateEnd(world, random, chunkX, chunkZ);
 		}
 	}
 	

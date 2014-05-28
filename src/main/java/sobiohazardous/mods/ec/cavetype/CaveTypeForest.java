@@ -30,7 +30,9 @@ public class CaveTypeForest extends CaveType
 	{
 		int rand = random.nextInt(10);
 		if (rand < 4)
+		{
 			world.setBlock(x, y + 1, z, Blocks.sapling, rand, 2);
+		}
 	}
 	
 	@Override

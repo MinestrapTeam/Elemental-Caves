@@ -40,21 +40,25 @@ public class ECBlockMulti extends ECBlock
 	@Override
 	public IIcon getIcon(int side, int metadata)
 	{
-		if (metadata < 0 || metadata >= types.length)
+		if (metadata < 0 || metadata >= this.types.length)
+		{
 			metadata = 0;
+		}
 		return this.icons[metadata];
 	}
 	
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.icons = new IIcon[types.length];
+		this.icons = new IIcon[this.types.length];
 		
 		for (int i = 0; i < this.icons.length; ++i)
 		{
 			String str = this.getTextureName();
-			if (types[i] != null)
-				str += "_" + types[i];
+			if (this.types[i] != null)
+			{
+				str += "_" + this.types[i];
+			}
 			this.icons[i] = iconRegister.registerIcon(str);
 		}
 	}

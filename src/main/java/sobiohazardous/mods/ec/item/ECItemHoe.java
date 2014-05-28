@@ -19,19 +19,19 @@ public class ECItemHoe extends ItemHoe
 	
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase living, EntityLivingBase attacker)
-    {
-    	if(this == ECItems.hoeFreezium)
-    	{
-    		living.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10 * 20));
-    		return super.hitEntity(stack, living, attacker);
-    	}
-    	else if(this == ECItems.hoeInfernium)
-    	{
-    		living.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 10 * 20));
-    		living.setFire(10);
-    		return super.hitEntity(stack, living, attacker);
-    	}
-    	return super.hitEntity(stack, living, attacker);
-    }
+	{
+		if (this == ECItems.hoeFreezium)
+		{
+			living.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10 * 20));
+			return super.hitEntity(stack, living, attacker);
+		}
+		else if (this == ECItems.hoeInfernium)
+		{
+			living.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 10 * 20));
+			living.setFire(10);
+			return super.hitEntity(stack, living, attacker);
+		}
+		return super.hitEntity(stack, living, attacker);
+	}
 	
 }

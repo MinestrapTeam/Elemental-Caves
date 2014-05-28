@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 public class BlockMoltenstone extends ECBlockMulti
 {
-	public static final String[]	types		= new String[] { null, "cooled", "bricks" };
+	public static final String[]	types	= new String[] { null, "cooled", "bricks" };
 	
 	private boolean					setLava	= false;
 	
@@ -41,7 +41,7 @@ public class BlockMoltenstone extends ECBlockMulti
 			if (!EnchantmentHelper.getSilkTouchModifier(player))
 			{
 				this.setLava = true;
-			}		
+			}
 		}
 	}
 	

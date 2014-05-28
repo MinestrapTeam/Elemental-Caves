@@ -49,8 +49,10 @@ public class ECBlockSlab extends BlockSlab
 	public IIcon getIcon(int side, int metadata)
 	{
 		int meta = metadata & 3;
-		if (meta >= topIcons.length)
+		if (meta >= this.topIcons.length)
+		{
 			meta = 0;
+		}
 		
 		if (side == 1 || side == 0)
 		{

@@ -11,7 +11,9 @@ public class BlockM
 	public BlockM(Block block, int metadata)
 	{
 		if (block == null)
+		{
 			throw new IllegalArgumentException("Cannot set the block to null");
+		}
 		
 		this.block = block;
 		this.metadata = metadata;
@@ -37,11 +39,17 @@ public class BlockM
 	public boolean equals(Object obj)
 	{
 		if (this == obj)
+		{
 			return true;
+		}
 		if (obj == null)
+		{
 			return false;
+		}
 		if (!(obj instanceof BlockM))
+		{
 			return false;
+		}
 		BlockM other = (BlockM) obj;
 		return this.equals(other.block, other.metadata);
 	}

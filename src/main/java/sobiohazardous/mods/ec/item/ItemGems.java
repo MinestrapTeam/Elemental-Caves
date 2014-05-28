@@ -31,15 +31,21 @@ public class ItemGems extends ECItemMulti
 			}
 			
 			world.playSoundAtEntity(player, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
-
+			
 			if (!world.isRemote)
 			{
 				if (metadata == 1)
+				{
 					world.spawnEntityInWorld(new EntityFrostGem(world, player));
+				}
 				else if (metadata == 2)
+				{
 					world.spawnEntityInWorld(new EntityMagmaGem(world, player));
+				}
 				else if (metadata == 3)
+				{
 					world.spawnEntityInWorld(new EntityForestGem(world, player));
+				}
 			}
 		}
 		

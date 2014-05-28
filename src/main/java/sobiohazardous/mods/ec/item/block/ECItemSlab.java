@@ -5,7 +5,7 @@ import sobiohazardous.mods.ec.block.ECBlockSlab;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemSlab;
 import net.minecraft.item.ItemStack;
- 
+
 public class ECItemSlab extends ItemSlab
 {
 	public ECItemSlab(Block block, ECBlockSlab slab, ECBlockSlab doubleslab)
@@ -14,7 +14,7 @@ public class ECItemSlab extends ItemSlab
 		doubleslab.setOtherSlab(slab);
 		this.hasSubtypes = true;
 	}
-
+	
 	@Override
 	public String getUnlocalizedName(ItemStack stack)
 	{

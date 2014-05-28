@@ -38,9 +38,13 @@ public class CaveWallGenerator extends WorldGenerator
 	public CaveWallGenerator(Block block, int metadata, Block target, int targetMetadata)
 	{
 		if (block == null)
+		{
 			throw new IllegalArgumentException("Cannot set the block to null!");
+		}
 		else if (target == null)
+		{
 			throw new IllegalArgumentException("Cannot set the target to null!");
+		}
 		
 		this.block = block;
 		this.blockMetadata = metadata;
@@ -59,7 +63,7 @@ public class CaveWallGenerator extends WorldGenerator
 	}
 	
 	public void addReplacement(Block targetBlock, int targetMetadata, Block replacementBlock, int replacementMetadata)
-	{	
+	{
 		BlockM target = new BlockM(targetBlock, targetMetadata);
 		BlockM replacement = new BlockM(replacementBlock, replacementMetadata);
 		
@@ -90,9 +94,13 @@ public class CaveWallGenerator extends WorldGenerator
 		int zmax = z + radius;
 		
 		if (ymin < 0)
+		{
 			ymin = 0;
+		}
 		if (ymax > 255)
+		{
 			ymax = 255;
+		}
 		
 		for (int x1 = xmin; x1 <= xmax; x1++)
 		{
@@ -104,7 +112,7 @@ public class CaveWallGenerator extends WorldGenerator
 					int y2 = y1 - y;
 					int z2 = z1 - z;
 					
-					if (MathHelper.sqrt_float((x2 * x2) + (y2 * y2) + (z2 * z2)) <= radius)
+					if (MathHelper.sqrt_float(x2 * x2 + y2 * y2 + z2 * z2) <= radius)
 					{
 						this.replaceBlock(world, x1, y1, z1);
 					}
