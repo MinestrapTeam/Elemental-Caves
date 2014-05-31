@@ -1,0 +1,22 @@
+1.7.2-1.0.0
+
+* Fixed Moss Stone Textures
+* Improved Ice Floe
+* Bugfixes.
+
+1.7.2-0.0.0
+
+! Modjam 4 Release
++ Added Glacierrock
++ Added Moltenstone
++ Added Ancient Moss Stone
++ Added Rich Grass, Rich Soil and Rich Farmland
++ Added Ice, Fire and Forest Crystals
++ Added Clear Gem
++ Added Ice, Fire and Forest Gems
++ Added Ice, Fire and Forest Shards
++ Added Ice Gem Tools and Armor
++ Added Fire Gem Tools and Armor
++ Added Forest Gem Tools and Armor
++ Added Ice Floe
+* Bugfixes.
