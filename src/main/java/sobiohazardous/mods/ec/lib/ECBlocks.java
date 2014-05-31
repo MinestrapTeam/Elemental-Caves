@@ -54,7 +54,7 @@ public class ECBlocks
 		
 		String[] glacierRockSlabSideIcons = new String[] { ECUtil.getTexture("glacierrock_slab_side"), ECUtil.getTexture("glacierrock_cracked"), ECUtil.getTexture("glacierrock_bricks") };
 		String[] glacierRockSlabTopIcons = new String[] { ECUtil.getTexture("glacierrock_slab_top"), ECUtil.getTexture("glacierrock_cracked"), ECUtil.getTexture("glacierrock_bricks") };
-		glacierRockSlabSingle = new ECBlockSlab(false, glacierRockSlabSideIcons, glacierRockSlabTopIcons).setCreativeTab(ElementalCaves.creativeTabECBlocks).setHardness(2F).setResistance(10F);
+		glacierRockSlabSingle = new ECBlockSlab(false, glacierRockSlabSideIcons, glacierRockSlabTopIcons).setCreativeTab(ElementalCaves.tabBlocks).setHardness(2F).setResistance(10F);
 		glacierRockSlabDouble = new ECBlockSlab(true, glacierRockSlabSideIcons, glacierRockSlabTopIcons).setHardness(2F).setResistance(10F);
 		
 		ancientIce = new BlockAncientIce(Material.rock).setStepSound(Block.soundTypeGlass).setHardness(2F).setResistance(40000F).setBlockTextureName(ECUtil.getTexture("ancient_ice"));
@@ -65,14 +65,14 @@ public class ECBlocks
 		
 		String[] moltenstoneSlabSideIcons = new String[] { ECUtil.getTexture("moltenstone_slab_side"), ECUtil.getTexture("moltenstone_bricks") };
 		String[] moltenstoneSlabTopIcons = new String[] { ECUtil.getTexture("moltenstone_slab_top"), ECUtil.getTexture("moltenstone_bricks") };
-		moltenstoneSlabSingle = new BlockMoltenSlab(false, moltenstoneSlabSideIcons, moltenstoneSlabTopIcons).setCreativeTab(ElementalCaves.creativeTabECBlocks).setHardness(2.1F).setResistance(8.0F);
+		moltenstoneSlabSingle = new BlockMoltenSlab(false, moltenstoneSlabSideIcons, moltenstoneSlabTopIcons).setCreativeTab(ElementalCaves.tabBlocks).setHardness(2.1F).setResistance(8.0F);
 		moltenstoneSlabDouble = new BlockMoltenSlab(true, moltenstoneSlabSideIcons, moltenstoneSlabTopIcons).setHardness(2.1F).setResistance(8.0F);
 		
 		ancientMossStone = new BlockAncientMossStone().setHardness(2.0F).setResistance(11.0F).setBlockTextureName(ECUtil.getTexture("ancient_moss_stone"));
 		
 		String[] ancientMossySlabSideIcons = new String[] { ECUtil.getTexture("ancient_moss_stone_slab_side"), ECUtil.getTexture("ancient_moss_stone_cracked"), ECUtil.getTexture("ancient_moss_stone_bricks") };
 		String[] ancientMossySlabTopIcons = new String[] { ECUtil.getTexture("ancient_moss_stone_slab_top"), ECUtil.getTexture("ancient_moss_stone_cracked"), ECUtil.getTexture("ancient_moss_stone_bricks") };
-		ancientMossySlabSingle = new ECBlockSlab(false, ancientMossySlabSideIcons, ancientMossySlabTopIcons).setCreativeTab(ElementalCaves.creativeTabECBlocks).setHardness(2F).setResistance(10F);
+		ancientMossySlabSingle = new ECBlockSlab(false, ancientMossySlabSideIcons, ancientMossySlabTopIcons).setCreativeTab(ElementalCaves.tabBlocks).setHardness(2F).setResistance(10F);
 		ancientMossySlabDouble = new ECBlockSlab(true, ancientMossySlabSideIcons, ancientMossySlabTopIcons).setHardness(2F).setResistance(10F);
 		ancientMossyStonebrickStairs = new ECBlockStairs(ancientMossStone, 2).setHardness(2.0F).setResistance(11.0F);
 		ancientMossyCobbleStairs = new ECBlockStairs(ancientMossStone, 1).setHardness(2.0F).setResistance(11.0F);

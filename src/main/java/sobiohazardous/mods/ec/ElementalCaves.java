@@ -29,21 +29,21 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
-@Mod(modid = ECReference.EC_MODID, name = ECReference.EC_NAME, version = ECReference.EC_VERSION)
+@Mod(modid = ECReference.MODID, name = ECReference.NAME, version = ECReference.VERSION)
 public class ElementalCaves
 {
-	@Instance(ECReference.EC_MODID)
+	@Instance(ECReference.MODID)
 	public static ElementalCaves	instance;
 	
 	@SidedProxy(clientSide = "sobiohazardous.mods.ec.client.ECClientProxy", serverSide = "sobiohazardous.mods.ec.common.ECCommonProxy")
 	public static ECCommonProxy		proxy;
 	
-	public static ECEventHandler	eventHandler		= new ECEventHandler();
+	public static ECEventHandler	eventHandler	= new ECEventHandler();
 	
-	public static CreativeTabs		creativeTabECBlocks	= new ECCreativeTabBlocks("ec_blocks");
-	public static CreativeTabs		creativeTabECItems	= new ECCreativeTabItems("ec_items");
+	public static CreativeTabs		tabBlocks		= new ECCreativeTabBlocks("ec_blocks");
+	public static CreativeTabs		tabItems		= new ECCreativeTabItems("ec_items");
 	
-	public static Fluid				iceFloe				= new Fluid("ice_floe").setLuminosity(6).setViscosity(2000);
+	public static Fluid				iceFloe			= new Fluid("ice_floe").setLuminosity(6).setViscosity(2000);
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)

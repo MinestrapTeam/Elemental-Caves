@@ -17,7 +17,7 @@ public class ECItemAxe extends ItemAxe
 	public ECItemAxe(ToolMaterial material)
 	{
 		super(material);
-		this.setCreativeTab(ElementalCaves.creativeTabECItems);
+		this.setCreativeTab(ElementalCaves.tabItems);
 	}
 	
 	@Override

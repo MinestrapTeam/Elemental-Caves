@@ -10,6 +10,6 @@ public class ECBlock extends Block
 	public ECBlock(Material material)
 	{
 		super(material);
-		this.setCreativeTab(ElementalCaves.creativeTabECBlocks);
+		this.setCreativeTab(ElementalCaves.tabBlocks);
 	}
 }

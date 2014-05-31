@@ -8,6 +8,6 @@ public class ECItem extends Item
 	public ECItem()
 	{
 		super();
-		this.setCreativeTab(ElementalCaves.creativeTabECItems);
+		this.setCreativeTab(ElementalCaves.tabItems);
 	}
 }

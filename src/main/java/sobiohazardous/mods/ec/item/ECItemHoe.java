@@ -14,7 +14,7 @@ public class ECItemHoe extends ItemHoe
 	public ECItemHoe(ToolMaterial material)
 	{
 		super(material);
-		this.setCreativeTab(ElementalCaves.creativeTabECItems);
+		this.setCreativeTab(ElementalCaves.tabItems);
 	}
 	
 	@Override

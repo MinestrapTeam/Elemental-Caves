@@ -11,7 +11,7 @@ public class ECItemBucket extends ItemBucket
 	{
 		super(liquid);
 		this.setContainerItem(Items.bucket);
-		this.setCreativeTab(ElementalCaves.creativeTabECItems);
+		this.setCreativeTab(ElementalCaves.tabItems);
 	}
 	
 }

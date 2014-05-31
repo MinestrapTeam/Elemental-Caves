@@ -17,7 +17,7 @@ public class ECItemSword extends ItemSword
 	public ECItemSword(ToolMaterial mat)
 	{
 		super(mat);
-		this.setCreativeTab(ElementalCaves.creativeTabECItems);
+		this.setCreativeTab(ElementalCaves.tabItems);
 	}
 	
 	@Override

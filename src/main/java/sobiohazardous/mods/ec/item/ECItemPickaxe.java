@@ -16,7 +16,7 @@ public class ECItemPickaxe extends ItemPickaxe
 	public ECItemPickaxe(ToolMaterial mat)
 	{
 		super(mat);
-		this.setCreativeTab(ElementalCaves.creativeTabECItems);
+		this.setCreativeTab(ElementalCaves.tabItems);
 	}
 	
 	@Override

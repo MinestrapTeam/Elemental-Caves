@@ -14,7 +14,7 @@ public class ECItemArmor extends ItemArmor
 	public ECItemArmor(ArmorMaterial material, int renderIndex, int type, String prefix)
 	{
 		super(material, renderIndex, type);
-		this.setCreativeTab(ElementalCaves.creativeTabECItems);
+		this.setCreativeTab(ElementalCaves.tabItems);
 		this.armorPrefix = prefix;
 	}
 	

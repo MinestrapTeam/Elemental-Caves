@@ -16,7 +16,7 @@ public class ECItemShovel extends ItemSpade
 	public ECItemShovel(ToolMaterial mat)
 	{
 		super(mat);
-		this.setCreativeTab(ElementalCaves.creativeTabECItems);
+		this.setCreativeTab(ElementalCaves.tabItems);
 	}
 	
 	@Override

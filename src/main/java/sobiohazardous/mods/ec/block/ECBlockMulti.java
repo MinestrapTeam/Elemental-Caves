@@ -22,7 +22,7 @@ public class ECBlockMulti extends ECBlock
 	{
 		super(material);
 		this.types = types;
-		this.setCreativeTab(ElementalCaves.creativeTabECBlocks);
+		this.setCreativeTab(ElementalCaves.tabBlocks);
 	}
 	
 	@Override
