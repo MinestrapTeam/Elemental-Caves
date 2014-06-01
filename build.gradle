@@ -22,8 +22,8 @@ buildscript
 
 apply plugin: 'forge'
 
-version = "1.7.2-1.0-pre"
-group= "sobiohazardous.mods.ec" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+version = "1.7.2-1.0.0"
+group= "sobiohazardous.mods.ec"
 archivesBaseName = "Elemental Caves"
 
 minecraft
@@ -31,10 +31,12 @@ minecraft
     version = "1.7.2-10.12.1.1091"
     if(file('../run').exists())
     {
-		assetDir = "../run/assets/"
-	} else {
-		assetDir = "eclipse/assets"
-	}
+		    assetDir = "../run/assets/"
+	  }
+    else
+    {
+		    assetDir = "eclipse/assets"
+	  }
 }
 
 processResources
@@ -47,11 +49,11 @@ processResources
     from(sourceSets.main.resources.srcDirs)
     {
         include 'mcmod.info'
-                
+
         // replace version and mcversion
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
-        
+
     // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs)
     {
