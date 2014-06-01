@@ -56,3 +56,25 @@ processResources
         exclude 'mcmod.info'
     }
 }
+
+task deobfJar(type:Jar, dependsOn:'classes')
+deobfJar
+{
+    classifier = 'deobf'
+    archiveName = "${archivesBaseName} ${minecraft.version}-deobf.jar"
+    from ('build/classes/main')
+    {
+        include('sobiohazardous/mods/ec/api/**')
+    }
+}
+
+task sourceJar(type:Jar, dependsOn:'classes')
+sourceJar
+{
+    classifier = 'sources'
+    archiveName = "${archivesBaseName} ${minecraft.version}-sources.jar"
+    from ('build/sources/java')
+    {
+        include('sobiohazardous/mods/ec/api/**')
+    }
+}

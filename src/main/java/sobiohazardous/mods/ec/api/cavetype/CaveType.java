@@ -1,22 +1,20 @@
-package sobiohazardous.mods.ec.cavetype;
+package sobiohazardous.mods.ec.api.cavetype;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import sobiohazardous.mods.ec.world.OreGenData;
-
+import sobiohazardous.mods.ec.api.world.OreGenData;
+import sobiohazardous.mods.ec.cavetype.CaveTypeFire;
+import sobiohazardous.mods.ec.cavetype.CaveTypeForest;
+import sobiohazardous.mods.ec.cavetype.CaveTypeIce;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class CaveType
 {
-	public static List<CaveType>	caveTypes			= new ArrayList();
-	
-	public static CaveType			ice					= new CaveTypeIce("ice");
-	public static CaveType			fire				= new CaveTypeFire("fire");
-	public static CaveType			forest				= new CaveTypeForest("forest");
+	public static List<CaveType>	caveTypes			= new ArrayList();	
 	
 	public final String				name;
 	public Block					block;
@@ -46,7 +44,6 @@ public class CaveType
 		
 		this.name = name;
 		this.block = mainCaveBlock;
-		caveTypes.add(this);
 	}
 	
 	public String getName()

@@ -2,8 +2,8 @@ package sobiohazardous.mods.ec.cavetype;
 
 import java.util.Random;
 
+import sobiohazardous.mods.ec.api.cavetype.CaveType;
 import sobiohazardous.mods.ec.lib.ECBlocks;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;

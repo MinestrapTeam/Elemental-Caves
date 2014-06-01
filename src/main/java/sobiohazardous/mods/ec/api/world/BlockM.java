@@ -1,4 +1,4 @@
-package sobiohazardous.mods.ec.world;
+package sobiohazardous.mods.ec.api.world;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;

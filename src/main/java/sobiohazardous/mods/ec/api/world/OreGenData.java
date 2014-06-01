@@ -1,9 +1,8 @@
-package sobiohazardous.mods.ec.world;
+package sobiohazardous.mods.ec.api.world;
 
 import java.util.Random;
 
-import sobiohazardous.mods.ec.cavetype.CaveType;
-
+import sobiohazardous.mods.ec.api.cavetype.CaveType;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;

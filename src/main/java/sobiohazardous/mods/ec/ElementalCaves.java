@@ -10,6 +10,7 @@ import sobiohazardous.mods.ec.entity.projectile.EntityFrostGem;
 import sobiohazardous.mods.ec.entity.projectile.EntityIceShard;
 import sobiohazardous.mods.ec.entity.projectile.EntityMagmaGem;
 import sobiohazardous.mods.ec.lib.ECBlocks;
+import sobiohazardous.mods.ec.lib.ECCaveTypes;
 import sobiohazardous.mods.ec.lib.ECConfig;
 import sobiohazardous.mods.ec.lib.ECItems;
 import sobiohazardous.mods.ec.lib.ECRecipes;
@@ -63,6 +64,8 @@ public class ElementalCaves
 		
 		FMLCommonHandler.instance().bus().register(eventHandler);
 		MinecraftForge.EVENT_BUS.register(eventHandler);
+		
+		ECCaveTypes.init();
 		GameRegistry.registerWorldGenerator(new ECWorldGenerator(), 0);
 		
 		EntityRegistry.registerModEntity(EntityIceShard.class, "entity_ice_shard", 2, ElementalCaves.instance, 40, 3, true);
