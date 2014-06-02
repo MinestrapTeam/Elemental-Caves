@@ -18,11 +18,6 @@ public class ECUtil
 		return "elementalcaves:" + name;
 	}
 	
-	public static String position(String message, int x, int y, int z)
-	{
-		return message + " (" + x + ";" + y + ";" + z + ")";
-	}
-	
 	public static boolean freeze(World world, int x, int y, int z)
 	{
 		return freeze(world, x, y, z, false);

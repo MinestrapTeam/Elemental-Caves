@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Random;
 
 import minestrapteam.caveapi.world.BlockM;
-import minestrapteam.elementalcaves.util.ECUtil;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -148,7 +147,6 @@ public class CaveWallGenerator extends WorldGenerator
 		}
 		catch (Exception ex)
 		{
-			ECUtil.position("Block Set Error", x, y, z);
 		}
 	}
 }
