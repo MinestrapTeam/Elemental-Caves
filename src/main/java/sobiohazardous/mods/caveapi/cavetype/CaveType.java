@@ -1,10 +1,10 @@
-package sobiohazardous.mods.ec.api.cavetype;
+package sobiohazardous.mods.caveapi.cavetype;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import sobiohazardous.mods.ec.api.world.OreGenData;
+import sobiohazardous.mods.caveapi.world.OreGenData;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;

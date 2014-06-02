@@ -1,10 +1,10 @@
-package sobiohazardous.mods.ec.api;
+package sobiohazardous.mods.caveapi;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import sobiohazardous.mods.ec.api.cavetype.CaveType;
-import sobiohazardous.mods.ec.api.world.gen.CWorldGenerator;
+import sobiohazardous.mods.caveapi.cavetype.CaveType;
+import sobiohazardous.mods.caveapi.world.gen.CWorldGenerator;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;

@@ -1,11 +1,12 @@
-package sobiohazardous.mods.ec.api.cavetype;
+package sobiohazardous.mods.caveapi.cavetype;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import sobiohazardous.mods.ec.api.world.BlockM;
+import sobiohazardous.mods.caveapi.world.BlockM;
 import sobiohazardous.mods.ec.util.ECUtil;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;

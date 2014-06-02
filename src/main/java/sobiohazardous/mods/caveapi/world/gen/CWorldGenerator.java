@@ -1,10 +1,10 @@
-package sobiohazardous.mods.ec.api.world.gen;
+package sobiohazardous.mods.caveapi.world.gen;
 
 import java.util.Random;
 
-import sobiohazardous.mods.ec.api.CavesAPI;
-import sobiohazardous.mods.ec.api.cavetype.CaveType;
-import sobiohazardous.mods.ec.api.world.OreGenData;
+import sobiohazardous.mods.caveapi.CavesAPI;
+import sobiohazardous.mods.caveapi.cavetype.CaveType;
+import sobiohazardous.mods.caveapi.world.OreGenData;
 import cpw.mods.fml.common.IWorldGenerator;
 
 import net.minecraft.world.World;

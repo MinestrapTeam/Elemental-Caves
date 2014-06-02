@@ -1,7 +1,7 @@
 package sobiohazardous.mods.ec;
 
-import sobiohazardous.mods.ec.api.CavesAPI;
-import sobiohazardous.mods.ec.api.cavetype.CaveType;
+import sobiohazardous.mods.caveapi.CavesAPI;
+import sobiohazardous.mods.caveapi.cavetype.CaveType;
 import sobiohazardous.mods.ec.cavetype.CaveTypeFire;
 import sobiohazardous.mods.ec.cavetype.CaveTypeForest;
 import sobiohazardous.mods.ec.cavetype.CaveTypeIce;
