@@ -1,3 +1,10 @@
+1.7.2-1.1.0
+
++ Added Cave API
++ German localizations
+* Improved cave gen performance
+* Fixed Earthen Tools being crafted with Blaze Rods
+
 1.7.2-1.0.0
 
 * Fixed Moss Stone Textures
