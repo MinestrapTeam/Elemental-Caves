@@ -12,24 +12,24 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 public class CaveType
 {
-	public final String				name;
-	public Block					block;
-	public Block					floorBlock;
-	public Block					ceilingBlock;
+	public final String			name;
+	public Block				block;
+	public Block				floorBlock;
+	public Block				ceilingBlock;
 	
-	public int						blockMetadata;
-	public int						floorMetadata;
-	public int						ceilingMetadata;
+	public int					blockMetadata;
+	public int					floorMetadata;
+	public int					ceilingMetadata;
 	
-	public int						spawnHeight			= 62;
-	protected float					ceilingAddonWeight	= 0.1F;
-	protected float					floorAddonWeight	= 0.2F;
+	public int					spawnHeight			= 62;
+	protected float				ceilingAddonWeight	= 0.1F;
+	protected float				floorAddonWeight	= 0.2F;
 	
-	public BiomeGenBase				biome;
+	public BiomeGenBase			biome;
 	
-	protected CaveWallGenerator		wallGen;
+	protected CaveWallGenerator	wallGen;
 	
-	public List<OreGenData>			ores				= new ArrayList();
+	public List<OreGenData>		ores				= new ArrayList();
 	
 	public CaveType(String name, Block mainCaveBlock)
 	{
@@ -45,6 +45,46 @@ public class CaveType
 	public String getName()
 	{
 		return this.name;
+	}
+	
+	/**
+	 * Sets a block for cave generation.
+	 * 
+	 * @param world
+	 *            the world
+	 * @param x
+	 *            x coordinate
+	 * @param y
+	 *            y coordinate
+	 * @param z
+	 *            z coordinate
+	 * @param block
+	 *            the block
+	 */
+	protected static void setBlock(World world, int x, int y, int z, Block block)
+	{
+		setBlock(world, x, y, z, block, 0);
+	}
+	
+	/**
+	 * Sets a block for cave generation.
+	 * 
+	 * @param world
+	 *            the world
+	 * @param x
+	 *            x coordinate
+	 * @param y
+	 *            y coordinate
+	 * @param z
+	 *            z coordinate
+	 * @param block
+	 *            the block
+	 * @param metadata
+	 *            the block metadata
+	 */
+	protected static void setBlock(World world, int x, int y, int z, Block block, int metadata)
+	{
+		world.setBlock(x, y, z, block, metadata, 0);
 	}
 	
 	public CaveType setBlock(Block block)

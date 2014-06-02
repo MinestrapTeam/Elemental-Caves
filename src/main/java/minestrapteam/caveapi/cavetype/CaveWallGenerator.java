@@ -123,7 +123,7 @@ public class CaveWallGenerator extends WorldGenerator
 		return true;
 	}
 	
-	public void replaceBlock(World world, int x, int y, int z)
+	private void replaceBlock(World world, int x, int y, int z)
 	{
 		try
 		{
@@ -134,14 +134,14 @@ public class CaveWallGenerator extends WorldGenerator
 				int metadata = world.getBlockMetadata(x, y, z);
 				if (block == this.target && metadata == this.targetMetadata)
 				{
-					world.setBlock(x, y, z, this.block, this.blockMetadata, 2);
+					world.setBlock(x, y, z, this.block, this.blockMetadata, 0);
 				}
 				else
 				{
 					BlockM replacement = this.getReplacement(block, metadata);
 					if (replacement != null)
 					{
-						replacement.set(world, x, y, z, 2);
+						replacement.set(world, x, y, z, 0);
 					}
 				}
 			}

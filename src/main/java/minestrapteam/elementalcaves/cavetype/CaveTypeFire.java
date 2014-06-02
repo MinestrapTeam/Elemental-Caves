@@ -3,6 +3,7 @@ package minestrapteam.elementalcaves.cavetype;
 import java.util.Random;
 
 import minestrapteam.caveapi.cavetype.CaveType;
+import minestrapteam.elementalcaves.block.BlockCrystals;
 import minestrapteam.elementalcaves.lib.ECBlocks;
 
 import net.minecraft.init.Blocks;
@@ -39,7 +40,9 @@ public class CaveTypeFire extends CaveType
 	@Override
 	public void generateCeilingAddons(World world, Random random, int x, int y, int z)
 	{
-		world.setBlock(x, y, z, ECBlocks.crystals, 1, 2);
-		world.setBlock(x, y - 1, z, ECBlocks.crystals, 1, 2);
+		BlockCrystals.worldGen = true;
+		setBlock(world, x, y, z, ECBlocks.crystals, 1);
+		setBlock(world, x, y - 1, z, ECBlocks.crystals, 1);
+		BlockCrystals.worldGen = false;
 	}
 }

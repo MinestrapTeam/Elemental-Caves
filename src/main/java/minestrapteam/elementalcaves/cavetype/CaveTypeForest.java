@@ -3,6 +3,7 @@ package minestrapteam.elementalcaves.cavetype;
 import java.util.Random;
 
 import minestrapteam.caveapi.cavetype.CaveType;
+import minestrapteam.elementalcaves.block.BlockCrystals;
 import minestrapteam.elementalcaves.lib.ECBlocks;
 
 import net.minecraft.init.Blocks;
@@ -32,23 +33,25 @@ public class CaveTypeForest extends CaveType
 		int rand = random.nextInt(10);
 		if (rand < 4)
 		{
-			world.setBlock(x, y + 1, z, Blocks.sapling, rand, 2);
+			setBlock(world, x, y + 1, z, Blocks.sapling, rand);
 		}
 	}
 	
 	@Override
 	public void generateCeilingAddons(World world, Random random, int x, int y, int z)
 	{
-		world.setBlock(x, y, z, ECBlocks.crystals, 2, 2);
-		world.setBlock(x, y - 1, z, ECBlocks.crystals, 2, 2);
+		BlockCrystals.worldGen = true;
+		setBlock(world, x, y, z, ECBlocks.crystals, 2);
+		setBlock(world, x, y - 1, z, ECBlocks.crystals, 2);
+		BlockCrystals.worldGen = false;
 	}
 	
 	@Override
 	public void generateFloor(World world, Random random, int x, int y, int z)
 	{
-		world.setBlock(x, y, z, ECBlocks.richGrass, 0, 2);
-		world.setBlock(x, y - 1, z, ECBlocks.richSoil, 0, 2);
-		world.setBlock(x, y - 2, z, ECBlocks.richSoil, 0, 2);
+		setBlock(world, x, y, z, ECBlocks.richGrass);
+		setBlock(world, x, y - 1, z, ECBlocks.richSoil);
+		setBlock(world, x, y - 2, z, ECBlocks.richSoil);
 	}
 	
 	@Override

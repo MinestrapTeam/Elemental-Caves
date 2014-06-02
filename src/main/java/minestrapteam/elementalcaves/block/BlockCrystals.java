@@ -15,6 +15,8 @@ import net.minecraft.world.World;
 
 public class BlockCrystals extends ECBlockMulti
 {
+	public static boolean	worldGen;
+	
 	public BlockCrystals()
 	{
 		super(Material.rock, new String[] { "ice", "fire", "forest" });
@@ -100,7 +102,10 @@ public class BlockCrystals extends ECBlockMulti
 	
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random random)
-	{
+	{	
+		if (worldGen)
+			return;
+		
 		world.scheduleBlockUpdate(x, y, z, this, 100);
 		
 		int metadata = world.getBlockMetadata(x, y, z);

@@ -3,6 +3,7 @@ package minestrapteam.elementalcaves.cavetype;
 import java.util.Random;
 
 import minestrapteam.caveapi.cavetype.CaveType;
+import minestrapteam.elementalcaves.block.BlockCrystals;
 import minestrapteam.elementalcaves.lib.ECBlocks;
 
 import net.minecraft.init.Blocks;
@@ -28,10 +29,10 @@ public class CaveTypeIce extends CaveType
 	@Override
 	public void generateFloor(World world, Random random, int x, int y, int z)
 	{
-		world.setBlock(x, y, z, ECBlocks.ancientIce, 0, 2);
+		setBlock(world, x, y, z, ECBlocks.ancientIce);
 		if (y < 16)
 		{
-			world.setBlock(x, y + 1, z, ECBlocks.iceFloe);
+			setBlock(world, x, y + 1, z, ECBlocks.iceFloe);
 		}
 	}
 	
@@ -44,7 +45,9 @@ public class CaveTypeIce extends CaveType
 	@Override
 	public void generateCeilingAddons(World world, Random random, int x, int y, int z)
 	{
-		world.setBlock(x, y, z, ECBlocks.crystals, 0, 2);
-		world.setBlock(x, y - 1, z, ECBlocks.crystals, 0, 2);
+		BlockCrystals.worldGen = true;
+		setBlock(world, x, y, z, ECBlocks.crystals);
+		setBlock(world, x, y - 1, z, ECBlocks.crystals);
+		BlockCrystals.worldGen = false;
 	}
 }
