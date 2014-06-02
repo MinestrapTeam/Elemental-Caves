@@ -90,11 +90,11 @@ public class ECRecipes
 		GameRegistry.addRecipe(new ItemStack(ECItems.leggingsInfernium), new Object[] { "MMM", "M M", "M M", 'M', magmaGem });
 		GameRegistry.addRecipe(new ItemStack(ECItems.bootsInfernium), new Object[] { "M M", "M M", 'M', magmaGem });
 		
-		GameRegistry.addRecipe(new ItemStack(ECItems.axeEarth), new Object[] { "MM ", "MS ", " S ", 'S', Items.blaze_rod, 'M', forestGem });
-		GameRegistry.addRecipe(new ItemStack(ECItems.hoeEarth), new Object[] { "MM ", " S ", " S ", 'S', Items.blaze_rod, 'M', forestGem });
-		GameRegistry.addRecipe(new ItemStack(ECItems.pickaxeEarth), new Object[] { "MMM", " S ", " S ", 'S', Items.blaze_rod, 'M', forestGem });
-		GameRegistry.addRecipe(new ItemStack(ECItems.swordEarth), new Object[] { "M", "M", "S", 'S', Items.blaze_rod, 'M', forestGem });
-		GameRegistry.addRecipe(new ItemStack(ECItems.shovelEarth), new Object[] { " M ", " S ", " S ", 'S', Items.blaze_rod, 'M', forestGem });
+		GameRegistry.addRecipe(new ItemStack(ECItems.axeEarth), new Object[] { "MM ", "MS ", " S ", 'S', Items.stick, 'M', forestGem });
+		GameRegistry.addRecipe(new ItemStack(ECItems.hoeEarth), new Object[] { "MM ", " S ", " S ", 'S', Items.stick, 'M', forestGem });
+		GameRegistry.addRecipe(new ItemStack(ECItems.pickaxeEarth), new Object[] { "MMM", " S ", " S ", 'S', Items.stick, 'M', forestGem });
+		GameRegistry.addRecipe(new ItemStack(ECItems.swordEarth), new Object[] { "M", "M", "S", 'S', Items.stick, 'M', forestGem });
+		GameRegistry.addRecipe(new ItemStack(ECItems.shovelEarth), new Object[] { " M ", " S ", " S ", 'S', Items.stick, 'M', forestGem });
 		
 		GameRegistry.addRecipe(new ItemStack(ECItems.helmetEarth), new Object[] { "MMM", "M M", 'M', forestGem });
 		GameRegistry.addRecipe(new ItemStack(ECItems.chestplateEarth), new Object[] { "M M", "MMM", "MMM", 'M', forestGem });
