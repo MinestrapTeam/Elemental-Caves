@@ -1,0 +1,21 @@
+package minestrapteam.elementalcaves.block;
+
+import minestrapteam.elementalcaves.ElementalCaves;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockStairs;
+
+public class ECBlockStairs extends BlockStairs
+{
+	public ECBlockStairs(Block block)
+	{
+		this(block, 0);
+		this.setCreativeTab(ElementalCaves.tabBlocks);
+	}
+	
+	public ECBlockStairs(Block block, int metadata)
+	{
+		super(block, metadata);
+		this.setCreativeTab(ElementalCaves.tabBlocks);
+	}
+}
