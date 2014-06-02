@@ -5,17 +5,13 @@ import java.util.List;
 import java.util.Random;
 
 import sobiohazardous.mods.ec.api.world.OreGenData;
-import sobiohazardous.mods.ec.cavetype.CaveTypeFire;
-import sobiohazardous.mods.ec.cavetype.CaveTypeForest;
-import sobiohazardous.mods.ec.cavetype.CaveTypeIce;
+
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class CaveType
 {
-	public static List<CaveType>	caveTypes			= new ArrayList();	
-	
 	public final String				name;
 	public Block					block;
 	public Block					floorBlock;

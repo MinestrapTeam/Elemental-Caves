@@ -2,9 +2,11 @@ package sobiohazardous.mods.ec.api.world.gen;
 
 import java.util.Random;
 
+import sobiohazardous.mods.ec.api.CavesAPI;
 import sobiohazardous.mods.ec.api.cavetype.CaveType;
 import sobiohazardous.mods.ec.api.world.OreGenData;
 import cpw.mods.fml.common.IWorldGenerator;
+
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderEnd;
@@ -41,7 +43,7 @@ public class CWorldGenerator implements IWorldGenerator
 			{
 				int z1 = chunkZ + z0;
 				
-				for (CaveType type : CaveType.caveTypes)
+				for (CaveType type : CavesAPI.caveTypes)
 				{
 					if (type.canGenerateAt(world, x1, z1))
 					{
@@ -55,7 +57,7 @@ public class CWorldGenerator implements IWorldGenerator
 		int y1;
 		int z1;
 		
-		for (CaveType type : CaveType.caveTypes)
+		for (CaveType type : CavesAPI.caveTypes)
 		{
 			for (OreGenData ore : type.ores)
 			{

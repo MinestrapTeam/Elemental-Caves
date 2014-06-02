@@ -1,20 +1,16 @@
 package sobiohazardous.mods.ec;
 
+import sobiohazardous.mods.ec.api.CavesAPI;
+import sobiohazardous.mods.ec.api.cavetype.CaveType;
+import sobiohazardous.mods.ec.cavetype.CaveTypeFire;
+import sobiohazardous.mods.ec.cavetype.CaveTypeForest;
+import sobiohazardous.mods.ec.cavetype.CaveTypeIce;
 import sobiohazardous.mods.ec.common.ECCommonProxy;
 import sobiohazardous.mods.ec.common.ECEventHandler;
 import sobiohazardous.mods.ec.creativetab.ECCreativeTabBlocks;
 import sobiohazardous.mods.ec.creativetab.ECCreativeTabItems;
-import sobiohazardous.mods.ec.entity.projectile.EntityFireShard;
-import sobiohazardous.mods.ec.entity.projectile.EntityForestGem;
-import sobiohazardous.mods.ec.entity.projectile.EntityFrostGem;
-import sobiohazardous.mods.ec.entity.projectile.EntityIceShard;
-import sobiohazardous.mods.ec.entity.projectile.EntityMagmaGem;
-import sobiohazardous.mods.ec.lib.ECBlocks;
-import sobiohazardous.mods.ec.lib.ECCaveTypes;
-import sobiohazardous.mods.ec.lib.ECConfig;
-import sobiohazardous.mods.ec.lib.ECItems;
-import sobiohazardous.mods.ec.lib.ECRecipes;
-import sobiohazardous.mods.ec.lib.ECReference;
+import sobiohazardous.mods.ec.entity.projectile.*;
+import sobiohazardous.mods.ec.lib.*;
 import sobiohazardous.mods.ec.world.gen.ECWorldGenerator;
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -24,6 +20,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -46,6 +43,10 @@ public class ElementalCaves
 	
 	public static Fluid				iceFloe			= new Fluid("ice_floe").setLuminosity(6).setViscosity(2000);
 	
+	public static CaveType ice;
+	public static CaveType fire;
+	public static CaveType forest;	
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
@@ -65,7 +66,7 @@ public class ElementalCaves
 		FMLCommonHandler.instance().bus().register(eventHandler);
 		MinecraftForge.EVENT_BUS.register(eventHandler);
 		
-		ECCaveTypes.init();
+		addCaveTypes();
 		GameRegistry.registerWorldGenerator(new ECWorldGenerator(), 0);
 		
 		EntityRegistry.registerModEntity(EntityIceShard.class, "entity_ice_shard", 2, ElementalCaves.instance, 40, 3, true);
@@ -80,5 +81,16 @@ public class ElementalCaves
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
+	}
+	
+	private static void addCaveTypes()
+	{
+		ice = new CaveTypeIce("ice");
+		fire = new CaveTypeFire("fire");
+		forest = new CaveTypeForest("forest");
+		
+		CavesAPI.registerCaveType(ice);		
+		CavesAPI.registerCaveType(fire);
+		CavesAPI.registerCaveType(forest);
 	}
 }
