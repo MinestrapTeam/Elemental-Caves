@@ -37,7 +37,19 @@ public class ECEventHandler
 		{
 			if (helmet.getItem() == ECItems.helmetFreezium && chest.getItem() == ECItems.chestplateFreezium && pants.getItem() == ECItems.leggingsFreezium && boots.getItem() == ECItems.bootsFreezium)
 			{
-				ECUtil.freeze(player.worldObj, (int) player.posX, (int) player.posY - 1, (int) player.posZ);
+				for(int i= 0; i < 3; i++)
+				{
+					ECUtil.freeze(player.worldObj, (int) player.posX, (int) player.posY - i, (int) player.posZ);
+					ECUtil.freeze(player.worldObj, (int) player.posX - i, (int) player.posY - i, (int) player.posZ);
+					ECUtil.freeze(player.worldObj, (int) player.posX, (int) player.posY - i, (int) player.posZ - i);
+					ECUtil.freeze(player.worldObj, (int) player.posX - i, (int) player.posY - i, (int) player.posZ - i);
+					
+					ECUtil.freeze(player.worldObj, (int) player.posX, (int) player.posY - i, (int) player.posZ);
+					ECUtil.freeze(player.worldObj, (int) player.posX + i, (int) player.posY - i, (int) player.posZ);
+					ECUtil.freeze(player.worldObj, (int) player.posX, (int) player.posY - i, (int) player.posZ + i);
+					ECUtil.freeze(player.worldObj, (int) player.posX + i, (int) player.posY - i, (int) player.posZ + i);
+				}
+				
 				
 				if (player.isBurning())
 				{

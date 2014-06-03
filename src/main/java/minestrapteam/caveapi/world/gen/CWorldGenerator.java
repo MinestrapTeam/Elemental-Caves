@@ -36,13 +36,14 @@ public class CWorldGenerator implements IWorldGenerator
 	
 	public static void generateSurface(World world, Random rand, int chunkX, int chunkZ, IChunkProvider chunk)
 	{
+		
 		for (int x0 = 0; x0 < 16; x0++)
 		{
 			int x1 = chunkX + x0;
 			for (int z0 = 0; z0 < 16; z0++)
 			{
 				int z1 = chunkZ + z0;
-				
+
 				for (CaveType type : CavesAPI.caveTypes)
 				{
 					if (type.canGenerateAt(world, x1, z1))
@@ -51,8 +52,8 @@ public class CWorldGenerator implements IWorldGenerator
 					}
 				}
 			}
-		}
-		
+		}	
+
 		int x1;
 		int y1;
 		int z1;
