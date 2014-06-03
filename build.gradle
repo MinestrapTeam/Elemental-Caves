@@ -39,8 +39,8 @@ minecraft
 	}
 }
 
-task deobfJar(type:Jar, dependsOn:'classes')
-deobfJar
+task deobfAPIJar(type:Jar, dependsOn:'classes')
+deobfAPIJar
 {
     classifier = 'deobf'
     archiveName = "${archivesBaseName} ${minecraft.version}-deobf.jar"
@@ -51,8 +51,8 @@ deobfJar
     }
 }
 
-task sourceJar(type:Jar, dependsOn:'classes')
-sourceJar
+task sourceAPIJar(type:Jar, dependsOn:'classes')
+sourceAPIJar
 {
     classifier = 'sources'
     archiveName = "${archivesBaseName} ${minecraft.version}-sources.jar"

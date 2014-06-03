@@ -1,3 +1,7 @@
+1.7.2-1.1.1
+
+* Fixed freezium armor freeze effect
+
 1.7.2-1.1.0
 
 + Added Cave API
