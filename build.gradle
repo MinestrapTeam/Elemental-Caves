@@ -26,6 +26,9 @@ version = "1.7.2-1.1.1"
 group= "minestrapteam.elementalcaves"
 archivesBaseName = "Elemental Caves"
 
+API_version = "1.7.2-1.0"
+API_archivesBaseName = "Caves API"
+
 minecraft
 {
     version = "1.7.2-10.12.1.1103"
@@ -43,7 +46,7 @@ task deobfAPIJar(type:Jar, dependsOn:'classes')
 deobfAPIJar
 {
     classifier = 'deobf'
-    archiveName = "${archivesBaseName} ${minecraft.version}-deobf.jar"
+    archiveName = "${API_archivesBaseName}-${project.API_version}-deobf.jar"
     
     from ('build/classes/main')
     {
@@ -55,7 +58,7 @@ task sourceAPIJar(type:Jar, dependsOn:'classes')
 sourceAPIJar
 {
     classifier = 'sources'
-    archiveName = "${archivesBaseName} ${minecraft.version}-sources.jar"
+    archiveName = "${API_archivesBaseName}-${project.API_version}-sources.jar"
     
     from ('build/sources/java')
     {
@@ -63,7 +66,7 @@ sourceAPIJar
     }
 }
 
-task buildAPI(dependsOn:['build', 'deobfJar', 'sourceJar'])
+task buildAll(dependsOn:['build', 'deobfAPIJar', 'sourceAPIJar'])
 
 processResources
 {
