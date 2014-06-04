@@ -27,30 +27,28 @@ public class ECEventHandler
 			return;
 		}
 		
+		if (!player.capabilities.isCreativeMode)
+		{
+			player.capabilities.disableDamage = false;
+		}
+		
 		ItemStack helmet = player.getCurrentArmor(3);
 		ItemStack chest = player.getCurrentArmor(2);
 		ItemStack pants = player.getCurrentArmor(1);
 		ItemStack boots = player.getCurrentArmor(0);
+		boolean flag1 = player.ticksExisted % 10 != 0;
 		
-		if (helmet != null && chest != null && pants != null && boots != null)
+		if (player.ticksExisted % 2 != 0 && helmet != null && chest != null && pants != null && boots != null)
 		{
+			int px = (int) player.posX;
+			int py = (int) player.posY;
+			int pz = (int) player.posZ;
+			
 			if (helmet.getItem() == ECItems.helmetFreezium && chest.getItem() == ECItems.chestplateFreezium && pants.getItem() == ECItems.leggingsFreezium && boots.getItem() == ECItems.bootsFreezium)
 			{
-				for(int i= 0; i < 3; i++)
-				{
-					ECUtil.freeze(player.worldObj, (int) player.posX, (int) player.posY - i, (int) player.posZ);
-					ECUtil.freeze(player.worldObj, (int) player.posX - i, (int) player.posY - i, (int) player.posZ);
-					ECUtil.freeze(player.worldObj, (int) player.posX, (int) player.posY - i, (int) player.posZ - i);
-					ECUtil.freeze(player.worldObj, (int) player.posX - i, (int) player.posY - i, (int) player.posZ - i);
-					
-					ECUtil.freeze(player.worldObj, (int) player.posX, (int) player.posY - i, (int) player.posZ);
-					ECUtil.freeze(player.worldObj, (int) player.posX + i, (int) player.posY - i, (int) player.posZ);
-					ECUtil.freeze(player.worldObj, (int) player.posX, (int) player.posY - i, (int) player.posZ + i);
-					ECUtil.freeze(player.worldObj, (int) player.posX + i, (int) player.posY - i, (int) player.posZ + i);
-				}
+				ECUtil.freeze(player.worldObj, px, py - 1, pz);
 				
-				
-				if (player.isBurning())
+				if (flag1 && player.isBurning())
 				{
 					helmet.damageItem(1, player);
 					chest.damageItem(1, player);
@@ -63,38 +61,31 @@ public class ECEventHandler
 			{
 				if (ECConfig.inferniumArmorEffect)
 				{
-					player.worldObj.playAuxSFX(2004, (int) player.posX - 1, (int) player.posY + 1, (int) player.posZ, 0);
+					player.worldObj.playAuxSFX(2004, px - 1, py + 1, pz, 0);
 				}
 				
-				ECUtil.melt(player.worldObj, (int) player.posX, (int) player.posY - 1, (int) player.posZ);
+				ECUtil.melt(player.worldObj, px, py - 1, pz);
 				
-				if (player.isInWater())
+				if (flag1 && player.isInWater())
 				{
 					helmet.damageItem(1, player);
 					chest.damageItem(1, player);
 					pants.damageItem(1, player);
 					boots.damageItem(1, player);
 					
-					player.worldObj.playAuxSFX(2000, (int)player.posX, (int)player.posY + 1, (int)player.posZ, 0);				
-					if(player.worldObj.rand.nextFloat() < 0.15)
-					{						
-						player.worldObj.playAuxSFX(1004, (int)player.posX, (int)player.posY, (int)player.posZ, 0);	
-					}
+					player.worldObj.playAuxSFX(2000, px, py + 1, pz, 0);
+					player.worldObj.playAuxSFX(1004, px, py + 1, pz, 0);
 				}
 				
 				if (player.isBurning())
 				{
 					player.capabilities.disableDamage = true;
 				}
-				else if (!player.isBurning() && !player.capabilities.isCreativeMode)
-				{
-					player.capabilities.disableDamage = false;
-				}
 			}
 			
 			if (helmet.getItem() == ECItems.helmetEarth && chest.getItem() == ECItems.chestplateEarth && pants.getItem() == ECItems.leggingsEarth && boots.getItem() == ECItems.bootsEarth)
 			{
-				ECUtil.grow(player.worldObj, (int) player.posX, (int) player.posY - 1, (int) player.posZ);
+				ECUtil.grow(player.worldObj, px, py - 1, pz);
 			}
 		}
 	}
