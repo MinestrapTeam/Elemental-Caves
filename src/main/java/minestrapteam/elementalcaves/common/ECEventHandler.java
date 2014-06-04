@@ -8,7 +8,6 @@ import minestrapteam.elementalcaves.lib.ECBlocks;
 import minestrapteam.elementalcaves.lib.ECConfig;
 import minestrapteam.elementalcaves.lib.ECItems;
 import minestrapteam.elementalcaves.util.ECUtil;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -66,6 +65,7 @@ public class ECEventHandler
 				{
 					player.worldObj.playAuxSFX(2004, (int) player.posX - 1, (int) player.posY + 1, (int) player.posZ, 0);
 				}
+				
 				ECUtil.melt(player.worldObj, (int) player.posX, (int) player.posY - 1, (int) player.posZ);
 				
 				if (player.isInWater())
@@ -74,6 +74,21 @@ public class ECEventHandler
 					chest.damageItem(1, player);
 					pants.damageItem(1, player);
 					boots.damageItem(1, player);
+					
+					player.worldObj.playAuxSFX(2000, (int)player.posX, (int)player.posY + 1, (int)player.posZ, 0);				
+					if(player.worldObj.rand.nextFloat() < 0.15)
+					{						
+						player.worldObj.playAuxSFX(1004, (int)player.posX, (int)player.posY, (int)player.posZ, 0);	
+					}
+				}
+				
+				if (player.isBurning())
+				{
+					player.capabilities.disableDamage = true;
+				}
+				else if (!player.isBurning() && !player.capabilities.isCreativeMode)
+				{
+					player.capabilities.disableDamage = false;
 				}
 			}
 			

@@ -1,8 +1,8 @@
 package minestrapteam.elementalcaves.util;
 
 import minestrapteam.elementalcaves.lib.ECBlocks;
-
 import net.minecraft.block.*;
+import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -207,7 +207,7 @@ public class ECUtil
 			flag = true;
 		}
 		
-		if (flag)
+		if (flag && !Minecraft.getMinecraft().thePlayer.isInWater())
 		{
 			world.playAuxSFX(2004, x, y, z, 0);
 			world.playAuxSFX(2004, x, y, z, 0);
