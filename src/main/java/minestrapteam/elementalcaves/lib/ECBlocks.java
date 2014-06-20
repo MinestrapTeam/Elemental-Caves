@@ -47,6 +47,9 @@ public class ECBlocks
 	
 	public static Block	iceFloe;
 	
+	public static Block sand;
+	public static Block pressurizedSandstone;
+	
 	public static void init()
 	{
 		glacierRock = new BlockGlacierrock().setHardness(2.0F).setResistance(11.0F).setBlockTextureName(ECUtil.getTexture("glacierrock"));
@@ -92,6 +95,9 @@ public class ECBlocks
 		
 		iceFloe = new BlockIceFloe();
 		
+		sand = new ECBlockSand(Material.sand).setBlockName("ec_sand").setResistance(2.0F).setHardness(1.0F);
+		pressurizedSandstone = new ECBlock(Material.rock).setBlockTextureName(ECUtil.getTexture("pressurized_sandstone")).setBlockName("pressurized_sandstone").setHardness(1.6F).setResistance(2.0F);
+		
 		// TODO Cave specific vanilla ores
 		
 		addBlock(glacierRock, ECItemBlockMulti.class, "glacierrock");
@@ -127,6 +133,9 @@ public class ECBlocks
 		addBlock(crystals, ECItemBlockMulti.class, "crystal");
 		
 		addBlock(iceFloe, "ice_floe");
+		
+		addBlock(sand, ECItemBlockMulti.class, "sand_ec");
+		addBlock(pressurizedSandstone, "pressurized_sandstone");
 	}
 	
 	public static void addHarvestLevels()
@@ -165,6 +174,9 @@ public class ECBlocks
 		oreGlistening.setHarvestLevel("pickaxe", 3);
 		oreDiamond.setHarvestLevel("pickaxe", 2);
 		oreFertile.setHarvestLevel("pickaxe", 2);
+		
+		sand.setHarvestLevel("shovel", 2);
+		pressurizedSandstone.setHarvestLevel("pickaxe", 2);
 	}
 	
 	public static void addBlock(Block block, String name)

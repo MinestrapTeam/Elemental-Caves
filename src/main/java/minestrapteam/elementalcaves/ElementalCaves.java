@@ -46,6 +46,7 @@ public class ElementalCaves
 	public static CaveType ice;
 	public static CaveType fire;
 	public static CaveType forest;	
+	public static CaveType desert;
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)

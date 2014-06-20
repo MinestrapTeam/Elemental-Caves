@@ -52,6 +52,10 @@ tile.glistening_ore.name=Glistening Ore
 tile.diamond_ore_infernium.name=Infernium Diamond Ore
 tile.fertile_ore.name=Fertile Ore
 
+tile.sand.0.name = Dark Sand
+tile.sand.1.name = Quicksand
+tile.pressurized_sandstone.name = Pressurized Sandstone
+
 item.elemental_gems.0.name=Clear Gem
 item.elemental_gems.1.name=Frost Gem
 item.elemental_gems.2.name=Magma Gem

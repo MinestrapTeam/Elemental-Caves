@@ -66,7 +66,9 @@ public class ECRecipes
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.ancientMossyStonebrickStairs, 4, 0), new Object[] { "M  ", "MM ", "MMM", 'M', ancientMossStoneBricks });
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.ancientMossyCobbleStairs, 4, 0), new Object[] { "M  ", "MM ", "MMM", 'M', ancientMossCobblestone });
 		
-		// Tools
+		GameRegistry.addRecipe(new ItemStack(ECBlocks.pressurizedSandstone, 4), new Object[] {"SS", "SS", 'S', new ItemStack(ECBlocks.sand, 1, 0)});
+		
+		// Tools and Armor
 		
 		GameRegistry.addRecipe(new ItemStack(ECItems.axeFreezium), new Object[] { "MM ", "MS ", " S ", 'S', Items.stick, 'M', iceGem });
 		GameRegistry.addRecipe(new ItemStack(ECItems.hoeFreezium), new Object[] { "MM ", " S ", " S ", 'S', Items.stick, 'M', iceGem });
