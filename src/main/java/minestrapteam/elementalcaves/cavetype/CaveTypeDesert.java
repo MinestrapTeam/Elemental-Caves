@@ -28,6 +28,6 @@ public class CaveTypeDesert extends CaveType
 	@Override
 	public boolean canGenerateInBiome(BiomeGenBase biome)
 	{
-		return biome == biome.desert || biome == biome.desertHills || biome == biome.mesa || biome == biome.mesaPlateau || biome == biome.mesaPlateau_F;
+		return biome == BiomeGenBase.desert || biome == BiomeGenBase.desertHills;
 	}
 }

@@ -34,18 +34,21 @@ public class ECBlockSand extends BlockFalling
 		this.setCreativeTab(ElementalCaves.tabBlocks);
 	}
 	
-    public IIcon getIcon(int side, int meta)
+    @Override
+	public IIcon getIcon(int side, int metadata)
     {
-    	return meta == 1 ? sandQuickIcon : sandDarkIcon;
+    	return metadata == 1 ? sandQuickIcon : sandDarkIcon;
     }
     
-    public void registerBlockIcons(IIconRegister ir)
+    @Override
+	public void registerBlockIcons(IIconRegister iconRegister)
     {
-    	sandDarkIcon = ir.registerIcon(ECUtil.getTexture("dark_sand"));
-    	sandQuickIcon = ir.registerIcon(ECUtil.getTexture("quick_sand"));
+    	this.sandDarkIcon = iconRegister.registerIcon(ECUtil.getTexture("dark_sand"));
+    	this.sandQuickIcon = iconRegister.registerIcon(ECUtil.getTexture("quick_sand"));
     }
 	
-    public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbor)
+    @Override
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbor)
     {
     	super.onNeighborBlockChange(world, x, y, z, neighbor);
     	if(world.getBlockMetadata(x, y, z) == 0)
@@ -57,32 +60,19 @@ public class ECBlockSand extends BlockFalling
     	}
     }
     
-    public boolean canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction, IPlantable plantable)
+    @Override
+	public boolean canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction, IPlantable plantable)
     {
         Block plant = plantable.getPlant(world, x, y + 1, z);
         EnumPlantType plantType = plantable.getPlantType(world, x, y + 1, z);
-        
-        if(plantType == plantType.Desert)
-        {
-        	return true;
-        }
-        
-        if (plant == Blocks.cactus && this == Blocks.cactus)
-        {
-            return true;
-        }
-
-        if (plant == Blocks.reeds && this == Blocks.reeds)
-        {
-            return true;
-        }
-        return false;
+        return plantType == EnumPlantType.Desert || plant == Blocks.reeds;
     }
     
-    @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_)
+    @Override
+	@SideOnly(Side.CLIENT)
+    public void getSubBlocks(Item item, CreativeTabs tab, List list)
     {
-        p_149666_3_.add(new ItemStack(p_149666_1_, 1, 0));
-        p_149666_3_.add(new ItemStack(p_149666_1_, 1, 1));
+        list.add(new ItemStack(item, 1, 0));
+        list.add(new ItemStack(item, 1, 1));
     }
 }

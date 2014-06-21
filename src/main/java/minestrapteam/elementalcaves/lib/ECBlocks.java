@@ -5,7 +5,6 @@ import minestrapteam.elementalcaves.ElementalCaves;
 import minestrapteam.elementalcaves.block.*;
 import minestrapteam.elementalcaves.item.block.ECItemBlockMulti;
 import minestrapteam.elementalcaves.item.block.ECItemSlab;
-import minestrapteam.elementalcaves.item.block.ItemBlockMoltenSlab;
 import minestrapteam.elementalcaves.util.ECUtil;
 
 import net.minecraft.block.Block;
@@ -111,8 +110,8 @@ public class ECBlocks
 		addBlock(moltenstone, ECItemBlockMulti.class, "moltenstone");
 		addBlock(moltenstoneStairs, "moltenstone_stairs");
 		addBlock(moltenstoneBrickStairs, "moltenstone_brick_stairs");
-		addBlock(moltenstoneSlabSingle, ItemBlockMoltenSlab.class, "moltenstone_slab_single", moltenstoneSlabSingle, moltenstoneSlabDouble);
-		addBlock(moltenstoneSlabDouble, ItemBlockMoltenSlab.class, "moltenstone_slab_double", moltenstoneSlabSingle, moltenstoneSlabDouble);
+		addBlock(moltenstoneSlabSingle, ECItemSlab.class, "moltenstone_slab_single", moltenstoneSlabSingle, moltenstoneSlabDouble);
+		addBlock(moltenstoneSlabDouble, ECItemSlab.class, "moltenstone_slab_double", moltenstoneSlabSingle, moltenstoneSlabDouble);
 		
 		addBlock(ancientMossStone, ECItemBlockMulti.class, "ancient_moss_stone");
 		addBlock(ancientMossySlabSingle, ECItemSlab.class, "ancient_moss_stone_slab_single", ancientMossySlabSingle, ancientMossySlabDouble);

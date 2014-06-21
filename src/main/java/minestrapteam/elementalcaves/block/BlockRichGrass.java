@@ -31,7 +31,7 @@ public class BlockRichGrass extends ECBlock implements IGrowable
 	}
 	
 	@Override
-	protected boolean canSilkHarvest()
+	public boolean canSilkHarvest()
 	{
 		return true;
 	}
