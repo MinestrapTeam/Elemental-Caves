@@ -14,9 +14,7 @@ public class CaveTypeDesert extends CaveType
 	{
 		super(name, ECBlocks.pressurizedSandstone);
 		
-		this.addOre(ECBlocks.sand, 1, 15, 6, spawnHeight);
-		
-		this.wallGen.addReplacement(Blocks.gravel, ECBlocks.sand, 1);
+		this.addOre(ECBlocks.sand, 1, 15, 6, spawnHeight);		
 	}
 
 	@Override

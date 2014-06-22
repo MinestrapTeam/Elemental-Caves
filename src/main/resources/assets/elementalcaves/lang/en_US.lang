@@ -52,9 +52,18 @@ tile.glistening_ore.name=Glistening Ore
 tile.diamond_ore_infernium.name=Infernium Diamond Ore
 tile.fertile_ore.name=Fertile Ore
 
-tile.sand.0.name = Dark Sand
-tile.sand.1.name = Quicksand
-tile.pressurized_sandstone.name = Pressurized Sandstone
+tile.sand_ec.0.name = Dark Sand
+tile.sand_ec.1.name = Quicksand
+tile.pressurized_sandstone.0.name = Pressurized Sandstone
+tile.pressurized_sandstone.2.name = Chiseled Pressurized Sandstone
+tile.pressurized_sandstone.3.name = Smooth Pressurized Sandstone
+tile.pressurized_sandstone.4.name = Hieroglyph Pressurized Sandstone
+tile.pressurized_sandstone.5.name = Hieroglyph Pressurized Sandstone
+tile.pressurized_sandstone.6.name = Gilded Pressurized Sandstone
+tile.pressurized_sandstone.7.name = Bejeweled Pressurized Sandstone
+
+tile.pressurized_sandstone_slab_single.0.name = Pressurized Sandstone Slab
+tile.pressurized_sandstone_slab_single.1.name = Smooth Pressurized Sandstone Slab
 
 item.elemental_gems.0.name=Clear Gem
 item.elemental_gems.1.name=Frost Gem

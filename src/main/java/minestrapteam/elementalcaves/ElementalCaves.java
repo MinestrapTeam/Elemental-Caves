@@ -10,6 +10,7 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.caveapi.CavesAPI;
 import minestrapteam.caveapi.cavetype.CaveType;
+import minestrapteam.elementalcaves.cavetype.CaveTypeDesert;
 import minestrapteam.elementalcaves.cavetype.CaveTypeFire;
 import minestrapteam.elementalcaves.cavetype.CaveTypeForest;
 import minestrapteam.elementalcaves.cavetype.CaveTypeIce;
@@ -20,7 +21,6 @@ import minestrapteam.elementalcaves.creativetab.ECCreativeTabItems;
 import minestrapteam.elementalcaves.entity.projectile.*;
 import minestrapteam.elementalcaves.lib.*;
 import minestrapteam.elementalcaves.world.gen.ECWorldGenerator;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -89,9 +89,11 @@ public class ElementalCaves
 		ice = new CaveTypeIce("ice");
 		fire = new CaveTypeFire("fire");
 		forest = new CaveTypeForest("forest");
+		desert = new CaveTypeDesert("desert");
 		
 		CavesAPI.registerCaveType(ice);		
 		CavesAPI.registerCaveType(fire);
 		CavesAPI.registerCaveType(forest);
+		CavesAPI.registerCaveType(desert);
 	}
 }

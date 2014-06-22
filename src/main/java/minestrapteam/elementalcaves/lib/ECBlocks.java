@@ -48,6 +48,8 @@ public class ECBlocks
 	
 	public static Block sand;
 	public static Block pressurizedSandstone;
+	public static Block pressurizedSandstoneSlabSingle;
+	public static Block pressurizedSandstoneSlabDouble;
 	
 	public static void init()
 	{
@@ -94,8 +96,13 @@ public class ECBlocks
 		
 		iceFloe = new BlockIceFloe();
 		
-		sand = new ECBlockSand(Material.sand).setBlockName("ec_sand").setResistance(2.0F).setHardness(1.0F);
-		pressurizedSandstone = new ECBlock(Material.rock).setBlockTextureName(ECUtil.getTexture("pressurized_sandstone")).setBlockName("pressurized_sandstone").setHardness(1.6F).setResistance(2.0F);
+		sand = new ECBlockSand(Material.sand).setBlockName("sand_ec").setResistance(2.0F).setHardness(1.0F);
+		pressurizedSandstone = new BlockPressurizedSandstone(Material.rock).setBlockTextureName(ECUtil.getTexture("pressurized_sandstone")).setBlockName("pressurized_sandstone").setHardness(1.6F).setResistance(2.0F);
+		
+		String[] pressurizedSandstoneSlabSideIcons = new String[] { ECUtil.getTexture("pressurized_sandstone_side_connect"), ECUtil.getTexture("smooth_pressurized_sandstone_side")};
+		String[] pressurizedSandstoneSlabTopIcons = new String[] { ECUtil.getTexture("pressurized_sandstone_side_connect"), ECUtil.getTexture("pressurized_sandstone_top")};
+		pressurizedSandstoneSlabSingle = new ECBlockSlab(false, pressurizedSandstoneSlabSideIcons, pressurizedSandstoneSlabTopIcons).setCreativeTab(ElementalCaves.tabBlocks).setHardness(1.6F).setResistance(2F);
+		pressurizedSandstoneSlabDouble = new ECBlockSlab(true, pressurizedSandstoneSlabSideIcons, pressurizedSandstoneSlabTopIcons).setHardness(1.6F).setResistance(2F);
 		
 		// TODO Cave specific vanilla ores
 		
@@ -134,7 +141,9 @@ public class ECBlocks
 		addBlock(iceFloe, "ice_floe");
 		
 		addBlock(sand, ECItemBlockMulti.class, "sand_ec");
-		addBlock(pressurizedSandstone, "pressurized_sandstone");
+		addBlock(pressurizedSandstone, ECItemBlockMulti.class, "pressurized_sandstone");
+		addBlock(pressurizedSandstoneSlabSingle, ECItemSlab.class, "pressurized_sandstone_slab_single", pressurizedSandstoneSlabSingle, pressurizedSandstoneSlabDouble);
+		addBlock(pressurizedSandstoneSlabDouble, ECItemSlab.class, "pressurized_sandstone_slab_double", pressurizedSandstoneSlabSingle, pressurizedSandstoneSlabDouble);
 	}
 	
 	public static void addHarvestLevels()

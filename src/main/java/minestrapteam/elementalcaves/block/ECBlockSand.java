@@ -12,9 +12,11 @@ import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -44,7 +46,7 @@ public class ECBlockSand extends BlockFalling
 	public void registerBlockIcons(IIconRegister iconRegister)
     {
     	this.sandDarkIcon = iconRegister.registerIcon(ECUtil.getTexture("dark_sand"));
-    	this.sandQuickIcon = iconRegister.registerIcon(ECUtil.getTexture("quick_sand"));
+    	this.sandQuickIcon = iconRegister.registerIcon(ECUtil.getTexture("quicksand"));
     }
 	
     @Override
@@ -69,10 +71,30 @@ public class ECBlockSand extends BlockFalling
     }
     
     @Override
-	@SideOnly(Side.CLIENT)
     public void getSubBlocks(Item item, CreativeTabs tab, List list)
     {
         list.add(new ItemStack(item, 1, 0));
         list.add(new ItemStack(item, 1, 1));
+    }
+    
+    public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
+    {
+    	if(world.getBlockMetadata(x, y, z) == 1)
+    	{
+    		entity.setInWeb();
+    	}
+    }
+    
+    /**
+     * Returns a bounding box from the pool of bounding boxes (this means this box can change after the pool has been
+     * cleared to be reused)
+     */
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
+    {
+    	if(world.getBlockMetadata(x, y, z) == 1)
+    	{
+    		return null;
+    	}
+    	return super.getCollisionBoundingBoxFromPool(world, x, y, z);
     }
 }
