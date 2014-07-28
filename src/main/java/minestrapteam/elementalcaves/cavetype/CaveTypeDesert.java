@@ -2,11 +2,11 @@ package minestrapteam.elementalcaves.cavetype;
 
 import java.util.Random;
 
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import minestrapteam.caveapi.cavetype.CaveType;
 import minestrapteam.elementalcaves.lib.ECBlocks;
+
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
  
 public class CaveTypeDesert extends CaveType
 {
@@ -14,7 +14,7 @@ public class CaveTypeDesert extends CaveType
 	{
 		super(name, ECBlocks.pressurizedSandstone);
 		
-		this.addOre(ECBlocks.sand, 1, 15, 6, spawnHeight);		
+		this.addOre(ECBlocks.sand, 1, 15, 6, this.spawnHeight);		
 	}
 
 	@Override

@@ -2,104 +2,119 @@ package minestrapteam.elementalcaves.block;
 
 import java.util.List;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import minestrapteam.elementalcaves.lib.ECBlocks;
 import minestrapteam.elementalcaves.util.ECUtil;
-import net.minecraft.block.Block;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
+import net.minecraft.world.IBlockAccess;
 
 /**
  * All pressurized sandstone types. 
  * <ul>
  * <li>Meta 0: Normal
- * <li>Meta 1: Normal Connected
- * <li>Meta 2: Chiseled
- * <li>Meta 3: Smooth
- * <li>Meta 4: Hieroglyph
- * <li>Meta 5: Hieroglyph2
- * <li>Meta 6: Bejeweled
- * <li>Meta 7: Bejeweled2
+ * <li>Meta 1: Chiseled
+ * <li>Meta 2: Smooth
+ * <li>Meta 3: Hieroglyph
+ * <li>Meta 4: Hieroglyph2
+ * <li>Meta 5: Bejeweled
+ * <li>Meta 6: Bejeweled2
  * </ul>
  * @author SoBiohazardous
  *
  */
 public class BlockPressurizedSandstone extends ECBlock
 {
-	public IIcon bottom;
-	public IIcon top;
-	public IIcon sideCap;
-	public IIcon sideConnect;
-	public IIcon sideChiseled;
-	public IIcon sideSmooth;
-	public IIcon sideAncientHieroglyph;
-	public IIcon sideAncientHieroglyph2;
-	public IIcon sideBejeweledHieroglyph;
-	public IIcon sideBejeweledHieroglyph2;
+	public IIcon bottomIcon;
+	public IIcon sideIcon;
+	public IIcon sideIcon2;
+	public IIcon chiseledIcon;
+	public IIcon smoothIcon;
+	public IIcon hieroglyphIcon;
+	public IIcon hieroglyphIcon2;
+	public IIcon bejeweledIcon;
+	public IIcon bejeweledIcon2;
 
 	public BlockPressurizedSandstone(Material material)
 	{
 		super(material);
 	}
 	
-	public void registerBlockIcons(IIconRegister ir)
+	@Override
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.bottom = ir.registerIcon(ECUtil.getTexture("pressurized_sandstone_bottom"));
-		this.top = ir.registerIcon(ECUtil.getTexture("pressurized_sandstone_top"));
-		this.sideCap = ir.registerIcon(ECUtil.getTexture("pressurized_sandstone_side_cap"));
-		this.sideConnect = ir.registerIcon(ECUtil.getTexture("pressurized_sandstone_side_connect"));
-		this.sideChiseled = ir.registerIcon(ECUtil.getTexture("chiseled_pressurized_sandstone_side"));
-		this.sideSmooth = ir.registerIcon(ECUtil.getTexture("smooth_pressurized_sandstone_side"));
-		this.sideAncientHieroglyph = ir.registerIcon(ECUtil.getTexture("ancient_hieroglyph_1"));
-		this.sideAncientHieroglyph2 = ir.registerIcon(ECUtil.getTexture("ancient_hieroglyph_2"));
-		this.sideBejeweledHieroglyph = ir.registerIcon(ECUtil.getTexture("bejeweled_ancient_hieroglyph_1"));
-		this.sideBejeweledHieroglyph2 = ir.registerIcon(ECUtil.getTexture("bejeweled_ancient_hieroglyph_2"));
+		this.bottomIcon = iconRegister.registerIcon(ECUtil.getTexture("pressurized_sandstone_bottom"));
+		this.blockIcon = iconRegister.registerIcon(ECUtil.getTexture("pressurized_sandstone_top"));
+		this.sideIcon = iconRegister.registerIcon(ECUtil.getTexture("pressurized_sandstone_side"));
+		this.sideIcon2 = iconRegister.registerIcon(ECUtil.getTexture("pressurized_sandstone_side_2"));
+		this.chiseledIcon = iconRegister.registerIcon(ECUtil.getTexture("pressurized_sandstone_chiseled"));
+		this.smoothIcon = iconRegister.registerIcon(ECUtil.getTexture("pressurized_sandstone_smooth"));
+		this.hieroglyphIcon = iconRegister.registerIcon(ECUtil.getTexture("pressurized_sandstone_hieroglyph_1"));
+		this.hieroglyphIcon2 = iconRegister.registerIcon(ECUtil.getTexture("pressurized_sandstone_hieroglyph_2"));
+		this.bejeweledIcon = iconRegister.registerIcon(ECUtil.getTexture("pressurized_sandstone_bejeweled_1"));
+		this.bejeweledIcon2 = iconRegister.registerIcon(ECUtil.getTexture("pressurized_sandstone_bejeweled_1"));
 	}
-
-    @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int meta)
-    {
-        return side == 0 ? this.bottom : side == 1 ? this.top  : meta == 1 ? this.sideConnect : meta == 2 ? this.sideChiseled : meta == 3 ? this.sideSmooth : meta == 4 ? this.sideAncientHieroglyph : meta == 5 ? this.sideAncientHieroglyph2 : meta == 6 ? this.sideBejeweledHieroglyph : meta == 7 ? this.sideBejeweledHieroglyph2 : this.sideCap;
-    }
-    
-    public void onBlockAdded(World world, int x, int y, int z) 
-    {
-    	this.updateMetaForTextures(world, x, y, z);
-    }
-    
-    public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbor)
-    {
-    	this.updateMetaForTextures(world, x, y, z);
-    }
-    
-    private void updateMetaForTextures(World world, int x, int y, int z)
-    {
-    	if(world.getBlockMetadata(x, y, z) == 0 && world.getBlock(x, y + 1, z) == ECBlocks.pressurizedSandstone)
+	
+	@Override
+	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side)
+	{
+		if (side == 0)
     	{
-    		world.setBlock(x, y, z, ECBlocks.pressurizedSandstone, 1, 3);
+    		return this.bottomIcon;
     	}
-    	else if (world.getBlockMetadata(x, y, z) == 1 && world.getBlock(x, y + 1, z) == Blocks.air)
+    	else if (side == 1)
     	{
-    		world.setBlock(x, y, z, ECBlocks.pressurizedSandstone, 0, 3);
-    	} 		
-    }
+    		return this.blockIcon;
+    	}
+		
+		int metadata = world.getBlockMetadata(x, y, z);
+		if (metadata == 0)
+		{
+			if (world.getBlock(x, y + 1, z) == this && world.getBlockMetadata(x, y + 1, z) == 0)
+			{
+				return this.sideIcon2;
+			}
+			return this.sideIcon;
+		}
+		else if (metadata == 1)
+		{
+			return this.chiseledIcon;
+		}
+		else if (metadata == 2)
+		{
+			return this.smoothIcon;
+		}
+		else if (metadata == 3)
+		{
+			return this.hieroglyphIcon;
+		}
+		else if (metadata == 4)
+		{
+			return this.hieroglyphIcon2;
+		}
+		else if (metadata == 5)
+		{
+			return this.bejeweledIcon;
+		}
+		else if (metadata == 6)
+		{
+			return this.bejeweledIcon2;
+		}
+		return this.blockIcon;
+	}
     
-    @SideOnly(Side.CLIENT)
+    @Override
     public void getSubBlocks(Item item, CreativeTabs tab, List list)
     {
     	list.add(new ItemStack(item, 1, 0));
+    	list.add(new ItemStack(item, 1, 1));
     	list.add(new ItemStack(item, 1, 2));
     	list.add(new ItemStack(item, 1, 3));
     	list.add(new ItemStack(item, 1, 4));
     	list.add(new ItemStack(item, 1, 5));
     	list.add(new ItemStack(item, 1, 6));
-    	list.add(new ItemStack(item, 1, 7));
     }
 }
