@@ -1,4 +1,4 @@
-Modjam4
+Elemental Caves Mod
 =======
 
 Our mod project for #modjam 4
