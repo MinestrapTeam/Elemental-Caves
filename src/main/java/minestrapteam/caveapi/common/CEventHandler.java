@@ -19,8 +19,8 @@ public class CEventHandler
 {
 	public static CEventHandler	instance	= new CEventHandler();
 	
-	private CGenCaves			caveGen;
-	private CGenRavine ravineGen;
+	private CGenCaves			caveGen		= new CGenCaves();
+	private CGenRavine			ravineGen	= new CGenRavine();
 	
 	public static void register()
 	{
