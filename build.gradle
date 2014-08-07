@@ -24,29 +24,29 @@ apply plugin: 'forge'
 
 version = "1.7.2-1.1.3"
 group= "minestrapteam.elementalcaves"
-archivesBaseName = "Elemental Caves"
+archivesBaseName = "ElementalCaves"
 
-API_version = "1.7.2-1.0"
-API_archivesBaseName = "Caves API"
+API_version = "1.7.2-1.0.0"
+API_archivesBaseName = "CavesAPI"
 
 minecraft
 {
-    version = "1.7.2-10.12.1.1103"
+    version = "1.7.10-10.13.0.1189"
     if(file('../run').exists())
     {
-	   assetDir = "../run/assets/"
+    	runDir = "../run/"
 	}
     else
     {
-	   assetDir = "eclipse/assets"
+	    runDir = "eclipse/"
 	}
 }
 
-task deobfAPIJar(type:Jar, dependsOn:'classes')
-deobfAPIJar
+task apiDevJar(type:Jar, dependsOn:'classes')
+apiDevJar
 {
     classifier = 'deobf'
-    archiveName = "${API_archivesBaseName}-${project.API_version}-deobf.jar"
+    archiveName = "${API_archivesBaseName}-${API_version}-dev.jar"
     
     from ('build/classes/main')
     {
@@ -54,11 +54,11 @@ deobfAPIJar
     }
 }
 
-task sourceAPIJar(type:Jar, dependsOn:'classes')
-sourceAPIJar
+task apiSrcJar(type:Jar, dependsOn:'classes')
+apiSrcJar
 {
     classifier = 'sources'
-    archiveName = "${API_archivesBaseName}-${project.API_version}-sources.jar"
+    archiveName = "${API_archivesBaseName}-${API_version}-src.jar"
     
     from ('build/sources/java')
     {
@@ -66,7 +66,7 @@ sourceAPIJar
     }
 }
 
-task buildAll(dependsOn:['build', 'deobfAPIJar', 'sourceAPIJar'])
+task buildAll(dependsOn:['build', 'apiDevJar', 'apiSrcJar'])
 
 processResources
 {
