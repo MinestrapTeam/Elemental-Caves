@@ -12,14 +12,14 @@ public class CGenCaves extends CMapGenBase
 {
 	@Override
 	protected void generate(World world, int x, int z, int xSeed, int ySeed, Block[] blocks, byte[] metadata)
-	{
-		int i1 = this.rand.nextInt(this.rand.nextInt(this.rand.nextInt(15) + 1) + 1);
-		
+	{		
+		// No caves
 		if (this.rand.nextInt(7) != 0)
 		{
-			i1 = 0;
+			return;
 		}
 		
+		int i1 = this.rand.nextInt(this.rand.nextInt(this.rand.nextInt(15) + 1) + 1);
 		for (int j1 = 0; j1 < i1; ++j1)
 		{
 			double d0 = x * 16 + this.rand.nextInt(16);
@@ -41,7 +41,7 @@ public class CGenCaves extends CMapGenBase
 				
 				if (this.rand.nextInt(10) == 0)
 				{
-					f2 *= (this.rand.nextFloat() * this.rand.nextFloat() * 3.0F + 1.0F);
+					f2 *= this.rand.nextFloat() * this.rand.nextFloat() * 3.0F + 1.0F;
 				}
 				
 				this.generate(this.rand.nextLong(), xSeed, ySeed, blocks, d0, d1, d2, f2, f, f1, 0, 0, 1.0D);
@@ -51,13 +51,13 @@ public class CGenCaves extends CMapGenBase
 	
 	protected void generate(long seed, int x, int z, Block[] blocks, double dx, double dy, double dz)
 	{
-		generate(seed, x, z, blocks, dx, dy, dz, 1.0F + this.rand.nextFloat() * 6.0F, 0.0F, 0.0F, -1, -1, 0.5D);
+		this.generate(seed, x, z, blocks, dx, dy, dz, 1.0F + this.rand.nextFloat() * 6.0F, 0.0F, 0.0F, -1, -1, 0.5D);
 	}
 	
 	protected void generate(long seed, int x, int z, Block[] blocks, double dx, double dy, double dz, float f1, float f2, float f3, int r1, int r2, double d)
 	{
-		double d4 = x * 16 + 8;
-		double d5 = z * 16 + 8;
+		double chunkCenterX = x * 16 + 8;
+		double chunkCenterZ = z * 16 + 8;
 		float f4 = 0.0F;
 		float f5 = 0.0F;
 		Random random = new Random(seed);
@@ -104,144 +104,166 @@ public class CGenCaves extends CMapGenBase
 			f5 += (random.nextFloat() - random.nextFloat()) * random.nextFloat() * 2.0F;
 			f4 += (random.nextFloat() - random.nextFloat()) * random.nextFloat() * 4.0F;
 			
-			if (!flag2 && (r1 == k1) && (f1 > 1.0F) && (r2 > 0))
+			// Seems like it splits the cave
+			if (!flag2 && r1 == k1 && f1 > 1.0F && r2 > 0)
 			{
-				generate(random.nextLong(), x, z, blocks, dx, dy, dz, random.nextFloat() * 0.5F + 0.5F, f2 - 1.570796F, f3 / 3.0F, r1, r2, 1.0D);
-				generate(random.nextLong(), x, z, blocks, dx, dy, dz, random.nextFloat() * 0.5F + 0.5F, f2 + 1.570796F, f3 / 3.0F, r1, r2, 1.0D);
+				this.generate(random.nextLong(), x, z, blocks, dx, dy, dz, random.nextFloat() * 0.5F + 0.5F, f2 - 1.570796F, f3 / 3.0F, r1, r2, 1.0D);
+				this.generate(random.nextLong(), x, z, blocks, dx, dy, dz, random.nextFloat() * 0.5F + 0.5F, f2 + 1.570796F, f3 / 3.0F, r1, r2, 1.0D);
 				return;
 			}
 			
-			if (!flag2 && (random.nextInt(4) == 0))
+			// Creates a Dead end
+			if (!flag2 && random.nextInt(4) == 0)
+			{
 				continue;
-			double d8 = dx - d4;
-			double d9 = dz - d5;
+			}
+			
+			double d8 = dx - chunkCenterX;
+			double d9 = dz - chunkCenterZ;
 			double d10 = r2 - r1;
 			double d11 = f1 + 2.0F + 16.0F;
 			
-			if (d8 * d8 + d9 * d9 - (d10 * d10) > d11 * d11)
+			if (d8 * d8 + d9 * d9 - d10 * d10 > d11 * d11)
 			{
 				return;
 			}
 			
-			if ((dx < d4 - 16.0D - (d6 * 2.0D)) || (dz < d5 - 16.0D - (d6 * 2.0D)) || (dx > d4 + 16.0D + d6 * 2.0D) || (dz > d5 + 16.0D + d6 * 2.0D))
+			if (dx < chunkCenterX - 16.0D - d6 * 2.0D || dz < chunkCenterZ - 16.0D - d6 * 2.0D || dx > chunkCenterX + 16.0D + d6 * 2.0D || dz > chunkCenterZ + 16.0D + d6 * 2.0D)
+			{
 				continue;
-			int i4 = MathHelper.floor_double(dx - d6) - (x * 16) - 1;
-			int l1 = MathHelper.floor_double(dx + d6) - (x * 16) + 1;
-			int j4 = MathHelper.floor_double(dy - d7) - 1;
-			int i5 = MathHelper.floor_double(dy + d7) + 1;
-			int k4 = MathHelper.floor_double(dz - d6) - (z * 16) - 1;
-			int j2 = MathHelper.floor_double(dz + d6) - (z * 16) + 1;
+			}
+			int xmin = MathHelper.floor_double(dx - d6) - x * 16 - 1;
+			int xmax = MathHelper.floor_double(dx + d6) - x * 16 + 1;
+			int ymin = MathHelper.floor_double(dy - d7) - 1;
+			int ymax = MathHelper.floor_double(dy + d7) + 1;
+			int zmin = MathHelper.floor_double(dz - d6) - z * 16 - 1;
+			int zmax = MathHelper.floor_double(dz + d6) - z * 16 + 1;
 			
-			if (i4 < 0)
+			if (xmin < 0)
 			{
-				i4 = 0;
+				xmin = 0;
 			}
 			
-			if (l1 > 16)
+			if (xmax > 16)
 			{
-				l1 = 16;
+				xmax = 16;
 			}
 			
-			if (j4 < 1)
+			if (ymin < 1)
 			{
-				j4 = 1;
+				ymin = 1;
 			}
 			
-			if (i5 > 248)
+			if (ymax > 248)
 			{
-				i5 = 248;
+				ymax = 248;
 			}
 			
-			if (k4 < 0)
+			if (zmin < 0)
 			{
-				k4 = 0;
+				zmin = 0;
 			}
 			
-			if (j2 > 16)
+			if (zmax > 16)
 			{
-				j2 = 16;
+				zmax = 16;
 			}
 			
-			boolean flag3 = false;
+			boolean oceanBlock = false;
 			
-			for (int k2 = i4; !flag3 && k2 < l1; ++k2)
+			for (int x1 = xmin; !oceanBlock && x1 < xmax; ++x1)
 			{
-				for (int l2 = k4; !flag3 && l2 < j2; ++l2)
+				for (int z1 = zmin; !oceanBlock && z1 < zmax; ++z1)
 				{
-					for (int i3 = i5 + 1; !flag3 && i3 >= j4 - 1; --i3)
+					for (int y1 = ymax + 1; !oceanBlock && y1 >= ymin - 1; --y1)
 					{
-						int j3 = (k2 * 16 + l2) * 256 + i3;
+						int index = x1 << 12 | z1 << 8 | y1;
 						
-						if (i3 >= 0 && i3 < 256)
+						if (y1 >= 0 && y1 < 256)
 						{
-							if (this.isOceanBlock(blocks, j3, k2, i3, l2, x, z))
+							if (this.isOceanBlock(blocks, index, x1, y1, z1, x, z))
 							{
-								flag3 = true;
+								oceanBlock = true;
 							}
-							if (i3 == j4 - 1 || k2 == i4 || k2 == l1 - 1 || l2 == k4 || l2 == j2 - 1)
+							if (y1 == ymin - 1 || x1 == xmin || x1 == xmax - 1 || z1 == zmin || z1 == zmax - 1)
+							{
 								continue;
-							i3 = j4;
+							}
+							y1 = ymin;
 						}
 					}
 				}
 			}
 			
-			if (!flag3)
+			if (!oceanBlock)
 			{
-				for (int k2 = i4; k2 < l1; ++k2)
+				// X loop
+				for (int x1 = xmin; x1 < xmax; ++x1)
 				{
-					double d13 = (k2 + x * 16 + 0.5D - dx) / d6;
+					double d13 = (x1 + x * 16 + 0.5D - dx) / d6;
 					
-					for (int j3 = k4; j3 < j2; ++j3)
+					// Z loop
+					for (int z1 = zmin; z1 < zmax; ++z1)
 					{
-						double d14 = (j3 + z * 16 + 0.5D - dz) / d6;
-						int k3 = (k2 * 16 + j3) * 256 + i5;
-						boolean flag1 = false;
+						double d14 = (z1 + z * 16 + 0.5D - dz) / d6;
 						
-						if (d13 * d13 + d14 * d14 < 1.0D)
+						// Check if it is within the radius
+						if (d13 * d13 + d14 * d14 >= 1.0D)
 						{
-							for (int l3 = i5 - 1; l3 >= j4; --l3)
+							continue;
+						}
+						
+						int index = x1 << 12 | z1 << 8 | ymax;
+						boolean topBlock = false;
+						
+						// Y loop
+						for (int l3 = ymax - 1; l3 >= ymin; --l3)
+						{
+							double d12 = (l3 + 0.5D - dy) / d7;
+							
+							if (d12 > -0.7D && d13 * d13 + d12 * d12 + d14 * d14 < 1.0D)
 							{
-								double d12 = (l3 + 0.5D - dy) / d7;
-								
-								if ((d12 > -0.7D) && (d13 * d13 + d12 * d12 + d14 * d14 < 1.0D))
+								if (this.isTopBlock(blocks, index, x1, l3, z1, x, z))
 								{
-									if (isTopBlock(blocks, k3, k2, l3, j3, x, z))
-									{
-										flag1 = true;
-									}
-									digBlock(blocks, k3, k2, l3, j3, x, z, flag1);
+									topBlock = true;
 								}
-								
-								--k3;
+								this.digBlock(blocks, index, x1, l3, z1, x, z, topBlock);
 							}
+							
+							--index;
 						}
 					}
 				}
 				
 				if (flag2)
+				{
 					return;
+				}
 			}
 		}
 	}
 	
 	protected boolean isOceanBlock(Block[] data, int index, int x, int y, int z, int chunkX, int chunkZ)
 	{
-		return ((data[index] == Blocks.flowing_water) || (data[index] == Blocks.water));
+		return data[index] == Blocks.flowing_water || data[index] == Blocks.water;
 	}
 	
 	private static boolean isExceptionBiome(BiomeGenBase biome)
 	{
 		if (biome == BiomeGenBase.mushroomIsland)
+		{
 			return true;
+		}
 		if (biome == BiomeGenBase.beach)
+		{
 			return true;
-		return (biome == BiomeGenBase.desert);
+		}
+		return biome == BiomeGenBase.desert;
 	}
 	
 	private boolean isTopBlock(Block[] data, int index, int x, int y, int z, int chunkX, int chunkZ)
 	{
-		return (data[index] == Blocks.grass);
+		return data[index] == Blocks.grass;
 	}
 	
 	protected void digBlock(Block[] data, int index, int x, int y, int z, int chunkX, int chunkZ, boolean foundTop)
