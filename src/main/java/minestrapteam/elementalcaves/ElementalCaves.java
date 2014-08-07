@@ -48,9 +48,17 @@ public class ElementalCaves
 	public static CaveType forest;	
 	public static CaveType desert;
 	
+	public static boolean minestrappolation;
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
+		if (Loader.isModLoaded("Minestrappolation"))
+		{
+			System.out.println("Loading Elemental Caves Minestrappolation Bridge");
+			minestrappolation = true;
+		}
+		
 		FluidRegistry.registerFluid(iceFloe);
 		
 		ECConfig.init(new Configuration(event.getSuggestedConfigurationFile()));
