@@ -10,6 +10,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenBase.TempCategory;
+import net.minecraft.world.biome.BiomeGenDesert;
 
 public class CaveTypeFire extends CaveType
 {
@@ -34,7 +35,7 @@ public class CaveTypeFire extends CaveType
 	@Override
 	public boolean canGenerateInBiome(BiomeGenBase biome)
 	{
-		return biome.getTempCategory() == TempCategory.WARM;
+		return biome.getTempCategory() == TempCategory.WARM && !(biome instanceof BiomeGenDesert);
 	}
 	
 	@Override
