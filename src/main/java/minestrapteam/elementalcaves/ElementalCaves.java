@@ -10,6 +10,7 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import minestrapteam.caveapi.CavesAPI;
 import minestrapteam.caveapi.cavetype.CaveType;
+import minestrapteam.elementalcaves.addons.Addon;
 import minestrapteam.elementalcaves.cavetype.CaveTypeDesert;
 import minestrapteam.elementalcaves.cavetype.CaveTypeFire;
 import minestrapteam.elementalcaves.cavetype.CaveTypeForest;
@@ -42,29 +43,28 @@ public class ElementalCaves
 	public static CreativeTabs		tabItems		= new ECCreativeTabItems("ec_items");
 	
 	public static Fluid				iceFloe			= new Fluid("ice_floe").setLuminosity(6).setViscosity(2000);
-	
-	public static CaveType ice;
-	public static CaveType fire;
-	public static CaveType forest;	
-	public static CaveType desert;
-	
-	public static boolean minestrappolation;
-	
+		
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
-	{
-		if (Loader.isModLoaded("Minestrappolation"))
-		{
-			System.out.println("Loading Elemental Caves Minestrappolation Bridge");
-			minestrappolation = true;
-		}
-		
+	{		
+		ECAddons.loadAddons();
+			
 		FluidRegistry.registerFluid(iceFloe);
 		
 		ECConfig.init(new Configuration(event.getSuggestedConfigurationFile()));
 		ECBlocks.init();
 		ECItems.init();
 		ECRecipes.init();
+		
+		for(Addon a : Addon.addons)
+		{
+			if (Loader.isModLoaded(a.getModForAddon()))
+			{
+				System.out.println("Mod: " + a.getModForAddon() + " Detected. Loading Addon.");
+				a.preInit(event);
+				a.addonLoaded = true;
+			}
+		}
 	}
 	
 	@EventHandler
@@ -75,7 +75,7 @@ public class ElementalCaves
 		FMLCommonHandler.instance().bus().register(eventHandler);
 		MinecraftForge.EVENT_BUS.register(eventHandler);
 		
-		addCaveTypes();
+		ECCaves.addCaveTypes();
 		GameRegistry.registerWorldGenerator(new ECWorldGenerator(), 0);
 		
 		EntityRegistry.registerModEntity(EntityIceShard.class, "entity_ice_shard", 2, ElementalCaves.instance, 40, 3, true);
@@ -85,23 +85,26 @@ public class ElementalCaves
 		EntityRegistry.registerModEntity(EntityForestGem.class, "forest_gem", 6, ElementalCaves.instance, 40, 3, true);
 		
 		proxy.registerRenders();
+		
+		for(Addon a : Addon.addons)
+		{
+			if (Loader.isModLoaded(a.getModForAddon()))
+			{
+				a.init(event);
+			}
+		}
+		
 	}
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-	}
-	
-	private static void addCaveTypes()
-	{
-		ice = new CaveTypeIce("ice");
-		fire = new CaveTypeFire("fire");
-		forest = new CaveTypeForest("forest");
-		desert = new CaveTypeDesert("desert");
-		
-		CavesAPI.registerCaveType(ice);		
-		CavesAPI.registerCaveType(fire);
-		CavesAPI.registerCaveType(forest);
-		CavesAPI.registerCaveType(desert);
-	}
+		for(Addon a : Addon.addons)
+		{
+			if (Loader.isModLoaded(a.getModForAddon()))
+			{
+				a.postInit(event);
+			}
+		}
+	}	
 }
