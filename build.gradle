@@ -31,7 +31,7 @@ API_archivesBaseName = "CavesAPI"
 
 minecraft
 {
-    version = "1.7.10-10.13.0.1189"
+    version = "1.7.10-10.13.0.1207"
     if(file('../run').exists())
     {
     	runDir = "../run/"
