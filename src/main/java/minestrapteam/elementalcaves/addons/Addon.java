@@ -11,7 +11,7 @@ public abstract class Addon
 {
 	public boolean addonLoaded = false;
 	
-	public static List<Addon>addons = new ArrayList<>();
+	public static List<Addon>addons = new ArrayList<Addon>();
 	
 	public abstract void preInit(FMLPreInitializationEvent event);
 	public abstract void init(FMLInitializationEvent event);

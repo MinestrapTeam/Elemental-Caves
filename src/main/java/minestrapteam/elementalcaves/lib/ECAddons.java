@@ -5,8 +5,10 @@ import minestrapteam.elementalcaves.addons.minestrappolation.AddonMinestrappolat
 
 public class ECAddons
 {
+	public static Addon addonMinestrap = new AddonMinestrappolation();
+	
 	public static void loadAddons()
 	{
-		Addon.registerAddon(new AddonMinestrappolation());
+		Addon.registerAddon(addonMinestrap);
 	}
 }

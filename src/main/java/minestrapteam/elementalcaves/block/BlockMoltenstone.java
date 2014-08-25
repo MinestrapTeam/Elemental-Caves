@@ -2,6 +2,7 @@ package minestrapteam.elementalcaves.block;
 
 import java.util.Random;
 
+import minestrapteam.elementalcaves.lib.ECAddons;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -54,5 +55,6 @@ public class BlockMoltenstone extends ECBlockMulti
 			world.setBlock(x, y, z, Blocks.lava);
 		}
 		this.setLava = false;
+		System.out.println(ECAddons.addonMinestrap.addonLoaded);
 	}
 }

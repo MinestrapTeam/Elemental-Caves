@@ -62,7 +62,6 @@ public class ElementalCaves
 			{
 				System.out.println("Mod: " + a.getModForAddon() + " Detected. Loading Addon.");
 				a.preInit(event);
-				a.addonLoaded = true;
 			}
 		}
 	}
@@ -104,6 +103,7 @@ public class ElementalCaves
 			if (Loader.isModLoaded(a.getModForAddon()))
 			{
 				a.postInit(event);
+				a.addonLoaded = true;
 			}
 		}
 	}	
