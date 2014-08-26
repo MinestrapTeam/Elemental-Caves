@@ -1,20 +1,32 @@
 package minestrapteam.elementalcaves.addons.minestrappolation;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import minestrapteam.elementalcaves.ElementalCaves;
 import minestrapteam.elementalcaves.addons.Addon;
 import minestrapteam.elementalcaves.lib.ECBlocks;
 import minestrapteam.minestrappolation.crafting.stonecutter.StonecuttingManager;
+import minestrapteam.minestrappolation.util.MBlockHelper;
 import minestrapteam.minestrappolation.util.MUtil;
 
 public class AddonMinestrappolation extends Addon
 {
+	public static Block ancientMossStone;
+	public static Block ancientMossStone2;
+	
+	public static Block glacierRock;
+	public static Block glacierRock2;
+	
+	public static Block moltenstone;
+	public static Block moltenstone2;
+
 	@Override
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		
+		loadBlocks();
 	}
 
 	@Override
@@ -33,6 +45,23 @@ public class AddonMinestrappolation extends Addon
 	public String getModForAddon()
 	{
 		return "minestrappolation";
+	}
+	
+	private void loadBlocks()
+	{
+		String[] ancient_moss_stone_types = new String[] { null, null, "pattern_bricks", "tiles", "road", "refined", "chiseled", null, null, null, null, null, null, null, "lamp_glowstone", "lamp_sunstone" };
+		String[] stone_types2 = new String[] { "pillar", null, null, "tile_slab", "refined_slab" };
+
+		String[] moltenstone_types = new String[] { null, "bricks", "pattern_bricks", "tiles", "road", "refined", "chiseled", null, null, null, null, null, null, null, "lamp_glowstone", null };
+
+		ancientMossStone = MBlockHelper.createStoneBlock(ancient_moss_stone_types, "ancient_moss_stone", 2F, 11F, 0, ElementalCaves.tabBlocks);
+		ancientMossStone2 = MBlockHelper.createStoneBlock2(stone_types2, "ancient_moss_stone", 2F, 3F, 0, ElementalCaves.tabBlocks);
+		
+		glacierRock = MBlockHelper.createStoneBlock(ancient_moss_stone_types, "glacierrock", 2F, 10F, 1, ElementalCaves.tabBlocks);
+		glacierRock2 = MBlockHelper.createStoneBlock2(stone_types2, "glacierrock", 2F, 3F, 0, ElementalCaves.tabBlocks);
+		
+		moltenstone = MBlockHelper.createStoneBlock(moltenstone_types, "moltenstone", 2F, 8F, 2, ElementalCaves.tabBlocks);
+		moltenstone2 = MBlockHelper.createStoneBlock2(stone_types2, "moltenstone", 2.1F, 8F, 3, ElementalCaves.tabBlocks);		
 	}
 	
 	private void loadRecipes()

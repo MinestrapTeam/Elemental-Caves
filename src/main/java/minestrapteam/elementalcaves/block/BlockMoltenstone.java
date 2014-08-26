@@ -55,6 +55,5 @@ public class BlockMoltenstone extends ECBlockMulti
 			world.setBlock(x, y, z, Blocks.lava);
 		}
 		this.setLava = false;
-		System.out.println(ECAddons.addonMinestrap.addonLoaded);
 	}
 }
