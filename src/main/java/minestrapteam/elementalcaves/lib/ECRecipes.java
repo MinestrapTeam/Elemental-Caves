@@ -1,8 +1,9 @@
 package minestrapteam.elementalcaves.lib;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ECRecipes
 {
@@ -42,6 +43,8 @@ public class ECRecipes
 		GameRegistry.addSmelting(ECBlocks.oreFertile, new ItemStack(Items.dye, 4, 15), 0.8F);
 		
 		GameRegistry.addSmelting(glacierrockCracked, glacierrock, 0.8F);
+		GameRegistry.addSmelting(new ItemStack(ECBlocks.moltenstone, 1, 1), moltenstone, 0.75F);
+		GameRegistry.addSmelting(ancientMossCobblestone, ancientMossStone, 1.0F);
 		
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.glacierRock, 4, 2), new Object[] { "BB", "BB", 'B', glacierrock });
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.glacierRockStairs, 4), new Object[] { "M  ", "MM ", "MMM", 'M', glacierrockCracked });
@@ -50,20 +53,18 @@ public class ECRecipes
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.glacierRockSlabSingle, 6, 1), new Object[] { "MMM", 'M', glacierrockCracked });
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.glacierRockSlabSingle, 6, 2), new Object[] { "MMM", 'M', glacierrockBricks });
 		
-		GameRegistry.addSmelting(new ItemStack(ECBlocks.moltenstone, 1, 1), moltenstone, 0.75F);
 		
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.moltenstone, 4, 2), new Object[] { "BB", "BB", 'B', moltenstone });
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.moltenstoneSlabSingle, 6, 0), new Object[] { "MMM", 'M', moltenstone });
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.moltenstoneSlabSingle, 6, 1), new Object[] { "MMM", 'M', moltenstoneBricks });
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.moltenstoneBrickStairs, 4), new Object[] { "M  ", "MM ", "MMM", 'M', moltenstoneBricks });
 		
-		GameRegistry.addSmelting(ancientMossCobblestone, ancientMossStone, 1.0F);
 		
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.ancientMossStone, 4, 2), new Object[] { "MM", "MM", 'M', ECBlocks.ancientMossStone });
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.ancientMossySlabSingle, 6, 0), new Object[] { "MMM", 'M', ECBlocks.ancientMossStone });
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.ancientMossySlabSingle, 6, 1), new Object[] { "MMM", 'M', ancientMossCobblestone });
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.ancientMossySlabSingle, 6, 2), new Object[] { "MMM", 'M', ancientMossStoneBricks });
-		GameRegistry.addRecipe(new ItemStack(ECBlocks.ancientMossyStonebrickStairs, 4, 0), new Object[] { "M  ", "MM ", "MMM", 'M', ancientMossStoneBricks });
+		GameRegistry.addRecipe(new ItemStack(ECBlocks.ancientMossyBrickStairs, 4, 0), new Object[] { "M  ", "MM ", "MMM", 'M', ancientMossStoneBricks });
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.ancientMossyCobbleStairs, 4, 0), new Object[] { "M  ", "MM ", "MMM", 'M', ancientMossCobblestone });
 		
 		GameRegistry.addRecipe(new ItemStack(ECBlocks.pressurizedSandstone, 4), new Object[] {"SS", "SS", 'S', new ItemStack(ECBlocks.sand, 1, 0)});

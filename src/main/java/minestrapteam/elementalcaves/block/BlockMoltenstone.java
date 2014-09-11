@@ -2,7 +2,6 @@ package minestrapteam.elementalcaves.block;
 
 import java.util.Random;
 
-import minestrapteam.elementalcaves.lib.ECAddons;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentHelper;

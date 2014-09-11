@@ -8,13 +8,6 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import minestrapteam.caveapi.CavesAPI;
-import minestrapteam.caveapi.cavetype.CaveType;
-import minestrapteam.elementalcaves.addons.Addon;
-import minestrapteam.elementalcaves.cavetype.CaveTypeDesert;
-import minestrapteam.elementalcaves.cavetype.CaveTypeFire;
-import minestrapteam.elementalcaves.cavetype.CaveTypeForest;
-import minestrapteam.elementalcaves.cavetype.CaveTypeIce;
 import minestrapteam.elementalcaves.common.ECCommonProxy;
 import minestrapteam.elementalcaves.common.ECEventHandler;
 import minestrapteam.elementalcaves.creativetab.ECCreativeTabBlocks;
@@ -22,6 +15,7 @@ import minestrapteam.elementalcaves.creativetab.ECCreativeTabItems;
 import minestrapteam.elementalcaves.entity.projectile.*;
 import minestrapteam.elementalcaves.lib.*;
 import minestrapteam.elementalcaves.world.gen.ECWorldGenerator;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -37,33 +31,26 @@ public class ElementalCaves
 	@SidedProxy(clientSide = "minestrapteam.elementalcaves.client.ECClientProxy", serverSide = "minestrapteam.elementalcaves.common.ECCommonProxy")
 	public static ECCommonProxy		proxy;
 	
-	public static ECEventHandler	eventHandler	= new ECEventHandler();
+	public static ECEventHandler	eventHandler		= new ECEventHandler();
 	
-	public static CreativeTabs		tabBlocks		= new ECCreativeTabBlocks("ec_blocks");
-	public static CreativeTabs		tabItems		= new ECCreativeTabItems("ec_items");
+	public static CreativeTabs		tabBlocks			= new ECCreativeTabBlocks("ec_blocks");
+	public static CreativeTabs		tabItems			= new ECCreativeTabItems("ec_items");
 	
-	public static Fluid				iceFloe			= new Fluid("ice_floe").setLuminosity(6).setViscosity(2000);
-		
+	public static Fluid				iceFloe				= new Fluid("ice_floe").setLuminosity(6).setViscosity(2000);
+	
+	public static boolean			minestrappolation	= minestrappolationInstalled();
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
-	{		
+	{
 		ECAddons.loadAddons();
-			
+		
 		FluidRegistry.registerFluid(iceFloe);
 		
 		ECConfig.init(new Configuration(event.getSuggestedConfigurationFile()));
 		ECBlocks.init();
 		ECItems.init();
 		ECRecipes.init();
-		
-		for(Addon a : Addon.addons)
-		{
-			if (Loader.isModLoaded(a.getModForAddon()))
-			{
-				System.out.println("Mod: " + a.getModForAddon() + " Detected. Loading Addon.");
-				a.preInit(event);
-			}
-		}
 	}
 	
 	@EventHandler
@@ -84,27 +71,23 @@ public class ElementalCaves
 		EntityRegistry.registerModEntity(EntityForestGem.class, "forest_gem", 6, ElementalCaves.instance, 40, 3, true);
 		
 		proxy.registerRenders();
-		
-		for(Addon a : Addon.addons)
-		{
-			if (Loader.isModLoaded(a.getModForAddon()))
-			{
-				a.init(event);
-			}
-		}
-		
 	}
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		for(Addon a : Addon.addons)
+	}
+	
+	private static boolean minestrappolationInstalled()
+	{
+		try
 		{
-			if (Loader.isModLoaded(a.getModForAddon()))
-			{
-				a.postInit(event);
-				a.addonLoaded = true;
-			}
+			Class.forName("minestrapteam.minestrappolation.Minestrappolation", false, ClassLoader.getSystemClassLoader());
+			return true;
 		}
-	}	
+		catch (ClassNotFoundException ex)
+		{
+			return false;
+		}
+	}
 }

@@ -58,6 +58,10 @@ public class ECItems
 	public static Item			leggingsEarth;
 	public static Item			bootsEarth;
 	
+	public static Item ancientMossStoneBrick;
+	public static Item glacierrockBrick;
+	public static Item moltenstoneBrick;
+	
 	public static void init()
 	{
 		gems = new ItemGems().setTextureName(ECUtil.getTexture("gem"));
@@ -87,16 +91,20 @@ public class ECItems
 		leggingsInfernium = new ECItemArmor(armorInfernium, ECCommonProxy.infernium, 2, "fire").setTextureName(ECUtil.getTexture("fire_leggings"));
 		bootsInfernium = new ECItemArmor(armorInfernium, ECCommonProxy.infernium, 3, "fire").setTextureName(ECUtil.getTexture("fire_boots"));
 		
-		swordEarth = new ECItemSword(materialEarth).setTextureName(ECUtil.getTexture("swordForest"));
-		shovelEarth = new ECItemShovel(materialEarth).setTextureName(ECUtil.getTexture("shovelForest"));
-		pickaxeEarth = new ECItemPickaxe(materialEarth).setTextureName(ECUtil.getTexture("pickForest"));
-		axeEarth = new ECItemAxe(materialEarth).setTextureName(ECUtil.getTexture("axeForest"));
-		hoeEarth = new ECItemHoe(materialEarth).setTextureName(ECUtil.getTexture("hoeForest"));
+		swordEarth = new ECItemSword(materialEarth).setTextureName(ECUtil.getTexture("forest_sword"));
+		shovelEarth = new ECItemShovel(materialEarth).setTextureName(ECUtil.getTexture("forest_shovel"));
+		pickaxeEarth = new ECItemPickaxe(materialEarth).setTextureName(ECUtil.getTexture("forest_pickaxe"));
+		axeEarth = new ECItemAxe(materialEarth).setTextureName(ECUtil.getTexture("forest_axe"));
+		hoeEarth = new ECItemHoe(materialEarth).setTextureName(ECUtil.getTexture("forest_hoe"));
 		
-		helmetEarth = new ECItemArmor(armorEarth, ECCommonProxy.earth, 0, "forest").setTextureName(ECUtil.getTexture("helmForest"));
-		chestplateEarth = new ECItemArmor(armorEarth, ECCommonProxy.earth, 1, "forest").setTextureName(ECUtil.getTexture("chestForest"));
-		leggingsEarth = new ECItemArmor(armorEarth, ECCommonProxy.earth, 2, "forest").setTextureName(ECUtil.getTexture("legsForest"));
-		bootsEarth = new ECItemArmor(armorEarth, ECCommonProxy.earth, 3, "forest").setTextureName(ECUtil.getTexture("bootsForest"));
+		helmetEarth = new ECItemArmor(armorEarth, ECCommonProxy.earth, 0, "forest").setTextureName(ECUtil.getTexture("forest_helmet"));
+		chestplateEarth = new ECItemArmor(armorEarth, ECCommonProxy.earth, 1, "forest").setTextureName(ECUtil.getTexture("forest_chestplate"));
+		leggingsEarth = new ECItemArmor(armorEarth, ECCommonProxy.earth, 2, "forest").setTextureName(ECUtil.getTexture("forest_leggings"));
+		bootsEarth = new ECItemArmor(armorEarth, ECCommonProxy.earth, 3, "forest").setTextureName(ECUtil.getTexture("forest_boots"));
+		
+		ancientMossStoneBrick = new ECItem().setTextureName(ECUtil.getTexture("ancient_moss_stone_brick"));
+		glacierrockBrick = new ECItem().setTextureName(ECUtil.getTexture("glacierrock_brick"));
+		moltenstoneBrick = new ECItem().setTextureName(ECUtil.getTexture("moltenstone_brick"));
 		
 		addItem(gems, "elemental_gems");
 		addItem(shards, "elemental_shards");
@@ -135,6 +143,10 @@ public class ECItems
 		addItem(chestplateEarth, "earth_chestplate");
 		addItem(leggingsEarth, "earth_leggings");
 		addItem(bootsEarth, "earth_boots");
+		
+		addItem(ancientMossStoneBrick, "ancient_moss_stone_brick");
+		addItem(glacierrockBrick, "glacierrock_brick");
+		addItem(moltenstoneBrick, "moltenstone_brick");
 	}
 	
 	public static void addItem(Item item, String name)
