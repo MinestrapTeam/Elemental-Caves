@@ -22,6 +22,8 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
+import me.dawars.CraftingPillars.api.baubles.Baubles;
+
 @Mod(modid = ECReference.MODID, name = ECReference.NAME, version = ECReference.VERSION)
 public class ElementalCaves
 {
@@ -76,6 +78,7 @@ public class ElementalCaves
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
+		Baubles.addModifier(ECItems.gems, new GemMod());
 	}
 	
 	private static boolean minestrappolationInstalled()
