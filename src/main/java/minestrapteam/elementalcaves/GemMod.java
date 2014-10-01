@@ -19,8 +19,8 @@ public class GemMod implements IMod
 	{
 		int metadata = gem.getItemDamage();
 
-		if(metadata == 0) return EnumChatFormatting.BLUE;
-		if(metadata == 1) return EnumChatFormatting.RED;
+		if(metadata == 1) return EnumChatFormatting.BLUE;
+		if(metadata == 3) return EnumChatFormatting.RED;
 		if(metadata == 2) return EnumChatFormatting.GREEN;
 		return EnumChatFormatting.YELLOW;
 	}
@@ -40,14 +40,14 @@ public class GemMod implements IMod
 			int y1 = py + rand.nextInt(5) - 2;
 			int z1 = pz + rand.nextInt(5) - 2;
 			
-			if (metadata == 0)
+			if (metadata == 1)
 			{
 				for (int i = 0; i < 4; i++)
 					ECUtil.freeze(player.worldObj, x1, y1, z1);
 				ECUtil.freeze(player.worldObj, px, py - 1, pz);
 				
 			}
-			else if (metadata == 1)
+			else if (metadata == 3)
 			{
 				for (int i = 0; i < 4; i++)
 					ECUtil.melt(player.worldObj, x1, y1, z1);
