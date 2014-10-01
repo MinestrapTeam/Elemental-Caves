@@ -8,6 +8,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.Loader;
 import minestrapteam.elementalcaves.common.ECCommonProxy;
 import minestrapteam.elementalcaves.common.ECEventHandler;
 import minestrapteam.elementalcaves.creativetab.ECCreativeTabBlocks;
@@ -78,7 +79,10 @@ public class ElementalCaves
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		Baubles.addModifier(ECItems.gems, new GemMod());
+		if(Loader.isModLoaded("craftingpillars"))
+		{
+			Baubles.addModifier(ECItems.gems, new GemMod());
+		}
 	}
 	
 	private static boolean minestrappolationInstalled()
