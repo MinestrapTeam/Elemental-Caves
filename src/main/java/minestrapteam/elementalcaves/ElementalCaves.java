@@ -8,6 +8,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.Loader;
 import minestrapteam.elementalcaves.common.ECCommonProxy;
 import minestrapteam.elementalcaves.common.ECEventHandler;
 import minestrapteam.elementalcaves.creativetab.ECCreativeTabBlocks;
@@ -21,6 +22,8 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
+
+import me.dawars.CraftingPillars.api.baubles.Baubles;
 
 @Mod(modid = ECReference.MODID, name = ECReference.NAME, version = ECReference.VERSION)
 public class ElementalCaves
@@ -76,6 +79,10 @@ public class ElementalCaves
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
+		if(Loader.isModLoaded("craftingpillars"))
+		{
+			Baubles.addModifier(ECItems.gems, new GemMod());
+		}
 	}
 	
 	private static boolean minestrappolationInstalled()
